@@ -1,0 +1,82 @@
+{
+  "__comment": "Editable trusted services content. Arrays can be expanded with more tips, trusted badge details, and emergency contacts.",
+  "moneyExchange": [
+    {
+      "title": "Avoid airport exchange desks for large amounts",
+      "description": "Airport kiosks are convenient but often have weaker rates. Withdraw a small amount if needed, then compare central London options."
+    },
+    {
+      "title": "Compare the total you receive, not just the headline rate",
+      "description": "Ask for the final amount after fees before handing over cash. A great-looking rate can be cancelled out by commission."
+    },
+    {
+      "title": "Victoria and Marble Arch have many bureaux",
+      "description": "Tourist-heavy areas such as Victoria, Marble Arch, Queensway, and Edgware Road often have several exchange desks close together, making comparison easier."
+    },
+    {
+      "title": "Use cards where possible",
+      "description": "London is highly card-friendly. Use contactless for transport and shops, and keep a little cash for markets or small stalls."
+    }
+  ],
+  "businesses": [
+    {
+      "name": "Hotel concierge desks",
+      "type": "Tourist-friendly help",
+      "description": "Good for restaurant bookings, luggage advice, theatre suggestions, and safe route planning late at night."
+    },
+    {
+      "name": "Official visitor information points",
+      "type": "Tourist advice",
+      "description": "Use official desks and recognised venue staff for maps, accessibility advice, and event updates."
+    },
+    {
+      "name": "TAP LONDON Trusted Badge",
+      "type": "Future partner concept",
+      "description": "Future partner businesses can display a TAP LONDON badge after review for tourist-friendly service, clear pricing, and helpful staff."
+    }
+  ],
+  "scamTips": [
+    {
+      "title": "Three-card trick and street gambling",
+      "description": "Avoid pavement games around bridges and busy squares. The crowd can be part of the setup and tourists are targeted."
+    },
+    {
+      "title": "Fake charity clipboards",
+      "description": "Do not give card details to aggressive street collectors. Donate later through official charity websites if you want to support a cause."
+    },
+    {
+      "title": "Unofficial ticket sellers",
+      "description": "Buy theatre, attraction, and event tickets from official sites, venue box offices, or recognised sellers."
+    },
+    {
+      "title": "Pickpocket hotspots",
+      "description": "Keep phones and wallets secure around Oxford Street, Leicester Square, Camden, Westminster Bridge, and busy Tube platforms."
+    },
+    {
+      "title": "Unlicensed minicabs",
+      "description": "Never accept rides from drivers approaching you in the street. Use black cabs, official taxi ranks, or licensed apps."
+    }
+  ],
+  "emergency": [
+    {
+      "name": "Police, Fire, Ambulance",
+      "number": "999",
+      "description": "Use for emergencies when someone is in immediate danger or a crime is happening now."
+    },
+    {
+      "name": "Non-emergency police",
+      "number": "101",
+      "description": "Use to report non-urgent crimes or seek police advice."
+    },
+    {
+      "name": "NHS medical advice",
+      "number": "111",
+      "description": "Use for urgent medical help when it is not a life-threatening emergency."
+    },
+    {
+      "name": "Tourist support placeholder",
+      "number": "+44 7000 000000",
+      "description": "Placeholder TAP LONDON support line for WhatsApp assistance and partner enquiries."
+    }
+  ]
+}

@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" fill="none">
+  <rect width="1200" height="630" fill="#1a1a2e"/>
+  <circle cx="935" cy="188" r="118" stroke="#c9a84c" stroke-width="14" opacity="0.5"/>
+  <path d="M0 512H1200V630H0V512Z" fill="#0d0d1f"/>
+  <path d="M88 512V350H150V512H88ZM190 512V286H252V512H190ZM298 512V392H366V512H298ZM412 512V250H474V512H412ZM525 512V334H590V512H525ZM642 512V290H704V512H642ZM752 512V370H818V512H752ZM870 512V276H932V512H870ZM982 512V344H1048V512H982Z" fill="#101126"/>
+  <path d="M170 512C280 430 420 430 530 512" stroke="#c9a84c" stroke-width="12" stroke-linecap="round" opacity="0.85"/>
+  <text x="90" y="210" fill="#c9a84c" font-family="Georgia, serif" font-size="38" font-weight="700" letter-spacing="8">TAP LONDON</text>
+  <text x="90" y="320" fill="#ffffff" font-family="Georgia, serif" font-size="90" font-weight="700">Your Smart</text>
+  <text x="90" y="415" fill="#ffffff" font-family="Georgia, serif" font-size="90" font-weight="700">London Guide</text>
+  <text x="94" y="475" fill="#f9f7f2" font-family="Arial, sans-serif" font-size="30">Tap. Explore. Enjoy.</text>
+</svg>

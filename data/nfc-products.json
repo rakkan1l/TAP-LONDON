@@ -1,0 +1,27 @@
+{
+  "__comment": "Editable NFC product content. Each key is the URL slug used at /nfc/[product]. Add name, welcome, emoji, and color for every product.",
+  "keyring": {
+    "name": "TAP LONDON Keyring",
+    "welcome": "You tapped your TAP LONDON Keyring! Welcome to London.",
+    "emoji": "🗝️",
+    "color": "#c9a84c"
+  },
+  "tote-bag": {
+    "name": "TAP LONDON Tote Bag",
+    "welcome": "You tapped your TAP LONDON Tote Bag! Your London adventure starts here.",
+    "emoji": "🛍️",
+    "color": "#1a1a2e"
+  },
+  "card": {
+    "name": "TAP LONDON Card",
+    "welcome": "You tapped your TAP LONDON Card! Explore the best of London.",
+    "emoji": "💳",
+    "color": "#2d6a4f"
+  },
+  "coaster": {
+    "name": "TAP LONDON Coaster",
+    "welcome": "You tapped your TAP LONDON Coaster! Time to explore London.",
+    "emoji": "☕",
+    "color": "#6b3a2a"
+  }
+}

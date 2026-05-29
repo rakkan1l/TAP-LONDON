@@ -1,0 +1,94 @@
+{
+  "__comment": "Editable transport guide. Sections contain title, summary, tips, and optional links. Keep links as absolute URLs.",
+  "sections": [
+    {
+      "id": "tube",
+      "title": "Tube Guide",
+      "summary": "The London Underground is usually the fastest way to cross central London. Most tourist journeys stay in Zones 1-2, while Heathrow is in Zone 6 and many hotels sit between Zones 1-3.",
+      "tips": [
+        "Use the same contactless card or phone for every journey so daily and weekly caps work correctly.",
+        "Oyster cards still work well, but contactless is simpler for most visitors with a supported bank card.",
+        "Peak fares normally apply Monday-Friday during morning and evening commute windows; off-peak travel is cheaper and calmer.",
+        "Stand on the right on escalators, walk on the left, and let passengers off before boarding.",
+        "The Elizabeth line is excellent for Heathrow, Paddington, Bond Street, Tottenham Court Road, Farringdon, Liverpool Street, and Canary Wharf."
+      ],
+      "links": [
+        {
+          "label": "TfL Tube Map",
+          "url": "https://tfl.gov.uk/maps/track/tube"
+        },
+        {
+          "label": "TfL Fares",
+          "url": "https://tfl.gov.uk/fares/"
+        }
+      ]
+    },
+    {
+      "id": "bus",
+      "title": "Bus Info",
+      "summary": "London buses are cashless, affordable, scenic, and useful when the Tube is busy or stations are not close to your destination.",
+      "tips": [
+        "Tap in only when boarding; you do not tap out on London buses.",
+        "The Hopper fare lets you make multiple bus or tram journeys within one hour for one fare.",
+        "Night buses run after the Tube closes on many routes and are marked with an N before the number.",
+        "Useful scenic routes include 11 near Westminster and the City, 24 from Westminster to Camden, and 15 around St Paul's and Tower Hill.",
+        "Press the stop button once your stop appears on the screen or announcement."
+      ],
+      "links": [
+        {
+          "label": "TfL Bus Maps",
+          "url": "https://tfl.gov.uk/maps/bus"
+        }
+      ]
+    },
+    {
+      "id": "train",
+      "title": "Train Info",
+      "summary": "National Rail, Overground, Elizabeth line, and airport trains connect central London with suburbs, day trips, and airports.",
+      "tips": [
+        "St Pancras International is the Eurostar station for Paris, Brussels, Amsterdam, and Lille.",
+        "King's Cross serves northbound UK routes and is next to St Pancras.",
+        "Paddington is key for Heathrow via the Elizabeth line and Heathrow Express.",
+        "Victoria is useful for Gatwick trains and south London routes.",
+        "Waterloo, London Bridge, Liverpool Street, Euston, and Marylebone are major termini for different parts of the UK."
+      ],
+      "links": [
+        {
+          "label": "National Rail Journey Planner",
+          "url": "https://www.nationalrail.co.uk/"
+        }
+      ]
+    },
+    {
+      "id": "taxi",
+      "title": "Taxi and Rideshare",
+      "summary": "Black cabs are licensed, knowledgeable, and can be hailed when their yellow light is on. Rideshare apps can be cheaper but prices rise at busy times.",
+      "tips": [
+        "Black cabs are wheelchair accessible and accept card payments.",
+        "Use licensed private-hire apps only; never get into an unbooked minicab offered on the street.",
+        "From airports, compare Elizabeth line, trains, official taxis, and pre-booked transfers before choosing.",
+        "Late at night, share your route with a friend and check the licence plate before entering rideshares."
+      ],
+      "links": [
+        {
+          "label": "TfL Taxi and Private Hire",
+          "url": "https://tfl.gov.uk/modes/taxis-and-minicabs/"
+        }
+      ]
+    }
+  ],
+  "quickLinks": [
+    {
+      "label": "Download Citymapper",
+      "url": "https://citymapper.com/london"
+    },
+    {
+      "label": "TfL Journey Planner",
+      "url": "https://tfl.gov.uk/plan-a-journey/"
+    },
+    {
+      "label": "National Rail",
+      "url": "https://www.nationalrail.co.uk/"
+    }
+  ]
+}

@@ -1,0 +1,34 @@
+{
+  "__comment": "Editable offers content. Add partner offers to partners and future discount codes to discountCodes. Keep code values short and memorable.",
+  "partners": [
+    {
+      "id": "partner-cafe",
+      "name": "Independent London Cafe",
+      "area": "Central London",
+      "offer": "Partner slot available for coffee, brunch, or dessert discounts.",
+      "cta": "Partner with TAP LONDON"
+    },
+    {
+      "id": "partner-tour",
+      "name": "Walking Tour Operator",
+      "area": "Westminster and City",
+      "offer": "Partner slot available for guided walks, private tours, and family-friendly routes.",
+      "cta": "Partner with TAP LONDON"
+    },
+    {
+      "id": "partner-shop",
+      "name": "Souvenir and Gift Shop",
+      "area": "West End",
+      "offer": "Partner slot available for NFC-triggered gift discounts and tourist bundles.",
+      "cta": "Partner with TAP LONDON"
+    }
+  ],
+  "discountCodes": [
+    {
+      "code": "TAPLONDON10",
+      "label": "Example future code",
+      "description": "A ready-to-use display pattern for future partner discounts claimed after an NFC tap.",
+      "status": "Coming soon"
+    }
+  ]
+}
