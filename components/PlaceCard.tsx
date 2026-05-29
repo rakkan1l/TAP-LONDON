@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import { Clock, MapPin, Navigation, ShieldCheck, Tag } from "lucide-react";
+import { useState } from "react";
 
 export type CardItem = {
   id: string;
@@ -14,6 +15,7 @@ export type CardItem = {
   type?: string;
   priceRange?: string;
   icon?: string;
+  image?: string;
   halal?: boolean;
   verifiedHalal?: boolean;
   description: string;
@@ -29,6 +31,7 @@ type PlaceCardProps = {
 };
 
 export default function PlaceCard({ item, mode = "place" }: PlaceCardProps) {
+  const [imageFailed, setImageFailed] = useState(false);
   const category = item.category ?? item.section ?? item.type ?? "London";
   const area = item.area ?? item.location ?? "London";
   const paid = item.priceType === "Paid";
@@ -44,12 +47,23 @@ export default function PlaceCard({ item, mode = "place" }: PlaceCardProps) {
       whileHover={{ y: -5 }}
       className="group flex h-full flex-col overflow-hidden rounded-lg border border-navy/10 bg-white shadow-sm transition hover:border-gold hover:shadow-lift"
     >
-      <div className="relative h-36 overflow-hidden bg-navy">
-        <div className="absolute inset-0 card-visual" aria-hidden="true" />
-        <div className="absolute left-4 top-4 rounded-full bg-white/92 px-3 py-1 text-xs font-bold uppercase tracking-[0.12em] text-navy">
+      <div className="relative h-[200px] overflow-hidden rounded-t-lg bg-navy">
+        {item.image && !imageFailed ? (
+          <img
+            src={item.image}
+            alt={`${item.name} in London`}
+            loading="lazy"
+            onError={() => setImageFailed(true)}
+            className="h-full w-full rounded-t-lg object-cover transition duration-500 group-hover:scale-105"
+          />
+        ) : (
+          <div className="absolute inset-0 rounded-t-lg bg-[linear-gradient(135deg,#1a1a2e_0%,#26345f_48%,#c9a84c_100%)]" aria-hidden="true" />
+        )}
+        <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(0,0,0,0.08),rgba(0,0,0,0.48))]" aria-hidden="true" />
+        <div className="absolute left-4 top-4 rounded-full bg-white/92 px-3 py-1 text-xs font-bold uppercase tracking-[0.12em] text-navy shadow-sm">
           {category}
         </div>
-        <div className="absolute bottom-4 right-4 flex h-12 w-12 items-center justify-center rounded-full border border-gold/45 bg-navy/75 text-2xl backdrop-blur" aria-hidden="true">
+        <div className="absolute bottom-4 right-4 flex h-12 w-12 items-center justify-center rounded-full border border-white/30 bg-navy/78 text-2xl shadow-premium backdrop-blur" aria-hidden="true">
           {icon}
         </div>
       </div>
