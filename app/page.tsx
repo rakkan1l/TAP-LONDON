@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { BadgePercent, Bus, Landmark, ShoppingBag, ShieldCheck, Utensils, Wifi } from "lucide-react";
+import { Wifi } from "lucide-react";
 import HeroSection from "@/components/HeroSection";
 import CategoryCard from "@/components/CategoryCard";
 
@@ -13,39 +13,39 @@ const categories = [
     href: "/places",
     label: "Best Places",
     description: "Top attractions, hidden gems, photo spots, and free things to do.",
-    Icon: Landmark
+    icon: "landmark"
   },
   {
     href: "/food",
     label: "Food & Drinks",
     description: "Restaurants, halal food, coffee shops, and local favourites.",
-    Icon: Utensils
+    icon: "utensils"
   },
   {
     href: "/shopping",
     label: "Shopping",
     description: "Iconic streets, markets, department stores, and gifts.",
-    Icon: ShoppingBag
+    icon: "shopping"
   },
   {
     href: "/transport",
     label: "Transport",
     description: "Tube, bus, train, taxi, maps, and smart traveller links.",
-    Icon: Bus
+    icon: "bus"
   },
   {
     href: "/services",
     label: "Services",
     description: "Money exchange advice, emergency numbers, and scam safety.",
-    Icon: ShieldCheck
+    icon: "services"
   },
   {
     href: "/offers",
     label: "Offers",
     description: "NFC-triggered partner discounts and future visitor perks.",
-    Icon: BadgePercent
+    icon: "offers"
   }
-];
+] as const;
 
 export default function HomePage() {
   return (

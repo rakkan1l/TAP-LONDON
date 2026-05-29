@@ -2,17 +2,27 @@
 
 import Link from "next/link";
 import { motion } from "framer-motion";
-import type { LucideIcon } from "lucide-react";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, BadgePercent, Bus, Landmark, ShoppingBag, ShieldCheck, Utensils } from "lucide-react";
+
+const iconMap = {
+  landmark: Landmark,
+  utensils: Utensils,
+  shopping: ShoppingBag,
+  bus: Bus,
+  services: ShieldCheck,
+  offers: BadgePercent
+};
 
 type CategoryCardProps = {
   href: string;
   label: string;
   description: string;
-  Icon: LucideIcon;
+  icon: keyof typeof iconMap;
 };
 
-export default function CategoryCard({ href, label, description, Icon }: CategoryCardProps) {
+export default function CategoryCard({ href, label, description, icon }: CategoryCardProps) {
+  const Icon = iconMap[icon];
+
   return (
     <motion.div
       initial={{ opacity: 0, y: 18 }}
