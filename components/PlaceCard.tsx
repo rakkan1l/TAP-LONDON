@@ -13,6 +13,7 @@ export type CardItem = {
   cuisine?: string;
   type?: string;
   priceRange?: string;
+  icon?: string;
   halal?: boolean;
   verifiedHalal?: boolean;
   description: string;
@@ -31,6 +32,8 @@ export default function PlaceCard({ item, mode = "place" }: PlaceCardProps) {
   const category = item.category ?? item.section ?? item.type ?? "London";
   const area = item.area ?? item.location ?? "London";
   const paid = item.priceType === "Paid";
+  const fallbackIcon = item.halal ? "🕌" : mode === "food" ? "🍽️" : mode === "shopping" ? "🛍️" : "📍";
+  const icon = item.icon ?? fallbackIcon;
 
   return (
     <motion.article
@@ -46,8 +49,8 @@ export default function PlaceCard({ item, mode = "place" }: PlaceCardProps) {
         <div className="absolute left-4 top-4 rounded-full bg-white/92 px-3 py-1 text-xs font-bold uppercase tracking-[0.12em] text-navy">
           {category}
         </div>
-        <div className="absolute bottom-4 right-4 flex h-12 w-12 items-center justify-center rounded-full border border-gold/45 bg-navy/75 text-gold backdrop-blur">
-          <MapPin aria-hidden="true" size={22} />
+        <div className="absolute bottom-4 right-4 flex h-12 w-12 items-center justify-center rounded-full border border-gold/45 bg-navy/75 text-2xl backdrop-blur" aria-hidden="true">
+          {icon}
         </div>
       </div>
 
@@ -63,7 +66,10 @@ export default function PlaceCard({ item, mode = "place" }: PlaceCardProps) {
           ) : null}
         </div>
 
-        <h2 className="mt-4 font-heading text-2xl font-bold leading-tight text-navy">{item.name}</h2>
+        <h2 className="mt-4 flex items-start gap-2 font-heading text-2xl font-bold leading-tight text-navy">
+          <span aria-hidden="true" className="mt-0.5 text-[0.82em]">{icon}</span>
+          <span>{item.name}</span>
+        </h2>
         {item.cuisine || item.type ? (
           <p className="mt-2 inline-flex items-center gap-2 text-sm font-semibold text-gold"><Tag aria-hidden="true" size={15} />{item.cuisine ?? item.type}</p>
         ) : null}

@@ -1,21 +1,23 @@
 import type { Metadata, Viewport } from "next";
 import type { ReactNode } from "react";
-import { Inter, Playfair_Display } from "next/font/google";
+import { Cormorant_Garamond, DM_Sans } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import NFCBanner from "@/components/NFCBanner";
 import { MessageCircle } from "lucide-react";
 
-const inter = Inter({
+const dmSans = DM_Sans({
   subsets: ["latin"],
-  variable: "--font-inter",
+  weight: ["400", "500", "600", "700", "800"],
+  variable: "--font-dm-sans",
   display: "swap"
 });
 
-const playfair = Playfair_Display({
+const cormorant = Cormorant_Garamond({
   subsets: ["latin"],
-  variable: "--font-playfair",
+  weight: ["400", "500", "600", "700"],
+  variable: "--font-cormorant",
   display: "swap"
 });
 
@@ -63,7 +65,7 @@ export default function RootLayout({ children }: Readonly<{ children: ReactNode 
   const whatsappNumber = process.env.NEXT_PUBLIC_WHATSAPP_NUMBER ?? "447000000000";
 
   return (
-    <html lang="en-GB" className={`${inter.variable} ${playfair.variable}`}>
+    <html lang="en-GB" className={`${dmSans.variable} ${cormorant.variable}`}>
       <body className="font-body antialiased">
         {/* Future i18n hint: add Arabic, Urdu, and Bengali locale routing/content files for common London tourist demographics. */}
         {/* GA4 placeholder: add the Google Analytics tag here using NEXT_PUBLIC_GA_ID when ready for production tracking. */}

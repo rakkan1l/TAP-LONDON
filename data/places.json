@@ -2,6 +2,7 @@
   "__comment": "Editable places content. Add objects to items with id, name, category, area, description, openingHours, entryFee, priceType, and mapsUrl.",
   "items": [
     {
+      "icon": "🏰",
       "id": "tower-of-london",
       "name": "Tower of London",
       "category": "Top Attractions",
@@ -13,6 +14,7 @@
       "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Tower+of+London"
     },
     {
+      "icon": "👑",
       "id": "buckingham-palace",
       "name": "Buckingham Palace",
       "category": "Top Attractions",
@@ -24,6 +26,7 @@
       "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Buckingham+Palace"
     },
     {
+      "icon": "🕰️",
       "id": "big-ben",
       "name": "Big Ben",
       "category": "Top Attractions",
@@ -35,6 +38,7 @@
       "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Big+Ben+London"
     },
     {
+      "icon": "🎡",
       "id": "london-eye",
       "name": "London Eye",
       "category": "Top Attractions",
@@ -46,6 +50,7 @@
       "mapsUrl": "https://www.google.com/maps/search/?api=1&query=London+Eye"
     },
     {
+      "icon": "🌉",
       "id": "tower-bridge",
       "name": "Tower Bridge",
       "category": "Top Attractions",
@@ -57,6 +62,7 @@
       "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Tower+Bridge"
     },
     {
+      "icon": "⛪",
       "id": "st-pauls-cathedral",
       "name": "St Paul's Cathedral",
       "category": "Top Attractions",
@@ -68,6 +74,7 @@
       "mapsUrl": "https://www.google.com/maps/search/?api=1&query=St+Paul's+Cathedral+London"
     },
     {
+      "icon": "🦁",
       "id": "trafalgar-square",
       "name": "Trafalgar Square",
       "category": "Top Attractions",
@@ -79,6 +86,7 @@
       "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Trafalgar+Square"
     },
     {
+      "icon": "🏛️",
       "id": "houses-of-parliament",
       "name": "Houses of Parliament",
       "category": "Top Attractions",
@@ -90,6 +98,7 @@
       "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Houses+of+Parliament+London"
     },
     {
+      "icon": "🖼️",
       "id": "national-gallery",
       "name": "National Gallery",
       "category": "Top Attractions",
@@ -101,6 +110,7 @@
       "mapsUrl": "https://www.google.com/maps/search/?api=1&query=National+Gallery+London"
     },
     {
+      "icon": "🏺",
       "id": "british-museum",
       "name": "British Museum",
       "category": "Top Attractions",
@@ -112,6 +122,7 @@
       "mapsUrl": "https://www.google.com/maps/search/?api=1&query=British+Museum"
     },
     {
+      "icon": "🎨",
       "id": "victoria-albert-museum",
       "name": "Victoria and Albert Museum",
       "category": "Top Attractions",
@@ -123,6 +134,7 @@
       "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Victoria+and+Albert+Museum"
     },
     {
+      "icon": "🦕",
       "id": "natural-history-museum",
       "name": "Natural History Museum",
       "category": "Top Attractions",
@@ -134,6 +146,7 @@
       "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Natural+History+Museum+London"
     },
     {
+      "icon": "🖌️",
       "id": "tate-modern",
       "name": "Tate Modern",
       "category": "Top Attractions",
@@ -145,6 +158,7 @@
       "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Tate+Modern"
     },
     {
+      "icon": "🔭",
       "id": "greenwich-observatory",
       "name": "Royal Observatory Greenwich",
       "category": "Top Attractions",
@@ -156,6 +170,7 @@
       "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Royal+Observatory+Greenwich"
     },
     {
+      "icon": "🌿",
       "id": "kew-gardens",
       "name": "Kew Gardens",
       "category": "Top Attractions",
@@ -167,6 +182,7 @@
       "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Kew+Gardens"
     },
     {
+      "icon": "🏰",
       "id": "hampton-court-palace",
       "name": "Hampton Court Palace",
       "category": "Top Attractions",
@@ -178,6 +194,7 @@
       "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Hampton+Court+Palace"
     },
     {
+      "icon": "👑",
       "id": "windsor-castle",
       "name": "Windsor Castle",
       "category": "Top Attractions",
@@ -189,6 +206,7 @@
       "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Windsor+Castle"
     },
     {
+      "icon": "🌳",
       "id": "hyde-park",
       "name": "Hyde Park",
       "category": "Top Attractions",
@@ -200,6 +218,7 @@
       "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Hyde+Park+London"
     },
     {
+      "icon": "🌹",
       "id": "regents-park",
       "name": "Regent's Park",
       "category": "Top Attractions",
@@ -211,6 +230,7 @@
       "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Regent's+Park"
     },
     {
+      "icon": "🎭",
       "id": "covent-garden",
       "name": "Covent Garden",
       "category": "Top Attractions",
@@ -222,6 +242,7 @@
       "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Covent+Garden"
     },
     {
+      "icon": "🏛️",
       "id": "leadenhall-market",
       "name": "Leadenhall Market",
       "category": "Hidden Gems",
@@ -233,6 +254,7 @@
       "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Leadenhall+Market"
     },
     {
+      "icon": "🌸",
       "id": "kyoto-garden",
       "name": "Kyoto Garden",
       "category": "Hidden Gems",
@@ -244,6 +266,7 @@
       "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Kyoto+Garden+Holland+Park"
     },
     {
+      "icon": "🕊️",
       "id": "postmans-park",
       "name": "Postman's Park",
       "category": "Hidden Gems",
@@ -255,6 +278,7 @@
       "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Postman's+Park+London"
     },
     {
+      "icon": "💡",
       "id": "gods-own-junkyard",
       "name": "God's Own Junkyard",
       "category": "Hidden Gems",
@@ -266,6 +290,7 @@
       "mapsUrl": "https://www.google.com/maps/search/?api=1&query=God's+Own+Junkyard"
     },
     {
+      "icon": "🕯️",
       "id": "crossbones-garden",
       "name": "Crossbones Garden",
       "category": "Hidden Gems",
@@ -277,6 +302,7 @@
       "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Crossbones+Garden+London"
     },
     {
+      "icon": "🚤",
       "id": "little-venice",
       "name": "Little Venice",
       "category": "Hidden Gems",
@@ -288,6 +314,7 @@
       "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Little+Venice+London"
     },
     {
+      "icon": "🎨",
       "id": "leake-street",
       "name": "Leake Street Graffiti Tunnel",
       "category": "Hidden Gems",
@@ -299,6 +326,7 @@
       "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Leake+Street+Graffiti+Tunnel"
     },
     {
+      "icon": "💐",
       "id": "columbia-road",
       "name": "Columbia Road Flower Market",
       "category": "Hidden Gems",
@@ -310,6 +338,7 @@
       "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Columbia+Road+Flower+Market"
     },
     {
+      "icon": "🍷",
       "id": "bermondsey-street",
       "name": "Bermondsey Street",
       "category": "Hidden Gems",
@@ -321,6 +350,7 @@
       "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Bermondsey+Street+London"
     },
     {
+      "icon": "🌈",
       "id": "neals-yard",
       "name": "Neal's Yard",
       "category": "Hidden Gems",
@@ -332,6 +362,7 @@
       "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Neal's+Yard+London"
     },
     {
+      "icon": "🕰️",
       "id": "dennis-severs-house",
       "name": "Dennis Severs' House",
       "category": "Hidden Gems",
@@ -343,6 +374,7 @@
       "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Dennis+Severs+House"
     },
     {
+      "icon": "🕌",
       "id": "leighton-house",
       "name": "Leighton House Museum",
       "category": "Hidden Gems",
@@ -354,6 +386,7 @@
       "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Leighton+House+Museum"
     },
     {
+      "icon": "🌿",
       "id": "pergola-hill-garden",
       "name": "Pergola and Hill Garden",
       "category": "Hidden Gems",
@@ -365,6 +398,7 @@
       "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Pergola+and+Hill+Garden"
     },
     {
+      "icon": "🌉",
       "id": "millennium-bridge",
       "name": "Millennium Bridge at Sunset",
       "category": "Photo Spots",
@@ -376,6 +410,7 @@
       "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Millennium+Bridge+London"
     },
     {
+      "icon": "📸",
       "id": "borough-market-archway",
       "name": "Borough Market Archway",
       "category": "Photo Spots",
@@ -387,6 +422,7 @@
       "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Borough+Market"
     },
     {
+      "icon": "🌇",
       "id": "primrose-hill",
       "name": "Primrose Hill Skyline View",
       "category": "Photo Spots",
@@ -398,6 +434,7 @@
       "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Primrose+Hill+London"
     },
     {
+      "icon": "🌿",
       "id": "st-dunstan",
       "name": "St Dunstan in the East",
       "category": "Photo Spots",
@@ -409,6 +446,7 @@
       "mapsUrl": "https://www.google.com/maps/search/?api=1&query=St+Dunstan+in+the+East"
     },
     {
+      "icon": "🌃",
       "id": "southbank-night",
       "name": "Southbank at Night",
       "category": "Photo Spots",
@@ -420,6 +458,7 @@
       "mapsUrl": "https://www.google.com/maps/search/?api=1&query=South+Bank+London"
     },
     {
+      "icon": "🏙️",
       "id": "sky-garden",
       "name": "Sky Garden",
       "category": "Photo Spots",
@@ -431,6 +470,7 @@
       "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Sky+Garden+London"
     },
     {
+      "icon": "🌄",
       "id": "alexandra-palace",
       "name": "Alexandra Palace",
       "category": "Photo Spots",
@@ -442,6 +482,7 @@
       "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Alexandra+Palace"
     },
     {
+      "icon": "🌳",
       "id": "greenwich-park-hill",
       "name": "Greenwich Park Hill View",
       "category": "Photo Spots",
@@ -453,6 +494,7 @@
       "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Greenwich+Park+London"
     },
     {
+      "icon": "🚀",
       "id": "science-museum",
       "name": "Science Museum",
       "category": "Free Things",
@@ -464,6 +506,7 @@
       "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Science+Museum+London"
     },
     {
+      "icon": "🚶",
       "id": "thames-path",
       "name": "Thames Path Walk",
       "category": "Free Things",
@@ -475,6 +518,7 @@
       "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Thames+Path+London"
     },
     {
+      "icon": "💂",
       "id": "changing-guard",
       "name": "Changing of the Guard",
       "category": "Free Things",
@@ -484,6 +528,90 @@
       "entryFee": "Free",
       "priceType": "Free",
       "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Changing+of+the+Guard+Buckingham+Palace"
+    },
+    {
+      "id": "vam-free",
+      "icon": "🎨",
+      "name": "V&A Free Galleries",
+      "category": "Free Things",
+      "area": "South Kensington",
+      "description": "Explore fashion, jewellery, sculpture, photography, theatre, and design galleries without a general admission fee.",
+      "openingHours": "Daily 10:00-17:45; Friday late opening",
+      "entryFee": "Free general admission",
+      "priceType": "Free",
+      "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Victoria+and+Albert+Museum"
+    },
+    {
+      "id": "british-museum-free",
+      "icon": "🏺",
+      "name": "British Museum Great Court",
+      "category": "Free Things",
+      "area": "Bloomsbury",
+      "description": "Step into the glass-roofed Great Court and browse global history highlights on a no-ticket London museum stop.",
+      "openingHours": "Daily 10:00-17:00; Friday late opening",
+      "entryFee": "Free general admission",
+      "priceType": "Free",
+      "mapsUrl": "https://www.google.com/maps/search/?api=1&query=British+Museum"
+    },
+    {
+      "id": "natural-history-free",
+      "icon": "🦕",
+      "name": "Natural History Museum Hintze Hall",
+      "category": "Free Things",
+      "area": "South Kensington",
+      "description": "See the famous blue whale skeleton, grand architecture, dinosaurs, minerals, and family-friendly science displays.",
+      "openingHours": "Daily 10:00-17:50",
+      "entryFee": "Free general admission; timed booking recommended",
+      "priceType": "Free",
+      "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Natural+History+Museum+London"
+    },
+    {
+      "id": "national-gallery-free",
+      "icon": "🖼️",
+      "name": "National Gallery Highlights",
+      "category": "Free Things",
+      "area": "Trafalgar Square",
+      "description": "Visit masterpieces by Van Gogh, Turner, Monet, and Da Vinci in one of London’s most central free galleries.",
+      "openingHours": "Daily 10:00-18:00; Friday late opening",
+      "entryFee": "Free general admission",
+      "priceType": "Free",
+      "mapsUrl": "https://www.google.com/maps/search/?api=1&query=National+Gallery+London"
+    },
+    {
+      "id": "tate-modern-free",
+      "icon": "🖌️",
+      "name": "Tate Modern Collection",
+      "category": "Free Things",
+      "area": "Bankside",
+      "description": "Modern and contemporary art in a former power station, with free collection routes and river views nearby.",
+      "openingHours": "Daily 10:00-18:00",
+      "entryFee": "Free collection entry; exhibitions paid",
+      "priceType": "Free",
+      "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Tate+Modern"
+    },
+    {
+      "id": "sky-garden-free",
+      "icon": "🏙️",
+      "name": "Sky Garden Free View",
+      "category": "Free Things",
+      "area": "Fenchurch Street",
+      "description": "Book ahead for a free high-rise garden visit with views over Tower Bridge, the Shard, and the City.",
+      "openingHours": "Timed free visits; book online",
+      "entryFee": "Free booking required",
+      "priceType": "Free",
+      "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Sky+Garden+London"
+    },
+    {
+      "id": "regents-canal-walk",
+      "icon": "🚤",
+      "name": "Regent’s Canal Walk",
+      "category": "Free Things",
+      "area": "Little Venice to Camden",
+      "description": "Follow the towpath past narrowboats, waterside cafes, quiet bridges, London Zoo edges, and Camden Market.",
+      "openingHours": "Open all day; best in daylight",
+      "entryFee": "Free",
+      "priceType": "Free",
+      "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Regents+Canal+Little+Venice+Camden"
     }
   ]
 }

@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { ArrowRight, BadgePercent, Mail } from "lucide-react";
+import { ArrowRight, BadgePercent, Building2, Mail, MessageCircle, Users } from "lucide-react";
 import offers from "@/data/offers.json";
 
 export const metadata: Metadata = {
@@ -63,6 +63,55 @@ export default function OffersPage() {
           <p className="mt-5 text-sm leading-6 text-ink/65">
             When live, visitors will tap their NFC souvenir, open the offers page, show the code in-store or online, and claim the partner reward.
           </p>
+        </section>
+
+        <section className="mt-10 grid gap-6 rounded-lg bg-navy p-6 text-white shadow-premium lg:grid-cols-[0.9fr_1.1fr] lg:p-8">
+          <div>
+            <p className="text-sm font-bold uppercase tracking-[0.18em] text-gold">Partner with TAP LONDON</p>
+            <h2 className="mt-3 font-heading text-4xl font-bold leading-tight">Reach tourists at the exact moment they are exploring.</h2>
+            <p className="mt-4 text-base leading-7 text-white/76">
+              TAP LONDON is designed for cafes, restaurants, souvenir shops, tour guides, money exchange desks, hotels, and experience providers who want simple NFC-powered visitor offers.
+            </p>
+            <div className="mt-6 grid gap-3">
+              <p className="flex gap-3 text-sm leading-6 text-white/76"><Building2 aria-hidden="true" className="mt-0.5 shrink-0 text-gold" size={18} />Add your business as a featured partner card.</p>
+              <p className="flex gap-3 text-sm leading-6 text-white/76"><BadgePercent aria-hidden="true" className="mt-0.5 shrink-0 text-gold" size={18} />Create visitor discounts redeemable after an NFC tap.</p>
+              <p className="flex gap-3 text-sm leading-6 text-white/76"><Users aria-hidden="true" className="mt-0.5 shrink-0 text-gold" size={18} />Help tourists discover trusted local businesses faster.</p>
+            </div>
+            <div className="mt-7 flex flex-col gap-3 sm:flex-row">
+              <a href="mailto:partners@taplondon.co.uk?subject=Partner%20with%20TAP%20LONDON" className="inline-flex min-h-14 items-center justify-center gap-2 rounded-full bg-gold px-5 text-sm font-bold text-navy transition hover:bg-white">
+                Email partners@taplondon.co.uk <Mail aria-hidden="true" size={17} />
+              </a>
+              <a href="https://wa.me/447000000000?text=Hello%20TAP%20LONDON%2C%20I%20want%20to%20partner%20with%20you." target="_blank" rel="noreferrer" className="inline-flex min-h-14 items-center justify-center gap-2 rounded-full border border-white/20 px-5 text-sm font-bold text-white transition hover:border-gold hover:text-gold">
+                WhatsApp partnership team <MessageCircle aria-hidden="true" size={17} />
+              </a>
+            </div>
+          </div>
+
+          <form className="rounded-lg border border-white/10 bg-white p-5 text-ink">
+            <h3 className="font-heading text-3xl font-bold text-navy">Request partner details</h3>
+            <p className="mt-2 text-sm leading-6 text-ink/65">Leave your details and the TAP LONDON team can send launch packages, category availability, and example offer formats.</p>
+            <div className="mt-5 grid gap-4 sm:grid-cols-2">
+              <label className="grid gap-2 text-sm font-bold text-navy">
+                Business name
+                <input type="text" placeholder="Your business" className="h-12 rounded-full border border-navy/15 bg-cream px-4 font-medium outline-none focus:border-gold focus:ring-4 focus:ring-gold/20" />
+              </label>
+              <label className="grid gap-2 text-sm font-bold text-navy">
+                Area
+                <input type="text" placeholder="Soho, Camden, Westminster" className="h-12 rounded-full border border-navy/15 bg-cream px-4 font-medium outline-none focus:border-gold focus:ring-4 focus:ring-gold/20" />
+              </label>
+              <label className="grid gap-2 text-sm font-bold text-navy sm:col-span-2">
+                Email
+                <input type="email" placeholder="partner@example.com" className="h-12 rounded-full border border-navy/15 bg-cream px-4 font-medium outline-none focus:border-gold focus:ring-4 focus:ring-gold/20" />
+              </label>
+              <label className="grid gap-2 text-sm font-bold text-navy sm:col-span-2">
+                Offer idea
+                <textarea placeholder="Example: 10% off coffee for TAP LONDON visitors" rows={4} className="rounded-lg border border-navy/15 bg-cream px-4 py-3 font-medium outline-none focus:border-gold focus:ring-4 focus:ring-gold/20" />
+              </label>
+            </div>
+            <button type="button" className="mt-5 inline-flex min-h-14 w-full items-center justify-center gap-2 rounded-full bg-navy px-5 text-sm font-bold text-white transition hover:bg-gold hover:text-navy">
+              Send partnership request <ArrowRight aria-hidden="true" size={17} />
+            </button>
+          </form>
         </section>
       </div>
     </section>

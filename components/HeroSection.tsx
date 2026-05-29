@@ -6,9 +6,16 @@ import { ArrowRight, MapPin } from "lucide-react";
 
 export default function HeroSection() {
   return (
-    <section className="relative min-h-[calc(100vh-73px)] overflow-hidden bg-navy text-white">
+    <section className="relative min-h-[calc(100vh-73px)] overflow-hidden bg-[linear-gradient(135deg,#070814_0%,#10152b_42%,#1a1a2e_72%,#08111f_100%)] text-white">
       <div className="absolute inset-0 london-skyline opacity-95" aria-hidden="true" />
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_20%,rgba(201,168,76,0.2),transparent_34%),linear-gradient(180deg,rgba(26,26,46,0.05),rgba(26,26,46,0.92))]" aria-hidden="true" />
+      <svg className="absolute inset-x-0 bottom-[16%] h-44 w-full text-gold/30 sm:h-56" viewBox="0 0 1440 260" fill="none" preserveAspectRatio="none" aria-hidden="true">
+        <path d="M0 205H1440" stroke="currentColor" strokeWidth="3" />
+        <path d="M60 205V138H118V205M154 205V86H220V205M264 205V125H320V205M366 205V52H438V205M488 205V105H548V205M604 205V72H682V205M728 205V118H786V205M842 205V40H912V205M970 205V96H1034V205M1082 205V132H1148V205M1196 205V70H1262V205M1308 205V116H1378V205" stroke="currentColor" strokeWidth="5" strokeLinejoin="round" />
+        <path d="M166 205C245 146 352 146 430 205M945 205C1015 152 1114 152 1185 205" stroke="currentColor" strokeWidth="5" strokeLinecap="round" />
+        <circle cx="720" cy="112" r="54" stroke="currentColor" strokeWidth="5" />
+        <path d="M720 58V166M666 112H774M682 74L758 150M758 74L682 150" stroke="currentColor" strokeWidth="3" />
+      </svg>
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_18%_20%,rgba(201,168,76,0.20),transparent_28%),radial-gradient(circle_at_82%_18%,rgba(77,111,171,0.26),transparent_30%),linear-gradient(180deg,rgba(7,8,20,0.1),rgba(7,8,20,0.90))]" aria-hidden="true" />
       <div className="relative mx-auto flex min-h-[calc(100vh-73px)] max-w-7xl items-center px-4 py-20 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 24 }}

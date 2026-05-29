@@ -14,8 +14,8 @@ const config: Config = {
         ink: "#1a1a1e"
       },
       fontFamily: {
-        heading: ["var(--font-playfair)"],
-        body: ["var(--font-inter)"]
+        heading: ["var(--font-cormorant)"],
+        body: ["var(--font-dm-sans)"]
       },
       boxShadow: {
         premium: "0 18px 60px rgba(26, 26, 46, 0.14)",

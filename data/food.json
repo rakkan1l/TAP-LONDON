@@ -2,6 +2,7 @@
   "__comment": "Editable food and drink listings. Add objects to items with id, name, category, cuisine, area, priceRange, halal, verifiedHalal, description, and mapsUrl.",
   "items": [
     {
+      "icon": "🍛",
       "id": "dishoom-covent-garden",
       "name": "Dishoom Covent Garden",
       "category": "Restaurants",
@@ -14,6 +15,7 @@
       "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Dishoom+Covent+Garden"
     },
     {
+      "icon": "🍝",
       "id": "padella-borough",
       "name": "Padella",
       "category": "Restaurants",
@@ -26,6 +28,7 @@
       "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Padella+Borough+Market"
     },
     {
+      "icon": "🥩",
       "id": "flat-iron-soho",
       "name": "Flat Iron Soho",
       "category": "Restaurants",
@@ -38,6 +41,7 @@
       "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Flat+Iron+Soho"
     },
     {
+      "icon": "🔥",
       "id": "kiln-soho",
       "name": "Kiln",
       "category": "Restaurants",
@@ -50,6 +54,7 @@
       "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Kiln+Soho+London"
     },
     {
+      "icon": "🐟",
       "id": "brat-shoreditch",
       "name": "Brat",
       "category": "Restaurants",
@@ -62,6 +67,7 @@
       "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Brat+Shoreditch"
     },
     {
+      "icon": "🍝",
       "id": "manteca-shoreditch",
       "name": "Manteca",
       "category": "Restaurants",
@@ -74,6 +80,7 @@
       "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Manteca+Shoreditch"
     },
     {
+      "icon": "☕",
       "id": "the-wolseley",
       "name": "The Wolseley",
       "category": "Restaurants",
@@ -86,6 +93,7 @@
       "mapsUrl": "https://www.google.com/maps/search/?api=1&query=The+Wolseley+London"
     },
     {
+      "icon": "🫓",
       "id": "roti-king",
       "name": "Roti King",
       "category": "Restaurants",
@@ -98,6 +106,7 @@
       "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Roti+King+Euston"
     },
     {
+      "icon": "🍗",
       "id": "chick-n-sours",
       "name": "Chick 'n' Sours",
       "category": "Restaurants",
@@ -110,6 +119,7 @@
       "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Chick+n+Sours+Seven+Dials"
     },
     {
+      "icon": "🕌",
       "id": "maedah-grill",
       "name": "Maedah Grill",
       "category": "Halal Food",
@@ -122,6 +132,7 @@
       "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Maedah+Grill+Whitechapel"
     },
     {
+      "icon": "🕌",
       "id": "guanabana",
       "name": "Guanabana",
       "category": "Halal Food",
@@ -134,6 +145,7 @@
       "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Guanabana+Camden"
     },
     {
+      "icon": "🕌",
       "id": "the-great-chase",
       "name": "The Great Chase",
       "category": "Halal Food",
@@ -146,6 +158,7 @@
       "mapsUrl": "https://www.google.com/maps/search/?api=1&query=The+Great+Chase+Islington"
     },
     {
+      "icon": "🕌",
       "id": "etles",
       "name": "Etles Uyghur Restaurant",
       "category": "Halal Food",
@@ -158,6 +171,7 @@
       "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Etles+Uyghur+Restaurant+Walthamstow"
     },
     {
+      "icon": "🕌",
       "id": "liman",
       "name": "Liman Restaurant",
       "category": "Halal Food",
@@ -170,6 +184,7 @@
       "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Liman+Restaurant+Islington"
     },
     {
+      "icon": "☕",
       "id": "monmouth",
       "name": "Monmouth Coffee",
       "category": "Coffee Shops",
@@ -182,6 +197,7 @@
       "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Monmouth+Coffee+Borough"
     },
     {
+      "icon": "☕",
       "id": "kaffeine",
       "name": "Kaffeine",
       "category": "Coffee Shops",
@@ -194,6 +210,7 @@
       "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Kaffeine+Fitzrovia"
     },
     {
+      "icon": "☕",
       "id": "watchhouse",
       "name": "WatchHouse",
       "category": "Coffee Shops",
@@ -206,6 +223,7 @@
       "mapsUrl": "https://www.google.com/maps/search/?api=1&query=WatchHouse+Bermondsey"
     },
     {
+      "icon": "☕",
       "id": "rosslyn",
       "name": "Rosslyn Coffee",
       "category": "Coffee Shops",
@@ -218,6 +236,7 @@
       "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Rosslyn+Coffee+London"
     },
     {
+      "icon": "☕",
       "id": "attendant",
       "name": "Attendant",
       "category": "Coffee Shops",
@@ -230,6 +249,7 @@
       "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Attendant+Fitzrovia"
     },
     {
+      "icon": "🥘",
       "id": "borough-market",
       "name": "Borough Market",
       "category": "Local Spots",
@@ -242,6 +262,7 @@
       "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Borough+Market"
     },
     {
+      "icon": "🍢",
       "id": "maltby-street",
       "name": "Maltby Street Market",
       "category": "Local Spots",
@@ -254,6 +275,7 @@
       "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Maltby+Street+Market"
     },
     {
+      "icon": "🥯",
       "id": "brick-lane-bagels",
       "name": "Brick Lane Beigel Bake",
       "category": "Local Spots",
@@ -266,6 +288,7 @@
       "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Beigel+Bake+Brick+Lane"
     },
     {
+      "icon": "🍜",
       "id": "camden-market-food",
       "name": "Camden Market Food Stalls",
       "category": "Local Spots",
@@ -278,6 +301,7 @@
       "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Camden+Market+food"
     },
     {
+      "icon": "🥢",
       "id": "gold-mine",
       "name": "Gold Mine",
       "category": "Local Spots",
@@ -288,6 +312,123 @@
       "verifiedHalal": false,
       "description": "A Bayswater favourite for roast duck, noodles, and comforting Cantonese classics.",
       "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Gold+Mine+Bayswater"
+    },
+    {
+      "id": "ranoush-juice",
+      "icon": "🕌",
+      "name": "Ranoush Juice",
+      "category": "Halal Food",
+      "cuisine": "Lebanese shawarma and juices",
+      "area": "Edgware Road",
+      "priceRange": "£",
+      "halal": true,
+      "verifiedHalal": true,
+      "description": "A quick Edgware Road classic for shawarma, grills, fresh juices, and late-night casual Lebanese plates.",
+      "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Ranoush+Juice+Edgware+Road"
+    },
+    {
+      "id": "maroush-edgware-road",
+      "icon": "🕌",
+      "name": "Maroush Edgware Road",
+      "category": "Halal Food",
+      "cuisine": "Lebanese",
+      "area": "Edgware Road",
+      "priceRange": "££",
+      "halal": true,
+      "verifiedHalal": true,
+      "description": "Well-known Lebanese dining for mezze, grilled meats, breads, and an easy group meal near Marble Arch.",
+      "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Maroush+Edgware+Road"
+    },
+    {
+      "id": "tayyabs",
+      "icon": "🕌",
+      "name": "Tayyabs",
+      "category": "Halal Food",
+      "cuisine": "Punjabi grill",
+      "area": "Whitechapel",
+      "priceRange": "££",
+      "halal": true,
+      "verifiedHalal": true,
+      "description": "East London institution for sizzling lamb chops, karahi dishes, naan, and lively family-style dining.",
+      "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Tayyabs+Whitechapel"
+    },
+    {
+      "id": "efes-whitechapel",
+      "icon": "🕌",
+      "name": "Efes Whitechapel",
+      "category": "Halal Food",
+      "cuisine": "Turkish grill",
+      "area": "Whitechapel",
+      "priceRange": "££",
+      "halal": true,
+      "verifiedHalal": true,
+      "description": "Generous Turkish grills, bread, salads, and platters in an East London area with many halal-friendly choices.",
+      "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Efes+Whitechapel"
+    },
+    {
+      "id": "prufrock",
+      "icon": "☕",
+      "name": "Prufrock Coffee",
+      "category": "Coffee Shops",
+      "cuisine": "Speciality coffee",
+      "area": "Farringdon",
+      "priceRange": "££",
+      "halal": false,
+      "verifiedHalal": false,
+      "description": "A respected speciality coffee bar for espresso, filter coffee, pastries, and a calm stop near Leather Lane.",
+      "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Prufrock+Coffee+Farringdon"
+    },
+    {
+      "id": "ozone",
+      "icon": "☕",
+      "name": "Ozone Coffee Roasters",
+      "category": "Coffee Shops",
+      "cuisine": "Roastery and brunch",
+      "area": "Shoreditch",
+      "priceRange": "££",
+      "halal": false,
+      "verifiedHalal": false,
+      "description": "Roastery-led coffee, excellent brunch, and a polished Shoreditch space close to Old Street.",
+      "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Ozone+Coffee+Roasters+Shoreditch"
+    },
+    {
+      "id": "mercato-metropolitano",
+      "icon": "🍕",
+      "name": "Mercato Metropolitano",
+      "category": "Local Spots",
+      "cuisine": "Market food hall",
+      "area": "Elephant and Castle",
+      "priceRange": "££",
+      "halal": true,
+      "verifiedHalal": false,
+      "description": "Large indoor-outdoor food market with pizza, bao, desserts, drinks, and several halal-friendly traders to ask about.",
+      "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Mercato+Metropolitano+London"
+    },
+    {
+      "id": "seven-dials-market",
+      "icon": "🍔",
+      "name": "Seven Dials Market",
+      "category": "Local Spots",
+      "cuisine": "Food hall",
+      "area": "Covent Garden",
+      "priceRange": "££",
+      "halal": false,
+      "verifiedHalal": false,
+      "description": "Central food hall for quick group dining, desserts, burgers, tacos, pasta, and pre-theatre bites.",
+      "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Seven+Dials+Market"
+    },
+    {
+      "id": "broadway-market",
+      "icon": "🥐",
+      "name": "Broadway Market",
+      "category": "Local Spots",
+      "cuisine": "Saturday market food",
+      "area": "Hackney",
+      "priceRange": "££",
+      "halal": false,
+      "verifiedHalal": false,
+      "description": "Neighbourhood market with pastries, street food, coffee, produce, bookshops, and London Fields nearby.",
+      "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Broadway+Market+Hackney"
     }
   ]
 }
