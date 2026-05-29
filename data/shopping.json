@@ -1,8 +1,8 @@
 {
-  "__comment": "Editable shopping content. Add objects to items with id, name, image, section, type, location, openingHours, description, and mapsUrl. Image should be an Unsplash URL in the format https://images.unsplash.com/photo-[ID]?w=600&q=80.",
+  "__comment": "Editable shopping content. Add objects to items with id, name, image, section, type, location, openingHours, description, and mapsUrl. Image should be a Wikipedia/Wikimedia hosted place photo URL, not Unsplash.",
   "items": [
     {
-      "image": "https://images.unsplash.com/photo-1511739001486-6bfe10ce785f?w=600&q=80",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/93/Oxford_Street%2C_London._Shops_and_shopping.jpg/960px-Oxford_Street%2C_London._Shops_and_shopping.jpg",
       "id": "oxford-street",
       "name": "Oxford Street",
       "section": "Shopping Areas",
@@ -13,7 +13,7 @@
       "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Oxford+Street+London"
     },
     {
-      "image": "https://images.unsplash.com/photo-1517394834181-95ed159986c7?w=600&q=80",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/98/50_Carnaby_Street%2C_London_01.JPG/960px-50_Carnaby_Street%2C_London_01.JPG",
       "id": "carnaby-street",
       "name": "Carnaby Street",
       "section": "Shopping Areas",
@@ -24,7 +24,7 @@
       "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Carnaby+Street"
     },
     {
-      "image": "https://images.unsplash.com/photo-1494526585095-c41746248156?w=600&q=80",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6e/355_Kings_Road%2C_Chelsea%2C_London_SW3_4_June_2011.jpg/960px-355_Kings_Road%2C_Chelsea%2C_London_SW3_4_June_2011.jpg",
       "id": "kings-road",
       "name": "King's Road",
       "section": "Shopping Areas",
@@ -35,7 +35,7 @@
       "mapsUrl": "https://www.google.com/maps/search/?api=1&query=King's+Road+Chelsea"
     },
     {
-      "image": "https://images.unsplash.com/photo-1519567241046-7f570eee3ce6?w=600&q=80",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/64/Westfield_Stairs_Stratford_City_Westfield_shopping_centre_London_England_03.jpg/960px-Westfield_Stairs_Stratford_City_Westfield_shopping_centre_London_England_03.jpg",
       "id": "westfield-stratford",
       "name": "Westfield Stratford City",
       "section": "Shopping Areas",
@@ -46,7 +46,7 @@
       "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Westfield+Stratford+City"
     },
     {
-      "image": "https://images.unsplash.com/photo-1505761671935-60b3a7427bad?w=600&q=80",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d2/Entrance_to_Shopping_Mall%2C_Canary_Wharf%2C_London_-_geograph.org.uk_-_3619375.jpg/960px-Entrance_to_Shopping_Mall%2C_Canary_Wharf%2C_London_-_geograph.org.uk_-_3619375.jpg",
       "id": "canary-wharf",
       "name": "Canary Wharf",
       "section": "Shopping Areas",
@@ -57,7 +57,7 @@
       "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Canary+Wharf+shopping"
     },
     {
-      "image": "https://images.unsplash.com/photo-1513635269975-59663e0ac1ad?w=600&q=80",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/77/London%2C_Covent_Garden_--_2016_--_4878.jpg/960px-London%2C_Covent_Garden_--_2016_--_4878.jpg",
       "id": "covent-garden-shopping",
       "name": "Covent Garden",
       "section": "Shopping Areas",
@@ -68,7 +68,7 @@
       "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Covent+Garden+shopping"
     },
     {
-      "image": "https://images.unsplash.com/photo-1528909514045-2fa4ac7a08ba?w=600&q=80",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/df/Nice_shops_%28Portobello_Road_-_London%29.jpg/960px-Nice_shops_%28Portobello_Road_-_London%29.jpg",
       "id": "portobello-road-area",
       "name": "Portobello Road Area",
       "section": "Shopping Areas",
@@ -79,7 +79,7 @@
       "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Portobello+Road+Market"
     },
     {
-      "image": "https://images.unsplash.com/photo-1488459716781-31db52582fe9?w=600&q=80",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ee/Borough_Market_London_Is_OVERWHELMING_in_2026_-_Saturday_Food_Walk_4K.webm/960px--Borough_Market_London_Is_OVERWHELMING_in_2026_-_Saturday_Food_Walk_4K.webm.jpg",
       "id": "borough-market-shopping",
       "name": "Borough Market",
       "section": "Markets",
@@ -90,7 +90,7 @@
       "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Borough+Market"
     },
     {
-      "image": "https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?w=600&q=80",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c8/Portobello.market.london.arp.jpg/960px-Portobello.market.london.arp.jpg",
       "id": "portobello-market",
       "name": "Portobello Road Market",
       "section": "Markets",
@@ -101,7 +101,7 @@
       "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Portobello+Road+Market"
     },
     {
-      "image": "https://images.unsplash.com/photo-1490750967868-88aa4486c946?w=600&q=80",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2b/London_-_Columbia_Flower_Market_-_2164.jpg/960px-London_-_Columbia_Flower_Market_-_2164.jpg",
       "id": "columbia-flower-market",
       "name": "Columbia Road Flower Market",
       "section": "Markets",
@@ -112,7 +112,7 @@
       "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Columbia+Road+Flower+Market"
     },
     {
-      "image": "https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=600&q=80",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ef/Camden_market.jpg/960px-Camden_market.jpg",
       "id": "camden-market",
       "name": "Camden Market",
       "section": "Markets",
@@ -123,7 +123,7 @@
       "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Camden+Market"
     },
     {
-      "image": "https://images.unsplash.com/photo-1541961017774-22349e4a1262?w=600&q=80",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3d/Greenwich_market_Mars_2014_02.jpg/960px-Greenwich_market_Mars_2014_02.jpg",
       "id": "greenwich-market",
       "name": "Greenwich Market",
       "section": "Markets",
@@ -134,7 +134,7 @@
       "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Greenwich+Market"
     },
     {
-      "image": "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=600&q=80",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a1/Spitalfields_market_01.JPG/960px-Spitalfields_market_01.JPG",
       "id": "spitalfields-market",
       "name": "Old Spitalfields Market",
       "section": "Markets",
@@ -145,7 +145,7 @@
       "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Old+Spitalfields+Market"
     },
     {
-      "image": "https://images.unsplash.com/photo-1499781350541-7783f6c6a0c8?w=600&q=80",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/61/Sclater_Street_Yard_market%2C_Brick_Lane_Market_London_E1_p.jpg/960px-Sclater_Street_Yard_market%2C_Brick_Lane_Market_London_E1_p.jpg",
       "id": "brick-lane-market",
       "name": "Brick Lane Market",
       "section": "Markets",
@@ -156,7 +156,7 @@
       "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Brick+Lane+Market"
     },
     {
-      "image": "https://images.unsplash.com/photo-1523292562811-8fa7962a78c8?w=600&q=80",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6f/Bermondsey_Square_Antiques_Market_2026-05-08.jpg/960px-Bermondsey_Square_Antiques_Market_2026-05-08.jpg",
       "id": "bermondsey-antiques",
       "name": "Bermondsey Antiques Market",
       "section": "Markets",
@@ -167,7 +167,7 @@
       "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Bermondsey+Antiques+Market"
     },
     {
-      "image": "https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=600&q=80",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d4/Leather_Lane_street_market%2C_Hatton_Garden%2C_London_EC1.jpg/960px-Leather_Lane_street_market%2C_Hatton_Garden%2C_London_EC1.jpg",
       "id": "leather-lane",
       "name": "Leather Lane Market",
       "section": "Markets",
@@ -178,7 +178,7 @@
       "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Leather+Lane+Market"
     },
     {
-      "image": "https://images.unsplash.com/photo-1518005020951-eccb494ad742?w=600&q=80",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/b/b1/London%27s_Transport_Museum_and_the_piazza%2C_Covent_Garden_-_geograph.org.uk_-_2421956.jpg",
       "id": "london-transport-museum-shop",
       "name": "London Transport Museum Shop",
       "section": "Souvenir Shops",
@@ -189,7 +189,7 @@
       "mapsUrl": "https://www.google.com/maps/search/?api=1&query=London+Transport+Museum+Shop"
     },
     {
-      "image": "https://images.unsplash.com/photo-1513885535751-8b9238bd345a?w=600&q=80",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3c/Fortnum_and_Mason_clock_with_the_figures_of_Mr_Fortnum_and_Mr_Mason_out_to_chime_the_hour.jpg/960px-Fortnum_and_Mason_clock_with_the_figures_of_Mr_Fortnum_and_Mr_Mason_out_to_chime_the_hour.jpg",
       "id": "fortnum-mason",
       "name": "Fortnum & Mason",
       "section": "Souvenir Shops",
@@ -200,7 +200,7 @@
       "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Fortnum+and+Mason"
     },
     {
-      "image": "https://images.unsplash.com/photo-1483985988355-763728e1935b?w=600&q=80",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/10/Liberty_of_London.jpg/960px-Liberty_of_London.jpg",
       "id": "liberty",
       "name": "Liberty London",
       "section": "Souvenir Shops",
@@ -211,7 +211,7 @@
       "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Liberty+London"
     },
     {
-      "image": "https://images.unsplash.com/photo-1528909514045-2fa4ac7a08ba?w=600&q=80",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/55/Souvenir_shop%2C_Buckingham_Palace_Road_-_geograph.org.uk_-_4282708.jpg/960px-Souvenir_shop%2C_Buckingham_Palace_Road_-_geograph.org.uk_-_4282708.jpg",
       "id": "royal-collection-shop",
       "name": "Royal Collection Shop",
       "section": "Souvenir Shops",
@@ -222,7 +222,7 @@
       "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Royal+Collection+Shop+Buckingham+Palace"
     },
     {
-      "image": "https://images.unsplash.com/photo-1519567241046-7f570eee3ce6?w=600&q=80",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/35/London%2C_Harrods_--_2016_--_4605.jpg/960px-London%2C_Harrods_--_2016_--_4605.jpg",
       "id": "harrods",
       "name": "Harrods",
       "section": "Souvenir Shops",
@@ -233,7 +233,7 @@
       "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Harrods"
     },
     {
-      "image": "https://images.unsplash.com/photo-1564399579883-451a5d44ec08?w=600&q=80",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/86/British_Museum_%28aerial%29.jpg/960px-British_Museum_%28aerial%29.jpg",
       "id": "british-museum-shop",
       "name": "British Museum Shop",
       "section": "Souvenir Shops",

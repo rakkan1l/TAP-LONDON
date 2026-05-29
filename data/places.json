@@ -1,8 +1,8 @@
 {
-  "__comment": "Editable places content. Add objects to items with id, name, category, area, description, openingHours, entryFee, priceType, and mapsUrl.",
+  "__comment": "Editable places content. Add objects to items with id, name, icon, image, category, area, description, openingHours, entryFee, priceType, and mapsUrl. Image should be a Wikipedia/Wikimedia hosted photo URL, not Unsplash.",
   "items": [
     {
-      "image": "https://images.unsplash.com/photo-1505843513577-22bb7d21e455?w=600&q=80",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ec/Tower_of_London_from_the_Shard_%288515883950%29.jpg/330px-Tower_of_London_from_the_Shard_%288515883950%29.jpg",
       "icon": "🏰",
       "id": "tower-of-london",
       "name": "Tower of London",
@@ -15,7 +15,7 @@
       "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Tower+of+London"
     },
     {
-      "image": "https://images.unsplash.com/photo-1528909514045-2fa4ac7a08ba?w=600&q=80",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8d/Buckingham_Palace_London_Morning_2020_01_%28cropped%29.jpg/330px-Buckingham_Palace_London_Morning_2020_01_%28cropped%29.jpg",
       "icon": "👑",
       "id": "buckingham-palace",
       "name": "Buckingham Palace",
@@ -28,7 +28,7 @@
       "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Buckingham+Palace"
     },
     {
-      "image": "https://images.unsplash.com/photo-1486299267070-83823f5448dd?w=600&q=80",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/43/Elizabeth_Tower%2C_June_2022.jpg/330px-Elizabeth_Tower%2C_June_2022.jpg",
       "icon": "🕰️",
       "id": "big-ben",
       "name": "Big Ben",
@@ -41,7 +41,7 @@
       "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Big+Ben+London"
     },
     {
-      "image": "https://images.unsplash.com/photo-1513635269975-59663e0ac1ad?w=600&q=80",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d6/London-Eye-2009.JPG/330px-London-Eye-2009.JPG",
       "icon": "🎡",
       "id": "london-eye",
       "name": "London Eye",
@@ -54,7 +54,7 @@
       "mapsUrl": "https://www.google.com/maps/search/?api=1&query=London+Eye"
     },
     {
-      "image": "https://images.unsplash.com/photo-1533929736458-ca588d08c8be?w=600&q=80",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5f/Tower_Bridge_London_Dusk_Feb_2006.jpg/960px-Tower_Bridge_London_Dusk_Feb_2006.jpg",
       "icon": "🌉",
       "id": "tower-bridge",
       "name": "Tower Bridge",
@@ -67,7 +67,7 @@
       "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Tower+Bridge"
     },
     {
-      "image": "https://images.unsplash.com/photo-1518005020951-eccb494ad742?w=600&q=80",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cb/St_Pauls_aerial_%28cropped%29.jpg/330px-St_Pauls_aerial_%28cropped%29.jpg",
       "icon": "⛪",
       "id": "st-pauls-cathedral",
       "name": "St Paul's Cathedral",
@@ -80,7 +80,7 @@
       "mapsUrl": "https://www.google.com/maps/search/?api=1&query=St+Paul's+Cathedral+London"
     },
     {
-      "image": "https://images.unsplash.com/photo-1517394834181-95ed159986c7?w=600&q=80",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a6/Trafalgar_Square%2C_London_2_-_Jun_2009.jpg/330px-Trafalgar_Square%2C_London_2_-_Jun_2009.jpg",
       "icon": "🦁",
       "id": "trafalgar-square",
       "name": "Trafalgar Square",
@@ -93,7 +93,7 @@
       "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Trafalgar+Square"
     },
     {
-      "image": "https://images.unsplash.com/photo-1486299267070-83823f5448dd?w=600&q=80",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3b/Houses_of_Parliament_in_2022_%28cropped%29.jpg/330px-Houses_of_Parliament_in_2022_%28cropped%29.jpg",
       "icon": "🏛️",
       "id": "houses-of-parliament",
       "name": "Houses of Parliament",
@@ -106,7 +106,7 @@
       "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Houses+of+Parliament+London"
     },
     {
-      "image": "https://images.unsplash.com/photo-1541961017774-22349e4a1262?w=600&q=80",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f6/Galer%C3%ADa_Nacional%2C_Londres%2C_Inglaterra%2C_2014-08-07%2C_DD_036.JPG/330px-Galer%C3%ADa_Nacional%2C_Londres%2C_Inglaterra%2C_2014-08-07%2C_DD_036.JPG",
       "icon": "🖼️",
       "id": "national-gallery",
       "name": "National Gallery",
@@ -119,7 +119,7 @@
       "mapsUrl": "https://www.google.com/maps/search/?api=1&query=National+Gallery+London"
     },
     {
-      "image": "https://images.unsplash.com/photo-1564399579883-451a5d44ec08?w=600&q=80",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/86/British_Museum_%28aerial%29.jpg/330px-British_Museum_%28aerial%29.jpg",
       "icon": "🏺",
       "id": "british-museum",
       "name": "British Museum",
@@ -132,7 +132,7 @@
       "mapsUrl": "https://www.google.com/maps/search/?api=1&query=British+Museum"
     },
     {
-      "image": "https://images.unsplash.com/photo-1541961017774-22349e4a1262?w=600&q=80",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2d/Victoria_and_Albert_Museum-1.jpg/960px-Victoria_and_Albert_Museum-1.jpg",
       "icon": "🎨",
       "id": "victoria-albert-museum",
       "name": "Victoria and Albert Museum",
@@ -145,7 +145,7 @@
       "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Victoria+and+Albert+Museum"
     },
     {
-      "image": "https://images.unsplash.com/photo-1564399579883-451a5d44ec08?w=600&q=80",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/18/Natural_History_Museum_London_South_Facade_2020_01.jpg/960px-Natural_History_Museum_London_South_Facade_2020_01.jpg",
       "icon": "🦕",
       "id": "natural-history-museum",
       "name": "Natural History Museum",
@@ -158,7 +158,7 @@
       "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Natural+History+Museum+London"
     },
     {
-      "image": "https://images.unsplash.com/photo-1541961017774-22349e4a1262?w=600&q=80",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/64/Exterior_of_Tate_Modern_%28January_2024%29_06.jpg/960px-Exterior_of_Tate_Modern_%28January_2024%29_06.jpg",
       "icon": "🖌️",
       "id": "tate-modern",
       "name": "Tate Modern",
@@ -171,7 +171,7 @@
       "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Tate+Modern"
     },
     {
-      "image": "https://images.unsplash.com/photo-1446776811953-b23d57bd21aa?w=600&q=80",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/04/London%2C_Greenwich%2C_Royal_Greenwich_Observatory_--_2016_--_4695.jpg/960px-London%2C_Greenwich%2C_Royal_Greenwich_Observatory_--_2016_--_4695.jpg",
       "icon": "🔭",
       "id": "greenwich-observatory",
       "name": "Royal Observatory Greenwich",
@@ -184,7 +184,7 @@
       "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Royal+Observatory+Greenwich"
     },
     {
-      "image": "https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=600&q=80",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d1/Kew_Gardens_Palm_House%2C_London_-_July_2009.jpg/960px-Kew_Gardens_Palm_House%2C_London_-_July_2009.jpg",
       "icon": "🌿",
       "id": "kew-gardens",
       "name": "Kew Gardens",
@@ -197,7 +197,7 @@
       "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Kew+Gardens"
     },
     {
-      "image": "https://images.unsplash.com/photo-1528909514045-2fa4ac7a08ba?w=600&q=80",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4b/Hampton_court_garden_-_Yew_trees_%282016%29.jpg/960px-Hampton_court_garden_-_Yew_trees_%282016%29.jpg",
       "icon": "🏰",
       "id": "hampton-court-palace",
       "name": "Hampton Court Palace",
@@ -210,7 +210,7 @@
       "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Hampton+Court+Palace"
     },
     {
-      "image": "https://images.unsplash.com/photo-1505843513577-22bb7d21e455?w=600&q=80",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d4/Windsor_Castle%2C_Maida_Hill%2C_W9_%284231536050%29.jpg/960px-Windsor_Castle%2C_Maida_Hill%2C_W9_%284231536050%29.jpg",
       "icon": "👑",
       "id": "windsor-castle",
       "name": "Windsor Castle",
@@ -223,7 +223,7 @@
       "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Windsor+Castle"
     },
     {
-      "image": "https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?w=600&q=80",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/49/Hyde_Park_July_2015-1.jpg/960px-Hyde_Park_July_2015-1.jpg",
       "icon": "🌳",
       "id": "hyde-park",
       "name": "Hyde Park",
@@ -236,7 +236,7 @@
       "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Hyde+Park+London"
     },
     {
-      "image": "https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=600&q=80",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8f/Eagle_Sculpture%2C_Queen_Mary%27s_Gardens.jpg/960px-Eagle_Sculpture%2C_Queen_Mary%27s_Gardens.jpg",
       "icon": "🌹",
       "id": "regents-park",
       "name": "Regent's Park",
@@ -249,7 +249,7 @@
       "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Regent's+Park"
     },
     {
-      "image": "https://images.unsplash.com/photo-1517394834181-95ed159986c7?w=600&q=80",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/05/London%2C_Covent_Garden_--_2016_--_4879.jpg/960px-London%2C_Covent_Garden_--_2016_--_4879.jpg",
       "icon": "🎭",
       "id": "covent-garden",
       "name": "Covent Garden",
@@ -262,7 +262,7 @@
       "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Covent+Garden"
     },
     {
-      "image": "https://images.unsplash.com/photo-1488459716781-31db52582fe9?w=600&q=80",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/48/Leadenhall_Market_In_London_-_Feb_2006.jpg/960px-Leadenhall_Market_In_London_-_Feb_2006.jpg",
       "icon": "🏛️",
       "id": "leadenhall-market",
       "name": "Leadenhall Market",
@@ -275,7 +275,7 @@
       "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Leadenhall+Market"
     },
     {
-      "image": "https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=600&q=80",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/ff/Kyoto_gardens_Holland_park.jpg/960px-Kyoto_gardens_Holland_park.jpg",
       "icon": "🌸",
       "id": "kyoto-garden",
       "name": "Kyoto Garden",
@@ -288,7 +288,7 @@
       "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Kyoto+Garden+Holland+Park"
     },
     {
-      "image": "https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?w=600&q=80",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/50/Postman%27s_Park_Wall_of_Heroes.JPG/960px-Postman%27s_Park_Wall_of_Heroes.JPG",
       "icon": "🕊️",
       "id": "postmans-park",
       "name": "Postman's Park",
@@ -301,7 +301,7 @@
       "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Postman's+Park+London"
     },
     {
-      "image": "https://images.unsplash.com/photo-1519608487953-e999c86e7455?w=600&q=80",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/72/God%27s_Own_Junkyard_10100775327306884.jpg/960px-God%27s_Own_Junkyard_10100775327306884.jpg",
       "icon": "💡",
       "id": "gods-own-junkyard",
       "name": "God's Own Junkyard",
@@ -314,7 +314,7 @@
       "mapsUrl": "https://www.google.com/maps/search/?api=1&query=God's+Own+Junkyard"
     },
     {
-      "image": "https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=600&q=80",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b4/Sas_Crossbones_2026-023_-_Flickr_-_sasastro.jpg/960px-Sas_Crossbones_2026-023_-_Flickr_-_sasastro.jpg",
       "icon": "🕯️",
       "id": "crossbones-garden",
       "name": "Crossbones Garden",
@@ -327,7 +327,7 @@
       "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Crossbones+Garden+London"
     },
     {
-      "image": "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=600&q=80",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/df/Little_Venice%2C_Mykonos.jpg/960px-Little_Venice%2C_Mykonos.jpg",
       "icon": "🚤",
       "id": "little-venice",
       "name": "Little Venice",
@@ -340,7 +340,7 @@
       "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Little+Venice+London"
     },
     {
-      "image": "https://images.unsplash.com/photo-1499781350541-7783f6c6a0c8?w=600&q=80",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/19/Leake_Street_tunnel_entrance.jpg/960px-Leake_Street_tunnel_entrance.jpg",
       "icon": "🎨",
       "id": "leake-street",
       "name": "Leake Street Graffiti Tunnel",
@@ -353,7 +353,7 @@
       "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Leake+Street+Graffiti+Tunnel"
     },
     {
-      "image": "https://images.unsplash.com/photo-1490750967868-88aa4486c946?w=600&q=80",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2b/London_-_Columbia_Flower_Market_-_2164.jpg/960px-London_-_Columbia_Flower_Market_-_2164.jpg",
       "icon": "💐",
       "id": "columbia-road",
       "name": "Columbia Road Flower Market",
@@ -366,7 +366,7 @@
       "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Columbia+Road+Flower+Market"
     },
     {
-      "image": "https://images.unsplash.com/photo-1517394834181-95ed159986c7?w=600&q=80",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/4/45/Bermondsey_Street_-_geograph.org.uk_-_415677.jpg",
       "icon": "🍷",
       "id": "bermondsey-street",
       "name": "Bermondsey Street",
@@ -379,7 +379,7 @@
       "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Bermondsey+Street+London"
     },
     {
-      "image": "https://images.unsplash.com/photo-1517394834181-95ed159986c7?w=600&q=80",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/c/c6/Neal%27s_Yard%2C_Covent_Garden%2C_London_-_geograph.org.uk_-_2613.jpg",
       "icon": "🌈",
       "id": "neals-yard",
       "name": "Neal's Yard",
@@ -392,7 +392,7 @@
       "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Neal's+Yard+London"
     },
     {
-      "image": "https://images.unsplash.com/photo-1517394834181-95ed159986c7?w=600&q=80",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/74/Dennis_Severs_House_%2815290690150%29.jpg/960px-Dennis_Severs_House_%2815290690150%29.jpg",
       "icon": "🕰️",
       "id": "dennis-severs-house",
       "name": "Dennis Severs' House",
@@ -405,7 +405,7 @@
       "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Dennis+Severs+House"
     },
     {
-      "image": "https://images.unsplash.com/photo-1564399579883-451a5d44ec08?w=600&q=80",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6b/Casa_de_Leighton%2C_Londres%2C_Inglaterra%2C_2022-11-26%2C_DD_07-09_HDR.jpg/960px-Casa_de_Leighton%2C_Londres%2C_Inglaterra%2C_2022-11-26%2C_DD_07-09_HDR.jpg",
       "icon": "🕌",
       "id": "leighton-house",
       "name": "Leighton House Museum",
@@ -418,7 +418,7 @@
       "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Leighton+House+Museum"
     },
     {
-      "image": "https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=600&q=80",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/8/81/Hampstead_%2C_Hill_Garden_and_Pergola_-_geograph.org.uk_-_6174455.jpg",
       "icon": "🌿",
       "id": "pergola-hill-garden",
       "name": "Pergola and Hill Garden",
@@ -431,7 +431,7 @@
       "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Pergola+and+Hill+Garden"
     },
     {
-      "image": "https://images.unsplash.com/photo-1529655683826-aba9b3e77383?w=600&q=80",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0b/London_Millennium_Bridge_from_Saint_Paul%27s.jpg/960px-London_Millennium_Bridge_from_Saint_Paul%27s.jpg",
       "icon": "🌉",
       "id": "millennium-bridge",
       "name": "Millennium Bridge at Sunset",
@@ -444,7 +444,7 @@
       "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Millennium+Bridge+London"
     },
     {
-      "image": "https://images.unsplash.com/photo-1488459716781-31db52582fe9?w=600&q=80",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2d/London_2018_March_IMG_0663.jpg/330px-London_2018_March_IMG_0663.jpg",
       "icon": "📸",
       "id": "borough-market-archway",
       "name": "Borough Market Archway",
@@ -457,7 +457,7 @@
       "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Borough+Market"
     },
     {
-      "image": "https://images.unsplash.com/photo-1505761671935-60b3a7427bad?w=600&q=80",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c6/Primrose_Hill%2C_London_-16Sept2010.jpg/330px-Primrose_Hill%2C_London_-16Sept2010.jpg",
       "icon": "🌇",
       "id": "primrose-hill",
       "name": "Primrose Hill Skyline View",
@@ -470,7 +470,7 @@
       "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Primrose+Hill+London"
     },
     {
-      "image": "https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=600&q=80",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/df/St_Dunstan-in-the-East.jpg/330px-St_Dunstan-in-the-East.jpg",
       "icon": "🌿",
       "id": "st-dunstan",
       "name": "St Dunstan in the East",
@@ -483,7 +483,7 @@
       "mapsUrl": "https://www.google.com/maps/search/?api=1&query=St+Dunstan+in+the+East"
     },
     {
-      "image": "https://images.unsplash.com/photo-1505761671935-60b3a7427bad?w=600&q=80",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fc/London_Eye_Jan_2006.jpg/330px-London_Eye_Jan_2006.jpg",
       "icon": "🌃",
       "id": "southbank-night",
       "name": "Southbank at Night",
@@ -496,7 +496,7 @@
       "mapsUrl": "https://www.google.com/maps/search/?api=1&query=South+Bank+London"
     },
     {
-      "image": "https://images.unsplash.com/photo-1505761671935-60b3a7427bad?w=600&q=80",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/ca/The_Sky_Garden.jpg/960px-The_Sky_Garden.jpg",
       "icon": "🏙️",
       "id": "sky-garden",
       "name": "Sky Garden",
@@ -509,7 +509,7 @@
       "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Sky+Garden+London"
     },
     {
-      "image": "https://images.unsplash.com/photo-1505761671935-60b3a7427bad?w=600&q=80",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/APalace_1.jpg/330px-APalace_1.jpg",
       "icon": "🌄",
       "id": "alexandra-palace",
       "name": "Alexandra Palace",
@@ -522,7 +522,7 @@
       "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Alexandra+Palace"
     },
     {
-      "image": "https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?w=600&q=80",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4e/Greenwich_Park%2C_London%2C_from_the_observatory.jpg/330px-Greenwich_Park%2C_London%2C_from_the_observatory.jpg",
       "icon": "🌳",
       "id": "greenwich-park-hill",
       "name": "Greenwich Park Hill View",
@@ -535,7 +535,7 @@
       "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Greenwich+Park+London"
     },
     {
-      "image": "https://images.unsplash.com/photo-1564399579883-451a5d44ec08?w=600&q=80",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b3/Science_Museum%2C_Exhibition_Road_%28cropped%29.jpg/330px-Science_Museum%2C_Exhibition_Road_%28cropped%29.jpg",
       "icon": "🚀",
       "id": "science-museum",
       "name": "Science Museum",
@@ -548,7 +548,7 @@
       "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Science+Museum+London"
     },
     {
-      "image": "https://images.unsplash.com/photo-1529655683826-aba9b3e77383?w=600&q=80",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fa/Thames_Path_sign%2C_Thames_Barrier.jpg/330px-Thames_Path_sign%2C_Thames_Barrier.jpg",
       "icon": "🚶",
       "id": "thames-path",
       "name": "Thames Path Walk",
@@ -561,7 +561,7 @@
       "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Thames+Path+London"
     },
     {
-      "image": "https://images.unsplash.com/photo-1528909514045-2fa4ac7a08ba?w=600&q=80",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/92/The_Queen_S_Guards_%2874544105%29.jpeg/330px-The_Queen_S_Guards_%2874544105%29.jpeg",
       "icon": "💂",
       "id": "changing-guard",
       "name": "Changing of the Guard",
@@ -574,7 +574,7 @@
       "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Changing+of+the+Guard+Buckingham+Palace"
     },
     {
-      "image": "https://images.unsplash.com/photo-1541961017774-22349e4a1262?w=600&q=80",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2d/Victoria_and_Albert_Museum-1.jpg/960px-Victoria_and_Albert_Museum-1.jpg",
       "id": "vam-free",
       "icon": "🎨",
       "name": "V&A Free Galleries",
@@ -587,7 +587,7 @@
       "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Victoria+and+Albert+Museum"
     },
     {
-      "image": "https://images.unsplash.com/photo-1564399579883-451a5d44ec08?w=600&q=80",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/86/British_Museum_%28aerial%29.jpg/330px-British_Museum_%28aerial%29.jpg",
       "id": "british-museum-free",
       "icon": "🏺",
       "name": "British Museum Great Court",
@@ -600,7 +600,7 @@
       "mapsUrl": "https://www.google.com/maps/search/?api=1&query=British+Museum"
     },
     {
-      "image": "https://images.unsplash.com/photo-1564399579883-451a5d44ec08?w=600&q=80",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/18/Natural_History_Museum_London_South_Facade_2020_01.jpg/960px-Natural_History_Museum_London_South_Facade_2020_01.jpg",
       "id": "natural-history-free",
       "icon": "🦕",
       "name": "Natural History Museum Hintze Hall",
@@ -613,7 +613,7 @@
       "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Natural+History+Museum+London"
     },
     {
-      "image": "https://images.unsplash.com/photo-1541961017774-22349e4a1262?w=600&q=80",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f6/Galer%C3%ADa_Nacional%2C_Londres%2C_Inglaterra%2C_2014-08-07%2C_DD_036.JPG/330px-Galer%C3%ADa_Nacional%2C_Londres%2C_Inglaterra%2C_2014-08-07%2C_DD_036.JPG",
       "id": "national-gallery-free",
       "icon": "🖼️",
       "name": "National Gallery Highlights",
@@ -626,7 +626,7 @@
       "mapsUrl": "https://www.google.com/maps/search/?api=1&query=National+Gallery+London"
     },
     {
-      "image": "https://images.unsplash.com/photo-1541961017774-22349e4a1262?w=600&q=80",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/64/Exterior_of_Tate_Modern_%28January_2024%29_06.jpg/960px-Exterior_of_Tate_Modern_%28January_2024%29_06.jpg",
       "id": "tate-modern-free",
       "icon": "🖌️",
       "name": "Tate Modern Collection",
@@ -639,7 +639,7 @@
       "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Tate+Modern"
     },
     {
-      "image": "https://images.unsplash.com/photo-1505761671935-60b3a7427bad?w=600&q=80",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/ca/The_Sky_Garden.jpg/960px-The_Sky_Garden.jpg",
       "id": "sky-garden-free",
       "icon": "🏙️",
       "name": "Sky Garden Free View",
@@ -652,7 +652,7 @@
       "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Sky+Garden+London"
     },
     {
-      "image": "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=600&q=80",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Towpath%2C_Regents_Canal%2C_King%27s_Cross%2C_London_-_geograph.org.uk_-_5157901.jpg/960px-Towpath%2C_Regents_Canal%2C_King%27s_Cross%2C_London_-_geograph.org.uk_-_5157901.jpg",
       "id": "regents-canal-walk",
       "icon": "🚤",
       "name": "Regent’s Canal Walk",

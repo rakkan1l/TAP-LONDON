@@ -1,8 +1,8 @@
 {
-  "__comment": "Editable food and drink listings. Add objects to items with id, name, category, cuisine, area, priceRange, halal, verifiedHalal, description, and mapsUrl.",
+  "__comment": "Editable food and drink listings. Add objects to items with id, name, icon, image, category, cuisine, area, priceRange, halal, verifiedHalal, description, and mapsUrl. Image should be a Wikipedia/Wikimedia hosted food or venue photo URL, not Unsplash.",
   "items": [
     {
-      "image": "https://images.unsplash.com/photo-1565557623262-b51c2513a641e?w=600&q=80",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a3/2024--18_September--Food_at_City_Spice_Indian_Restaurant_in_Brick_Lane%2C_London.jpg/960px-2024--18_September--Food_at_City_Spice_Indian_Restaurant_in_Brick_Lane%2C_London.jpg",
       "icon": "🍛",
       "id": "dishoom-covent-garden",
       "name": "Dishoom Covent Garden",
@@ -16,7 +16,7 @@
       "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Dishoom+Covent+Garden"
     },
     {
-      "image": "https://images.unsplash.com/photo-1551183053-bf91a1d81141?w=600&q=80",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/dd/Pasta_primavera.jpg/960px-Pasta_primavera.jpg",
       "icon": "🍝",
       "id": "padella-borough",
       "name": "Padella",
@@ -30,7 +30,7 @@
       "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Padella+Borough+Market"
     },
     {
-      "image": "https://images.unsplash.com/photo-1558030006-450675393462?w=600&q=80",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9a/Reel_and_Brand_-_September_2021_-_Sarah_Stierch_05.jpg/960px-Reel_and_Brand_-_September_2021_-_Sarah_Stierch_05.jpg",
       "icon": "🥩",
       "id": "flat-iron-soho",
       "name": "Flat Iron Soho",
@@ -44,7 +44,7 @@
       "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Flat+Iron+Soho"
     },
     {
-      "image": "https://images.unsplash.com/photo-1562565652-a0d8f0c59eb4?w=600&q=80",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d4/A_fast_food_restaurant_in_Bangkok%2C_Thailand.jpg/960px-A_fast_food_restaurant_in_Bangkok%2C_Thailand.jpg",
       "icon": "🔥",
       "id": "kiln-soho",
       "name": "Kiln",
@@ -58,7 +58,7 @@
       "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Kiln+Soho+London"
     },
     {
-      "image": "https://images.unsplash.com/photo-1519708227418-c8fd9a32b7a2?w=600&q=80",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/ff/Grilled_fish_at_restaurant_in_Tokyo.jpg/960px-Grilled_fish_at_restaurant_in_Tokyo.jpg",
       "icon": "🐟",
       "id": "brat-shoreditch",
       "name": "Brat",
@@ -72,7 +72,7 @@
       "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Brat+Shoreditch"
     },
     {
-      "image": "https://images.unsplash.com/photo-1498579150354-977475b7ea0b?w=600&q=80",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/10/Pici_Pasta_Bar_Central.jpg/960px-Pici_Pasta_Bar_Central.jpg",
       "icon": "🍝",
       "id": "manteca-shoreditch",
       "name": "Manteca",
@@ -86,7 +86,7 @@
       "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Manteca+Shoreditch"
     },
     {
-      "image": "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=600&q=80",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/Interior_of_Medley_Caf%C3%A9_and_Restaurant%2C_Kangaroo_Point%2C_Queensland%2C_01.jpg/960px-Interior_of_Medley_Caf%C3%A9_and_Restaurant%2C_Kangaroo_Point%2C_Queensland%2C_01.jpg",
       "icon": "☕",
       "id": "the-wolseley",
       "name": "The Wolseley",
@@ -100,7 +100,7 @@
       "mapsUrl": "https://www.google.com/maps/search/?api=1&query=The+Wolseley+London"
     },
     {
-      "image": "https://images.unsplash.com/photo-1601050690597-df0568f70950?w=600&q=80",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b3/Roti_Canai_Curry_Chicken_PappaRich_Auckland.jpg/960px-Roti_Canai_Curry_Chicken_PappaRich_Auckland.jpg",
       "icon": "🫓",
       "id": "roti-king",
       "name": "Roti King",
@@ -114,7 +114,7 @@
       "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Roti+King+Euston"
     },
     {
-      "image": "https://images.unsplash.com/photo-1562967916-eb82221dfb92?w=600&q=80",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2c/Fried-Chicken-Set.jpg/960px-Fried-Chicken-Set.jpg",
       "icon": "🍗",
       "id": "chick-n-sours",
       "name": "Chick 'n' Sours",
@@ -128,7 +128,7 @@
       "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Chick+n+Sours+Seven+Dials"
     },
     {
-      "image": "https://images.unsplash.com/photo-1529042410759-befb1204b468?w=600&q=80",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cd/Mixed_Grill_%287518971458%29.jpg/960px-Mixed_Grill_%287518971458%29.jpg",
       "icon": "🕌",
       "id": "maedah-grill",
       "name": "Maedah Grill",
@@ -142,7 +142,7 @@
       "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Maedah+Grill+Whitechapel"
     },
     {
-      "image": "https://images.unsplash.com/photo-1543352634-a1c51d9f1fa7?w=600&q=80",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/d/d7/Soul_Food_Caribbean_Restaurant_in_Harlech_-_geograph.org.uk_-_4454499.jpg",
       "icon": "🕌",
       "id": "guanabana",
       "name": "Guanabana",
@@ -156,7 +156,7 @@
       "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Guanabana+Camden"
     },
     {
-      "image": "https://images.unsplash.com/photo-1544025162-d76694265947?w=600&q=80",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/63/A_roast_lamb_dinner_at_Black_Horse_Inn%2C_Nuthurst_West_Sussex_England.jpg/960px-A_roast_lamb_dinner_at_Black_Horse_Inn%2C_Nuthurst_West_Sussex_England.jpg",
       "icon": "🕌",
       "id": "the-great-chase",
       "name": "The Great Chase",
@@ -170,7 +170,7 @@
       "mapsUrl": "https://www.google.com/maps/search/?api=1&query=The+Great+Chase+Islington"
     },
     {
-      "image": "https://images.unsplash.com/photo-1555126634-323283e090fa?w=600&q=80",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/12/Dolan_Uyghur_handmade_noodles_Adelaide.jpg/960px-Dolan_Uyghur_handmade_noodles_Adelaide.jpg",
       "icon": "🕌",
       "id": "etles",
       "name": "Etles Uyghur Restaurant",
@@ -184,7 +184,7 @@
       "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Etles+Uyghur+Restaurant+Walthamstow"
     },
     {
-      "image": "https://images.unsplash.com/photo-1544025162-d76694265947?w=600&q=80",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/68/Jetty_Grill_Turkey_Point.jpg/960px-Jetty_Grill_Turkey_Point.jpg",
       "icon": "🕌",
       "id": "liman",
       "name": "Liman Restaurant",
@@ -198,7 +198,7 @@
       "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Liman+Restaurant+Islington"
     },
     {
-      "image": "https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=600&q=80",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/b/b8/Lloyd%27s_coffee_house_drawing.jpg",
       "icon": "☕",
       "id": "monmouth",
       "name": "Monmouth Coffee",
@@ -212,7 +212,7 @@
       "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Monmouth+Coffee+Borough"
     },
     {
-      "image": "https://images.unsplash.com/photo-1509042239860-f550ce710b93?w=600&q=80",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/41/Red_Rock_Coffee_Specialty_Drinks.jpg/960px-Red_Rock_Coffee_Specialty_Drinks.jpg",
       "icon": "☕",
       "id": "kaffeine",
       "name": "Kaffeine",
@@ -226,7 +226,7 @@
       "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Kaffeine+Fitzrovia"
     },
     {
-      "image": "https://images.unsplash.com/photo-1511920170033-f8396924c348?w=600&q=80",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9c/Espresso_Simpatico_Coffee_Shop%2C_Seward%2C_Alaska_LCCN2010630177.tif/lossy-page1-960px-Espresso_Simpatico_Coffee_Shop%2C_Seward%2C_Alaska_LCCN2010630177.tif.jpg",
       "icon": "☕",
       "id": "watchhouse",
       "name": "WatchHouse",
@@ -240,7 +240,7 @@
       "mapsUrl": "https://www.google.com/maps/search/?api=1&query=WatchHouse+Bermondsey"
     },
     {
-      "image": "https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=600&q=80",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/24/Espresso_Coffee_01.jpg/960px-Espresso_Coffee_01.jpg",
       "icon": "☕",
       "id": "rosslyn",
       "name": "Rosslyn Coffee",
@@ -254,7 +254,7 @@
       "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Rosslyn+Coffee+London"
     },
     {
-      "image": "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=600&q=80",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a2/Coffeehouse_Five_-_November_2023_-_Sarah_Stierch_02.jpg/960px-Coffeehouse_Five_-_November_2023_-_Sarah_Stierch_02.jpg",
       "icon": "☕",
       "id": "attendant",
       "name": "Attendant",
@@ -268,7 +268,7 @@
       "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Attendant+Fitzrovia"
     },
     {
-      "image": "https://images.unsplash.com/photo-1488459716781-31db52582fe9?w=600&q=80",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3d/Stall_in_Borough_Market%2C_Southwark_-_geograph.org.uk_-_4414179.jpg/960px-Stall_in_Borough_Market%2C_Southwark_-_geograph.org.uk_-_4414179.jpg",
       "icon": "🥘",
       "id": "borough-market",
       "name": "Borough Market",
@@ -282,7 +282,7 @@
       "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Borough+Market"
     },
     {
-      "image": "https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=600&q=80",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c8/MALTBY_STREET_MARKET_031.jpg/960px-MALTBY_STREET_MARKET_031.jpg",
       "icon": "🍢",
       "id": "maltby-street",
       "name": "Maltby Street Market",
@@ -296,7 +296,7 @@
       "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Maltby+Street+Market"
     },
     {
-      "image": "https://images.unsplash.com/photo-1551024601-bec78aea704b?w=600&q=80",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7b/%22Beigel_Bake%22%2C_Brick_Lane_-_geograph.org.uk_-_5041648.jpg/960px-%22Beigel_Bake%22%2C_Brick_Lane_-_geograph.org.uk_-_5041648.jpg",
       "icon": "🥯",
       "id": "brick-lane-bagels",
       "name": "Brick Lane Beigel Bake",
@@ -310,7 +310,7 @@
       "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Beigel+Bake+Brick+Lane"
     },
     {
-      "image": "https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=600&q=80",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/98/Food_stalls_at_Camden_Lock_Market_-_geograph.org.uk_-_7688573.jpg/960px-Food_stalls_at_Camden_Lock_Market_-_geograph.org.uk_-_7688573.jpg",
       "icon": "🍜",
       "id": "camden-market-food",
       "name": "Camden Market Food Stalls",
@@ -324,7 +324,7 @@
       "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Camden+Market+food"
     },
     {
-      "image": "https://images.unsplash.com/photo-1553621042-f6e147245754?w=600&q=80",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/94/Roast_duck_Cantonese_styleCNE.jpg/960px-Roast_duck_Cantonese_styleCNE.jpg",
       "icon": "🥢",
       "id": "gold-mine",
       "name": "Gold Mine",
@@ -338,7 +338,7 @@
       "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Gold+Mine+Bayswater"
     },
     {
-      "image": "https://images.unsplash.com/photo-1529042410759-befb1204b468?w=600&q=80",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8c/Lebanon%2C_Baalbek%2C_Lebanese_Shawarma.jpg/960px-Lebanon%2C_Baalbek%2C_Lebanese_Shawarma.jpg",
       "id": "ranoush-juice",
       "icon": "🕌",
       "name": "Ranoush Juice",
@@ -352,7 +352,7 @@
       "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Ranoush+Juice+Edgware+Road"
     },
     {
-      "image": "https://images.unsplash.com/photo-1529042410759-befb1204b468?w=600&q=80",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0a/Larnaca_Bay%2C_mezze.jpg/960px-Larnaca_Bay%2C_mezze.jpg",
       "id": "maroush-edgware-road",
       "icon": "🕌",
       "name": "Maroush Edgware Road",
@@ -366,7 +366,7 @@
       "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Maroush+Edgware+Road"
     },
     {
-      "image": "https://images.unsplash.com/photo-1565557623262-b51c2513a641e?w=600&q=80",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f1/Zam_Zam_Pakistani_Traditional_Food_Restaurant_at_Jingshuyuan%2C_Beijing_%2820220222124539%29.jpg/960px-Zam_Zam_Pakistani_Traditional_Food_Restaurant_at_Jingshuyuan%2C_Beijing_%2820220222124539%29.jpg",
       "id": "tayyabs",
       "icon": "🕌",
       "name": "Tayyabs",
@@ -380,7 +380,7 @@
       "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Tayyabs+Whitechapel"
     },
     {
-      "image": "https://images.unsplash.com/photo-1544025162-d76694265947?w=600&q=80",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0a/Sultan_Kebab%2C_Sultan_Turkish_Restaurant%2C_Bussorah_Street_%28201928%29.jpg/960px-Sultan_Kebab%2C_Sultan_Turkish_Restaurant%2C_Bussorah_Street_%28201928%29.jpg",
       "id": "efes-whitechapel",
       "icon": "🕌",
       "name": "Efes Whitechapel",
@@ -394,7 +394,7 @@
       "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Efes+Whitechapel"
     },
     {
-      "image": "https://images.unsplash.com/photo-1509042239860-f550ce710b93?w=600&q=80",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/59/Barista_Coffee_NTU_Store_20190615.jpg/960px-Barista_Coffee_NTU_Store_20190615.jpg",
       "id": "prufrock",
       "icon": "☕",
       "name": "Prufrock Coffee",
@@ -408,7 +408,7 @@
       "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Prufrock+Coffee+Farringdon"
     },
     {
-      "image": "https://images.unsplash.com/photo-1511920170033-f8396924c348?w=600&q=80",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2e/Bucket_List_Coffee_Roastery%2C_Amherstburg%2C_Ontario%2C_2025-06-03.jpg/960px-Bucket_List_Coffee_Roastery%2C_Amherstburg%2C_Ontario%2C_2025-06-03.jpg",
       "id": "ozone",
       "icon": "☕",
       "name": "Ozone Coffee Roasters",
@@ -422,7 +422,7 @@
       "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Ozone+Coffee+Roasters+Shoreditch"
     },
     {
-      "image": "https://images.unsplash.com/photo-1513104890138-7c749659a591?w=600&q=80",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0a/Cntral_Market_Pizza_Hut_food_and_drinks_16-12-2024.jpg/960px-Cntral_Market_Pizza_Hut_food_and_drinks_16-12-2024.jpg",
       "id": "mercato-metropolitano",
       "icon": "🍕",
       "name": "Mercato Metropolitano",
@@ -436,7 +436,7 @@
       "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Mercato+Metropolitano+London"
     },
     {
-      "image": "https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=600&q=80",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/16/Plastic_butcher%2C_Seven_Dials_Market_2025-07-16.jpg/960px-Plastic_butcher%2C_Seven_Dials_Market_2025-07-16.jpg",
       "id": "seven-dials-market",
       "icon": "🍔",
       "name": "Seven Dials Market",
@@ -450,7 +450,7 @@
       "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Seven+Dials+Market"
     },
     {
-      "image": "https://images.unsplash.com/photo-1509365465985-25d11c17e812?w=600&q=80",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8c/Dove%2C_Hackney%2C_E8_%282374338803%29.jpg/960px-Dove%2C_Hackney%2C_E8_%282374338803%29.jpg",
       "id": "broadway-market",
       "icon": "🥐",
       "name": "Broadway Market",
