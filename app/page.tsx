@@ -1,119 +1,508 @@
-import type { Metadata } from "next";
-import { Wifi } from "lucide-react";
-import HeroSection from "@/components/HeroSection";
-import CategoryCard from "@/components/CategoryCard";
+'use client';
 
-export const metadata: Metadata = {
-  title: "TAP LONDON | Smart NFC London Tourism Guide",
-  description: "Tap your TAP LONDON NFC souvenir and discover London's best attractions, food, shopping, transport, trusted services, and offers."
-};
+import Link from 'next/link';
+import Image from 'next/image';
+import { useEffect, useState } from 'react';
 
-const categories = [
+const CATEGORY_CARDS = [
   {
-    href: "/places",
-    label: "Best Places",
-    description: "Top attractions, hidden gems, photo spots, and free things to do.",
-    icon: "landmark"
+    label: 'Best Places',
+    sub: 'Top attractions, hidden gems & photo spots',
+    href: '/places',
+    emoji: '🏛️',
+    image: 'https://images.pexels.com/photos/460672/pexels-photo-460672.jpeg?auto=compress&cs=tinysrgb&w=640',
   },
   {
-    href: "/food",
-    label: "Food & Drinks",
-    description: "Restaurants, halal food, coffee shops, and local favourites.",
-    icon: "utensils"
+    label: 'Food & Drinks',
+    sub: 'Restaurants, halal food & local favourites',
+    href: '/food',
+    emoji: '🍽️',
+    image: 'https://images.pexels.com/photos/1640777/pexels-photo-1640777.jpeg?auto=compress&cs=tinysrgb&w=640',
   },
   {
-    href: "/shopping",
-    label: "Shopping",
-    description: "Iconic streets, markets, department stores, and gifts.",
-    icon: "shopping"
+    label: 'Shopping',
+    sub: 'Luxury streets, markets & hidden gems',
+    href: '/shopping',
+    emoji: '🛍️',
+    image: 'https://images.pexels.com/photos/1005638/pexels-photo-1005638.jpeg?auto=compress&cs=tinysrgb&w=640',
   },
   {
-    href: "/transport",
-    label: "Transport",
-    description: "Tube, bus, train, taxi, maps, and smart traveller links.",
-    icon: "bus"
+    label: 'Transport',
+    sub: 'Tube, bus, taxi & travel tips',
+    href: '/transport',
+    emoji: '🚇',
+    image: 'https://images.pexels.com/photos/5765/london-street-landmark-double-decker.jpg?auto=compress&cs=tinysrgb&w=640',
   },
   {
-    href: "/services",
-    label: "Services",
-    description: "Money exchange advice, emergency numbers, and scam safety.",
-    icon: "services"
+    label: '🕌 Muslim Guide',
+    sub: 'Halal food, mosques & prayer rooms',
+    href: '/muslim',
+    emoji: '🕌',
+    image: 'https://images.pexels.com/photos/1537086/pexels-photo-1537086.jpeg?auto=compress&cs=tinysrgb&w=640',
   },
   {
-    href: "/offers",
-    label: "Offers",
-    description: "NFC-triggered partner discounts and future visitor perks.",
-    icon: "offers"
-  }
-] as const;
+    label: '🚨 Emergency Help',
+    sub: 'Safety tips, scam alerts & emergency numbers',
+    href: '/emergency',
+    emoji: '🚨',
+    image: 'https://images.pexels.com/photos/63901/pexels-photo-63901.jpeg?auto=compress&cs=tinysrgb&w=640',
+  },
+  {
+    label: 'Trusted Services',
+    sub: 'Money exchange, safety & local advice',
+    href: '/services',
+    emoji: '✅',
+    image: 'https://images.pexels.com/photos/164527/pexels-photo-164527.jpeg?auto=compress&cs=tinysrgb&w=640',
+  },
+  {
+    label: 'Offers & Deals',
+    sub: 'Partner discounts & NFC promotions',
+    href: '/offers',
+    emoji: '🎁',
+    image: 'https://images.pexels.com/photos/5632399/pexels-photo-5632399.jpeg?auto=compress&cs=tinysrgb&w=640',
+  },
+];
+
+const HOW_IT_WORKS = [
+  { step: '1', icon: '📱', title: 'Tap the souvenir', desc: 'Hold your phone near the TAP LONDON NFC product — keyring, card, tote bag, or coaster.' },
+  { step: '2', icon: '🌐', title: 'Open the guide', desc: 'Your browser opens taplondon.co.uk instantly. No app, no login, no delay.' },
+  { step: '3', icon: '🗺️', title: 'Choose a section', desc: 'Find places, food, shopping, transport, or emergency help in seconds.' },
+  { step: '4', icon: '🎉', title: 'Enjoy London', desc: 'Use real directions, trusted tips, halal guides and future partner discounts.' },
+];
 
 export default function HomePage() {
-  return (
-    <>
-      <HeroSection />
+  const [visible, setVisible] = useState(false);
 
-      <section className="premium-band px-4 py-16 sm:px-6 lg:px-8">
-        <div className="mx-auto max-w-7xl">
-          <div className="max-w-2xl">
-            <p className="text-sm font-bold uppercase tracking-[0.18em] text-gold">Explore by mood</p>
-            <h2 className="mt-3 font-heading text-4xl font-bold text-navy sm:text-5xl">Everything a visitor needs after one tap.</h2>
+  useEffect(() => {
+    const timer = setTimeout(() => setVisible(true), 100);
+    return () => clearTimeout(timer);
+  }, []);
+
+  return (
+    <main>
+      {/* ── HERO ── */}
+      <section
+        style={{
+          position: 'relative',
+          minHeight: '100vh',
+          display: 'flex',
+          flexDirection: 'column',
+          alignItems: 'center',
+          justifyContent: 'center',
+          overflow: 'hidden',
+          textAlign: 'center',
+          padding: '0 20px',
+        }}
+      >
+        {/* Background image */}
+        <div
+          style={{
+            position: 'absolute',
+            inset: 0,
+            backgroundImage: `url('https://images.pexels.com/photos/672532/pexels-photo-672532.jpeg?auto=compress&cs=tinysrgb&w=1280')`,
+            backgroundSize: 'cover',
+            backgroundPosition: 'center',
+            zIndex: 0,
+          }}
+        />
+        {/* Dark overlay */}
+        <div
+          style={{
+            position: 'absolute',
+            inset: 0,
+            background: 'linear-gradient(to bottom, rgba(0,0,0,0.55) 0%, rgba(26,26,46,0.88) 100%)',
+            zIndex: 1,
+          }}
+        />
+
+        {/* Hero content */}
+        <div
+          style={{
+            position: 'relative',
+            zIndex: 2,
+            opacity: visible ? 1 : 0,
+            transform: visible ? 'translateY(0)' : 'translateY(24px)',
+            transition: 'opacity 0.9s ease, transform 0.9s ease',
+          }}
+        >
+          {/* Badge */}
+          <div
+            style={{
+              display: 'inline-block',
+              background: 'rgba(201,168,76,0.18)',
+              border: '1px solid #c9a84c',
+              color: '#c9a84c',
+              borderRadius: '40px',
+              padding: '6px 18px',
+              fontSize: '0.75rem',
+              fontWeight: 600,
+              letterSpacing: '1.5px',
+              marginBottom: '24px',
+              textTransform: 'uppercase',
+            }}
+          >
+            🗺️ Smart NFC Tourist Guide
           </div>
-          <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-            {categories.map((category) => (
-              <CategoryCard key={category.href} {...category} />
+
+          <h1
+            style={{
+              fontFamily: "'Cormorant Garamond', serif",
+              fontSize: 'clamp(2.8rem, 8vw, 5.5rem)',
+              fontWeight: 700,
+              color: '#ffffff',
+              lineHeight: 1.1,
+              marginBottom: '16px',
+            }}
+          >
+            Welcome to London
+          </h1>
+
+          <p
+            style={{
+              fontFamily: "'DM Sans', sans-serif",
+              fontSize: 'clamp(1rem, 3vw, 1.3rem)',
+              color: 'rgba(255,255,255,0.8)',
+              marginBottom: '8px',
+            }}
+          >
+            TAP LONDON — Tap. Explore. Enjoy.
+          </p>
+          <p
+            style={{
+              fontFamily: "'DM Sans', sans-serif",
+              fontSize: '0.9rem',
+              color: 'rgba(255,255,255,0.5)',
+              marginBottom: '40px',
+            }}
+          >
+            Your smart guide to the greatest city in the world
+          </p>
+
+          {/* Buttons */}
+          <div style={{ display: 'flex', gap: '12px', justifyContent: 'center', flexWrap: 'wrap' }}>
+            <Link
+              href="/places"
+              style={{
+                background: '#c9a84c',
+                color: '#1a1a2e',
+                padding: '14px 32px',
+                borderRadius: '50px',
+                fontFamily: "'DM Sans', sans-serif",
+                fontWeight: 700,
+                fontSize: '0.95rem',
+                textDecoration: 'none',
+                letterSpacing: '0.5px',
+                transition: 'all 0.2s',
+              }}
+            >
+              Explore London →
+            </Link>
+            <Link
+              href="/muslim"
+              style={{
+                background: 'transparent',
+                color: '#ffffff',
+                padding: '14px 32px',
+                borderRadius: '50px',
+                border: '2px solid rgba(255,255,255,0.5)',
+                fontFamily: "'DM Sans', sans-serif",
+                fontWeight: 600,
+                fontSize: '0.95rem',
+                textDecoration: 'none',
+                transition: 'all 0.2s',
+              }}
+            >
+              🕌 Muslim Guide
+            </Link>
+          </div>
+        </div>
+
+        {/* Scroll arrow */}
+        <div
+          style={{
+            position: 'absolute',
+            bottom: '32px',
+            left: '50%',
+            transform: 'translateX(-50%)',
+            zIndex: 2,
+            color: 'rgba(255,255,255,0.4)',
+            fontSize: '1.5rem',
+            animation: 'bounce 2s infinite',
+          }}
+        >
+          ↓
+        </div>
+
+        <style>{`
+          @keyframes bounce {
+            0%, 100% { transform: translateX(-50%) translateY(0); }
+            50% { transform: translateX(-50%) translateY(8px); }
+          }
+        `}</style>
+      </section>
+
+      {/* ── CATEGORY CARDS ── */}
+      <section style={{ background: '#f9f7f2', padding: '64px 20px' }}>
+        <div style={{ maxWidth: '1100px', margin: '0 auto' }}>
+          <p
+            style={{
+              textAlign: 'center',
+              fontFamily: "'DM Sans', sans-serif",
+              fontSize: '0.75rem',
+              color: '#c9a84c',
+              fontWeight: 600,
+              letterSpacing: '2px',
+              textTransform: 'uppercase',
+              marginBottom: '12px',
+            }}
+          >
+            Everything you need
+          </p>
+          <h2
+            style={{
+              fontFamily: "'Cormorant Garamond', serif",
+              fontSize: 'clamp(2rem, 5vw, 3rem)',
+              color: '#1a1a2e',
+              textAlign: 'center',
+              marginBottom: '48px',
+              fontWeight: 700,
+            }}
+          >
+            One tap. All of London.
+          </h2>
+
+          <div
+            style={{
+              display: 'grid',
+              gridTemplateColumns: 'repeat(auto-fill, minmax(260px, 1fr))',
+              gap: '20px',
+            }}
+          >
+            {CATEGORY_CARDS.map((card) => (
+              <Link
+                key={card.href}
+                href={card.href}
+                style={{ textDecoration: 'none' }}
+              >
+                <div
+                  style={{
+                    position: 'relative',
+                    borderRadius: '16px',
+                    overflow: 'hidden',
+                    height: '220px',
+                    boxShadow: '0 4px 20px rgba(0,0,0,0.12)',
+                    transition: 'transform 0.25s ease, box-shadow 0.25s ease',
+                    cursor: 'pointer',
+                  }}
+                  onMouseEnter={e => {
+                    (e.currentTarget as HTMLDivElement).style.transform = 'translateY(-6px) scale(1.02)';
+                    (e.currentTarget as HTMLDivElement).style.boxShadow = '0 12px 32px rgba(0,0,0,0.2)';
+                  }}
+                  onMouseLeave={e => {
+                    (e.currentTarget as HTMLDivElement).style.transform = 'translateY(0) scale(1)';
+                    (e.currentTarget as HTMLDivElement).style.boxShadow = '0 4px 20px rgba(0,0,0,0.12)';
+                  }}
+                >
+                  {/* Photo */}
+                  <img
+                    src={card.image}
+                    alt={card.label}
+                    style={{ width: '100%', height: '100%', objectFit: 'cover', position: 'absolute', inset: 0 }}
+                  />
+                  {/* Gradient overlay */}
+                  <div
+                    style={{
+                      position: 'absolute',
+                      inset: 0,
+                      background: 'linear-gradient(to top, rgba(26,26,46,0.92) 0%, rgba(26,26,46,0.3) 60%, transparent 100%)',
+                    }}
+                  />
+                  {/* Text */}
+                  <div
+                    style={{
+                      position: 'absolute',
+                      bottom: 0,
+                      left: 0,
+                      right: 0,
+                      padding: '20px 18px',
+                    }}
+                  >
+                    <div style={{ fontSize: '1.6rem', marginBottom: '4px' }}>{card.emoji}</div>
+                    <div
+                      style={{
+                        fontFamily: "'Cormorant Garamond', serif",
+                        fontSize: '1.2rem',
+                        fontWeight: 700,
+                        color: '#ffffff',
+                        marginBottom: '4px',
+                      }}
+                    >
+                      {card.label}
+                    </div>
+                    <div
+                      style={{
+                        fontFamily: "'DM Sans', sans-serif",
+                        fontSize: '0.72rem',
+                        color: 'rgba(255,255,255,0.65)',
+                      }}
+                    >
+                      {card.sub} →
+                    </div>
+                  </div>
+                </div>
+              </Link>
             ))}
           </div>
         </div>
       </section>
 
-      <section className="bg-white px-4 py-16 sm:px-6 lg:px-8">
-        <div className="mx-auto grid max-w-7xl gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:items-center">
-          <div>
-            <p className="text-sm font-bold uppercase tracking-[0.18em] text-gold">About TAP LONDON</p>
-            <h2 className="mt-3 font-heading text-4xl font-bold text-navy sm:text-5xl">A souvenir that opens the city.</h2>
-            <p className="mt-5 text-lg leading-8 text-ink/72">
-              TAP LONDON turns a physical London souvenir into a smart travel companion. Tourists tap an NFC keyring, tote bag, card, or coaster with their phone and instantly land on a mobile guide built for the moment: where to go, what to eat, how to move, and how to stay safe.
-            </p>
-            <p className="mt-4 text-lg leading-8 text-ink/72">
-              No app download, no account, no friction. Just tap, explore, and enjoy London with practical recommendations that can be updated from simple JSON files.
-            </p>
-          </div>
+      {/* ── HOW IT WORKS ── */}
+      <section style={{ background: '#1a1a2e', padding: '64px 20px' }}>
+        <div style={{ maxWidth: '900px', margin: '0 auto' }}>
+          <p
+            style={{
+              textAlign: 'center',
+              fontFamily: "'DM Sans', sans-serif",
+              fontSize: '0.75rem',
+              color: '#c9a84c',
+              fontWeight: 600,
+              letterSpacing: '2px',
+              textTransform: 'uppercase',
+              marginBottom: '12px',
+            }}
+          >
+            Smart NFC Souvenir
+          </p>
+          <h2
+            style={{
+              fontFamily: "'Cormorant Garamond', serif",
+              fontSize: 'clamp(2rem, 5vw, 2.8rem)',
+              color: '#ffffff',
+              textAlign: 'center',
+              marginBottom: '48px',
+              fontWeight: 700,
+            }}
+          >
+            A souvenir that opens the city
+          </h2>
 
-          <div className="rounded-lg border border-navy/10 bg-cream p-6 shadow-premium">
-            <div className="grid gap-4">
-              {[
-                ["1", "Tap the souvenir", "Hold a phone near the TAP LONDON NFC product."],
-                ["2", "Open the guide", "The browser opens taplondon.co.uk instantly."],
-                ["3", "Choose a section", "Find places, food, shopping, transport, services, or offers."],
-                ["4", "Enjoy London", "Use directions, practical tips, and future discounts while exploring."]
-              ].map(([step, title, copy]) => (
-                <div key={step} className="flex gap-4 rounded-lg bg-white p-4">
-                  <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-navy text-lg font-black text-gold">{step}</span>
-                  <span>
-                    <span className="block font-heading text-xl font-bold text-navy">{title}</span>
-                    <span className="mt-1 block text-sm leading-6 text-ink/65">{copy}</span>
-                  </span>
+          <div
+            style={{
+              display: 'grid',
+              gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))',
+              gap: '24px',
+            }}
+          >
+            {HOW_IT_WORKS.map((item) => (
+              <div
+                key={item.step}
+                style={{
+                  background: 'rgba(255,255,255,0.04)',
+                  border: '1px solid rgba(201,168,76,0.2)',
+                  borderRadius: '14px',
+                  padding: '28px 20px',
+                  textAlign: 'center',
+                }}
+              >
+                <div style={{ fontSize: '2rem', marginBottom: '12px' }}>{item.icon}</div>
+                <div
+                  style={{
+                    fontFamily: "'Cormorant Garamond', serif",
+                    fontSize: '1.1rem',
+                    fontWeight: 700,
+                    color: '#c9a84c',
+                    marginBottom: '8px',
+                  }}
+                >
+                  {item.title}
                 </div>
-              ))}
-            </div>
+                <p
+                  style={{
+                    fontFamily: "'DM Sans', sans-serif",
+                    fontSize: '0.82rem',
+                    color: 'rgba(255,255,255,0.6)',
+                    lineHeight: 1.6,
+                  }}
+                >
+                  {item.desc}
+                </p>
+              </div>
+            ))}
           </div>
         </div>
       </section>
 
-      <section className="bg-navy px-4 py-16 text-white sm:px-6 lg:px-8">
-        <div className="mx-auto grid max-w-7xl gap-8 lg:grid-cols-[1fr_1fr] lg:items-center">
-          <div>
-            <p className="text-sm font-bold uppercase tracking-[0.18em] text-gold">How it works</p>
-            <h2 className="mt-3 font-heading text-4xl font-bold sm:text-5xl">NFC, explained simply.</h2>
-          </div>
-          <div className="flex gap-4 rounded-lg border border-white/10 bg-white/8 p-5">
-            <Wifi aria-hidden="true" className="mt-1 shrink-0 text-gold" size={32} />
-            <p className="text-base leading-8 text-white/78">
-              NFC is the same tap technology used for contactless payments and transport gates. TAP LONDON products contain a tiny chip that opens this website when touched by a modern smartphone. It does not need batteries, pairing, or an app.
-            </p>
+      {/* ── ABOUT ── */}
+      <section style={{ background: '#f9f7f2', padding: '64px 20px' }}>
+        <div style={{ maxWidth: '700px', margin: '0 auto', textAlign: 'center' }}>
+          <h2
+            style={{
+              fontFamily: "'Cormorant Garamond', serif",
+              fontSize: 'clamp(1.8rem, 4vw, 2.6rem)',
+              color: '#1a1a2e',
+              marginBottom: '20px',
+              fontWeight: 700,
+            }}
+          >
+            About TAP LONDON
+          </h2>
+          <p
+            style={{
+              fontFamily: "'DM Sans', sans-serif",
+              fontSize: '0.95rem',
+              color: '#444',
+              lineHeight: 1.8,
+              marginBottom: '16px',
+            }}
+          >
+            TAP LONDON turns a physical London souvenir into a smart travel companion. Tourists tap an NFC keyring, tote bag, card, or coaster with their phone and instantly land on a mobile guide built for the moment.
+          </p>
+          <p
+            style={{
+              fontFamily: "'DM Sans', sans-serif",
+              fontSize: '0.95rem',
+              color: '#444',
+              lineHeight: 1.8,
+              marginBottom: '32px',
+            }}
+          >
+            No app download. No account. No friction. Just tap, explore, and enjoy London — including a dedicated Muslim Tourist Guide and Tourist Emergency Help, features you won&apos;t find on any other souvenir.
+          </p>
+          <div style={{ display: 'flex', gap: '12px', justifyContent: 'center', flexWrap: 'wrap' }}>
+            <Link
+              href="/places"
+              style={{
+                background: '#1a1a2e',
+                color: '#c9a84c',
+                padding: '12px 28px',
+                borderRadius: '50px',
+                fontFamily: "'DM Sans', sans-serif",
+                fontWeight: 600,
+                fontSize: '0.875rem',
+                textDecoration: 'none',
+              }}
+            >
+              Explore London
+            </Link>
+            <Link
+              href="/emergency"
+              style={{
+                background: 'transparent',
+                color: '#1a1a2e',
+                padding: '12px 28px',
+                borderRadius: '50px',
+                border: '2px solid #1a1a2e',
+                fontFamily: "'DM Sans', sans-serif",
+                fontWeight: 600,
+                fontSize: '0.875rem',
+                textDecoration: 'none',
+              }}
+            >
+              🚨 Emergency Help
+            </Link>
           </div>
         </div>
       </section>
-    </>
+    </main>
   );
 }
