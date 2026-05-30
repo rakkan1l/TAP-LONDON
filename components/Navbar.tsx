@@ -1,301 +1,115 @@
 "use client";
-import { useState, useRef, useEffect } from "react";
 
-interface Message {
-  role: "user" | "assistant";
-  content: string;
+import Link from "next/link";
+import { usePathname } from "next/navigation";
+import { Menu, X } from "lucide-react";
+import { useState } from "react";
+
+const navLinks = [
+  { href: "/places", label: "Places", emoji: null, color: null },
+  { href: "/food", label: "Food", emoji: null, color: null },
+  { href: "/shopping", label: "Shopping", emoji: null, color: null },
+  { href: "/transport", label: "Transport", emoji: null, color: null },
+  { href: "/muslim", label: "Muslim", emoji: "", color: "muslim" },
+  { href: "/emergency", label: "Emergency", emoji: "", color: "emergency" },
+  { href: "/services", label: "Services", emoji: null, color: null },
+  { href: "/offers", label: "Offers", emoji: null, color: null },
+];
+
+function BridgeIcon() {
+  return (
+    <svg aria-hidden="true" className="h-8 w-8 text-gold" viewBox="0 0 48 48" fill="none">
+      <circle cx="24" cy="24" r="22" stroke="currentColor" strokeWidth="3" />
+      <path d="M9 31h30M14 31V17h6v14M28 31V17h6v14M18 17l6-5 6 5M12 24c6-5 18-5 24 0" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" />
+    </svg>
+  );
 }
 
-export default function NovaAssistant() {
+export default function Navbar() {
+  const pathname = usePathname();
   const [open, setOpen] = useState(false);
-  const [messages, setMessages] = useState<Message[]>([
-    {
-      role: "assistant",
-      content: "Hi! I'm NOVA 🗺️ your TAP LONDON AI guide. Ask me anything about London — places, halal food, transport, or emergency help!",
-    },
-  ]);
-  const [input, setInput] = useState("");
-  const [loading, setLoading] = useState(false);
-  const bottomRef = useRef<HTMLDivElement>(null);
 
-  useEffect(() => {
-    bottomRef.current?.scrollIntoView({ behavior: "smooth" });
-  }, [messages]);
+  function getDesktopClass(color: string | null, active: boolean) {
+    if (color === "emergency") return "text-red-600 hover:text-red-700 font-bold";
+    if (color === "muslim") return "text-emerald-600 hover:text-emerald-700 font-bold";
+    return "text-navy/80 hover:text-navy";
+  }
 
-  async function sendMessage() {
-    if (!input.trim() || loading) return;
-    const userMsg: Message = { role: "user", content: input.trim() };
-    setMessages((prev) => [...prev, userMsg]);
-    setInput("");
-    setLoading(true);
-
-    try {
-      const res = await fetch("/api/nova", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ message: userMsg.content, history: messages }),
-      });
-      const data = await res.json();
-      setMessages((prev) => [...prev, { role: "assistant", content: data.reply || "Try again! 🗺️" }]);
-    } catch {
-      setMessages((prev) => [...prev, { role: "assistant", content: "Connection issue. Try again! 🗺️" }]);
-    } finally {
-      setLoading(false);
-    }
+  function getMobileClass(color: string | null, active: boolean) {
+    if (active) return "bg-navy text-white";
+    if (color === "emergency") return "bg-red-50 text-red-600 hover:bg-red-100 border border-red-200";
+    if (color === "muslim") return "bg-emerald-50 text-emerald-700 hover:bg-emerald-100 border border-emerald-200";
+    return "bg-white text-navy hover:bg-white/70";
   }
 
   return (
-    <>
-      <style>{`
-        .nova-popup {
-          position: fixed;
-          bottom: 160px;
-          right: 16px;
-          z-index: 60;
-          width: 320px;
-          max-width: calc(100vw - 32px);
-          background: #ffffff;
-          border-radius: 20px;
-          box-shadow: 0 8px 40px rgba(0,0,0,0.2);
-          border: 1px solid rgba(201,168,76,0.3);
-          display: flex;
-          flex-direction: column;
-          overflow: hidden;
-          max-height: 480px;
-        }
-        @media (min-width: 768px) {
-          .nova-popup {
-            width: 400px;
-            max-height: 600px;
-            bottom: 100px;
-            right: 32px;
-          }
-        }
-        @media (min-width: 1024px) {
-          .nova-popup {
-            width: 440px;
-            max-height: 700px;
-            bottom: 80px;
-            right: 40px;
-          }
-        }
-        .nova-btn {
-          position: fixed;
-          bottom: 90px;
-          right: 20px;
-          z-index: 60;
-          width: 56px;
-          height: 56px;
-          border-radius: 50%;
-          background: linear-gradient(135deg, #1a1a2e, #2d2d4e);
-          border: 2px solid #c9a84c;
-          cursor: pointer;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          box-shadow: 0 4px 20px rgba(0,0,0,0.3);
-          overflow: hidden;
-          padding: 0;
-        }
-        @media (min-width: 768px) {
-          .nova-btn {
-            bottom: 40px;
-            right: 40px;
-            width: 64px;
-            height: 64px;
-          }
-        }
-        .nova-messages {
-          flex: 1;
-          overflow-y: auto;
-          padding: 14px;
-          display: flex;
-          flex-direction: column;
-          gap: 10px;
-          background: #f9f7f2;
-        }
-        .nova-quick {
-          padding: 8px 10px;
-          background: #ffffff;
-          border-top: 1px solid rgba(0,0,0,0.06);
-          display: flex;
-          gap: 6px;
-          overflow-x: auto;
-          flex-shrink: 0;
-        }
-        .nova-input-area {
-          padding: 10px;
-          background: #ffffff;
-          border-top: 1px solid rgba(0,0,0,0.06);
-          display: flex;
-          gap: 8px;
-          flex-shrink: 0;
-        }
-      `}</style>
-
-      {/* NOVA floating button */}
-      <button
-        onClick={() => setOpen((v) => !v)}
-        aria-label="Open NOVA AI Assistant"
-        className="nova-btn"
+    <header className="sticky top-0 z-50 border-b border-white/35 bg-cream/86 shadow-sm backdrop-blur-xl">
+      <nav
+        className="mx-auto flex max-w-7xl items-center justify-between px-4 py-3 sm:px-6 lg:px-8"
+        aria-label="Main navigation"
       >
-        <img
-          src="/ailogo.png"
-          alt="NOVA"
-          style={{ width: "100%", height: "100%", objectFit: "cover" }}
-          onError={(e) => {
-            (e.currentTarget as HTMLImageElement).style.display = "none";
-            if (e.currentTarget.parentElement) {
-              e.currentTarget.parentElement.style.fontSize = "1.6rem";
-              e.currentTarget.parentElement.innerHTML = "🤖";
-            }
-          }}
-        />
-      </button>
+        <Link
+          href="/"
+          className="group flex min-h-12 items-center gap-3"
+          onClick={() => setOpen(false)}
+        >
+          <BridgeIcon />
+          <span className="font-heading text-xl font-bold tracking-[0.08em] text-navy">
+            TAP LONDON
+          </span>
+        </Link>
 
-      {/* Chat popup */}
+        {/* Desktop nav */}
+        <div className="hidden items-center gap-5 lg:flex">
+          {navLinks.map((link) => {
+            const active = pathname === link.href;
+            return (
+              <Link
+                key={link.href}
+                href={link.href}
+                className={`nav-link relative min-h-11 py-3 text-sm font-semibold uppercase tracking-[0.14em] transition ${getDesktopClass(link.color, active)}`}
+                data-active={active}
+              >
+                {link.emoji && <span className="mr-1">{link.emoji}</span>}
+                {link.label}
+              </Link>
+            );
+          })}
+        </div>
+
+        {/* Hamburger */}
+        <button
+          type="button"
+          className="inline-flex h-12 w-12 items-center justify-center rounded-full border border-navy/15 bg-white text-navy shadow-sm lg:hidden"
+          onClick={() => setOpen((v) => !v)}
+          aria-label={open ? "Close menu" : "Open menu"}
+          aria-expanded={open}
+        >
+          {open ? <X aria-hidden="true" size={22} /> : <Menu aria-hidden="true" size={22} />}
+        </button>
+      </nav>
+
+      {/* Mobile menu */}
       {open && (
-        <div className="nova-popup">
-
-          {/* Header */}
-          <div style={{
-            background: "linear-gradient(135deg, #1a1a2e, #2d2d4e)",
-            padding: "14px 16px",
-            display: "flex",
-            alignItems: "center",
-            gap: "10px",
-            flexShrink: 0,
-          }}>
-            <div style={{
-              width: "40px", height: "40px", borderRadius: "50%",
-              overflow: "hidden", border: "2px solid #c9a84c",
-              flexShrink: 0, background: "#c9a84c",
-              display: "flex", alignItems: "center", justifyContent: "center",
-            }}>
-              <img
-                src="/ailogo.png"
-                alt="NOVA"
-                style={{ width: "40px", height: "40px", objectFit: "cover" }}
-                onError={(e) => {
-                  (e.currentTarget as HTMLImageElement).style.display = "none";
-                  if (e.currentTarget.parentElement) e.currentTarget.parentElement.textContent = "🤖";
-                }}
-              />
-            </div>
-            <div style={{ flex: 1 }}>
-              <div style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "1.1rem", fontWeight: 700, color: "#c9a84c" }}>
-                NOVA
-              </div>
-              <div style={{ fontFamily: "'DM Sans', sans-serif", fontSize: "0.65rem", color: "rgba(255,255,255,0.5)" }}>
-                TAP LONDON AI Guide • Online
-              </div>
-            </div>
-            <button
-              onClick={() => setOpen(false)}
-              style={{
-                background: "none", border: "none",
-                color: "rgba(255,255,255,0.6)", fontSize: "1.2rem",
-                cursor: "pointer", padding: "4px", lineHeight: 1,
-              }}
-            >✕</button>
-          </div>
-
-          {/* Messages */}
-          <div className="nova-messages">
-            {messages.map((msg, i) => (
-              <div key={i} style={{ display: "flex", justifyContent: msg.role === "user" ? "flex-end" : "flex-start" }}>
-                <div style={{
-                  maxWidth: "84%",
-                  background: msg.role === "user" ? "#1a1a2e" : "#ffffff",
-                  color: msg.role === "user" ? "#c9a84c" : "#1a1a2e",
-                  borderRadius: msg.role === "user" ? "16px 16px 4px 16px" : "16px 16px 16px 4px",
-                  padding: "10px 13px",
-                  fontFamily: "'DM Sans', sans-serif",
-                  fontSize: "0.83rem",
-                  lineHeight: 1.55,
-                  boxShadow: "0 2px 8px rgba(0,0,0,0.06)",
-                  border: msg.role === "assistant" ? "1px solid rgba(201,168,76,0.15)" : "none",
-                }}>
-                  {msg.content}
-                </div>
-              </div>
-            ))}
-            {loading && (
-              <div style={{ display: "flex", justifyContent: "flex-start" }}>
-                <div style={{
-                  background: "#ffffff",
-                  borderRadius: "16px 16px 16px 4px",
-                  padding: "10px 14px",
-                  fontSize: "0.82rem",
-                  color: "#888",
-                  border: "1px solid rgba(201,168,76,0.15)",
-                  fontFamily: "'DM Sans', sans-serif",
-                }}>
-                  NOVA is thinking... 🤔
-                </div>
-              </div>
-            )}
-            <div ref={bottomRef} />
-          </div>
-
-          {/* Quick questions */}
-          <div className="nova-quick">
-            {["Best places?", "Halal food?", "Tube tips?", "Emergency?", "Free things?", "Mosques?"].map((q) => (
-              <button key={q} onClick={() => setInput(q)} style={{
-                background: "rgba(201,168,76,0.1)",
-                border: "1px solid rgba(201,168,76,0.3)",
-                borderRadius: "20px",
-                padding: "4px 10px",
-                fontFamily: "'DM Sans', sans-serif",
-                fontSize: "0.7rem",
-                color: "#1a1a2e",
-                cursor: "pointer",
-                whiteSpace: "nowrap",
-                fontWeight: 600,
-              }}>{q}</button>
-            ))}
-          </div>
-
-          {/* Input */}
-          <div className="nova-input-area">
-            <input
-              value={input}
-              onChange={(e) => setInput(e.target.value)}
-              onKeyDown={(e) => e.key === "Enter" && sendMessage()}
-              placeholder="Ask about London..."
-              style={{
-                flex: 1,
-                background: "#f9f7f2",
-                border: "1px solid rgba(201,168,76,0.3)",
-                borderRadius: "50px",
-                padding: "9px 16px",
-                fontFamily: "'DM Sans', sans-serif",
-                fontSize: "0.83rem",
-                color: "#1a1a2e",
-                outline: "none",
-              }}
-            />
-            <button
-              onClick={sendMessage}
-              disabled={loading || !input.trim()}
-              style={{
-                background: input.trim() ? "#c9a84c" : "#ddd",
-                border: "none",
-                borderRadius: "50%",
-                width: "38px",
-                height: "38px",
-                cursor: input.trim() ? "pointer" : "not-allowed",
-                fontSize: "0.9rem",
-                flexShrink: 0,
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "center",
-                transition: "background 0.2s",
-              }}
-            >➤</button>
+        <div className="border-t border-navy/10 bg-cream px-4 pb-5 pt-2 lg:hidden">
+          <div className="mx-auto grid max-w-7xl gap-2">
+            {navLinks.map((link) => {
+              const active = pathname === link.href;
+              return (
+                <Link
+                  key={link.href}
+                  href={link.href}
+                  onClick={() => setOpen(false)}
+                  className={`flex min-h-12 items-center rounded-full px-5 text-base font-semibold transition ${getMobileClass(link.color, active)}`}
+                >
+                  {link.emoji && <span className="mr-2">{link.emoji}</span>}
+                  {link.label}
+                </Link>
+              );
+            })}
           </div>
         </div>
       )}
-    </>
+    </header>
   );
 }
