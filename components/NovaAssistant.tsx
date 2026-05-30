@@ -46,38 +46,108 @@ export default function NovaAssistant() {
 
   return (
     <>
+      <style>{`
+        .nova-popup {
+          position: fixed;
+          bottom: 160px;
+          right: 16px;
+          z-index: 60;
+          width: 320px;
+          max-width: calc(100vw - 32px);
+          background: #ffffff;
+          border-radius: 20px;
+          box-shadow: 0 8px 40px rgba(0,0,0,0.2);
+          border: 1px solid rgba(201,168,76,0.3);
+          display: flex;
+          flex-direction: column;
+          overflow: hidden;
+          max-height: 480px;
+        }
+        @media (min-width: 768px) {
+          .nova-popup {
+            width: 400px;
+            max-height: 600px;
+            bottom: 100px;
+            right: 32px;
+          }
+        }
+        @media (min-width: 1024px) {
+          .nova-popup {
+            width: 440px;
+            max-height: 700px;
+            bottom: 80px;
+            right: 40px;
+          }
+        }
+        .nova-btn {
+          position: fixed;
+          bottom: 90px;
+          right: 20px;
+          z-index: 60;
+          width: 56px;
+          height: 56px;
+          border-radius: 50%;
+          background: linear-gradient(135deg, #1a1a2e, #2d2d4e);
+          border: 2px solid #c9a84c;
+          cursor: pointer;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+          overflow: hidden;
+          padding: 0;
+        }
+        @media (min-width: 768px) {
+          .nova-btn {
+            bottom: 40px;
+            right: 40px;
+            width: 64px;
+            height: 64px;
+          }
+        }
+        .nova-messages {
+          flex: 1;
+          overflow-y: auto;
+          padding: 14px;
+          display: flex;
+          flex-direction: column;
+          gap: 10px;
+          background: #f9f7f2;
+        }
+        .nova-quick {
+          padding: 8px 10px;
+          background: #ffffff;
+          border-top: 1px solid rgba(0,0,0,0.06);
+          display: flex;
+          gap: 6px;
+          overflow-x: auto;
+          flex-shrink: 0;
+        }
+        .nova-input-area {
+          padding: 10px;
+          background: #ffffff;
+          border-top: 1px solid rgba(0,0,0,0.06);
+          display: flex;
+          gap: 8px;
+          flex-shrink: 0;
+        }
+      `}</style>
+
       {/* NOVA floating button */}
       <button
         onClick={() => setOpen((v) => !v)}
         aria-label="Open NOVA AI Assistant"
-        style={{
-          position: "fixed",
-          bottom: "90px",
-          right: "20px",
-          zIndex: 60,
-          width: "56px",
-          height: "56px",
-          borderRadius: "50%",
-          background: "linear-gradient(135deg, #1a1a2e, #2d2d4e)",
-          border: "2px solid #c9a84c",
-          cursor: "pointer",
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "center",
-          boxShadow: "0 4px 20px rgba(0,0,0,0.3)",
-          overflow: "hidden",
-          padding: 0,
-        }}
+        className="nova-btn"
       >
         <img
           src="/ailogo.png"
           alt="NOVA"
-          style={{ width: "56px", height: "56px", borderRadius: "50%", objectFit: "cover" }}
+          style={{ width: "100%", height: "100%", objectFit: "cover" }}
           onError={(e) => {
             (e.currentTarget as HTMLImageElement).style.display = "none";
             if (e.currentTarget.parentElement) {
-              e.currentTarget.parentElement.style.fontSize = "1.4rem";
-              e.currentTarget.parentElement.textContent = "🤖";
+              e.currentTarget.parentElement.style.fontSize = "1.6rem";
+              e.currentTarget.parentElement.innerHTML = "🤖";
             }
           }}
         />
@@ -85,25 +155,7 @@ export default function NovaAssistant() {
 
       {/* Chat popup */}
       {open && (
-        <div style={{
-          position: "fixed",
-          /* Mobile: sits above WhatsApp button */
-          bottom: "160px",
-          right: "16px",
-          zIndex: 60,
-          /* Mobile width */
-          width: "320px",
-          maxWidth: "calc(100vw - 32px)",
-          background: "#ffffff",
-          borderRadius: "20px",
-          boxShadow: "0 8px 40px rgba(0,0,0,0.2)",
-          border: "1px solid rgba(201,168,76,0.3)",
-          display: "flex",
-          flexDirection: "column",
-          overflow: "hidden",
-          /* Mobile: compact height / Desktop: tall */
-          maxHeight: "clamp(400px, 70vh, 700px)",
-        }}>
+        <div className="nova-popup">
 
           {/* Header */}
           <div style={{
@@ -115,7 +167,7 @@ export default function NovaAssistant() {
             flexShrink: 0,
           }}>
             <div style={{
-              width: "36px", height: "36px", borderRadius: "50%",
+              width: "40px", height: "40px", borderRadius: "50%",
               overflow: "hidden", border: "2px solid #c9a84c",
               flexShrink: 0, background: "#c9a84c",
               display: "flex", alignItems: "center", justifyContent: "center",
@@ -123,7 +175,7 @@ export default function NovaAssistant() {
               <img
                 src="/ailogo.png"
                 alt="NOVA"
-                style={{ width: "36px", height: "36px", objectFit: "cover" }}
+                style={{ width: "40px", height: "40px", objectFit: "cover" }}
                 onError={(e) => {
                   (e.currentTarget as HTMLImageElement).style.display = "none";
                   if (e.currentTarget.parentElement) e.currentTarget.parentElement.textContent = "🤖";
@@ -131,30 +183,25 @@ export default function NovaAssistant() {
               />
             </div>
             <div style={{ flex: 1 }}>
-              <div style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "1rem", fontWeight: 700, color: "#c9a84c" }}>
+              <div style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "1.1rem", fontWeight: 700, color: "#c9a84c" }}>
                 NOVA
               </div>
               <div style={{ fontFamily: "'DM Sans', sans-serif", fontSize: "0.65rem", color: "rgba(255,255,255,0.5)" }}>
                 TAP LONDON AI Guide • Online
               </div>
             </div>
-            <button onClick={() => setOpen(false)} style={{
-              background: "none", border: "none",
-              color: "rgba(255,255,255,0.5)", fontSize: "1.1rem",
-              cursor: "pointer", padding: "4px",
-            }}>✕</button>
+            <button
+              onClick={() => setOpen(false)}
+              style={{
+                background: "none", border: "none",
+                color: "rgba(255,255,255,0.6)", fontSize: "1.2rem",
+                cursor: "pointer", padding: "4px", lineHeight: 1,
+              }}
+            >✕</button>
           </div>
 
-          {/* Messages area — scrollable, fills available space */}
-          <div style={{
-            flex: 1,
-            overflowY: "auto",
-            padding: "14px",
-            display: "flex",
-            flexDirection: "column",
-            gap: "10px",
-            background: "#f9f7f2",
-          }}>
+          {/* Messages */}
+          <div className="nova-messages">
             {messages.map((msg, i) => (
               <div key={i} style={{ display: "flex", justifyContent: msg.role === "user" ? "flex-end" : "flex-start" }}>
                 <div style={{
@@ -164,7 +211,7 @@ export default function NovaAssistant() {
                   borderRadius: msg.role === "user" ? "16px 16px 4px 16px" : "16px 16px 16px 4px",
                   padding: "10px 13px",
                   fontFamily: "'DM Sans', sans-serif",
-                  fontSize: "0.82rem",
+                  fontSize: "0.83rem",
                   lineHeight: 1.55,
                   boxShadow: "0 2px 8px rgba(0,0,0,0.06)",
                   border: msg.role === "assistant" ? "1px solid rgba(201,168,76,0.15)" : "none",
@@ -192,15 +239,7 @@ export default function NovaAssistant() {
           </div>
 
           {/* Quick questions */}
-          <div style={{
-            padding: "8px 10px",
-            background: "#ffffff",
-            borderTop: "1px solid rgba(0,0,0,0.06)",
-            display: "flex",
-            gap: "6px",
-            overflowX: "auto",
-            flexShrink: 0,
-          }}>
+          <div className="nova-quick">
             {["Best places?", "Halal food?", "Tube tips?", "Emergency?", "Free things?", "Mosques?"].map((q) => (
               <button key={q} onClick={() => setInput(q)} style={{
                 background: "rgba(201,168,76,0.1)",
@@ -208,7 +247,7 @@ export default function NovaAssistant() {
                 borderRadius: "20px",
                 padding: "4px 10px",
                 fontFamily: "'DM Sans', sans-serif",
-                fontSize: "0.68rem",
+                fontSize: "0.7rem",
                 color: "#1a1a2e",
                 cursor: "pointer",
                 whiteSpace: "nowrap",
@@ -218,14 +257,7 @@ export default function NovaAssistant() {
           </div>
 
           {/* Input */}
-          <div style={{
-            padding: "10px",
-            background: "#ffffff",
-            borderTop: "1px solid rgba(0,0,0,0.06)",
-            display: "flex",
-            gap: "8px",
-            flexShrink: 0,
-          }}>
+          <div className="nova-input-area">
             <input
               value={input}
               onChange={(e) => setInput(e.target.value)}
@@ -236,9 +268,9 @@ export default function NovaAssistant() {
                 background: "#f9f7f2",
                 border: "1px solid rgba(201,168,76,0.3)",
                 borderRadius: "50px",
-                padding: "8px 14px",
+                padding: "9px 16px",
                 fontFamily: "'DM Sans', sans-serif",
-                fontSize: "0.82rem",
+                fontSize: "0.83rem",
                 color: "#1a1a2e",
                 outline: "none",
               }}
@@ -250,37 +282,20 @@ export default function NovaAssistant() {
                 background: input.trim() ? "#c9a84c" : "#ddd",
                 border: "none",
                 borderRadius: "50%",
-                width: "36px",
-                height: "36px",
+                width: "38px",
+                height: "38px",
                 cursor: input.trim() ? "pointer" : "not-allowed",
                 fontSize: "0.9rem",
                 flexShrink: 0,
                 display: "flex",
                 alignItems: "center",
                 justifyContent: "center",
+                transition: "background 0.2s",
               }}
             >➤</button>
           </div>
         </div>
       )}
-
-      {/* Desktop styles — wider and taller popup */}
-      <style>{`
-        @media (min-width: 1024px) {
-          .nova-popup {
-            width: 420px !important;
-            bottom: 100px !important;
-            right: 32px !important;
-            max-height: 680px !important;
-          }
-        }
-        @media (min-width: 768px) and (max-width: 1023px) {
-          .nova-popup {
-            width: 380px !important;
-            max-height: 600px !important;
-          }
-        }
-      `}</style>
     </>
   );
 }
