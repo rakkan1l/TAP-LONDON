@@ -29,17 +29,17 @@ export default function Navbar() {
   const pathname = usePathname();
   const [open, setOpen] = useState(false);
 
-  function getDesktopClass(color: string | null, active: boolean) {
-    if (color === "emergency") return "text-red-600 hover:text-red-700 font-bold";
-    if (color === "muslim") return "text-emerald-600 hover:text-emerald-700 font-bold";
-    return "text-navy/80 hover:text-navy";
+  function getDesktopStyle(color: string | null) {
+    if (color === "emergency") return { color: "#dc2626", fontWeight: 700 };
+    if (color === "muslim") return { color: "#059669", fontWeight: 700 };
+    return {};
   }
 
-  function getMobileClass(color: string | null, active: boolean) {
-    if (active) return "bg-navy text-white";
-    if (color === "emergency") return "bg-red-50 text-red-600 hover:bg-red-100 border border-red-200";
-    if (color === "muslim") return "bg-emerald-50 text-emerald-700 hover:bg-emerald-100 border border-emerald-200";
-    return "bg-white text-navy hover:bg-white/70";
+  function getMobileStyle(color: string | null, active: boolean) {
+    if (active) return { background: "#1a1a2e", color: "#ffffff" };
+    if (color === "emergency") return { background: "#fef2f2", color: "#dc2626", border: "1px solid #fecaca" };
+    if (color === "muslim") return { background: "#f0fdf4", color: "#059669", border: "1px solid #bbf7d0" };
+    return { background: "#ffffff", color: "#1a1a2e" };
   }
 
   return (
@@ -67,7 +67,8 @@ export default function Navbar() {
               <Link
                 key={link.href}
                 href={link.href}
-                className={`nav-link relative min-h-11 py-3 text-sm font-semibold uppercase tracking-[0.14em] transition ${getDesktopClass(link.color, active)}`}
+                className="nav-link relative min-h-11 py-3 text-sm font-semibold uppercase tracking-[0.14em] transition"
+                style={getDesktopStyle(link.color)}
                 data-active={active}
               >
                 {link.emoji && <span className="mr-1">{link.emoji}</span>}
@@ -100,7 +101,8 @@ export default function Navbar() {
                   key={link.href}
                   href={link.href}
                   onClick={() => setOpen(false)}
-                  className={`flex min-h-12 items-center rounded-full px-5 text-base font-semibold transition ${getMobileClass(link.color, active)}`}
+                  className="flex min-h-12 items-center rounded-full px-5 text-base font-semibold transition"
+                  style={getMobileStyle(link.color, active)}
                 >
                   {link.emoji && <span className="mr-2">{link.emoji}</span>}
                   {link.label}
