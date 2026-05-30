@@ -6,8 +6,6 @@ interface Message {
   content: string;
 }
 
-const SYSTEM_PROMPT = `You are NOVA, the friendly AI tourist assistant for TAP LONDON — a smart NFC tourism guide for London. Help tourists with places, halal food, transport, emergency help, shopping, and local tips. Be friendly and concise. Answer in the same language the tourist uses.`;
-
 export default function NovaAssistant() {
   const [open, setOpen] = useState(false);
   const [messages, setMessages] = useState<Message[]>([
@@ -32,39 +30,25 @@ export default function NovaAssistant() {
     setLoading(true);
 
     try {
-      const history = messages.slice(-4).map((m) =>
-        `${m.role === "user" ? "Tourist" : "NOVA"}: ${m.content}`
-      ).join("\n");
-
-      const prompt = `<s>[INST] ${SYSTEM_PROMPT}\n\n${history}\nTourist: ${userMsg.content} [/INST]`;
-
-      const res = await fetch(
-        "https://api-inference.huggingface.co/models/mistralai/Mistral-7B-Instruct-v0.3",
-        {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({
-            inputs: prompt,
-            parameters: { max_new_tokens: 250, temperature: 0.7, return_full_text: false },
-          }),
-        }
-      );
+      const res = await fetch("/api/nova", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          message: userMsg.content,
+          history: messages,
+        }),
+      });
 
       const data = await res.json();
-      let reply = "I'm having a moment! Try again. 🗺️";
-
-      if (Array.isArray(data) && data[0]?.generated_text) {
-        reply = data[0].generated_text
-          .replace(/\[INST\][\s\S]*?\[\/INST\]/g, "")
-          .replace(/^(NOVA:|Assistant:)/i, "")
-          .trim();
-      } else if (data.error?.includes("loading")) {
-        reply = "I'm warming up! 🔄 Ask me again in a few seconds.";
-      }
-
-      setMessages((prev) => [...prev, { role: "assistant", content: reply }]);
+      setMessages((prev) => [
+        ...prev,
+        { role: "assistant", content: data.reply || "Try again! 🗺️" },
+      ]);
     } catch {
-      setMessages((prev) => [...prev, { role: "assistant", content: "Connection issue. Try again! 🗺️" }]);
+      setMessages((prev) => [
+        ...prev,
+        { role: "assistant", content: "Connection issue. Try again! 🗺️" },
+      ]);
     } finally {
       setLoading(false);
     }
@@ -91,10 +75,19 @@ export default function NovaAssistant() {
           alignItems: "center",
           justifyContent: "center",
           boxShadow: "0 4px 20px rgba(0,0,0,0.3)",
-          fontSize: "1.4rem",
+          overflow: "hidden",
+          padding: 0,
         }}
       >
-        🤖
+        <img
+          src="/ailogo.png"
+          alt="NOVA"
+          style={{ width: "56px", height: "56px", borderRadius: "50%", objectFit: "cover" }}
+          onError={(e) => {
+            (e.currentTarget as HTMLImageElement).style.display = "none";
+            (e.currentTarget.parentElement as HTMLElement).innerHTML += "🤖";
+          }}
+        />
       </button>
 
       {/* Chat window */}
@@ -126,9 +119,20 @@ export default function NovaAssistant() {
           }}>
             <div style={{
               width: "36px", height: "36px", borderRadius: "50%",
-              background: "#c9a84c", display: "flex", alignItems: "center",
-              justifyContent: "center", fontSize: "1.1rem", flexShrink: 0,
-            }}>🤖</div>
+              overflow: "hidden", border: "2px solid #c9a84c",
+              flexShrink: 0, background: "#c9a84c",
+              display: "flex", alignItems: "center", justifyContent: "center",
+            }}>
+              <img
+                src="/ailogo.png"
+                alt="NOVA"
+                style={{ width: "36px", height: "36px", objectFit: "cover" }}
+                onError={(e) => {
+                  (e.currentTarget as HTMLImageElement).style.display = "none";
+                  (e.currentTarget.parentElement as HTMLElement).innerHTML = "🤖";
+                }}
+              />
+            </div>
             <div style={{ flex: 1 }}>
               <div style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "1rem", fontWeight: 700, color: "#c9a84c" }}>NOVA</div>
               <div style={{ fontFamily: "'DM Sans', sans-serif", fontSize: "0.65rem", color: "rgba(255,255,255,0.5)" }}>TAP LONDON AI Guide</div>
