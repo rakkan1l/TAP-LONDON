@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Menu, X } from "lucide-react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 const navLinks = [
   { href: "/places", label: "Places", emoji: null, color: null },
@@ -28,6 +28,26 @@ function BridgeIcon() {
 export default function Navbar() {
   const pathname = usePathname();
   const [open, setOpen] = useState(false);
+  const [dark, setDark] = useState(false);
+
+  useEffect(() => {
+    const stored = localStorage.getItem("taplon-dark");
+    if (stored === "true") {
+      setDark(true);
+      document.documentElement.classList.add("dark");
+    }
+  }, []);
+
+  function toggleDark() {
+    const next = !dark;
+    setDark(next);
+    localStorage.setItem("taplon-dark", String(next));
+    if (next) {
+      document.documentElement.classList.add("dark");
+    } else {
+      document.documentElement.classList.remove("dark");
+    }
+  }
 
   function getDesktopStyle(color: string | null) {
     if (color === "emergency") return { color: "#dc2626", fontWeight: 700 };
@@ -48,15 +68,9 @@ export default function Navbar() {
         className="mx-auto flex max-w-7xl items-center justify-between px-4 py-3 sm:px-6 lg:px-8"
         aria-label="Main navigation"
       >
-        <Link
-          href="/"
-          className="group flex min-h-12 items-center gap-3"
-          onClick={() => setOpen(false)}
-        >
+        <Link href="/" className="group flex min-h-12 items-center gap-3" onClick={() => setOpen(false)}>
           <BridgeIcon />
-          <span className="font-heading text-xl font-bold tracking-[0.08em] text-navy">
-            TAP LONDON
-          </span>
+          <span className="font-heading text-xl font-bold tracking-[0.08em] text-navy">TAP LONDON</span>
         </Link>
 
         {/* Desktop nav */}
@@ -76,18 +90,58 @@ export default function Navbar() {
               </Link>
             );
           })}
+
+          {/* Dark mode toggle desktop */}
+          <button
+            onClick={toggleDark}
+            style={{
+              background: dark ? "#c9a84c" : "#1a1a2e",
+              color: dark ? "#1a1a2e" : "#c9a84c",
+              border: "none",
+              borderRadius: "50px",
+              padding: "6px 14px",
+              fontWeight: 700,
+              fontSize: "0.75rem",
+              cursor: "pointer",
+              fontFamily: "'DM Sans', sans-serif",
+            }}
+          >
+            {dark ? "☀️" : "🌙"}
+          </button>
         </div>
 
-        {/* Hamburger */}
-        <button
-          type="button"
-          className="inline-flex h-12 w-12 items-center justify-center rounded-full border border-navy/15 bg-white text-navy shadow-sm lg:hidden"
-          onClick={() => setOpen((v) => !v)}
-          aria-label={open ? "Close menu" : "Open menu"}
-          aria-expanded={open}
-        >
-          {open ? <X aria-hidden="true" size={22} /> : <Menu aria-hidden="true" size={22} />}
-        </button>
+        {/* Mobile right side */}
+        <div style={{ display: "flex", alignItems: "center", gap: "8px" }} className="lg:hidden">
+          {/* Dark mode mobile */}
+          <button
+            onClick={toggleDark}
+            style={{
+              background: dark ? "#c9a84c" : "#1a1a2e",
+              color: dark ? "#1a1a2e" : "#c9a84c",
+              border: "none",
+              borderRadius: "50%",
+              width: "36px",
+              height: "36px",
+              cursor: "pointer",
+              fontSize: "0.9rem",
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+            }}
+          >
+            {dark ? "☀️" : "🌙"}
+          </button>
+
+          <button
+            type="button"
+            className="inline-flex h-12 w-12 items-center justify-center rounded-full border border-navy/15 bg-white text-navy shadow-sm"
+            onClick={() => setOpen((v) => !v)}
+            aria-label={open ? "Close menu" : "Open menu"}
+            aria-expanded={open}
+          >
+            {open ? <X aria-hidden="true" size={22} /> : <Menu aria-hidden="true" size={22} />}
+          </button>
+        </div>
       </nav>
 
       {/* Mobile menu */}
