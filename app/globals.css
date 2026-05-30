@@ -2,14 +2,51 @@
 @tailwind components;
 @tailwind utilities;
 
+/* ============================================
+   LIGHT MODE VARIABLES (default)
+   ============================================ */
 :root {
   color-scheme: light;
   --navy: #1a1a2e;
   --gold: #c9a84c;
   --cream: #f9f7f2;
   --ink: #1a1a1e;
+
+  /* Theme variables */
+  --bg-primary: #f9f7f2;
+  --bg-secondary: #ffffff;
+  --bg-card: #ffffff;
+  --bg-nav: rgba(249, 247, 242, 0.86);
+  --text-primary: #1a1a1e;
+  --text-secondary: #555555;
+  --text-muted: #888888;
+  --border-color: rgba(26, 26, 46, 0.1);
+  --border-gold: rgba(201, 168, 76, 0.25);
+  --shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+  --shadow-lift: 0 8px 24px rgba(0, 0, 0, 0.12);
 }
 
+/* ============================================
+   DARK MODE VARIABLES
+   ============================================ */
+html.dark {
+  color-scheme: dark;
+  --bg-primary: #0d0d1a;
+  --bg-secondary: #111120;
+  --bg-card: #1a1a2e;
+  --bg-nav: rgba(13, 13, 26, 0.92);
+  --text-primary: #f9f7f2;
+  --text-secondary: #cccccc;
+  --text-muted: #888888;
+  --border-color: rgba(201, 168, 76, 0.15);
+  --border-gold: rgba(201, 168, 76, 0.3);
+  --shadow: 0 2px 12px rgba(0, 0, 0, 0.4);
+  --shadow-lift: 0 8px 24px rgba(0, 0, 0, 0.5);
+}
+
+/* ============================================
+   BASE STYLES
+   ============================================ */
 * {
   box-sizing: border-box;
 }
@@ -20,8 +57,9 @@ html {
 
 body {
   min-height: 100vh;
-  background: var(--cream);
-  color: var(--ink);
+  background: var(--bg-primary);
+  color: var(--text-primary);
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 ::selection {
@@ -29,6 +67,166 @@ body {
   color: var(--navy);
 }
 
+/* ============================================
+   DARK MODE — BODY & SECTIONS
+   ============================================ */
+html.dark body {
+  background: var(--bg-primary);
+  color: var(--text-primary);
+}
+
+/* All cream/white section backgrounds */
+html.dark section,
+html.dark main {
+  background: var(--bg-primary) !important;
+}
+
+/* White cards and boxes */
+html.dark div[style*="background: #ffffff"],
+html.dark div[style*="background:#ffffff"],
+html.dark div[style*='background: "#ffffff"'] {
+  background: var(--bg-card) !important;
+  color: var(--text-primary) !important;
+}
+
+/* Cream backgrounds */
+html.dark div[style*="background: #f9f7f2"],
+html.dark div[style*="background:#f9f7f2"],
+html.dark section[style*="background: #f9f7f2"],
+html.dark section[style*="background:#f9f7f2"],
+html.dark main[style*="background: #f9f7f2"],
+html.dark main[style*="background:#f9f7f2"] {
+  background: var(--bg-primary) !important;
+}
+
+/* ============================================
+   DARK MODE — NAVBAR
+   ============================================ */
+html.dark header {
+  background: var(--bg-nav) !important;
+  border-color: var(--border-gold) !important;
+}
+
+html.dark .nav-link {
+  color: rgba(249, 247, 242, 0.75) !important;
+}
+
+html.dark .nav-link:hover {
+  color: #f9f7f2 !important;
+}
+
+/* Mobile menu dark */
+html.dark .bg-cream {
+  background: var(--bg-secondary) !important;
+}
+
+/* ============================================
+   DARK MODE — TYPOGRAPHY
+   ============================================ */
+html.dark h1,
+html.dark h2,
+html.dark h3,
+html.dark h4 {
+  color: var(--text-primary) !important;
+}
+
+html.dark p {
+  color: var(--text-secondary) !important;
+}
+
+html.dark span {
+  color: inherit;
+}
+
+/* ============================================
+   DARK MODE — CARDS
+   ============================================ */
+html.dark .place-card,
+html.dark .food-card,
+html.dark .shop-card {
+  background: var(--bg-card) !important;
+  border-color: var(--border-color) !important;
+}
+
+/* White card backgrounds in inline styles */
+html.dark [style*="background: '#ffffff'"],
+html.dark [style*="background: #fff"] {
+  background: var(--bg-card) !important;
+}
+
+/* ============================================
+   DARK MODE — INPUTS & FORMS
+   ============================================ */
+html.dark input,
+html.dark textarea,
+html.dark select {
+  background: var(--bg-secondary) !important;
+  color: var(--text-primary) !important;
+  border-color: var(--border-gold) !important;
+}
+
+html.dark input::placeholder,
+html.dark textarea::placeholder {
+  color: var(--text-muted) !important;
+}
+
+/* ============================================
+   DARK MODE — BORDERS
+   ============================================ */
+html.dark [style*="border: '1px solid rgba(26,26,46"],
+html.dark [style*="border-color: rgba(26,26,46"] {
+  border-color: var(--border-color) !important;
+}
+
+/* ============================================
+   DARK MODE — FOOTER
+   ============================================ */
+html.dark footer {
+  background: #080810 !important;
+  color: var(--text-secondary) !important;
+}
+
+/* ============================================
+   DARK MODE — WEATHER WIDGET
+   ============================================ */
+html.dark .weather-widget {
+  background: rgba(201, 168, 76, 0.08) !important;
+  border-color: rgba(201, 168, 76, 0.2) !important;
+}
+
+/* ============================================
+   DARK MODE — NOVA AI CHAT
+   ============================================ */
+html.dark .nova-chat {
+  background: var(--bg-card) !important;
+}
+
+html.dark .nova-message-ai {
+  background: var(--bg-secondary) !important;
+  color: var(--text-primary) !important;
+}
+
+/* ============================================
+   SMOOTH TRANSITIONS FOR THEME SWITCH
+   ============================================ */
+body,
+header,
+footer,
+main,
+section,
+div,
+p,
+h1, h2, h3, h4,
+a,
+button,
+input,
+textarea {
+  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+}
+
+/* ============================================
+   NAVIGATION LINK UNDERLINE ANIMATION
+   ============================================ */
 .nav-link::after {
   position: absolute;
   right: 0;
@@ -48,6 +246,9 @@ body {
   transform: scaleX(1);
 }
 
+/* ============================================
+   LONDON SKYLINE DECORATION
+   ============================================ */
 .london-skyline {
   background:
     linear-gradient(180deg, rgba(249, 247, 242, 0.12), rgba(249, 247, 242, 0) 38%),
@@ -83,6 +284,9 @@ body {
   animation: skyline-glow 6s ease-in-out infinite alternate;
 }
 
+/* ============================================
+   CARD VISUAL & PREMIUM BAND
+   ============================================ */
 .card-visual {
   background:
     linear-gradient(135deg, rgba(201, 168, 76, 0.85), rgba(255, 255, 255, 0.12) 42%, rgba(26, 26, 46, 0.1)),
@@ -97,18 +301,61 @@ body {
     linear-gradient(180deg, var(--cream), #ffffff);
 }
 
+html.dark .premium-band {
+  background:
+    linear-gradient(135deg, rgba(26, 26, 46, 0.9), rgba(26, 26, 46, 0.7)),
+    linear-gradient(180deg, var(--bg-secondary), var(--bg-card));
+}
+
+/* ============================================
+   ANIMATIONS
+   ============================================ */
 @keyframes skyline-glow {
   from {
     transform: translateY(0) scale(1);
     opacity: 0.72;
   }
-
   to {
     transform: translateY(-6px) scale(1.025);
     opacity: 1;
   }
 }
 
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes pulse-gold {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.6; }
+}
+
+/* ============================================
+   UTILITY CLASSES
+   ============================================ */
+.fade-in-up {
+  animation: fadeInUp 0.6s ease forwards;
+}
+
+.gold-pulse {
+  animation: pulse-gold 2s ease infinite;
+}
+
+/* Shadow utility for dark mode */
+.shadow-lift {
+  box-shadow: var(--shadow-lift);
+}
+
+/* ============================================
+   REDUCED MOTION
+   ============================================ */
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
