@@ -11,19 +11,12 @@
   --gold: #c9a84c;
   --cream: #f9f7f2;
   --ink: #1a1a1e;
-
-  /* Theme variables */
   --bg-primary: #f9f7f2;
-  --bg-secondary: #ffffff;
   --bg-card: #ffffff;
-  --bg-nav: rgba(249, 247, 242, 0.86);
   --text-primary: #1a1a1e;
   --text-secondary: #555555;
   --text-muted: #888888;
-  --border-color: rgba(26, 26, 46, 0.1);
-  --border-gold: rgba(201, 168, 76, 0.25);
-  --shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
-  --shadow-lift: 0 8px 24px rgba(0, 0, 0, 0.12);
+  --border-color: rgba(26,26,46,0.1);
 }
 
 /* ============================================
@@ -32,28 +25,18 @@
 html.dark {
   color-scheme: dark;
   --bg-primary: #0d0d1a;
-  --bg-secondary: #111120;
   --bg-card: #1a1a2e;
-  --bg-nav: rgba(13, 13, 26, 0.92);
   --text-primary: #f9f7f2;
   --text-secondary: #cccccc;
   --text-muted: #888888;
-  --border-color: rgba(201, 168, 76, 0.15);
-  --border-gold: rgba(201, 168, 76, 0.3);
-  --shadow: 0 2px 12px rgba(0, 0, 0, 0.4);
-  --shadow-lift: 0 8px 24px rgba(0, 0, 0, 0.5);
+  --border-color: rgba(201,168,76,0.2);
 }
 
 /* ============================================
-   BASE STYLES
+   BASE
    ============================================ */
-* {
-  box-sizing: border-box;
-}
-
-html {
-  scroll-behavior: smooth;
-}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
 
 body {
   min-height: 100vh;
@@ -62,80 +45,143 @@ body {
   transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-::selection {
-  background: var(--gold);
-  color: var(--navy);
-}
+::selection { background: var(--gold); color: var(--navy); }
 
 /* ============================================
-   DARK MODE — BODY & SECTIONS
+   DARK MODE — GLOBAL OVERRIDES
+   All inline style colors are forced to change
    ============================================ */
-html.dark body {
-  background: var(--bg-primary);
-  color: var(--text-primary);
-}
 
-/* All cream/white section backgrounds */
-html.dark section,
-html.dark main {
-  background: var(--bg-primary) !important;
-}
+/* Body and main backgrounds */
+html.dark body,
+html.dark main { background: #0d0d1a !important; }
 
-/* White cards and boxes */
-html.dark div[style*="background: #ffffff"],
-html.dark div[style*="background:#ffffff"],
-html.dark div[style*='background: "#ffffff"'] {
-  background: var(--bg-card) !important;
-  color: var(--text-primary) !important;
-}
+/* All sections */
+html.dark section { background: #0d0d1a !important; }
 
-/* Cream backgrounds */
-html.dark div[style*="background: #f9f7f2"],
-html.dark div[style*="background:#f9f7f2"],
-html.dark section[style*="background: #f9f7f2"],
-html.dark section[style*="background:#f9f7f2"],
-html.dark main[style*="background: #f9f7f2"],
-html.dark main[style*="background:#f9f7f2"] {
-  background: var(--bg-primary) !important;
-}
-
-/* ============================================
-   DARK MODE — NAVBAR
-   ============================================ */
+/* Header/navbar */
 html.dark header {
-  background: var(--bg-nav) !important;
-  border-color: var(--border-gold) !important;
+  background: rgba(10,10,20,0.96) !important;
+  border-color: rgba(201,168,76,0.2) !important;
 }
 
-html.dark .nav-link {
-  color: rgba(249, 247, 242, 0.75) !important;
+/* Tailwind bg-cream */
+html.dark .bg-cream { background: #111120 !important; }
+html.dark .bg-cream\/86 { background: rgba(10,10,20,0.92) !important; }
+
+/* WHITE backgrounds → dark card */
+html.dark [style*="background: #ffffff"],
+html.dark [style*="background:#ffffff"],
+html.dark [style*="background: white"],
+html.dark [style*="background: rgb(255, 255, 255)"] {
+  background: #1a1a2e !important;
 }
 
-html.dark .nav-link:hover {
+/* CREAM backgrounds → dark */
+html.dark [style*="background: #f9f7f2"],
+html.dark [style*="background:#f9f7f2"],
+html.dark [style*="background: rgb(249, 247, 242)"] {
+  background: #0d0d1a !important;
+}
+
+/* Light grey backgrounds */
+html.dark [style*="background: #f5f5f5"],
+html.dark [style*="background: #fafafa"],
+html.dark [style*="background: rgba(249"],
+html.dark [style*="background: rgba(245"] {
+  background: #111120 !important;
+}
+
+/* DARK text colors → light */
+html.dark [style*="color: #1a1a2e"],
+html.dark [style*="color: #1a1a1e"],
+html.dark [style*="color: rgb(26, 26, 46)"] {
   color: #f9f7f2 !important;
 }
 
-/* Mobile menu dark */
-html.dark .bg-cream {
-  background: var(--bg-secondary) !important;
+html.dark [style*="color: #555"],
+html.dark [style*="color: #444"],
+html.dark [style*="color: #333"],
+html.dark [style*="color: rgb(85"],
+html.dark [style*="color: rgb(68"] {
+  color: #cccccc !important;
+}
+
+html.dark [style*="color: #666"],
+html.dark [style*="color: #777"],
+html.dark [style*="color: #888"],
+html.dark [style*="color: rgb(102"],
+html.dark [style*="color: rgb(136"] {
+  color: #aaaaaa !important;
+}
+
+/* Fix Tailwind text colors */
+html.dark .text-navy { color: #f9f7f2 !important; }
+html.dark .text-ink { color: #f9f7f2 !important; }
+html.dark [class*="text-navy\/80"] { color: rgba(249,247,242,0.8) !important; }
+html.dark [class*="text-navy\/60"] { color: rgba(249,247,242,0.6) !important; }
+
+/* Nav links */
+html.dark .nav-link { color: rgba(249,247,242,0.75) !important; }
+html.dark .nav-link:hover { color: #f9f7f2 !important; }
+
+/* ============================================
+   DARK MODE — FILTER TABS / BUTTONS
+   ============================================ */
+
+/* White pill buttons → dark */
+html.dark button[style*="background: #ffffff"],
+html.dark button[style*="background:#ffffff"] {
+  background: #1a1a2e !important;
+  color: #f9f7f2 !important;
+  border-color: rgba(201,168,76,0.3) !important;
+}
+
+/* White/light backgrounds on buttons */
+html.dark [style*="background: rgba(255,255,255"],
+html.dark [style*="background: rgba(249,247,242"] {
+  background: rgba(255,255,255,0.06) !important;
+}
+
+/* Tailwind white backgrounds */
+html.dark .bg-white {
+  background: #1a1a2e !important;
+  color: #f9f7f2 !important;
 }
 
 /* ============================================
-   DARK MODE — TYPOGRAPHY
+   DARK MODE — BORDERS
    ============================================ */
-html.dark h1,
-html.dark h2,
-html.dark h3,
-html.dark h4 {
-  color: var(--text-primary) !important;
+html.dark [style*="border: 1px solid rgba(26,26,46"],
+html.dark [style*="border-color: rgba(26,26,46"] {
+  border-color: rgba(201,168,76,0.15) !important;
 }
 
-html.dark p {
-  color: var(--text-secondary) !important;
+/* ============================================
+   DARK MODE — HEADINGS & PARAGRAPHS
+   ============================================ */
+html.dark h1, html.dark h2, html.dark h3, html.dark h4 {
+  color: #f9f7f2 !important;
 }
 
-html.dark span {
-  color: inherit;
+html.dark p { color: #cccccc !important; }
+
+html.dark label { color: #e0e0e0 !important; }
+
+/* ============================================
+   DARK MODE — INPUTS
+   ============================================ */
+html.dark input,
+html.dark textarea,
+html.dark select {
+  background: #111120 !important;
+  color: #f9f7f2 !important;
+  border-color: rgba(201,168,76,0.3) !important;
+}
+
+html.dark input::placeholder,
+html.dark textarea::placeholder {
+  color: #666666 !important;
 }
 
 /* ============================================
@@ -143,39 +189,10 @@ html.dark span {
    ============================================ */
 html.dark .place-card,
 html.dark .food-card,
-html.dark .shop-card {
-  background: var(--bg-card) !important;
-  border-color: var(--border-color) !important;
-}
-
-/* White card backgrounds in inline styles */
-html.dark [style*="background: '#ffffff'"],
-html.dark [style*="background: #fff"] {
-  background: var(--bg-card) !important;
-}
-
-/* ============================================
-   DARK MODE — INPUTS & FORMS
-   ============================================ */
-html.dark input,
-html.dark textarea,
-html.dark select {
-  background: var(--bg-secondary) !important;
-  color: var(--text-primary) !important;
-  border-color: var(--border-gold) !important;
-}
-
-html.dark input::placeholder,
-html.dark textarea::placeholder {
-  color: var(--text-muted) !important;
-}
-
-/* ============================================
-   DARK MODE — BORDERS
-   ============================================ */
-html.dark [style*="border: '1px solid rgba(26,26,46"],
-html.dark [style*="border-color: rgba(26,26,46"] {
-  border-color: var(--border-color) !important;
+html.dark .shop-card,
+html.dark .transport-card {
+  background: #1a1a2e !important;
+  color: #f9f7f2 !important;
 }
 
 /* ============================================
@@ -183,49 +200,26 @@ html.dark [style*="border-color: rgba(26,26,46"] {
    ============================================ */
 html.dark footer {
   background: #080810 !important;
-  color: var(--text-secondary) !important;
+  color: #aaaaaa !important;
 }
 
 /* ============================================
-   DARK MODE — WEATHER WIDGET
+   WEATHER TEXT
    ============================================ */
-html.dark .weather-widget {
-  background: rgba(201, 168, 76, 0.08) !important;
-  border-color: rgba(201, 168, 76, 0.2) !important;
-}
+html.dark .weather-temp { color: #e5e5e5 !important; }
+html.dark .weather-desc { color: #aaaaaa !important; }
 
 /* ============================================
-   DARK MODE — NOVA AI CHAT
+   SMOOTH TRANSITIONS
    ============================================ */
-html.dark .nova-chat {
-  background: var(--bg-card) !important;
-}
-
-html.dark .nova-message-ai {
-  background: var(--bg-secondary) !important;
-  color: var(--text-primary) !important;
-}
-
-/* ============================================
-   SMOOTH TRANSITIONS FOR THEME SWITCH
-   ============================================ */
-body,
-header,
-footer,
-main,
-section,
-div,
-p,
-h1, h2, h3, h4,
-a,
-button,
-input,
-textarea {
+body, header, footer, main, section,
+div, p, h1, h2, h3, h4, a, button,
+input, textarea, span, li {
   transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
 }
 
 /* ============================================
-   NAVIGATION LINK UNDERLINE ANIMATION
+   NAV LINK UNDERLINE ANIMATION
    ============================================ */
 .nav-link::after {
   position: absolute;
@@ -247,7 +241,7 @@ textarea {
 }
 
 /* ============================================
-   LONDON SKYLINE DECORATION
+   LONDON SKYLINE
    ============================================ */
 .london-skyline {
   background:
@@ -284,9 +278,6 @@ textarea {
   animation: skyline-glow 6s ease-in-out infinite alternate;
 }
 
-/* ============================================
-   CARD VISUAL & PREMIUM BAND
-   ============================================ */
 .card-visual {
   background:
     linear-gradient(135deg, rgba(201, 168, 76, 0.85), rgba(255, 255, 255, 0.12) 42%, rgba(26, 26, 46, 0.1)),
@@ -303,67 +294,33 @@ textarea {
 
 html.dark .premium-band {
   background:
-    linear-gradient(135deg, rgba(26, 26, 46, 0.9), rgba(26, 26, 46, 0.7)),
-    linear-gradient(180deg, var(--bg-secondary), var(--bg-card));
+    linear-gradient(135deg, rgba(26,26,46,0.9), rgba(26,26,46,0.7)),
+    linear-gradient(180deg, #111120, #1a1a2e);
 }
 
 /* ============================================
    ANIMATIONS
    ============================================ */
 @keyframes skyline-glow {
-  from {
-    transform: translateY(0) scale(1);
-    opacity: 0.72;
-  }
-  to {
-    transform: translateY(-6px) scale(1.025);
-    opacity: 1;
-  }
+  from { transform: translateY(0) scale(1); opacity: 0.72; }
+  to { transform: translateY(-6px) scale(1.025); opacity: 1; }
 }
 
 @keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
-@keyframes pulse-gold {
-  0%, 100% { opacity: 1; }
-  50% { opacity: 0.6; }
-}
+.fade-in-up { animation: fadeInUp 0.6s ease forwards; }
 
-/* ============================================
-   UTILITY CLASSES
-   ============================================ */
-.fade-in-up {
-  animation: fadeInUp 0.6s ease forwards;
-}
-
-.gold-pulse {
-  animation: pulse-gold 2s ease infinite;
-}
-
-/* Shadow utility for dark mode */
-.shadow-lift {
-  box-shadow: var(--shadow-lift);
-}
+.shadow-lift { box-shadow: 0 8px 24px rgba(0,0,0,0.12); }
 
 /* ============================================
    REDUCED MOTION
    ============================================ */
 @media (prefers-reduced-motion: reduce) {
-  html {
-    scroll-behavior: auto;
-  }
-
-  *,
-  *::before,
-  *::after {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after {
     scroll-behavior: auto !important;
     transition-duration: 0.01ms !important;
     animation-duration: 0.01ms !important;
