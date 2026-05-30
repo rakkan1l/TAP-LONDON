@@ -55,7 +55,7 @@ export default function NovaAssistant() {
 
       if (Array.isArray(data) && data[0]?.generated_text) {
         reply = data[0].generated_text
-          .replace(/\[INST\].*?\[\/INST\]/gs, "")
+          .replace(/\[INST\][\s\S]*?\[\/INST\]/g, "")
           .replace(/^(NOVA:|Assistant:)/i, "")
           .trim();
       } else if (data.error?.includes("loading")) {
