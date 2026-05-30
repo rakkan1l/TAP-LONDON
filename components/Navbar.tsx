@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Menu, X } from "lucide-react";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 
 const navLinks = [
   { href: "/places", label: "Places", emoji: null, color: null },
@@ -28,38 +28,18 @@ function BridgeIcon() {
 export default function Navbar() {
   const pathname = usePathname();
   const [open, setOpen] = useState(false);
-  const [dark, setDark] = useState(false);
 
-  useEffect(() => {
-    const stored = localStorage.getItem("taplon-dark");
-    if (stored === "true") {
-      setDark(true);
-      document.documentElement.classList.add("dark");
-    }
-  }, []);
-
-  function toggleDark() {
-    const next = !dark;
-    setDark(next);
-    localStorage.setItem("taplon-dark", String(next));
-    if (next) {
-      document.documentElement.classList.add("dark");
-    } else {
-      document.documentElement.classList.remove("dark");
-    }
+  function getDesktopClass(color: string | null, active: boolean) {
+    if (color === "emergency") return "text-red-600 hover:text-red-700 font-bold";
+    if (color === "muslim") return "text-emerald-600 hover:text-emerald-700 font-bold";
+    return "text-navy/80 hover:text-navy";
   }
 
-  function getDesktopStyle(color: string | null) {
-    if (color === "emergency") return { color: "#dc2626", fontWeight: 700 };
-    if (color === "muslim") return { color: "#059669", fontWeight: 700 };
-    return {};
-  }
-
-  function getMobileStyle(color: string | null, active: boolean) {
-    if (active) return { background: "#1a1a2e", color: "#ffffff" };
-    if (color === "emergency") return { background: "#fef2f2", color: "#dc2626", border: "1px solid #fecaca" };
-    if (color === "muslim") return { background: "#f0fdf4", color: "#059669", border: "1px solid #bbf7d0" };
-    return { background: "#ffffff", color: "#1a1a2e" };
+  function getMobileClass(color: string | null, active: boolean) {
+    if (active) return "bg-navy text-white";
+    if (color === "emergency") return "bg-red-50 text-red-600 hover:bg-red-100 border border-red-200";
+    if (color === "muslim") return "bg-emerald-50 text-emerald-700 hover:bg-emerald-100 border border-emerald-200";
+    return "bg-white text-navy hover:bg-white/70";
   }
 
   return (
@@ -68,9 +48,15 @@ export default function Navbar() {
         className="mx-auto flex max-w-7xl items-center justify-between px-4 py-3 sm:px-6 lg:px-8"
         aria-label="Main navigation"
       >
-        <Link href="/" className="group flex min-h-12 items-center gap-3" onClick={() => setOpen(false)}>
+        <Link
+          href="/"
+          className="group flex min-h-12 items-center gap-3"
+          onClick={() => setOpen(false)}
+        >
           <BridgeIcon />
-          <span className="font-heading text-xl font-bold tracking-[0.08em] text-navy">TAP LONDON</span>
+          <span className="font-heading text-xl font-bold tracking-[0.08em] text-navy">
+            TAP LONDON
+          </span>
         </Link>
 
         {/* Desktop nav */}
@@ -81,8 +67,7 @@ export default function Navbar() {
               <Link
                 key={link.href}
                 href={link.href}
-                className="nav-link relative min-h-11 py-3 text-sm font-semibold uppercase tracking-[0.14em] transition"
-                style={getDesktopStyle(link.color)}
+                className={`nav-link relative min-h-11 py-3 text-sm font-semibold uppercase tracking-[0.14em] transition ${getDesktopClass(link.color, active)}`}
                 data-active={active}
               >
                 {link.emoji && <span className="mr-1">{link.emoji}</span>}
@@ -90,58 +75,18 @@ export default function Navbar() {
               </Link>
             );
           })}
-
-          {/* Dark mode toggle desktop */}
-          <button
-            onClick={toggleDark}
-            style={{
-              background: dark ? "#c9a84c" : "#1a1a2e",
-              color: dark ? "#1a1a2e" : "#c9a84c",
-              border: "none",
-              borderRadius: "50px",
-              padding: "6px 14px",
-              fontWeight: 700,
-              fontSize: "0.75rem",
-              cursor: "pointer",
-              fontFamily: "'DM Sans', sans-serif",
-            }}
-          >
-            {dark ? "☀️" : "🌙"}
-          </button>
         </div>
 
-        {/* Mobile right side */}
-        <div style={{ display: "flex", alignItems: "center", gap: "8px" }} className="lg:hidden">
-          {/* Dark mode mobile */}
-          <button
-            onClick={toggleDark}
-            style={{
-              background: dark ? "#c9a84c" : "#1a1a2e",
-              color: dark ? "#1a1a2e" : "#c9a84c",
-              border: "none",
-              borderRadius: "50%",
-              width: "36px",
-              height: "36px",
-              cursor: "pointer",
-              fontSize: "0.9rem",
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
-            }}
-          >
-            {dark ? "☀️" : "🌙"}
-          </button>
-
-          <button
-            type="button"
-            className="inline-flex h-12 w-12 items-center justify-center rounded-full border border-navy/15 bg-white text-navy shadow-sm"
-            onClick={() => setOpen((v) => !v)}
-            aria-label={open ? "Close menu" : "Open menu"}
-            aria-expanded={open}
-          >
-            {open ? <X aria-hidden="true" size={22} /> : <Menu aria-hidden="true" size={22} />}
-          </button>
-        </div>
+        {/* Hamburger */}
+        <button
+          type="button"
+          className="inline-flex h-12 w-12 items-center justify-center rounded-full border border-navy/15 bg-white text-navy shadow-sm lg:hidden"
+          onClick={() => setOpen((v) => !v)}
+          aria-label={open ? "Close menu" : "Open menu"}
+          aria-expanded={open}
+        >
+          {open ? <X aria-hidden="true" size={22} /> : <Menu aria-hidden="true" size={22} />}
+        </button>
       </nav>
 
       {/* Mobile menu */}
@@ -155,8 +100,7 @@ export default function Navbar() {
                   key={link.href}
                   href={link.href}
                   onClick={() => setOpen(false)}
-                  className="flex min-h-12 items-center rounded-full px-5 text-base font-semibold transition"
-                  style={getMobileStyle(link.color, active)}
+                  className={`flex min-h-12 items-center rounded-full px-5 text-base font-semibold transition ${getMobileClass(link.color, active)}`}
                 >
                   {link.emoji && <span className="mr-2">{link.emoji}</span>}
                   {link.label}
