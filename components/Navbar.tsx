@@ -6,14 +6,14 @@ import { Menu, X } from "lucide-react";
 import { useState } from "react";
 
 const navLinks = [
-  { href: "/places", label: "Places" },
-  { href: "/food", label: "Food" },
-  { href: "/shopping", label: "Shopping" },
-  { href: "/transport", label: "Transport" },
-  { href: "/muslim", label: "🕌 Muslim" },
-  { href: "/emergency", label: "🚨 Emergency" },
-  { href: "/services", label: "Services" },
-  { href: "/offers", label: "Offers" },
+  { href: "/places", label: "Places", emoji: null, color: null },
+  { href: "/food", label: "Food", emoji: null, color: null },
+  { href: "/shopping", label: "Shopping", emoji: null, color: null },
+  { href: "/transport", label: "Transport", emoji: null, color: null },
+  { href: "/muslim", label: "Muslim", emoji: "🕌", color: "muslim" },
+  { href: "/emergency", label: "Emergency", emoji: "🚨", color: "emergency" },
+  { href: "/services", label: "Services", emoji: null, color: null },
+  { href: "/offers", label: "Offers", emoji: null, color: null },
 ];
 
 function BridgeIcon() {
@@ -29,42 +29,59 @@ export default function Navbar() {
   const pathname = usePathname();
   const [open, setOpen] = useState(false);
 
+  function getDesktopClass(color: string | null, active: boolean) {
+    if (color === "emergency") return "text-red-600 hover:text-red-700 font-bold";
+    if (color === "muslim") return "text-emerald-600 hover:text-emerald-700 font-bold";
+    return "text-navy/80 hover:text-navy";
+  }
+
+  function getMobileClass(color: string | null, active: boolean) {
+    if (active) return "bg-navy text-white";
+    if (color === "emergency") return "bg-red-50 text-red-600 hover:bg-red-100 border border-red-200";
+    if (color === "muslim") return "bg-emerald-50 text-emerald-700 hover:bg-emerald-100 border border-emerald-200";
+    return "bg-white text-navy hover:bg-white/70";
+  }
+
   return (
     <header className="sticky top-0 z-50 border-b border-white/35 bg-cream/86 shadow-sm backdrop-blur-xl">
-      <nav className="mx-auto flex max-w-7xl items-center justify-between px-4 py-3 sm:px-6 lg:px-8" aria-label="Main navigation">
-        <Link href="/" className="group flex min-h-12 items-center gap-3" onClick={() => setOpen(false)}>
+      <nav
+        className="mx-auto flex max-w-7xl items-center justify-between px-4 py-3 sm:px-6 lg:px-8"
+        aria-label="Main navigation"
+      >
+        <Link
+          href="/"
+          className="group flex min-h-12 items-center gap-3"
+          onClick={() => setOpen(false)}
+        >
           <BridgeIcon />
-          <span className="font-heading text-xl font-bold tracking-[0.08em] text-navy">TAP LONDON</span>
+          <span className="font-heading text-xl font-bold tracking-[0.08em] text-navy">
+            TAP LONDON
+          </span>
         </Link>
 
+        {/* Desktop nav */}
         <div className="hidden items-center gap-5 lg:flex">
           {navLinks.map((link) => {
             const active = pathname === link.href;
-            const isEmergency = link.href === "/emergency";
-            const isMuslim = link.href === "/muslim";
             return (
               <Link
                 key={link.href}
                 href={link.href}
-                className={`nav-link relative min-h-11 py-3 text-sm font-semibold uppercase tracking-[0.14em] transition hover:text-navy ${
-                  isEmergency
-                    ? "text-red-600 hover:text-red-700"
-                    : isMuslim
-                    ? "text-emerald-700 hover:text-emerald-800"
-                    : "text-navy/80 hover:text-navy"
-                }`}
+                className={`nav-link relative min-h-11 py-3 text-sm font-semibold uppercase tracking-[0.14em] transition ${getDesktopClass(link.color, active)}`}
                 data-active={active}
               >
+                {link.emoji && <span className="mr-1">{link.emoji}</span>}
                 {link.label}
               </Link>
             );
           })}
         </div>
 
+        {/* Hamburger */}
         <button
           type="button"
           className="inline-flex h-12 w-12 items-center justify-center rounded-full border border-navy/15 bg-white text-navy shadow-sm lg:hidden"
-          onClick={() => setOpen((value) => !value)}
+          onClick={() => setOpen((v) => !v)}
           aria-label={open ? "Close menu" : "Open menu"}
           aria-expanded={open}
         >
@@ -72,35 +89,27 @@ export default function Navbar() {
         </button>
       </nav>
 
-      {open ? (
+      {/* Mobile menu */}
+      {open && (
         <div className="border-t border-navy/10 bg-cream px-4 pb-5 pt-2 lg:hidden">
           <div className="mx-auto grid max-w-7xl gap-2">
             {navLinks.map((link) => {
               const active = pathname === link.href;
-              const isEmergency = link.href === "/emergency";
-              const isMuslim = link.href === "/muslim";
               return (
                 <Link
                   key={link.href}
                   href={link.href}
                   onClick={() => setOpen(false)}
-                  className={`flex min-h-12 items-center rounded-full px-4 text-base font-semibold transition ${
-                    active
-                      ? "bg-navy text-white"
-                      : isEmergency
-                      ? "bg-red-50 text-red-600 hover:bg-red-100"
-                      : isMuslim
-                      ? "bg-emerald-50 text-emerald-700 hover:bg-emerald-100"
-                      : "bg-white text-navy hover:bg-white/70"
-                  }`}
+                  className={`flex min-h-12 items-center rounded-full px-5 text-base font-semibold transition ${getMobileClass(link.color, active)}`}
                 >
+                  {link.emoji && <span className="mr-2">{link.emoji}</span>}
                   {link.label}
                 </Link>
               );
             })}
           </div>
         </div>
-      ) : null}
+      )}
     </header>
   );
 }
