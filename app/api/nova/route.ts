@@ -10,32 +10,33 @@ export async function POST(request: Request) {
       return NextResponse.json({ reply: getFallback(message) });
     }
 
-    const systemPrompt = `You are NOVA, the friendly AI tourist assistant for TAP LONDON — a smart NFC-powered London tourism guide. 
+    const systemPrompt = `You are NOVA, the friendly AI tourist assistant for TAP LONDON — a smart NFC-powered London tourism guide.
 
-Your role is to help tourists visiting London with:
-- Best places to visit (attractions, hidden gems, photo spots, free things)
-- Halal food and Muslim-friendly restaurants and areas
-- Transport (Tube, bus, taxi, Oyster card, Elizabeth line)
-- Emergency help and safety tips (scams, lost passport, emergency numbers)
-- Shopping areas and markets (luxury, high street, vintage, souvenirs)
-- Weather tips and what to wear
-- Prayer rooms, mosques, Qibla direction, Ramadan info
-- Money exchange tips and avoiding tourist traps
+You help tourists visiting London with ANY question they have. You are knowledgeable about:
+- London attractions, places, landmarks, palaces, museums, parks
+- Halal food, Muslim-friendly restaurants, mosques, prayer rooms
+- London transport (Tube, bus, taxi, Oyster card, Elizabeth line)
+- Emergency help, safety tips, scam warnings, lost documents
+- Shopping areas, markets, luxury streets, souvenirs
+- Weather, what to wear, best seasons to visit
+- Hotels, accommodation, neighbourhoods
+- Events, shows, theatre, nightlife
+- History and facts about London
+- Day trips from London
+- General travel questions
+- Anything a tourist might ask!
 
 IMPORTANT RULES:
-- Always answer in the SAME LANGUAGE the tourist uses
-- If they write in Arabic, reply in Arabic
-- If they write in French, reply in French  
-- If they write in Spanish, reply in Spanish
-- If they write in Portuguese, reply in Portuguese
-- If they write in Italian, reply in Italian
-- If they write in Chinese, reply in Chinese
-- Keep answers concise and practical — tourists are on their phones
-- Use emojis to make responses friendly and easy to scan
-- Always end with a helpful tip or suggestion
-- Reference TAP LONDON pages when relevant (e.g. "Check our Muslim Guide page")`;
+1. ALWAYS give a helpful, specific answer to every question — never say you cannot help
+2. Answer in the SAME LANGUAGE the tourist writes in (Arabic→Arabic, French→French, Spanish→Spanish, etc.)
+3. Keep answers concise and practical — tourists are on phones
+4. Use emojis to make responses friendly and easy to read
+5. For specific London places, include the area/neighbourhood
+6. Always be warm, friendly and encouraging
+7. If asked about something outside London, still try to help or redirect helpfully
 
-    // Build conversation history for Gemini
+You know everything about London. Always give a real, helpful answer!`;
+
     const conversationHistory = (history || []).slice(-6).map((m: { role: string; content: string }) => ({
       role: m.role === "user" ? "user" : "model",
       parts: [{ text: m.content }],
@@ -58,9 +59,9 @@ IMPORTANT RULES:
             },
           ],
           generationConfig: {
-            temperature: 0.7,
-            maxOutputTokens: 500,
-            topP: 0.8,
+            temperature: 0.8,
+            maxOutputTokens: 600,
+            topP: 0.9,
           },
           safetySettings: [
             { category: "HARM_CATEGORY_HARASSMENT", threshold: "BLOCK_NONE" },
@@ -72,54 +73,57 @@ IMPORTANT RULES:
       }
     );
 
-    const data = await response.json();
+    if (!response.ok) {
+      const errorData = await response.json();
+      console.error("Gemini error:", errorData);
+      return NextResponse.json({ reply: getFallback(message) });
+    }
 
-    // Extract reply from Gemini response
+    const data = await response.json();
     const reply = data?.candidates?.[0]?.content?.parts?.[0]?.text;
 
-    if (reply && reply.trim().length > 0) {
+    if (reply && reply.trim().length > 10) {
       return NextResponse.json({ reply: reply.trim() });
     }
 
-    // If Gemini fails fall back to built-in responses
     return NextResponse.json({ reply: getFallback(message) });
 
-  } catch {
+  } catch (error) {
+    console.error("Nova API error:", error);
     return NextResponse.json({ reply: getFallback("default") });
   }
 }
 
-// Smart fallback responses when API fails
 function getFallback(message: string): string {
   const msg = (message || "").toLowerCase();
 
+  if (msg.includes("palace") || msg.includes("buckingham") || msg.includes("hampton") || msg.includes("kensington")) {
+    return "👑 London Palaces:\n\n• Buckingham Palace — Westminster, official royal residence. Guards change daily!\n• Hampton Court Palace — East Molesey, Henry VIII's Tudor palace with a maze\n• Kensington Palace — Hyde Park, home of Prince & Princess of Wales\n• Windsor Castle — Windsor (day trip), oldest royal castle\n• Tower of London — Tower Hill, royal fortress with Crown Jewels 💎\n\nBuckingham Palace State Rooms open in summer only. Exterior is free to view anytime!";
+  }
   if (msg.includes("halal")) {
-    return "🕌 Best halal food in London:\n\n• Tayyabs — Whitechapel (Punjabi grill)\n• Lahore Kebab House — Whitechapel\n• Roti King — Euston (Malaysian)\n• Edgware Road — Arabic restaurant strip\n• Ranoush Juice — Lebanese wraps\n• Camden Market — many halal stalls\n\nAlways confirm halal status with the restaurant!";
+    return "🕌 Best halal food in London:\n\n• Tayyabs — Whitechapel (Punjabi grill, legendary!)\n• Lahore Kebab House — Whitechapel\n• Roti King — Euston (Malaysian, always a queue!)\n• Edgware Road — Arabic restaurant strip\n• Ranoush Juice — Lebanese wraps & juices\n• Mangal 2 — Dalston (Turkish grill)\n• Camden Market — many halal stalls\n\nAlways confirm halal status with the restaurant! 🍽️";
   }
-  if (msg.includes("tube") || msg.includes("transport") || msg.includes("bus")) {
-    return "🚇 London transport tips:\n\n• Use contactless card or Oyster — tap in AND out\n• Zones 1-2 cover most tourist spots\n• Elizabeth line is great for Heathrow\n• Stand RIGHT on escalators, walk LEFT\n• Download Citymapper app for directions!";
-  }
-  if (msg.includes("place") || msg.includes("visit") || msg.includes("see")) {
-    return "🏛️ Must-see London:\n\nFREE: British Museum, Natural History Museum, National Gallery, Tate Modern, Sky Garden\n\nPAID: Tower of London, London Eye, Buckingham Palace\n\nHIDDEN GEMS: Leadenhall Market, Little Venice, Columbia Road Market";
-  }
-  if (msg.includes("emergency") || msg.includes("police")) {
-    return "🚨 Emergency numbers:\n• 999 — Police/Fire/Ambulance\n• 101 — Non-emergency police\n• 111 — NHS medical advice\n• +44 20 7008 5000 — UK Foreign Office (lost passport)\n\nCheck our Emergency page for full safety guide!";
-  }
-  if (msg.includes("mosque") || msg.includes("muslim") || msg.includes("prayer")) {
-    return "🕌 Muslim guide:\n\n• East London Mosque — Whitechapel\n• London Central Mosque — Regent's Park\n• Qibla direction: ~119° (south-east)\n\nPrayer rooms at all Heathrow terminals, Westfield Stratford, St Pancras\n\nCheck our Muslim Guide page for full info!";
+  if (msg.includes("tube") || msg.includes("underground") || msg.includes("transport") || msg.includes("bus")) {
+    return "🚇 London transport tips:\n\n• Use contactless card or Oyster — tap in AND out\n• Zones 1-2 cover most tourist spots\n• Elizabeth line is great for Heathrow & Bond Street\n• Stand RIGHT on escalators, walk LEFT\n• Peak hours Mon-Fri 7-9am & 5-7pm (more expensive)\n• Night Tube runs Fri & Sat nights\n• Download Citymapper app for real-time directions!";
   }
   if (msg.includes("free") || msg.includes("cheap")) {
-    return "🎁 Free things in London:\n\nBritish Museum, Natural History Museum, National Gallery, Tate Modern, Science Museum, V&A, Sky Garden, Hyde Park, Thames Path walk, Changing of the Guard, Primrose Hill view 🏛️";
+    return "🎁 Free things in London:\n\n• British Museum — world class, always free\n• Natural History Museum — dinosaurs & minerals\n• National Gallery — Van Gogh, Monet, Da Vinci\n• Tate Modern — modern art on the South Bank\n• Science Museum — interactive galleries\n• V&A Museum — design & fashion\n• Sky Garden — book free online for skyline views\n• Hyde Park & Regent's Park\n• Thames Path walk\n• Changing of the Guard at Buckingham Palace";
   }
-  if (msg.includes("shop") || msg.includes("market")) {
-    return "🛍️ Shopping in London:\n\nLuxury: Bond Street, Regent Street, Harrods\nHigh Street: Oxford Street, Carnaby Street\nMarkets: Portobello Road, Camden, Borough Market, Columbia Road";
+  if (msg.includes("emergency") || msg.includes("police") || msg.includes("help")) {
+    return "🚨 Emergency numbers:\n\n• 999 — Police/Fire/Ambulance (immediate danger)\n• 101 — Non-emergency police\n• 111 — NHS medical advice (free)\n• 116 123 — Samaritans 24/7\n• +44 20 7008 5000 — UK Foreign Office (lost passport)\n\nCheck our Emergency page for lost passport steps and common London scams to avoid!";
+  }
+  if (msg.includes("mosque") || msg.includes("muslim") || msg.includes("prayer") || msg.includes("qibla")) {
+    return "🕌 Muslim guide London:\n\nMOSQUES:\n• East London Mosque — Whitechapel (largest)\n• London Central Mosque — Regent's Park\n• Finsbury Park Mosque — N4\n\nPRAYER ROOMS:\n• All Heathrow terminals\n• Westfield Stratford (Level 1)\n• St Pancras station\n\nQibla direction in London: ~119° (south-east)\n\nCheck our Muslim Guide page for full details!";
   }
   if (msg.includes("food") || msg.includes("eat") || msg.includes("restaurant")) {
-    return "🍽️ Best food spots:\n\n• Borough Market — street food\n• Dishoom — iconic Indian\n• Padella — fresh pasta\n• Camden Market — global cuisine\n• Brick Lane — curry houses\n\nCheck our Food page for 30+ recommendations!";
+    return "🍽️ Best food in London:\n\n• Borough Market — best street food market\n• Dishoom — iconic Bombay café (book ahead!)\n• Padella — fresh pasta at Borough Market\n• Camden Market — global street food\n• Brick Lane — famous curry houses\n• Edgware Road — Middle Eastern & Lebanese\n• Seven Dials Market — food hall near Covent Garden\n\nCheck our Food page for 30+ restaurants!";
   }
-  if (msg.includes("hi") || msg.includes("hello") || msg.includes("hey") || msg.includes("salaam") || msg.includes("bonjour") || msg.includes("hola")) {
-    return "Hello! 👋 Welcome to TAP LONDON! I'm NOVA, your AI London guide.\n\nI can help with:\n🏛️ Best places to visit\n🍽️ Halal food & restaurants\n🚇 Transport & Tube tips\n🕌 Muslim-friendly guide\n🚨 Emergency help\n🛍️ Shopping & markets\n🎁 Free things to do\n\nWhat would you like to know? 🗺️";
+  if (msg.includes("hi") || msg.includes("hello") || msg.includes("hey") || msg.includes("salaam") || msg.includes("bonjour") || msg.includes("hola") || msg.includes("مرحبا") || msg.includes("你好")) {
+    return "Hello! 👋 Welcome to TAP LONDON! I'm NOVA, your AI London guide.\n\nI can help with anything about London:\n🏛️ Places & attractions\n🍽️ Halal food & restaurants\n🚇 Transport & Tube tips\n🕌 Muslim guide\n🚨 Emergency help\n🛍️ Shopping & markets\n🎁 Free things to do\n👑 Royal palaces\n🏨 Hotels & areas\n🌦️ Weather tips\n\nWhat would you like to know? 🗺️";
+  }
+  if (msg.includes("shop") || msg.includes("market") || msg.includes("buy")) {
+    return "🛍️ Shopping in London:\n\nLUXURY:\n• Bond Street — Chanel, Louis Vuitton, Rolex\n• Regent Street — premium & flagship stores\n• Harrods — iconic Knightsbridge department store\n• Liberty — beautiful Tudor-style designer store\n\nHIGH STREET:\n• Oxford Street — everything, very busy!\n• Carnaby Street — cool independent fashion\n\nMARKETS:\n• Portobello Road — antiques & vintage\n• Camden — alternative & street food\n• Borough Market — food gifts & produce";
   }
 
-  return "🗺️ I can help you with:\n\n• Best places to visit\n• Halal food & restaurants\n• Tube & transport tips\n• Muslim guide (mosques, prayer rooms)\n• Emergency numbers & scam warnings\n• Shopping & markets\n• Free things to do\n• Money exchange tips\n\nJust ask me anything about London!";
+  return "🗺️ I can help you with anything about London! Ask me about:\n\n• Places to visit & hidden gems\n• Halal food & restaurants\n• Transport & Tube tips\n• Muslim guide & mosques\n• Emergency numbers\n• Shopping & markets\n• Free activities\n• Royal palaces\n• Hotels & neighbourhoods\n• Weather & best time to visit\n\nWhat would you like to know? 😊";
 }
