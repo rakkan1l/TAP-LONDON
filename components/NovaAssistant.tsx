@@ -47,42 +47,11 @@ export default function NovaAssistant() {
   return (
     <>
       <style>{`
-        .nova-popup {
-          position: fixed;
-          bottom: 160px;
-          right: 16px;
-          z-index: 60;
-          width: 320px;
-          max-width: calc(100vw - 32px);
-          background: #ffffff;
-          border-radius: 20px;
-          box-shadow: 0 8px 40px rgba(0,0,0,0.2);
-          border: 1px solid rgba(201,168,76,0.3);
-          display: flex;
-          flex-direction: column;
-          overflow: hidden;
-          max-height: 480px;
-        }
-        @media (min-width: 768px) {
-          .nova-popup {
-            width: 400px;
-            max-height: 600px;
-            bottom: 100px;
-            right: 32px;
-          }
-        }
-        @media (min-width: 1024px) {
-          .nova-popup {
-            width: 440px;
-            max-height: 700px;
-            bottom: 80px;
-            right: 40px;
-          }
-        }
+        /* NOVA floating button */
         .nova-btn {
           position: fixed;
-          bottom: 90px;
-          right: 20px;
+          bottom: 24px;
+          right: 24px;
           z-index: 60;
           width: 56px;
           height: 56px;
@@ -96,15 +65,62 @@ export default function NovaAssistant() {
           box-shadow: 0 4px 20px rgba(0,0,0,0.3);
           overflow: hidden;
           padding: 0;
+          transition: transform 0.2s;
         }
+        .nova-btn:hover {
+          transform: scale(1.05);
+        }
+
+        /* NOVA popup — mobile */
+        .nova-popup {
+          position: fixed;
+          bottom: 92px;
+          right: 16px;
+          z-index: 60;
+          width: 320px;
+          max-width: calc(100vw - 32px);
+          background: #ffffff;
+          border-radius: 20px;
+          box-shadow: 0 8px 40px rgba(0,0,0,0.2);
+          border: 1px solid rgba(201,168,76,0.3);
+          display: flex;
+          flex-direction: column;
+          overflow: hidden;
+          max-height: 75vh;
+        }
+
+        /* Tablet */
         @media (min-width: 768px) {
+          .nova-btn {
+            bottom: 32px;
+            right: 32px;
+            width: 60px;
+            height: 60px;
+          }
+          .nova-popup {
+            width: 380px;
+            bottom: 106px;
+            right: 32px;
+            max-height: 65vh;
+          }
+        }
+
+        /* Desktop / Laptop */
+        @media (min-width: 1024px) {
           .nova-btn {
             bottom: 40px;
             right: 40px;
             width: 64px;
             height: 64px;
           }
+          .nova-popup {
+            width: 420px;
+            bottom: 120px;
+            right: 40px;
+            max-height: 680px;
+          }
         }
+
         .nova-messages {
           flex: 1;
           overflow-y: auto;
@@ -122,7 +138,9 @@ export default function NovaAssistant() {
           gap: 6px;
           overflow-x: auto;
           flex-shrink: 0;
+          scrollbar-width: none;
         }
+        .nova-quick::-webkit-scrollbar { display: none; }
         .nova-input-area {
           padding: 10px;
           background: #ffffff;
@@ -215,6 +233,7 @@ export default function NovaAssistant() {
                   lineHeight: 1.55,
                   boxShadow: "0 2px 8px rgba(0,0,0,0.06)",
                   border: msg.role === "assistant" ? "1px solid rgba(201,168,76,0.15)" : "none",
+                  whiteSpace: "pre-wrap",
                 }}>
                   {msg.content}
                 </div>
@@ -240,7 +259,7 @@ export default function NovaAssistant() {
 
           {/* Quick questions */}
           <div className="nova-quick">
-            {["Best places?", "Halal food?", "Tube tips?", "Emergency?", "Free things?", "Mosques?"].map((q) => (
+            {["Best places?", "Halal food?", "Tube tips?", "Emergency?", "Free things?", "Mosques?", "Shopping?", "Weather?"].map((q) => (
               <button key={q} onClick={() => setInput(q)} style={{
                 background: "rgba(201,168,76,0.1)",
                 border: "1px solid rgba(201,168,76,0.3)",
