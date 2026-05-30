@@ -47,7 +47,6 @@ export default function NovaAssistant() {
   return (
     <>
       <style>{`
-        /* NOVA floating button */
         .nova-btn {
           position: fixed;
           bottom: 24px;
@@ -67,11 +66,9 @@ export default function NovaAssistant() {
           padding: 0;
           transition: transform 0.2s;
         }
-        .nova-btn:hover {
-          transform: scale(1.05);
-        }
+        .nova-btn:hover { transform: scale(1.05); }
 
-        /* NOVA popup — mobile */
+        /* Mobile popup */
         .nova-popup {
           position: fixed;
           bottom: 92px;
@@ -86,7 +83,8 @@ export default function NovaAssistant() {
           display: flex;
           flex-direction: column;
           overflow: hidden;
-          max-height: 75vh;
+          height: 75vh;
+          max-height: 520px;
         }
 
         /* Tablet */
@@ -101,11 +99,12 @@ export default function NovaAssistant() {
             width: 380px;
             bottom: 106px;
             right: 32px;
-            max-height: 65vh;
+            height: 70vh;
+            max-height: 600px;
           }
         }
 
-        /* Desktop / Laptop */
+        /* Desktop / Laptop — tall like Visit London */
         @media (min-width: 1024px) {
           .nova-btn {
             bottom: 40px;
@@ -114,20 +113,30 @@ export default function NovaAssistant() {
             height: 64px;
           }
           .nova-popup {
-            width: 420px;
-            bottom: 120px;
+            width: 440px;
+            bottom: 0;
             right: 40px;
-            max-height: 680px;
+            border-radius: 20px 20px 0 0;
+            height: 85vh;
+            max-height: 820px;
+          }
+        }
+
+        @media (min-width: 1280px) {
+          .nova-popup {
+            width: 460px;
+            height: 88vh;
+            max-height: 900px;
           }
         }
 
         .nova-messages {
           flex: 1;
           overflow-y: auto;
-          padding: 14px;
+          padding: 16px;
           display: flex;
           flex-direction: column;
-          gap: 10px;
+          gap: 12px;
           background: #f9f7f2;
         }
         .nova-quick {
@@ -142,12 +151,23 @@ export default function NovaAssistant() {
         }
         .nova-quick::-webkit-scrollbar { display: none; }
         .nova-input-area {
-          padding: 10px;
+          padding: 10px 12px;
           background: #ffffff;
           border-top: 1px solid rgba(0,0,0,0.06);
           display: flex;
           gap: 8px;
           flex-shrink: 0;
+          align-items: center;
+        }
+        .nova-disclaimer {
+          padding: 6px 12px 8px;
+          background: #ffffff;
+          text-align: center;
+          font-family: 'DM Sans', sans-serif;
+          font-size: 0.62rem;
+          color: #aaa;
+          flex-shrink: 0;
+          border-top: 1px solid rgba(0,0,0,0.04);
         }
       `}</style>
 
@@ -178,14 +198,14 @@ export default function NovaAssistant() {
           {/* Header */}
           <div style={{
             background: "linear-gradient(135deg, #1a1a2e, #2d2d4e)",
-            padding: "14px 16px",
+            padding: "16px",
             display: "flex",
             alignItems: "center",
-            gap: "10px",
+            gap: "12px",
             flexShrink: 0,
           }}>
             <div style={{
-              width: "40px", height: "40px", borderRadius: "50%",
+              width: "44px", height: "44px", borderRadius: "50%",
               overflow: "hidden", border: "2px solid #c9a84c",
               flexShrink: 0, background: "#c9a84c",
               display: "flex", alignItems: "center", justifyContent: "center",
@@ -193,7 +213,7 @@ export default function NovaAssistant() {
               <img
                 src="/ailogo.png"
                 alt="NOVA"
-                style={{ width: "40px", height: "40px", objectFit: "cover" }}
+                style={{ width: "44px", height: "44px", objectFit: "cover" }}
                 onError={(e) => {
                   (e.currentTarget as HTMLImageElement).style.display = "none";
                   if (e.currentTarget.parentElement) e.currentTarget.parentElement.textContent = "🤖";
@@ -201,19 +221,27 @@ export default function NovaAssistant() {
               />
             </div>
             <div style={{ flex: 1 }}>
-              <div style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "1.1rem", fontWeight: 700, color: "#c9a84c" }}>
+              <div style={{
+                fontFamily: "'Cormorant Garamond', serif",
+                fontSize: "1.15rem", fontWeight: 700, color: "#c9a84c",
+              }}>
                 NOVA
               </div>
-              <div style={{ fontFamily: "'DM Sans', sans-serif", fontSize: "0.65rem", color: "rgba(255,255,255,0.5)" }}>
+              <div style={{
+                fontFamily: "'DM Sans', sans-serif",
+                fontSize: "0.65rem", color: "rgba(255,255,255,0.5)",
+              }}>
                 TAP LONDON AI Guide • Online
               </div>
             </div>
             <button
               onClick={() => setOpen(false)}
               style={{
-                background: "none", border: "none",
-                color: "rgba(255,255,255,0.6)", fontSize: "1.2rem",
-                cursor: "pointer", padding: "4px", lineHeight: 1,
+                background: "rgba(255,255,255,0.1)", border: "none",
+                color: "rgba(255,255,255,0.7)", fontSize: "1rem",
+                cursor: "pointer", padding: "6px 8px",
+                borderRadius: "8px", lineHeight: 1,
+                fontFamily: "'DM Sans', sans-serif",
               }}
             >✕</button>
           </div>
@@ -221,9 +249,33 @@ export default function NovaAssistant() {
           {/* Messages */}
           <div className="nova-messages">
             {messages.map((msg, i) => (
-              <div key={i} style={{ display: "flex", justifyContent: msg.role === "user" ? "flex-end" : "flex-start" }}>
+              <div key={i} style={{
+                display: "flex",
+                justifyContent: msg.role === "user" ? "flex-end" : "flex-start",
+                gap: "8px",
+                alignItems: "flex-end",
+              }}>
+                {/* NOVA avatar for assistant messages */}
+                {msg.role === "assistant" && (
+                  <div style={{
+                    width: "28px", height: "28px", borderRadius: "50%",
+                    overflow: "hidden", flexShrink: 0,
+                    border: "1px solid rgba(201,168,76,0.3)",
+                    background: "#1a1a2e",
+                  }}>
+                    <img
+                      src="/ailogo.png"
+                      alt="NOVA"
+                      style={{ width: "28px", height: "28px", objectFit: "cover" }}
+                      onError={(e) => {
+                        (e.currentTarget as HTMLImageElement).style.display = "none";
+                        if (e.currentTarget.parentElement) e.currentTarget.parentElement.textContent = "🤖";
+                      }}
+                    />
+                  </div>
+                )}
                 <div style={{
-                  maxWidth: "84%",
+                  maxWidth: "78%",
                   background: msg.role === "user" ? "#1a1a2e" : "#ffffff",
                   color: msg.role === "user" ? "#c9a84c" : "#1a1a2e",
                   borderRadius: msg.role === "user" ? "16px 16px 4px 16px" : "16px 16px 16px 4px",
@@ -232,7 +284,7 @@ export default function NovaAssistant() {
                   fontSize: "0.83rem",
                   lineHeight: 1.55,
                   boxShadow: "0 2px 8px rgba(0,0,0,0.06)",
-                  border: msg.role === "assistant" ? "1px solid rgba(201,168,76,0.15)" : "none",
+                  border: msg.role === "assistant" ? "1px solid rgba(201,168,76,0.12)" : "none",
                   whiteSpace: "pre-wrap",
                 }}>
                   {msg.content}
@@ -240,17 +292,26 @@ export default function NovaAssistant() {
               </div>
             ))}
             {loading && (
-              <div style={{ display: "flex", justifyContent: "flex-start" }}>
+              <div style={{ display: "flex", gap: "8px", alignItems: "flex-end" }}>
+                <div style={{
+                  width: "28px", height: "28px", borderRadius: "50%",
+                  overflow: "hidden", flexShrink: 0,
+                  border: "1px solid rgba(201,168,76,0.3)",
+                  background: "#1a1a2e", fontSize: "0.7rem",
+                  display: "flex", alignItems: "center", justifyContent: "center",
+                }}>🤖</div>
                 <div style={{
                   background: "#ffffff",
                   borderRadius: "16px 16px 16px 4px",
-                  padding: "10px 14px",
+                  padding: "10px 16px",
                   fontSize: "0.82rem",
                   color: "#888",
-                  border: "1px solid rgba(201,168,76,0.15)",
+                  border: "1px solid rgba(201,168,76,0.12)",
                   fontFamily: "'DM Sans', sans-serif",
                 }}>
-                  NOVA is thinking... 🤔
+                  <span style={{ animation: "pulse 1s infinite" }}>●</span>
+                  <span style={{ animation: "pulse 1s 0.2s infinite", margin: "0 3px" }}>●</span>
+                  <span style={{ animation: "pulse 1s 0.4s infinite" }}>●</span>
                 </div>
               </div>
             )}
@@ -259,18 +320,19 @@ export default function NovaAssistant() {
 
           {/* Quick questions */}
           <div className="nova-quick">
-            {["Best places?", "Halal food?", "Tube tips?", "Emergency?", "Free things?", "Mosques?", "Shopping?", "Weather?"].map((q) => (
-              <button key={q} onClick={() => setInput(q)} style={{
-                background: "rgba(201,168,76,0.1)",
-                border: "1px solid rgba(201,168,76,0.3)",
+            {["Best places?", "Halal food?", "Tube tips?", "Emergency?", "Free things?", "Mosques?", "Shopping?", "Palaces?"].map((q) => (
+              <button key={q} onClick={() => { setInput(q); }} style={{
+                background: "rgba(201,168,76,0.08)",
+                border: "1px solid rgba(201,168,76,0.25)",
                 borderRadius: "20px",
-                padding: "4px 10px",
+                padding: "5px 11px",
                 fontFamily: "'DM Sans', sans-serif",
                 fontSize: "0.7rem",
                 color: "#1a1a2e",
                 cursor: "pointer",
                 whiteSpace: "nowrap",
                 fontWeight: 600,
+                transition: "background 0.15s",
               }}>{q}</button>
             ))}
           </div>
@@ -281,13 +343,13 @@ export default function NovaAssistant() {
               value={input}
               onChange={(e) => setInput(e.target.value)}
               onKeyDown={(e) => e.key === "Enter" && sendMessage()}
-              placeholder="Ask about London..."
+              placeholder="Type your message..."
               style={{
                 flex: 1,
                 background: "#f9f7f2",
                 border: "1px solid rgba(201,168,76,0.3)",
                 borderRadius: "50px",
-                padding: "9px 16px",
+                padding: "10px 16px",
                 fontFamily: "'DM Sans', sans-serif",
                 fontSize: "0.83rem",
                 color: "#1a1a2e",
@@ -298,13 +360,13 @@ export default function NovaAssistant() {
               onClick={sendMessage}
               disabled={loading || !input.trim()}
               style={{
-                background: input.trim() ? "#c9a84c" : "#ddd",
+                background: input.trim() ? "#c9a84c" : "#e5e5e5",
                 border: "none",
                 borderRadius: "50%",
-                width: "38px",
-                height: "38px",
+                width: "40px",
+                height: "40px",
                 cursor: input.trim() ? "pointer" : "not-allowed",
-                fontSize: "0.9rem",
+                fontSize: "0.95rem",
                 flexShrink: 0,
                 display: "flex",
                 alignItems: "center",
@@ -313,8 +375,22 @@ export default function NovaAssistant() {
               }}
             >➤</button>
           </div>
+
+          {/* Disclaimer — like Visit London */}
+          <div className="nova-disclaimer">
+            NOVA is AI-powered and may make mistakes
+          </div>
+
         </div>
       )}
+
+      <style>{`
+        @keyframes pulse {
+          0%, 100% { opacity: 0.3; }
+          50% { opacity: 1; }
+        }
+      `}</style>
     </>
   );
 }
+
