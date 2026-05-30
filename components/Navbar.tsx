@@ -116,235 +116,151 @@ export default function Navbar() {
   const weatherBorder = dark ? "rgba(201,168,76,0.35)" : "rgba(201,168,76,0.25)";
 
   return (
-    <>
-      {/* Dark mode global styles for cards and text */}
-      <style>{`
-        html.dark .place-card-content,
-        html.dark .card-title,
-        html.dark .card-desc,
-        html.dark .card-detail {
-          color: #f9f7f2 !important;
-        }
-        html.dark p { color: #cccccc !important; }
-        html.dark h1, html.dark h2, html.dark h3 { color: #f9f7f2 !important; }
-        html.dark [style*="color: #1a1a2e"],
-        html.dark [style*="color: #1a1a1e"],
-        html.dark [style*="color: #555"],
-        html.dark [style*="color: #444"],
-        html.dark [style*="color: #333"] {
-          color: #e0e0e0 !important;
-        }
-        html.dark [style*="background: #ffffff"],
-        html.dark [style*="background:#ffffff"],
-        html.dark [style*="background: #f9f7f2"],
-        html.dark [style*="background:#f9f7f2"] {
-          background: #1a1a2e !important;
-        }
-        html.dark [style*="background: rgb(249"] {
-          background: #1a1a2e !important;
-        }
-        html.dark header {
-          background: rgba(13,13,26,0.95) !important;
-          border-color: rgba(201,168,76,0.2) !important;
-        }
-        html.dark .bg-cream {
-          background: #111120 !important;
-        }
-        html.dark body {
-          background: #0d0d1a !important;
-        }
-        html.dark main {
-          background: #0d0d1a !important;
-        }
-        html.dark section {
-          background: #0d0d1a !important;
-        }
-        html.dark .nav-link {
-          color: rgba(249,247,242,0.8) !important;
-        }
-        /* Fix weather text color in dark mode */
-        html.dark .weather-temp { color: #e5e5e5 !important; }
-        html.dark .weather-desc { color: #aaaaaa !important; }
-        /* Fix card text in dark mode */
-        html.dark [class*="text-navy"],
-        html.dark [class*="text-ink"] {
-          color: #f9f7f2 !important;
-        }
-        html.dark [class*="text-navy/80"] {
-          color: rgba(249,247,242,0.8) !important;
-        }
-        /* Smooth transition */
-        *, *::before, *::after {
-          transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
-        }
-      `}</style>
+    <header className="sticky top-0 z-50 border-b border-white/35 bg-cream/86 shadow-sm backdrop-blur-xl">
+      <nav
+        className="mx-auto flex max-w-7xl items-center justify-between px-4 py-3 sm:px-6 lg:px-8"
+        aria-label="Main navigation"
+      >
+        {/* Logo */}
+        <Link href="/" className="group flex min-h-12 items-center gap-3" onClick={() => setOpen(false)}>
+          <BridgeIcon />
+          <span className="font-heading text-xl font-bold tracking-[0.08em] text-navy">TAP LONDON</span>
+        </Link>
 
-      <header className="sticky top-0 z-50 border-b border-white/35 bg-cream/86 shadow-sm backdrop-blur-xl">
-        <nav
-          className="mx-auto flex max-w-7xl items-center justify-between px-4 py-3 sm:px-6 lg:px-8"
-          aria-label="Main navigation"
-        >
-          {/* Logo */}
-          <Link
-            href="/"
-            className="group flex min-h-12 items-center gap-3"
-            onClick={() => setOpen(false)}
+        {/* ── DESKTOP NAV ── lg and above only */}
+        <div className="hidden items-center gap-4 lg:flex">
+
+          {/* Weather — desktop only */}
+          {weather && (
+            <div style={{
+              display: "flex", alignItems: "center", gap: "6px",
+              background: weatherBg, border: `1px solid ${weatherBorder}`,
+              borderRadius: "50px", padding: "5px 12px",
+              fontFamily: "'DM Sans', sans-serif",
+            }}>
+              <span style={{ fontSize: "1rem" }}>{weather.icon}</span>
+              <span className="weather-temp" style={{ fontSize: "0.78rem", fontWeight: 700, color: weatherTextColor }}>
+                {weather.temp}°C
+              </span>
+              <span className="weather-desc" style={{ fontSize: "0.68rem", color: weatherSubColor }}>
+                {weather.desc}
+              </span>
+            </div>
+          )}
+
+          {/* Nav links */}
+          {navLinks.map((link) => {
+            const active = pathname === link.href;
+            return (
+              <Link
+                key={link.href}
+                href={link.href}
+                className="nav-link relative min-h-11 py-3 text-sm font-semibold uppercase tracking-[0.14em] transition"
+                style={getDesktopStyle(link.color)}
+                data-active={active}
+              >
+                {link.emoji && <span className="mr-1">{link.emoji}</span>}
+                {link.label}
+              </Link>
+            );
+          })}
+
+          {/* Dark mode — desktop only, ONE button */}
+          <button
+            onClick={toggleDark}
+            title={dark ? "Switch to light mode" : "Switch to dark mode"}
+            style={{
+              background: dark ? "#c9a84c" : "#1a1a2e",
+              color: dark ? "#1a1a2e" : "#c9a84c",
+              border: "none", borderRadius: "50px",
+              padding: "6px 14px", fontWeight: 700,
+              fontSize: "0.78rem", cursor: "pointer",
+              fontFamily: "'DM Sans', sans-serif",
+              display: "flex", alignItems: "center", gap: "5px",
+              whiteSpace: "nowrap",
+            }}
           >
-            <BridgeIcon />
-            <span className="font-heading text-xl font-bold tracking-[0.08em] text-navy">
-              TAP LONDON
-            </span>
-          </Link>
+            {dark ? "☀️ Light" : "🌙 Dark"}
+          </button>
+        </div>
 
-          {/* Desktop nav — hidden on mobile */}
-          <div className="hidden items-center gap-4 lg:flex">
+        {/* ── MOBILE RIGHT — dark toggle + hamburger only ── */}
+        <div className="flex items-center gap-2 lg:hidden">
+          {/* Dark mode — mobile circle */}
+          <button
+            onClick={toggleDark}
+            title={dark ? "Light mode" : "Dark mode"}
+            style={{
+              background: dark ? "#c9a84c" : "#1a1a2e",
+              color: dark ? "#1a1a2e" : "#ffffff",
+              border: "none", borderRadius: "50%",
+              width: "38px", height: "38px",
+              cursor: "pointer", fontSize: "0.95rem",
+              display: "flex", alignItems: "center", justifyContent: "center",
+              flexShrink: 0,
+            }}
+          >
+            {dark ? "☀️" : "🌙"}
+          </button>
 
-            {/* Weather */}
-            {weather && (
-              <div style={{
-                display: "flex",
-                alignItems: "center",
-                gap: "6px",
-                background: weatherBg,
-                border: `1px solid ${weatherBorder}`,
-                borderRadius: "50px",
-                padding: "5px 12px",
-                fontFamily: "'DM Sans', sans-serif",
-              }}>
-                <span style={{ fontSize: "1rem" }}>{weather.icon}</span>
-                <span className="weather-temp" style={{ fontSize: "0.78rem", fontWeight: 700, color: weatherTextColor }}>
-                  {weather.temp}°C
-                </span>
-                <span className="weather-desc" style={{ fontSize: "0.68rem", color: weatherSubColor }}>
-                  {weather.desc}
-                </span>
-              </div>
-            )}
+          {/* Hamburger */}
+          <button
+            type="button"
+            className="inline-flex h-12 w-12 items-center justify-center rounded-full border border-navy/15 bg-white text-navy shadow-sm"
+            onClick={() => setOpen((v) => !v)}
+            aria-label={open ? "Close menu" : "Open menu"}
+            aria-expanded={open}
+          >
+            {open ? <X aria-hidden="true" size={22} /> : <Menu aria-hidden="true" size={22} />}
+          </button>
+        </div>
+      </nav>
 
-            {/* Nav links */}
+      {/* ── MOBILE WEATHER BAR — hidden on desktop (lg:hidden) ── */}
+      {weather && !open && (
+        <div
+          className="lg:hidden"
+          style={{
+            display: "flex", justifyContent: "center",
+            alignItems: "center", gap: "8px",
+            padding: "5px 16px 7px",
+            borderTop: "1px solid rgba(201,168,76,0.12)",
+            fontFamily: "'DM Sans', sans-serif",
+          }}
+        >
+          <span style={{ fontSize: "1rem" }}>{weather.icon}</span>
+          <span className="weather-temp" style={{ fontSize: "0.78rem", fontWeight: 700, color: weatherTextColor }}>
+            London {weather.temp}°C
+          </span>
+          <span style={{ color: weatherSubColor, fontSize: "0.7rem" }}>·</span>
+          <span className="weather-desc" style={{ fontSize: "0.7rem", color: weatherSubColor }}>
+            {weather.desc}
+          </span>
+        </div>
+      )}
+
+      {/* ── MOBILE MENU ── */}
+      {open && (
+        <div className="border-t border-navy/10 bg-cream px-4 pb-5 pt-2 lg:hidden">
+          <div className="mx-auto grid max-w-7xl gap-2">
             {navLinks.map((link) => {
               const active = pathname === link.href;
               return (
                 <Link
                   key={link.href}
                   href={link.href}
-                  className="nav-link relative min-h-11 py-3 text-sm font-semibold uppercase tracking-[0.14em] transition"
-                  style={getDesktopStyle(link.color)}
-                  data-active={active}
+                  onClick={() => setOpen(false)}
+                  className="flex min-h-12 items-center rounded-full px-5 text-base font-semibold transition"
+                  style={getMobileStyle(link.color, active)}
                 >
-                  {link.emoji && <span className="mr-1">{link.emoji}</span>}
+                  {link.emoji && <span className="mr-2">{link.emoji}</span>}
                   {link.label}
                 </Link>
               );
             })}
-
-            {/* Dark mode toggle — DESKTOP ONLY */}
-            <button
-              onClick={toggleDark}
-              title={dark ? "Switch to light mode" : "Switch to dark mode"}
-              style={{
-                background: dark ? "#c9a84c" : "#1a1a2e",
-                color: dark ? "#1a1a2e" : "#c9a84c",
-                border: "none",
-                borderRadius: "50px",
-                padding: "6px 14px",
-                fontWeight: 700,
-                fontSize: "0.78rem",
-                cursor: "pointer",
-                fontFamily: "'DM Sans', sans-serif",
-                display: "flex",
-                alignItems: "center",
-                gap: "5px",
-                whiteSpace: "nowrap",
-              }}
-            >
-              {dark ? "☀️ Light" : "🌙 Dark"}
-            </button>
           </div>
-
-          {/* Mobile right — dark toggle + hamburger ONLY */}
-          <div style={{ display: "flex", alignItems: "center", gap: "8px" }} className="lg:hidden">
-            <button
-              onClick={toggleDark}
-              title={dark ? "Light mode" : "Dark mode"}
-              style={{
-                background: dark ? "#c9a84c" : "#1a1a2e",
-                color: dark ? "#1a1a2e" : "#ffffff",
-                border: "none",
-                borderRadius: "50%",
-                width: "38px",
-                height: "38px",
-                cursor: "pointer",
-                fontSize: "0.95rem",
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "center",
-                flexShrink: 0,
-              }}
-            >
-              {dark ? "☀️" : "🌙"}
-            </button>
-
-            <button
-              type="button"
-              className="inline-flex h-12 w-12 items-center justify-center rounded-full border border-navy/15 bg-white text-navy shadow-sm"
-              onClick={() => setOpen((v) => !v)}
-              aria-label={open ? "Close menu" : "Open menu"}
-              aria-expanded={open}
-            >
-              {open ? <X aria-hidden="true" size={22} /> : <Menu aria-hidden="true" size={22} />}
-            </button>
-          </div>
-        </nav>
-
-        {/* Mobile weather bar — shows below nav */}
-        {weather && !open && (
-          <div
-            style={{
-              display: "flex",
-              justifyContent: "center",
-              alignItems: "center",
-              gap: "8px",
-              padding: "5px 16px 7px",
-              borderTop: "1px solid rgba(201,168,76,0.12)",
-              fontFamily: "'DM Sans', sans-serif",
-            }}
-            className="lg:hidden"
-          >
-            <span style={{ fontSize: "1rem" }}>{weather.icon}</span>
-            <span className="weather-temp" style={{ fontSize: "0.78rem", fontWeight: 700, color: weatherTextColor }}>
-              London {weather.temp}°C
-            </span>
-            <span style={{ color: weatherSubColor, fontSize: "0.7rem" }}>·</span>
-            <span className="weather-desc" style={{ fontSize: "0.7rem", color: weatherSubColor }}>
-              {weather.desc}
-            </span>
-          </div>
-        )}
-
-        {/* Mobile menu */}
-        {open && (
-          <div className="border-t border-navy/10 bg-cream px-4 pb-5 pt-2 lg:hidden">
-            <div className="mx-auto grid max-w-7xl gap-2">
-              {navLinks.map((link) => {
-                const active = pathname === link.href;
-                return (
-                  <Link
-                    key={link.href}
-                    href={link.href}
-                    onClick={() => setOpen(false)}
-                    className="flex min-h-12 items-center rounded-full px-5 text-base font-semibold transition"
-                    style={getMobileStyle(link.color, active)}
-                  >
-                    {link.emoji && <span className="mr-2">{link.emoji}</span>}
-                    {link.label}
-                  </Link>
-                );
-              })}
-            </div>
-          </div>
-        )}
-      </header>
-    </>
+        </div>
+      )}
+    </header>
   );
 }
