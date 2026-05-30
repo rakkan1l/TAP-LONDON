@@ -10,8 +10,10 @@ const navLinks = [
   { href: "/food", label: "Food" },
   { href: "/shopping", label: "Shopping" },
   { href: "/transport", label: "Transport" },
+  { href: "/muslim", label: "🕌 Muslim" },
+  { href: "/emergency", label: "🚨 Emergency" },
   { href: "/services", label: "Services" },
-  { href: "/offers", label: "Offers" }
+  { href: "/offers", label: "Offers" },
 ];
 
 function BridgeIcon() {
@@ -35,14 +37,22 @@ export default function Navbar() {
           <span className="font-heading text-xl font-bold tracking-[0.08em] text-navy">TAP LONDON</span>
         </Link>
 
-        <div className="hidden items-center gap-7 lg:flex">
+        <div className="hidden items-center gap-5 lg:flex">
           {navLinks.map((link) => {
             const active = pathname === link.href;
+            const isEmergency = link.href === "/emergency";
+            const isMuslim = link.href === "/muslim";
             return (
               <Link
                 key={link.href}
                 href={link.href}
-                className="nav-link relative min-h-11 py-3 text-sm font-semibold uppercase tracking-[0.14em] text-navy/80 transition hover:text-navy"
+                className={`nav-link relative min-h-11 py-3 text-sm font-semibold uppercase tracking-[0.14em] transition hover:text-navy ${
+                  isEmergency
+                    ? "text-red-600 hover:text-red-700"
+                    : isMuslim
+                    ? "text-emerald-700 hover:text-emerald-800"
+                    : "text-navy/80 hover:text-navy"
+                }`}
                 data-active={active}
               >
                 {link.label}
@@ -67,13 +77,21 @@ export default function Navbar() {
           <div className="mx-auto grid max-w-7xl gap-2">
             {navLinks.map((link) => {
               const active = pathname === link.href;
+              const isEmergency = link.href === "/emergency";
+              const isMuslim = link.href === "/muslim";
               return (
                 <Link
                   key={link.href}
                   href={link.href}
                   onClick={() => setOpen(false)}
                   className={`flex min-h-12 items-center rounded-full px-4 text-base font-semibold transition ${
-                    active ? "bg-navy text-white" : "bg-white text-navy hover:bg-white/70"
+                    active
+                      ? "bg-navy text-white"
+                      : isEmergency
+                      ? "bg-red-50 text-red-600 hover:bg-red-100"
+                      : isMuslim
+                      ? "bg-emerald-50 text-emerald-700 hover:bg-emerald-100"
+                      : "bg-white text-navy hover:bg-white/70"
                   }`}
                 >
                   {link.label}
