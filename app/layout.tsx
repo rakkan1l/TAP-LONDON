@@ -5,6 +5,7 @@ import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import NFCBanner from "@/components/NFCBanner";
+import NovaAssistant from "@/components/NovaAssistant";
 import { MessageCircle } from "lucide-react";
 
 const dmSans = DM_Sans({
@@ -36,14 +37,7 @@ export const metadata: Metadata = {
     description: "Your Smart London Guide - Tap. Explore. Enjoy.",
     url: siteUrl,
     siteName: "TAP LONDON",
-    images: [
-      {
-        url: "/og.svg",
-        width: 1200,
-        height: 630,
-        alt: "TAP LONDON smart tourism guide"
-      }
-    ],
+    images: [{ url: "/og.svg", width: 1200, height: 630, alt: "TAP LONDON smart tourism guide" }],
     locale: "en_GB",
     type: "website"
   },
@@ -67,11 +61,11 @@ export default function RootLayout({ children }: Readonly<{ children: ReactNode 
   return (
     <html lang="en-GB" className={`${dmSans.variable} ${cormorant.variable}`}>
       <body className="font-body antialiased">
-        {/* Future i18n hint: add Arabic, Urdu, and Bengali locale routing/content files for common London tourist demographics. */}
-        {/* GA4 placeholder: add the Google Analytics tag here using NEXT_PUBLIC_GA_ID when ready for production tracking. */}
         <Navbar />
         <NFCBanner />
         <main>{children}</main>
+
+        {/* WhatsApp Button */}
         <a
           href={`https://wa.me/${whatsappNumber}?text=Hello%20TAP%20LONDON%2C%20I%20need%20help%20planning%20my%20visit.`}
           target="_blank"
@@ -81,6 +75,10 @@ export default function RootLayout({ children }: Readonly<{ children: ReactNode 
         >
           <MessageCircle aria-hidden="true" size={25} />
         </a>
+
+        {/* NOVA AI Assistant */}
+        <NovaAssistant />
+
         <Footer />
       </body>
     </html>
