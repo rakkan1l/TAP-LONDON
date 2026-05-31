@@ -2,296 +2,204 @@
 @tailwind components;
 @tailwind utilities;
 
-/* ============================================
-   LIGHT MODE VARIABLES (default)
-   ============================================ */
 :root {
   color-scheme: light;
   --navy: #1a1a2e;
   --gold: #c9a84c;
   --cream: #f9f7f2;
   --ink: #1a1a1e;
-  --bg-primary: #f9f7f2;
-  --bg-card: #ffffff;
-  --text-primary: #1a1a1e;
-  --text-secondary: #555555;
-  --text-muted: #888888;
-  --border-color: rgba(26,26,46,0.1);
 }
 
-/* ============================================
-   DARK MODE VARIABLES
-   ============================================ */
-html.dark {
-  color-scheme: dark;
-  --bg-primary: #0d0d1a;
-  --bg-card: #1a1a2e;
-  --text-primary: #f9f7f2;
-  --text-secondary: #cccccc;
-  --text-muted: #888888;
-  --border-color: rgba(201,168,76,0.2);
-}
-
-/* ============================================
-   BASE
-   ============================================ */
 * { box-sizing: border-box; }
 html { scroll-behavior: smooth; }
 
 body {
   min-height: 100vh;
-  background: var(--bg-primary);
-  color: var(--text-primary);
-  transition: background-color 0.3s ease, color 0.3s ease;
+  background: var(--cream);
+  color: var(--ink);
 }
 
 ::selection { background: var(--gold); color: var(--navy); }
 
 /* ============================================
-   DARK MODE — GLOBAL OVERRIDES
-   All inline style colors are forced to change
+   DARK MODE — COMPLETE OVERRIDES
    ============================================ */
 
-/* Body and main backgrounds */
+/* Base */
 html.dark body,
-html.dark main { background: #0d0d1a !important; }
+html.dark main { background: #0d0d1a !important; color: #f9f7f2 !important; }
 
-/* All sections */
 html.dark section { background: #0d0d1a !important; }
 
-/* Header/navbar */
+/* Header */
 html.dark header {
   background: rgba(10,10,20,0.96) !important;
   border-color: rgba(201,168,76,0.2) !important;
 }
 
-/* Tailwind bg-cream */
-html.dark .bg-cream { background: #111120 !important; }
-html.dark .bg-cream\/86 { background: rgba(10,10,20,0.92) !important; }
-
-/* WHITE backgrounds → dark card */
-html.dark [style*="background: #ffffff"],
-html.dark [style*="background:#ffffff"],
-html.dark [style*="background: white"],
-html.dark [style*="background: rgb(255, 255, 255)"] {
-  background: #1a1a2e !important;
-}
-
-/* CREAM backgrounds → dark */
-html.dark [style*="background: #f9f7f2"],
-html.dark [style*="background:#f9f7f2"],
-html.dark [style*="background: rgb(249, 247, 242)"] {
-  background: #0d0d1a !important;
-}
-
-/* Light grey backgrounds */
-html.dark [style*="background: #f5f5f5"],
-html.dark [style*="background: #fafafa"],
-html.dark [style*="background: rgba(249"],
-html.dark [style*="background: rgba(245"] {
-  background: #111120 !important;
-}
-
-/* DARK text colors → light */
-html.dark [style*="color: #1a1a2e"],
-html.dark [style*="color: #1a1a1e"],
-html.dark [style*="color: rgb(26, 26, 46)"] {
-  color: #f9f7f2 !important;
-}
-
-html.dark [style*="color: #555"],
-html.dark [style*="color: #444"],
-html.dark [style*="color: #333"],
-html.dark [style*="color: rgb(85"],
-html.dark [style*="color: rgb(68"] {
-  color: #cccccc !important;
-}
-
-html.dark [style*="color: #666"],
-html.dark [style*="color: #777"],
-html.dark [style*="color: #888"],
-html.dark [style*="color: rgb(102"],
-html.dark [style*="color: rgb(136"] {
-  color: #aaaaaa !important;
-}
-
-/* Fix Tailwind text colors */
-html.dark .text-navy { color: #f9f7f2 !important; }
+/* Tailwind classes */
+html.dark .bg-cream,
+html.dark .bg-cream\/86 { background: #0d0d1a !important; }
+html.dark .bg-white { background: #1a1a2e !important; }
+html.dark .text-navy,
 html.dark .text-ink { color: #f9f7f2 !important; }
-html.dark [class*="text-navy\/80"] { color: rgba(249,247,242,0.8) !important; }
-html.dark [class*="text-navy\/60"] { color: rgba(249,247,242,0.6) !important; }
-
-/* Nav links */
+html.dark [class*="text-navy"] { color: rgba(249,247,242,0.85) !important; }
 html.dark .nav-link { color: rgba(249,247,242,0.75) !important; }
-html.dark .nav-link:hover { color: #f9f7f2 !important; }
 
-/* ============================================
-   DARK MODE — FILTER TABS / BUTTONS
-   ============================================ */
-
-/* White pill buttons → dark */
-html.dark button[style*="background: #ffffff"],
-html.dark button[style*="background:#ffffff"] {
-  background: #1a1a2e !important;
-  color: #f9f7f2 !important;
-  border-color: rgba(201,168,76,0.3) !important;
-}
-
-/* White/light backgrounds on buttons */
-html.dark [style*="background: rgba(255,255,255"],
-html.dark [style*="background: rgba(249,247,242"] {
-  background: rgba(255,255,255,0.06) !important;
-}
-
-/* Tailwind white backgrounds */
-html.dark .bg-white {
-  background: #1a1a2e !important;
-  color: #f9f7f2 !important;
-}
-
-/* ============================================
-   DARK MODE — BORDERS
-   ============================================ */
-html.dark [style*="border: 1px solid rgba(26,26,46"],
-html.dark [style*="border-color: rgba(26,26,46"] {
-  border-color: rgba(201,168,76,0.15) !important;
-}
-
-/* ============================================
-   DARK MODE — HEADINGS & PARAGRAPHS
-   ============================================ */
-html.dark h1, html.dark h2, html.dark h3, html.dark h4 {
-  color: #f9f7f2 !important;
-}
-
+/* Headings & text */
+html.dark h1, html.dark h2, html.dark h3, html.dark h4, html.dark h5 { color: #f9f7f2 !important; }
 html.dark p { color: #cccccc !important; }
-
+html.dark span { color: inherit; }
 html.dark label { color: #e0e0e0 !important; }
 
-/* ============================================
-   DARK MODE — INPUTS
-   ============================================ */
-html.dark input,
-html.dark textarea,
-html.dark select {
+/* WHITE backgrounds */
+html.dark [style*="background: #ffffff"],
+html.dark [style*="background:#ffffff"],
+html.dark [style*="background: white"] { background: #1a1a2e !important; }
+
+/* CREAM backgrounds */
+html.dark [style*="background: #f9f7f2"],
+html.dark [style*="background:#f9f7f2"] { background: #0d0d1a !important; }
+
+/* DARK text → light */
+html.dark [style*="color: #1a1a2e"],
+html.dark [style*="color: #1a1a1e"] { color: #f9f7f2 !important; }
+html.dark [style*="color: #555"],
+html.dark [style*="color: #444"],
+html.dark [style*="color: #333"] { color: #cccccc !important; }
+html.dark [style*="color: #666"],
+html.dark [style*="color: #777"],
+html.dark [style*="color: #888"] { color: #aaaaaa !important; }
+html.dark [style*="color: #92400e"] { color: #fbbf24 !important; }
+
+/* Borders */
+html.dark [style*="border: 1px solid rgba(26,26,46"],
+html.dark [style*="border-color: rgba(26,26,46"] { border-color: rgba(201,168,76,0.2) !important; }
+
+/* Inputs */
+html.dark input, html.dark textarea, html.dark select {
   background: #111120 !important;
   color: #f9f7f2 !important;
   border-color: rgba(201,168,76,0.3) !important;
 }
+html.dark input::placeholder, html.dark textarea::placeholder { color: #555 !important; }
 
-html.dark input::placeholder,
-html.dark textarea::placeholder {
-  color: #666666 !important;
+/* ── FIX 1: CARD CATEGORY BADGE (TOP ATTRACTIONS etc) ── */
+/* These white pill badges become invisible on dark cards */
+html.dark [style*="background: rgba(255,255,255"],
+html.dark [style*="background:rgba(255,255,255"] {
+  background: rgba(201,168,76,0.2) !important;
+  color: #c9a84c !important;
+  border-color: rgba(201,168,76,0.3) !important;
 }
 
-/* ============================================
-   DARK MODE — CARDS
-   ============================================ */
-html.dark .place-card,
-html.dark .food-card,
-html.dark .shop-card,
-html.dark .transport-card {
-  background: #1a1a2e !important;
+/* White badge text */
+html.dark [style*="background: #ffffff"][style*="border-radius"],
+html.dark [style*="background:#ffffff"][style*="border-radius"] {
+  background: #2a2a3e !important;
   color: #f9f7f2 !important;
 }
 
-/* ============================================
-   DARK MODE — FOOTER
-   ============================================ */
-html.dark footer {
-  background: #080810 !important;
-  color: #aaaaaa !important;
+/* ── FIX 2: NOVA AI CHAT DARK MODE ── */
+html.dark .nova-popup { background: #1a1a2e !important; }
+html.dark .nova-messages { background: #111120 !important; }
+html.dark .nova-quick { background: #1a1a2e !important; border-color: rgba(201,168,76,0.15) !important; }
+html.dark .nova-input-area { background: #1a1a2e !important; border-color: rgba(201,168,76,0.15) !important; }
+html.dark .nova-disclaimer { background: #1a1a2e !important; color: #666 !important; }
+
+/* Nova AI message bubbles in dark mode */
+html.dark .nova-messages [style*="background: #ffffff"],
+html.dark .nova-messages [style*="background:#ffffff"] {
+  background: #2a2a3e !important;
+  color: #f9f7f2 !important;
+  border-color: rgba(201,168,76,0.2) !important;
 }
 
-/* ============================================
-   WEATHER TEXT
-   ============================================ */
-html.dark .weather-temp { color: #e5e5e5 !important; }
-html.dark .weather-desc { color: #aaaaaa !important; }
+/* Nova quick buttons */
+html.dark .nova-quick button {
+  background: rgba(201,168,76,0.1) !important;
+  color: #f9f7f2 !important;
+}
 
-/* ============================================
-   SMOOTH TRANSITIONS
-   ============================================ */
-body, header, footer, main, section,
-div, p, h1, h2, h3, h4, a, button,
-input, textarea, span, li {
+/* Nova input */
+html.dark .nova-input-area input {
+  background: #111120 !important;
+  color: #f9f7f2 !important;
+}
+
+/* Footer */
+html.dark footer { background: #080810 !important; color: #888 !important; }
+
+/* ── LIGHT gray/amber backgrounds in dark mode ── */
+html.dark [style*="background: rgba(245,158,11"] { background: rgba(201,168,76,0.1) !important; }
+html.dark [style*="background: rgba(201,168,76"] { background: rgba(201,168,76,0.15) !important; }
+html.dark [style*="background: rgba(22,163"] { background: rgba(22,163,74,0.12) !important; }
+html.dark [style*="background: rgba(220,38"] { background: rgba(220,38,38,0.12) !important; }
+html.dark [style*="background: rgba(124,58"] { background: rgba(124,58,237,0.12) !important; }
+html.dark [style*="background: rgba(37,99"] { background: rgba(37,99,235,0.12) !important; }
+html.dark [style*="background: rgba(26,26,46,0.04)"],
+html.dark [style*="background: rgba(26,26,46,0.06)"],
+html.dark [style*="background: rgba(26,26,46,0.08)"] {
+  background: rgba(201,168,76,0.06) !important;
+}
+
+/* Smooth transition */
+*, *::before, *::after {
   transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
 }
 
 /* ============================================
-   NAV LINK UNDERLINE ANIMATION
+   NAV LINK UNDERLINE
    ============================================ */
 .nav-link::after {
-  position: absolute;
-  right: 0;
-  bottom: 7px;
-  left: 0;
-  height: 2px;
-  content: "";
-  transform: scaleX(0);
-  transform-origin: left;
-  border-radius: 999px;
-  background: var(--gold);
+  position: absolute; right: 0; bottom: 7px; left: 0;
+  height: 2px; content: "";
+  transform: scaleX(0); transform-origin: left;
+  border-radius: 999px; background: var(--gold);
   transition: transform 180ms ease;
 }
-
 .nav-link:hover::after,
-.nav-link[data-active="true"]::after {
-  transform: scaleX(1);
-}
+.nav-link[data-active="true"]::after { transform: scaleX(1); }
 
 /* ============================================
    LONDON SKYLINE
    ============================================ */
 .london-skyline {
   background:
-    linear-gradient(180deg, rgba(249, 247, 242, 0.12), rgba(249, 247, 242, 0) 38%),
-    linear-gradient(90deg, transparent 0 4%, rgba(201, 168, 76, 0.3) 4% 4.4%, transparent 4.4% 100%),
+    linear-gradient(180deg, rgba(249,247,242,0.12), rgba(249,247,242,0) 38%),
+    linear-gradient(90deg, transparent 0 4%, rgba(201,168,76,0.3) 4% 4.4%, transparent 4.4% 100%),
     linear-gradient(to top, #0f1024 0 26%, transparent 26%),
     linear-gradient(to top, transparent 0 27%, #111228 27% 45%, transparent 45%),
     linear-gradient(to top, transparent 0 29%, #14152d 29% 58%, transparent 58%),
     linear-gradient(to top, transparent 0 30%, #101125 30% 68%, transparent 68%);
 }
-
 .london-skyline::before {
-  position: absolute;
-  inset: auto -10% 17% -10%;
-  height: 34%;
-  content: "";
+  position: absolute; inset: auto -10% 17% -10%; height: 34%; content: "";
   background:
     radial-gradient(circle at 8% 56%, #c9a84c 0 0.5%, transparent 0.6%),
     linear-gradient(to top, transparent 0 30%, #080916 30% 100%),
     repeating-linear-gradient(90deg, #080916 0 46px, transparent 46px 58px, #080916 58px 102px, transparent 102px 118px);
   clip-path: polygon(0 100%, 0 52%, 5% 52%, 5% 30%, 9% 30%, 9% 52%, 14% 52%, 14% 18%, 17% 18%, 17% 52%, 21% 52%, 21% 36%, 26% 36%, 26% 52%, 31% 52%, 31% 10%, 34% 10%, 34% 52%, 39% 52%, 39% 28%, 44% 28%, 44% 52%, 49% 52%, 49% 22%, 53% 22%, 53% 52%, 58% 52%, 58% 34%, 63% 34%, 63% 52%, 67% 52%, 67% 14%, 70% 14%, 70% 52%, 75% 52%, 75% 25%, 80% 25%, 80% 52%, 84% 52%, 84% 39%, 89% 39%, 89% 52%, 94% 52%, 94% 20%, 97% 20%, 97% 52%, 100% 52%, 100% 100%);
 }
-
 .london-skyline::after {
-  position: absolute;
-  right: 13%;
-  bottom: 32%;
-  width: 130px;
-  height: 130px;
-  content: "";
-  border: 8px solid rgba(201, 168, 76, 0.3);
-  border-radius: 999px;
-  box-shadow: inset 0 0 0 2px rgba(255, 255, 255, 0.12), 0 0 60px rgba(201, 168, 76, 0.18);
+  position: absolute; right: 13%; bottom: 32%;
+  width: 130px; height: 130px; content: "";
+  border: 8px solid rgba(201,168,76,0.3); border-radius: 999px;
+  box-shadow: inset 0 0 0 2px rgba(255,255,255,0.12), 0 0 60px rgba(201,168,76,0.18);
   animation: skyline-glow 6s ease-in-out infinite alternate;
 }
-
 .card-visual {
   background:
-    linear-gradient(135deg, rgba(201, 168, 76, 0.85), rgba(255, 255, 255, 0.12) 42%, rgba(26, 26, 46, 0.1)),
-    repeating-linear-gradient(90deg, rgba(255, 255, 255, 0.1) 0 1px, transparent 1px 28px),
-    radial-gradient(circle at 82% 26%, rgba(255, 255, 255, 0.25), transparent 16%),
+    linear-gradient(135deg, rgba(201,168,76,0.85), rgba(255,255,255,0.12) 42%, rgba(26,26,46,0.1)),
+    repeating-linear-gradient(90deg, rgba(255,255,255,0.1) 0 1px, transparent 1px 28px),
+    radial-gradient(circle at 82% 26%, rgba(255,255,255,0.25), transparent 16%),
     var(--navy);
 }
-
 .premium-band {
   background:
-    linear-gradient(135deg, rgba(255, 255, 255, 0.84), rgba(255, 255, 255, 0.52)),
+    linear-gradient(135deg, rgba(255,255,255,0.84), rgba(255,255,255,0.52)),
     linear-gradient(180deg, var(--cream), #ffffff);
 }
-
 html.dark .premium-band {
   background:
     linear-gradient(135deg, rgba(26,26,46,0.9), rgba(26,26,46,0.7)),
@@ -305,14 +213,6 @@ html.dark .premium-band {
   from { transform: translateY(0) scale(1); opacity: 0.72; }
   to { transform: translateY(-6px) scale(1.025); opacity: 1; }
 }
-
-@keyframes fadeInUp {
-  from { opacity: 0; transform: translateY(20px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-
-.fade-in-up { animation: fadeInUp 0.6s ease forwards; }
-
 .shadow-lift { box-shadow: 0 8px 24px rgba(0,0,0,0.12); }
 
 /* ============================================
