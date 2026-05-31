@@ -41,7 +41,9 @@ export default function DirectoryClient({ items, tabs, mode = "place", searchPla
               type="button"
               onClick={() => setActive(tab)}
               className={`min-h-12 shrink-0 rounded-full px-5 text-sm font-bold transition ${
-                active === tab ? "bg-navy text-white shadow-premium" : "bg-white text-navy hover:bg-gold/20"
+                active === tab
+                  ? "bg-navy text-white shadow-premium dark:bg-gold dark:text-navy"
+                  : "bg-white text-navy hover:bg-gold/20 dark:bg-white/10 dark:text-cream dark:hover:bg-gold/20"
               }`}
             >
               {tab}
@@ -50,7 +52,7 @@ export default function DirectoryClient({ items, tabs, mode = "place", searchPla
         </div>
       </div>
 
-      <p className="text-sm font-semibold text-ink/62">{filtered.length} results</p>
+      <p className="text-sm font-semibold text-ink/62 dark:text-cream/60">{filtered.length} results</p>
 
       <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
         {filtered.map((item) => (
