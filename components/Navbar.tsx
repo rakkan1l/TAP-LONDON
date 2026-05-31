@@ -10,10 +10,10 @@ const navLinks = [
   { href: "/food", label: "Food", emoji: null, color: null },
   { href: "/shopping", label: "Shopping", emoji: null, color: null },
   { href: "/transport", label: "Transport", emoji: null, color: null },
-  { href: "/muslim", label: "Muslim", emoji: "🕌", color: "muslim" },
-  { href: "/emergency", label: "Emergency", emoji: "🚨", color: "emergency" },
-  { href: "/services", label: "Services", emoji: null, color: null },
-  { href: "/offers", label: "Offers", emoji: null, color: null },
+  { href: "/kids", label: "Kids", emoji: "", color: null },
+  { href: "/nightlife", label: "Nightlife", emoji: "", color: null },
+  { href: "/muslim", label: "Muslim", emoji: "", color: "muslim" },
+  { href: "/emergency", label: "Emergency", emoji: "", color: "emergency" },
 ];
 
 interface WeatherData {
@@ -69,7 +69,6 @@ export default function Navbar() {
       setDark(true);
       document.documentElement.classList.add("dark");
     }
-    // Check screen size
     const check = () => setIsDesktop(window.innerWidth >= 1024);
     check();
     window.addEventListener("resize", check);
@@ -123,31 +122,26 @@ export default function Navbar() {
 
   return (
     <header className="sticky top-0 z-50 border-b border-white/35 bg-cream/86 shadow-sm backdrop-blur-xl">
-      <nav
-        className="mx-auto flex max-w-7xl items-center justify-between px-4 py-3 sm:px-6 lg:px-8"
-        aria-label="Main navigation"
-      >
-        {/* Logo */}
+      <nav className="mx-auto flex max-w-7xl items-center justify-between px-4 py-3 sm:px-6 lg:px-8" aria-label="Main navigation">
+
         <Link href="/" className="group flex min-h-12 items-center gap-3" onClick={() => setOpen(false)}>
           <BridgeIcon />
           <span className="font-heading text-xl font-bold tracking-[0.08em] text-navy">TAP LONDON</span>
         </Link>
 
-        {/* RIGHT SIDE — using JS isDesktop instead of Tailwind classes */}
-        <div style={{ display: "flex", alignItems: "center", gap: "12px" }}>
+        <div style={{ display: "flex", alignItems: "center", gap: "10px" }}>
 
-          {/* Weather — always show, style differs */}
+          {/* Weather */}
           {weather && (
             <div style={{
               display: "flex", alignItems: "center", gap: "6px",
               background: wBg, border: `1px solid ${wBorder}`,
-              borderRadius: "50px",
-              padding: isDesktop ? "5px 12px" : "4px 10px",
+              borderRadius: "50px", padding: "5px 12px",
               fontFamily: "'DM Sans', sans-serif", whiteSpace: "nowrap",
             }}>
-              <span style={{ fontSize: isDesktop ? "1rem" : "0.9rem" }}>{weather.icon}</span>
+              <span style={{ fontSize: "1rem" }}>{weather.icon}</span>
               <span style={{ fontSize: "0.78rem", fontWeight: 700, color: wText }}>
-                {isDesktop ? "" : ""}London {weather.temp}°C
+                {isDesktop ? `${weather.temp}°C` : `London ${weather.temp}°C`}
               </span>
               {isDesktop && (
                 <span style={{ fontSize: "0.68rem", color: wSub }}>{weather.desc}</span>
@@ -155,7 +149,7 @@ export default function Navbar() {
             </div>
           )}
 
-          {/* Desktop nav links — only on desktop */}
+          {/* Desktop nav links */}
           {isDesktop && navLinks.map((link) => {
             const active = pathname === link.href;
             return (
@@ -172,39 +166,32 @@ export default function Navbar() {
             );
           })}
 
-          {/* Dark mode button */}
+          {/* Dark mode */}
           {isDesktop ? (
-            <button
-              onClick={toggleDark}
-              style={{
-                background: dark ? "#c9a84c" : "#1a1a2e",
-                color: dark ? "#1a1a2e" : "#c9a84c",
-                border: "none", borderRadius: "50px",
-                padding: "6px 14px", fontWeight: 700,
-                fontSize: "0.78rem", cursor: "pointer",
-                fontFamily: "'DM Sans', sans-serif", whiteSpace: "nowrap",
-              }}
-            >
+            <button onClick={toggleDark} style={{
+              background: dark ? "#c9a84c" : "#1a1a2e",
+              color: dark ? "#1a1a2e" : "#c9a84c",
+              border: "none", borderRadius: "50px", padding: "6px 14px",
+              fontWeight: 700, fontSize: "0.78rem", cursor: "pointer",
+              fontFamily: "'DM Sans', sans-serif", whiteSpace: "nowrap",
+            }}>
               {dark ? "☀️ Light" : "🌙 Dark"}
             </button>
           ) : (
-            <button
-              onClick={toggleDark}
-              style={{
-                background: dark ? "#c9a84c" : "#1a1a2e",
-                color: dark ? "#1a1a2e" : "#ffffff",
-                border: "none", borderRadius: "50%",
-                width: "38px", height: "38px",
-                cursor: "pointer", fontSize: "0.95rem",
-                display: "flex", alignItems: "center", justifyContent: "center",
-                flexShrink: 0,
-              }}
-            >
+            <button onClick={toggleDark} style={{
+              background: dark ? "#c9a84c" : "#1a1a2e",
+              color: dark ? "#1a1a2e" : "#ffffff",
+              border: "none", borderRadius: "50%",
+              width: "38px", height: "38px",
+              cursor: "pointer", fontSize: "0.95rem",
+              display: "flex", alignItems: "center", justifyContent: "center",
+              flexShrink: 0,
+            }}>
               {dark ? "☀️" : "🌙"}
             </button>
           )}
 
-          {/* Hamburger — only on mobile */}
+          {/* Hamburger — mobile only */}
           {!isDesktop && (
             <button
               type="button"
