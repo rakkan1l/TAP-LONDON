@@ -79,20 +79,58 @@ html.dark input::placeholder,
 html.dark textarea::placeholder { color: #555 !important; }
 
 /* ============================================
-   FIX — CARD CATEGORY BADGE
-   White pill on photo (TOP ATTRACTIONS etc)
+   FIX 1 — CARD CATEGORY BADGE
+   Target ALL possible rgba(255 variations
    ============================================ */
-html.dark [style*="background: rgba(255, 255, 255"],
-html.dark [style*="background: rgba(255,255,255"],
-html.dark [style*="background:rgba(255,255,255"],
-html.dark [style*="background: rgba(255, 255, 255, 0.9)"],
-html.dark [style*="background: rgba(255,255,255,0.9)"],
-html.dark [style*="background: rgba(255, 255, 255, 0.85)"],
-html.dark [style*="background: rgba(255,255,255,0.85)"] {
-  background: rgba(20, 20, 40, 0.88) !important;
+html.dark [style*="rgba(255"],
+html.dark [style*="rgba(255,"] {
+  background: rgba(20,20,40,0.9) !important;
   color: #c9a84c !important;
-  border-color: rgba(201,168,76,0.35) !important;
-  backdrop-filter: blur(4px);
+}
+
+/* More specific — only badge-like elements (small, positioned) */
+html.dark span[style*="background"],
+html.dark div[style*="position: absolute"][style*="top"],
+html.dark div[style*="position: absolute"][style*="left"] {
+  background: rgba(20,20,40,0.88) !important;
+  color: #c9a84c !important;
+}
+
+/* ============================================
+   FIX 2 — FILTER TAB BUTTONS DARK MODE
+   Active = navy bg white text
+   Inactive = transparent with border
+   ============================================ */
+
+/* All filter/tab buttons in dark mode */
+html.dark button[style*="background: #1a1a2e"],
+html.dark button[style*="background:#1a1a2e"] {
+  background: #c9a84c !important;
+  color: #1a1a2e !important;
+}
+
+/* Inactive white buttons → dark */
+html.dark button[style*="background: #ffffff"],
+html.dark button[style*="background:#ffffff"],
+html.dark button[style*="background: white"] {
+  background: #1a1a2e !important;
+  color: #f9f7f2 !important;
+  border-color: rgba(201,168,76,0.3) !important;
+}
+
+/* Filter tabs with border-radius (pill buttons) */
+html.dark button[style*="borderRadius"][style*="background: #f"] {
+  background: rgba(201,168,76,0.1) !important;
+  color: #f9f7f2 !important;
+  border-color: rgba(201,168,76,0.25) !important;
+}
+
+/* Active selected tab */
+html.dark button[style*="background: #1a1a2e"][style*="color: #ffffff"],
+html.dark button[style*="background: #1a1a2e"][style*="color:#ffffff"] {
+  background: #c9a84c !important;
+  color: #1a1a2e !important;
+  font-weight: 700 !important;
 }
 
 /* ============================================
@@ -248,4 +286,79 @@ html.dark .premium-band {
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
   }
+}
+
+/* ============================================
+   DARK MODE — AGGRESSIVE TEXT FIX
+   Targets fading text on Muslim, Emergency,
+   Place detail, Kids, Nightlife pages
+   ============================================ */
+
+/* All paragraph text in dark mode */
+html.dark p,
+html.dark li,
+html.dark span:not([class*="text-gold"]):not([class*="text-white"]) {
+  color: #cccccc;
+}
+
+/* All headings */
+html.dark h1, html.dark h2, html.dark h3, html.dark h4 {
+  color: #f9f7f2 !important;
+}
+
+/* Fix #444 color — most common fading text */
+html.dark [style*="color: #444"],
+html.dark [style*="color:#444"],
+html.dark [style*="color: rgb(68"] {
+  color: #cccccc !important;
+}
+
+/* Fix rgba(255,255,255,0.8) — used in dark cards */
+html.dark [style*="color: rgba(255,255,255,0.8)"],
+html.dark [style*="color: rgba(255, 255, 255, 0.8)"] {
+  color: #e0e0e0 !important;
+}
+
+/* White cards on dark pages — force dark bg */
+html.dark [style*="background: #ffffff"],
+html.dark [style*="background:#ffffff"] {
+  background: #1a1a2e !important;
+}
+
+/* Fix text inside white cards */
+html.dark [style*="background: #ffffff"] p,
+html.dark [style*="background: #ffffff"] h2,
+html.dark [style*="background: #ffffff"] span,
+html.dark [style*="background:#ffffff"] p,
+html.dark [style*="background:#ffffff"] h2 {
+  color: #f9f7f2 !important;
+}
+
+/* Numbered circle backgrounds in facts */
+html.dark [style*="background: rgba(201,168,76,0.15)"] {
+  background: rgba(201,168,76,0.2) !important;
+}
+
+/* Fix any remaining #1a1a2e text */
+html.dark [style*="color: #1a1a2e"],
+html.dark [style*="color:#1a1a2e"] {
+  color: #f9f7f2 !important;
+}
+
+/* Fix #555 color */
+html.dark [style*="color: #555"],
+html.dark [style*="color:#555"] {
+  color: #bbbbbb !important;
+}
+
+/* Fix rgba backgrounds that should be dark */
+html.dark [style*="background: rgba(201,168,76,0.08)"],
+html.dark [style*="background: rgba(201,168,76,0.1)"] {
+  background: rgba(201,168,76,0.12) !important;
+}
+html.dark [style*="background: rgba(201,168,76,0.08)"] h2,
+html.dark [style*="background: rgba(201,168,76,0.08)"] p,
+html.dark [style*="background: rgba(201,168,76,0.1)"] h2,
+html.dark [style*="background: rgba(201,168,76,0.1)"] p {
+  color: #f9f7f2 !important;
 }
