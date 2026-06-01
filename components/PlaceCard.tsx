@@ -26,6 +26,18 @@ export type CardItem = {
   mapsUrl?: string;
   offer?: boolean;
   offerText?: string;
+  mustTry?: string;
+  vibe?: string;
+  opinion?: string;
+  tags?: string[];
+};
+
+const VIBE_COLORS: Record<string, { bg: string; text: string }> = {
+  "Date night":  { bg: "rgba(220,38,38,0.1)",   text: "#dc2626" },
+  "Hidden gem":  { bg: "rgba(124,58,237,0.1)",   text: "#7c3aed" },
+  "Quick bite":  { bg: "rgba(37,99,235,0.1)",    text: "#2563eb" },
+  "Aesthetic":   { bg: "rgba(236,72,153,0.1)",   text: "#ec4899" },
+  "Family":      { bg: "rgba(22,163,74,0.1)",    text: "#16a34a" },
 };
 
 type PlaceCardProps = {
@@ -40,6 +52,7 @@ export default function PlaceCard({ item, mode = "place" }: PlaceCardProps) {
   const paid = item.priceType === "Paid";
   const fallbackIcon = mode === "food" ? "🍽️" : mode === "shopping" ? "🛍️" : "📍";
   const icon = item.icon ?? fallbackIcon;
+  const vibeStyle = item.vibe ? VIBE_COLORS[item.vibe] : null;
 
   const card = (
     <motion.article
@@ -76,8 +89,7 @@ export default function PlaceCard({ item, mode = "place" }: PlaceCardProps) {
             background: "#c9a84c", color: "#1a1a2e",
             borderRadius: "50px", padding: "4px 12px",
             fontSize: "0.68rem", fontWeight: 800,
-            fontFamily: "'DM Sans', sans-serif",
-            letterSpacing: "0.5px",
+            fontFamily: "'DM Sans', sans-serif", letterSpacing: "0.5px",
           }}>
             🏷️ {item.offerText ?? "OFFER"}
           </div>
@@ -89,6 +101,7 @@ export default function PlaceCard({ item, mode = "place" }: PlaceCardProps) {
       </div>
 
       <div className="flex flex-1 flex-col p-5">
+        {/* Tags row */}
         <div className="flex flex-wrap items-center gap-2">
           {area && (
             <span className="inline-flex items-center gap-1 rounded-full bg-cream px-3 py-1 text-xs font-bold text-navy dark:bg-white/10 dark:text-cream">
@@ -105,7 +118,17 @@ export default function PlaceCard({ item, mode = "place" }: PlaceCardProps) {
               {paid ? "Paid" : "Free"}
             </span>
           )}
-
+          {/* Vibe tag */}
+          {item.vibe && vibeStyle && (
+            <span style={{
+              background: vibeStyle.bg, color: vibeStyle.text,
+              borderRadius: "50px", padding: "3px 10px",
+              fontSize: "0.68rem", fontWeight: 700,
+              fontFamily: "'DM Sans', sans-serif",
+            }}>
+              {item.vibe}
+            </span>
+          )}
         </div>
 
         <h2 className="mt-4 flex items-start gap-2 font-heading text-2xl font-bold leading-tight text-navy dark:text-cream">
@@ -119,9 +142,27 @@ export default function PlaceCard({ item, mode = "place" }: PlaceCardProps) {
           </p>
         ) : null}
 
-        <p className="mt-3 line-clamp-2 text-sm leading-6 text-ink/70 dark:text-cream/70">
+        {/* Opinion line — the personality */}
+        {item.opinion && (
+          <p className="mt-2 text-sm font-semibold italic" style={{ color: "#c9a84c" }}>
+            &ldquo;{item.opinion}&rdquo;
+          </p>
+        )}
+
+        <p className="mt-2 line-clamp-2 text-sm leading-6 text-ink/70 dark:text-cream/70">
           {item.description}
         </p>
+
+        {/* Must try */}
+        {item.mustTry && (
+          <div className="mt-3 flex items-center gap-2 rounded-lg bg-gold/10 px-3 py-2">
+            <span style={{ fontSize: "0.9rem" }}>🔥</span>
+            <div>
+              <span className="text-xs font-bold uppercase tracking-wide text-gold">Must try </span>
+              <span className="text-xs text-ink/70 dark:text-cream/70">{item.mustTry}</span>
+            </div>
+          </div>
+        )}
 
         <div className="mt-4 grid gap-2 text-sm text-ink/68 dark:text-cream/60">
           {item.openingHours && (
@@ -152,7 +193,6 @@ export default function PlaceCard({ item, mode = "place" }: PlaceCardProps) {
     </motion.article>
   );
 
-  // Only places are clickable for detail page
   if (mode === "place") {
     return (
       <Link href={`/places/${item.id}`} style={{ textDecoration: "none", display: "block", height: "100%" }}>
@@ -160,8 +200,6 @@ export default function PlaceCard({ item, mode = "place" }: PlaceCardProps) {
       </Link>
     );
   }
-
-  // Food cards clickable for detail page
   if (mode === "food") {
     return (
       <Link href={`/food/${item.id}`} style={{ textDecoration: "none", display: "block", height: "100%" }}>
@@ -169,8 +207,6 @@ export default function PlaceCard({ item, mode = "place" }: PlaceCardProps) {
       </Link>
     );
   }
-
-  // Shopping cards clickable for detail page
   if (mode === "shopping") {
     return (
       <Link href={`/shopping/${item.id}`} style={{ textDecoration: "none", display: "block", height: "100%" }}>
@@ -178,6 +214,5 @@ export default function PlaceCard({ item, mode = "place" }: PlaceCardProps) {
       </Link>
     );
   }
-
   return card;
 }
