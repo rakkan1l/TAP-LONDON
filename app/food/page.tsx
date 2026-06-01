@@ -20,7 +20,7 @@ export default function FoodPage() {
         </div>
         <DirectoryClient
           items={food.items}
-          tabs={["Restaurants", "Halal Food", "Coffee Shops", "Local Spots"]}
+          tabs={["Restaurants", "Halal Food", "Coffee Shops", "Local Spots", "🏷️ Offers"]}
           mode="food"
           searchPlaceholder="Search food, cuisine, or area"
         />
