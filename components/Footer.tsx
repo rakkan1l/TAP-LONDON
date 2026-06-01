@@ -5,8 +5,10 @@ const links = [
   { href: "/food", label: "Food" },
   { href: "/shopping", label: "Shopping" },
   { href: "/transport", label: "Transport" },
-  { href: "/services", label: "Services" },
-  { href: "/offers", label: "Offers" }
+  { href: "/kids", label: "Kids & Family" },
+  { href: "/nightlife", label: "Nightlife" },
+  { href: "/muslim", label: "Muslim Guide" },
+  { href: "/emergency", label: "Emergency Help" },
 ];
 
 export default function Footer() {
@@ -16,7 +18,7 @@ export default function Footer() {
         <div>
           <p className="font-heading text-3xl font-bold tracking-[0.08em] text-gold">TAP LONDON</p>
           <p className="mt-4 max-w-md text-sm leading-7 text-white/72">
-            Your Smart London Guide - Tap. Explore. Enjoy. Built for NFC souvenirs, mobile travellers, and unforgettable London days.
+            Your Smart London Guide — Tap. Explore. Enjoy. Built for NFC souvenirs, mobile travellers, and unforgettable London days.
           </p>
         </div>
 
@@ -36,12 +38,12 @@ export default function Footer() {
           <div className="mt-4 grid gap-3 text-sm text-white/75">
             <a href="https://instagram.com/" target="_blank" rel="noreferrer" className="transition hover:text-white">Instagram</a>
             <a href="https://www.tiktok.com/" target="_blank" rel="noreferrer" className="transition hover:text-white">TikTok</a>
-            <a href="mailto:hello@taplondon.co.uk" className="transition hover:text-white">hello@taplondon.co.uk</a>
+            <a href="mailto:Taplondon2026@gmail.com" className="transition hover:text-white">Taplondon2026@gmail.com</a>
           </div>
         </div>
       </div>
       <div className="border-t border-white/10 px-4 py-5 text-center text-xs text-white/55">
-        © 2026 TAP LONDON. Tourism information changes; check official venues before travelling.
+        © 2026 TAP LONDON. Tourism information changes; always check official venues before visiting.
       </div>
     </footer>
   );
