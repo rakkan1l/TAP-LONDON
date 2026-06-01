@@ -42,7 +42,7 @@ const VIBE_COLORS: Record<string, { bg: string; text: string }> = {
 
 type PlaceCardProps = {
   item: CardItem;
-  mode?: "place" | "food" | "shopping";
+  mode?: "place" | "food" | "shopping" | "kids" | "nightlife";
 };
 
 export default function PlaceCard({ item, mode = "place" }: PlaceCardProps) {
@@ -77,12 +77,10 @@ export default function PlaceCard({ item, mode = "place" }: PlaceCardProps) {
         )}
         <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(0,0,0,0.08),rgba(0,0,0,0.48))]" />
 
-        {/* Category badge */}
         <div className="absolute left-4 top-4 rounded-full bg-white/92 px-3 py-1 text-xs font-bold uppercase tracking-[0.12em] text-navy shadow-sm dark:bg-navy dark:text-gold dark:border dark:border-gold/30">
           {category}
         </div>
 
-        {/* OFFER badge */}
         {item.offer && (
           <div style={{
             position: "absolute", bottom: "12px", left: "12px",
@@ -91,7 +89,7 @@ export default function PlaceCard({ item, mode = "place" }: PlaceCardProps) {
             fontSize: "0.68rem", fontWeight: 800,
             fontFamily: "'DM Sans', sans-serif", letterSpacing: "0.5px",
           }}>
-            🏷️ {item.offerText ?? "OFFER"}
+            {item.offerText ?? "OFFER"}
           </div>
         )}
 
@@ -101,7 +99,6 @@ export default function PlaceCard({ item, mode = "place" }: PlaceCardProps) {
       </div>
 
       <div className="flex flex-1 flex-col p-5">
-        {/* Tags row */}
         <div className="flex flex-wrap items-center gap-2">
           {area && (
             <span className="inline-flex items-center gap-1 rounded-full bg-cream px-3 py-1 text-xs font-bold text-navy dark:bg-white/10 dark:text-cream">
@@ -118,7 +115,6 @@ export default function PlaceCard({ item, mode = "place" }: PlaceCardProps) {
               {paid ? "Paid" : "Free"}
             </span>
           )}
-          {/* Vibe tag */}
           {item.vibe && vibeStyle && (
             <span style={{
               background: vibeStyle.bg, color: vibeStyle.text,
@@ -142,7 +138,6 @@ export default function PlaceCard({ item, mode = "place" }: PlaceCardProps) {
           </p>
         ) : null}
 
-        {/* Opinion line — the personality */}
         {item.opinion && (
           <p className="mt-2 text-sm font-semibold italic" style={{ color: "#c9a84c" }}>
             &ldquo;{item.opinion}&rdquo;
@@ -153,7 +148,6 @@ export default function PlaceCard({ item, mode = "place" }: PlaceCardProps) {
           {item.description}
         </p>
 
-        {/* Must try */}
         {item.mustTry && (
           <div className="mt-3 flex items-center gap-2 rounded-lg bg-gold/10 px-3 py-2">
             <span style={{ fontSize: "0.9rem" }}>🔥</span>
@@ -193,6 +187,7 @@ export default function PlaceCard({ item, mode = "place" }: PlaceCardProps) {
     </motion.article>
   );
 
+  // Only these modes open detail pages
   if (mode === "place") {
     return (
       <Link href={`/places/${item.id}`} style={{ textDecoration: "none", display: "block", height: "100%" }}>
@@ -214,5 +209,7 @@ export default function PlaceCard({ item, mode = "place" }: PlaceCardProps) {
       </Link>
     );
   }
+
+  // Kids and Nightlife — NOT clickable, just show the card
   return card;
 }
