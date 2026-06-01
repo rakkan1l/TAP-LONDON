@@ -1,8 +1,8 @@
 "use client";
-import Link from "next/link";
 
+import Link from "next/link";
 import { motion } from "framer-motion";
-import { Clock, MapPin, Navigation, ShieldCheck, Tag } from "lucide-react";
+import { Clock, MapPin, Navigation, Tag } from "lucide-react";
 import { useState } from "react";
 
 export type CardItem = {
@@ -24,6 +24,8 @@ export type CardItem = {
   entryFee?: string;
   priceType?: string;
   mapsUrl?: string;
+  offer?: boolean;
+  offerText?: string;
 };
 
 type PlaceCardProps = {
@@ -36,7 +38,7 @@ export default function PlaceCard({ item, mode = "place" }: PlaceCardProps) {
   const category = item.category ?? item.section ?? item.type ?? "London";
   const area = item.area ?? item.location ?? "London";
   const paid = item.priceType === "Paid";
-  const fallbackIcon = item.halal ? "🕌" : mode === "food" ? "🍽️" : mode === "shopping" ? "🛍️" : "📍";
+  const fallbackIcon = mode === "food" ? "🍽️" : mode === "shopping" ? "🛍️" : "📍";
   const icon = item.icon ?? fallbackIcon;
 
   const card = (
@@ -58,52 +60,67 @@ export default function PlaceCard({ item, mode = "place" }: PlaceCardProps) {
             className="h-full w-full rounded-t-lg object-cover transition duration-500 group-hover:scale-105"
           />
         ) : (
-          <div className="absolute inset-0 rounded-t-lg bg-[linear-gradient(135deg,#1a1a2e_0%,#26345f_48%,#c9a84c_100%)]" aria-hidden="true" />
+          <div className="absolute inset-0 rounded-t-lg bg-[linear-gradient(135deg,#1a1a2e_0%,#26345f_48%,#c9a84c_100%)]" />
         )}
-        <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(0,0,0,0.08),rgba(0,0,0,0.48))]" aria-hidden="true" />
+        <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(0,0,0,0.08),rgba(0,0,0,0.48))]" />
 
-        {/* Category badge — dark mode: dark bg with gold text */}
+        {/* Category badge */}
         <div className="absolute left-4 top-4 rounded-full bg-white/92 px-3 py-1 text-xs font-bold uppercase tracking-[0.12em] text-navy shadow-sm dark:bg-navy dark:text-gold dark:border dark:border-gold/30">
           {category}
         </div>
 
-        <div className="absolute bottom-4 right-4 flex h-12 w-12 items-center justify-center rounded-full border border-white/30 bg-navy/78 text-2xl shadow-premium backdrop-blur" aria-hidden="true">
+        {/* OFFER badge */}
+        {item.offer && (
+          <div style={{
+            position: "absolute", bottom: "12px", left: "12px",
+            background: "#c9a84c", color: "#1a1a2e",
+            borderRadius: "50px", padding: "4px 12px",
+            fontSize: "0.68rem", fontWeight: 800,
+            fontFamily: "'DM Sans', sans-serif",
+            letterSpacing: "0.5px",
+          }}>
+            🏷️ {item.offerText ?? "OFFER"}
+          </div>
+        )}
+
+        <div className="absolute bottom-4 right-4 flex h-12 w-12 items-center justify-center rounded-full border border-white/30 bg-navy/78 text-2xl shadow-premium backdrop-blur">
           {icon}
         </div>
       </div>
 
       <div className="flex flex-1 flex-col p-5">
         <div className="flex flex-wrap items-center gap-2">
-          {area ? (
+          {area && (
             <span className="inline-flex items-center gap-1 rounded-full bg-cream px-3 py-1 text-xs font-bold text-navy dark:bg-white/10 dark:text-cream">
-              <MapPin aria-hidden="true" size={13} />{area}
+              <MapPin size={13} />{area}
             </span>
-          ) : null}
-          {item.priceRange ? (
+          )}
+          {item.priceRange && (
             <span className="rounded-full bg-navy px-3 py-1 text-xs font-bold text-white dark:bg-gold dark:text-navy">
               {item.priceRange}
             </span>
-          ) : null}
-          {mode === "place" ? (
+          )}
+          {mode === "place" && (
             <span className={`rounded-full px-3 py-1 text-xs font-bold ${paid ? "bg-navy text-white dark:bg-white/20 dark:text-cream" : "bg-gold text-navy"}`}>
               {paid ? "Paid" : "Free"}
             </span>
-          ) : null}
-          {item.halal ? (
+          )}
+          {/* Halal badge — only show category label, no verified shield */}
+          {item.halal && (
             <span className="inline-flex items-center gap-1 rounded-full bg-emerald-700 px-3 py-1 text-xs font-bold text-white">
-              <ShieldCheck aria-hidden="true" size={13} /> {item.verifiedHalal ? "Verified halal" : "Ask vendor"}
+              🕌 Halal
             </span>
-          ) : null}
+          )}
         </div>
 
         <h2 className="mt-4 flex items-start gap-2 font-heading text-2xl font-bold leading-tight text-navy dark:text-cream">
-          <span aria-hidden="true" className="mt-0.5 text-[0.82em]">{icon}</span>
+          <span className="mt-0.5 text-[0.82em]">{icon}</span>
           <span>{item.name}</span>
         </h2>
 
         {item.cuisine || item.type ? (
           <p className="mt-2 inline-flex items-center gap-2 text-sm font-semibold text-gold">
-            <Tag aria-hidden="true" size={15} />{item.cuisine ?? item.type}
+            <Tag size={15} />{item.cuisine ?? item.type}
           </p>
         ) : null}
 
@@ -112,36 +129,56 @@ export default function PlaceCard({ item, mode = "place" }: PlaceCardProps) {
         </p>
 
         <div className="mt-4 grid gap-2 text-sm text-ink/68 dark:text-cream/60">
-          {item.openingHours ? (
+          {item.openingHours && (
             <p className="flex gap-2">
-              <Clock aria-hidden="true" size={16} className="mt-0.5 shrink-0 text-gold" />
+              <Clock size={16} className="mt-0.5 shrink-0 text-gold" />
               {item.openingHours}
             </p>
-          ) : null}
-          {item.entryFee ? (
+          )}
+          {item.entryFee && (
             <p className="font-semibold text-navy/75 dark:text-cream/70">{item.entryFee}</p>
-          ) : null}
+          )}
         </div>
 
         <div className="mt-auto pt-5">
-          {item.mapsUrl ? (
+          {item.mapsUrl && (
             <a
               href={item.mapsUrl}
               target="_blank"
               rel="noreferrer"
+              onClick={(e) => e.stopPropagation()}
               className="inline-flex min-h-12 w-full items-center justify-center gap-2 rounded-full bg-navy px-5 text-sm font-bold text-white transition hover:bg-gold hover:text-navy dark:bg-gold/20 dark:text-cream dark:hover:bg-gold dark:hover:text-navy"
             >
-              {mode === "place" ? "Get Directions" : "Find on Google Maps"} <Navigation aria-hidden="true" size={16} />
+              {mode === "place" ? "Get Directions" : "Find on Google Maps"} <Navigation size={16} />
             </a>
-          ) : null}
+          )}
         </div>
       </div>
     </motion.article>
   );
 
+  // Only places are clickable for detail page
   if (mode === "place") {
     return (
       <Link href={`/places/${item.id}`} style={{ textDecoration: "none", display: "block", height: "100%" }}>
+        {card}
+      </Link>
+    );
+  }
+
+  // Food cards clickable for detail page
+  if (mode === "food") {
+    return (
+      <Link href={`/food/${item.id}`} style={{ textDecoration: "none", display: "block", height: "100%" }}>
+        {card}
+      </Link>
+    );
+  }
+
+  // Shopping cards clickable for detail page
+  if (mode === "shopping") {
+    return (
+      <Link href={`/shopping/${item.id}`} style={{ textDecoration: "none", display: "block", height: "100%" }}>
         {card}
       </Link>
     );
