@@ -7,7 +7,7 @@ import SearchBar from "./SearchBar";
 type DirectoryClientProps = {
   items: CardItem[];
   tabs: string[];
-  mode?: "place" | "food" | "shopping";
+  mode?: "place" | "food" | "shopping" | "kids" | "nightlife";
   searchPlaceholder?: string;
   showSearch?: boolean;
 };
