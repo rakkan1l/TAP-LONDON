@@ -90,7 +90,7 @@ export default function FoodDetailPage({ params }: Props) {
 
   const photos = FOOD_PHOTOS[item.id] ?? [item.image];
   const details = FOOD_DETAILS[item.id];
-  const hours = details?.openingHours ?? item.openingHours;
+  const hours = details?.openingHours ?? null;
 
   return (
     <main style={{ minHeight: "100vh", background: "#f9f7f2" }}>
