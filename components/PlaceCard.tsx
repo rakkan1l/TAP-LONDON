@@ -1,4 +1,5 @@
 "use client";
+import Link from "next/link";
 
 import { motion } from "framer-motion";
 import { Clock, MapPin, Navigation, ShieldCheck, Tag } from "lucide-react";
@@ -38,7 +39,7 @@ export default function PlaceCard({ item, mode = "place" }: PlaceCardProps) {
   const fallbackIcon = item.halal ? "🕌" : mode === "food" ? "🍽️" : mode === "shopping" ? "🛍️" : "📍";
   const icon = item.icon ?? fallbackIcon;
 
-  return (
+  const card = (
     <motion.article
       layout
       initial={{ opacity: 0, y: 16 }}
@@ -137,4 +138,14 @@ export default function PlaceCard({ item, mode = "place" }: PlaceCardProps) {
       </div>
     </motion.article>
   );
+
+  if (mode === "place") {
+    return (
+      <Link href={`/places/${item.id}`} style={{ textDecoration: "none", display: "block", height: "100%" }}>
+        {card}
+      </Link>
+    );
+  }
+
+  return card;
 }
