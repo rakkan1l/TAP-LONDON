@@ -50,7 +50,7 @@ export default function NightlifePage() {
         <DirectoryClient
           items={nightlifeItems}
           tabs={["Rooftop Bars", "Clubs", "Live Music", "Cocktail Bars", "Late Night Food"]}
-          mode="place"
+          mode="nightlife"
           searchPlaceholder="Search bars, clubs, venues, or areas"
         />
       </div>
