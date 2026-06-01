@@ -1,5 +1,5 @@
 {
-  "__comment": "Editable food and drink listings. Add objects to items with id, name, icon, image, category, cuisine, area, priceRange, halal, verifiedHalal, description, and mapsUrl.",
+  "__comment": "Editable food and drink listings.",
   "items": [
     {
       "image": "https://images.pexels.com/photos/30021858/pexels-photo-30021858.jpeg?auto=compress&cs=tinysrgb&w=800",
@@ -86,6 +86,30 @@
       "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Liman+Restaurant+Islington"
     },
     {
+      "image": "https://images.pexels.com/photos/5923508/pexels-photo-5923508.jpeg?auto=compress&cs=tinysrgb&w=800",
+      "icon": "🕌", "id": "ranoush-juice", "name": "Ranoush Juice", "category": "Halal Food", "cuisine": "Lebanese shawarma and juices", "area": "Edgware Road", "priceRange": "£", "halal": true, "verifiedHalal": true,
+      "description": "A quick Edgware Road classic for shawarma, grills, fresh juices, and late-night casual Lebanese plates.",
+      "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Ranoush+Juice+Edgware+Road"
+    },
+    {
+      "image": "https://images.pexels.com/photos/1640774/pexels-photo-1640774.jpeg?auto=compress&cs=tinysrgb&w=800",
+      "icon": "🕌", "id": "maroush-edgware-road", "name": "Maroush Edgware Road", "category": "Halal Food", "cuisine": "Lebanese", "area": "Edgware Road", "priceRange": "££", "halal": true, "verifiedHalal": true,
+      "description": "Well-known Lebanese dining for mezze, grilled meats, breads, and an easy group meal near Marble Arch.",
+      "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Maroush+Edgware+Road"
+    },
+    {
+      "image": "https://images.pexels.com/photos/30119009/pexels-photo-30119009.jpeg?auto=compress&cs=tinysrgb&w=800",
+      "icon": "🕌", "id": "tayyabs", "name": "Tayyabs", "category": "Halal Food", "cuisine": "Punjabi grill", "area": "Whitechapel", "priceRange": "££", "halal": true, "verifiedHalal": true,
+      "description": "East London institution for sizzling lamb chops, karahi dishes, naan, and lively family-style dining.",
+      "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Tayyabs+Whitechapel"
+    },
+    {
+      "image": "https://images.pexels.com/photos/3655916/pexels-photo-3655916.jpeg?auto=compress&cs=tinysrgb&w=800",
+      "icon": "🕌", "id": "efes-whitechapel", "name": "Efes Whitechapel", "category": "Halal Food", "cuisine": "Turkish grill", "area": "Whitechapel", "priceRange": "££", "halal": true, "verifiedHalal": true,
+      "description": "Generous Turkish grills, bread, salads, and platters in an East London area with many halal-friendly choices.",
+      "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Efes+Whitechapel"
+    },
+    {
       "image": "https://images.pexels.com/photos/15569308/pexels-photo-15569308.jpeg?auto=compress&cs=tinysrgb&w=800",
       "icon": "☕", "id": "monmouth", "name": "Monmouth Coffee", "category": "Coffee Shops", "cuisine": "Speciality coffee", "area": "Borough", "priceRange": "£", "halal": false, "verifiedHalal": false,
       "description": "A London coffee institution with carefully sourced beans and a perfect stop before Borough Market.",
@@ -114,6 +138,18 @@
       "icon": "☕", "id": "attendant", "name": "Attendant", "category": "Coffee Shops", "cuisine": "Coffee and brunch", "area": "Fitzrovia", "priceRange": "££", "halal": false, "verifiedHalal": false,
       "description": "A distinctive cafe in a converted Victorian public convenience, known for brunch and coffee.",
       "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Attendant+Fitzrovia"
+    },
+    {
+      "image": "https://images.pexels.com/photos/312418/pexels-photo-312418.jpeg?auto=compress&cs=tinysrgb&w=800",
+      "icon": "☕", "id": "prufrock", "name": "Prufrock Coffee", "category": "Coffee Shops", "cuisine": "Speciality coffee", "area": "Farringdon", "priceRange": "££", "halal": false, "verifiedHalal": false,
+      "description": "A respected speciality coffee bar for espresso, filter coffee, pastries, and a calm stop near Leather Lane.",
+      "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Prufrock+Coffee+Farringdon"
+    },
+    {
+      "image": "https://images.pexels.com/photos/1182396/pexels-photo-1182396.jpeg?auto=compress&cs=tinysrgb&w=800",
+      "icon": "☕", "id": "ozone", "name": "Ozone Coffee Roasters", "category": "Coffee Shops", "cuisine": "Roastery and brunch", "area": "Shoreditch", "priceRange": "££", "halal": false, "verifiedHalal": false,
+      "description": "Roastery-led coffee, excellent brunch, and a polished Shoreditch space close to Old Street.",
+      "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Ozone+Coffee+Roasters+Shoreditch"
     },
     {
       "image": "https://images.pexels.com/photos/31270596/pexels-photo-31270596.jpeg?auto=compress&cs=tinysrgb&w=800",
@@ -146,42 +182,6 @@
       "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Gold+Mine+Bayswater"
     },
     {
-      "image": "https://images.pexels.com/photos/5923508/pexels-photo-5923508.jpeg?auto=compress&cs=tinysrgb&w=800",
-      "icon": "🕌", "id": "ranoush-juice", "name": "Ranoush Juice", "category": "Halal Food", "cuisine": "Lebanese shawarma and juices", "area": "Edgware Road", "priceRange": "£", "halal": true, "verifiedHalal": true,
-      "description": "A quick Edgware Road classic for shawarma, grills, fresh juices, and late-night casual Lebanese plates.",
-      "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Ranoush+Juice+Edgware+Road"
-    },
-    {
-      "image": "https://images.pexels.com/photos/1640774/pexels-photo-1640774.jpeg?auto=compress&cs=tinysrgb&w=800",
-      "icon": "🕌", "id": "maroush-edgware-road", "name": "Maroush Edgware Road", "category": "Halal Food", "cuisine": "Lebanese", "area": "Edgware Road", "priceRange": "££", "halal": true, "verifiedHalal": true,
-      "description": "Well-known Lebanese dining for mezze, grilled meats, breads, and an easy group meal near Marble Arch.",
-      "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Maroush+Edgware+Road"
-    },
-    {
-      "image": "https://images.pexels.com/photos/30119009/pexels-photo-30119009.jpeg?auto=compress&cs=tinysrgb&w=800",
-      "icon": "🕌", "id": "tayyabs", "name": "Tayyabs", "category": "Halal Food", "cuisine": "Punjabi grill", "area": "Whitechapel", "priceRange": "££", "halal": true, "verifiedHalal": true,
-      "description": "East London institution for sizzling lamb chops, karahi dishes, naan, and lively family-style dining.",
-      "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Tayyabs+Whitechapel"
-    },
-    {
-      "image": "https://images.pexels.com/photos/3655916/pexels-photo-3655916.jpeg?auto=compress&cs=tinysrgb&w=800",
-      "icon": "🕌", "id": "efes-whitechapel", "name": "Efes Whitechapel", "category": "Halal Food", "cuisine": "Turkish grill", "area": "Whitechapel", "priceRange": "££", "halal": true, "verifiedHalal": true,
-      "description": "Generous Turkish grills, bread, salads, and platters in an East London area with many halal-friendly choices.",
-      "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Efes+Whitechapel"
-    },
-    {
-      "image": "https://images.pexels.com/photos/312418/pexels-photo-312418.jpeg?auto=compress&cs=tinysrgb&w=800",
-      "icon": "☕", "id": "prufrock", "name": "Prufrock Coffee", "category": "Coffee Shops", "cuisine": "Speciality coffee", "area": "Farringdon", "priceRange": "££", "halal": false, "verifiedHalal": false,
-      "description": "A respected speciality coffee bar for espresso, filter coffee, pastries, and a calm stop near Leather Lane.",
-      "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Prufrock+Coffee+Farringdon"
-    },
-    {
-      "image": "https://images.pexels.com/photos/1182396/pexels-photo-1182396.jpeg?auto=compress&cs=tinysrgb&w=800",
-      "icon": "☕", "id": "ozone", "name": "Ozone Coffee Roasters", "category": "Coffee Shops", "cuisine": "Roastery and brunch", "area": "Shoreditch", "priceRange": "££", "halal": false, "verifiedHalal": false,
-      "description": "Roastery-led coffee, excellent brunch, and a polished Shoreditch space close to Old Street.",
-      "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Ozone+Coffee+Roasters+Shoreditch"
-    },
-    {
       "image": "https://images.pexels.com/photos/1640777/pexels-photo-1640777.jpeg?auto=compress&cs=tinysrgb&w=800",
       "icon": "🍕", "id": "mercato-metropolitano", "name": "Mercato Metropolitano", "category": "Local Spots", "cuisine": "Market food hall", "area": "Elephant and Castle", "priceRange": "££", "halal": true, "verifiedHalal": false,
       "description": "Large indoor-outdoor food market with pizza, bao, desserts, drinks, and several halal-friendly traders.",
@@ -198,6 +198,33 @@
       "icon": "🥐", "id": "broadway-market", "name": "Broadway Market", "category": "Local Spots", "cuisine": "Saturday market food", "area": "Hackney", "priceRange": "££", "halal": false, "verifiedHalal": false,
       "description": "Neighbourhood market with pastries, street food, coffee, produce, bookshops, and London Fields nearby.",
       "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Broadway+Market+Hackney"
+    },
+    {
+      "image": "https://images.pexels.com/photos/30021858/pexels-photo-30021858.jpeg?auto=compress&cs=tinysrgb&w=800",
+      "icon": "🏷️", "id": "offer-dishoom", "name": "Dishoom — 10% OFF",
+      "category": "🏷️ Offers", "cuisine": "Bombay comfort food", "area": "Covent Garden",
+      "priceRange": "££", "halal": false, "verifiedHalal": false,
+      "description": "Show your TAP LONDON NFC souvenir for 10% off your total bill at any Dishoom branch in London. Valid any time.",
+      "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Dishoom+Covent+Garden",
+      "offer": true, "offerText": "10% OFF"
+    },
+    {
+      "image": "https://images.pexels.com/photos/15569308/pexels-photo-15569308.jpeg?auto=compress&cs=tinysrgb&w=800",
+      "icon": "🏷️", "id": "offer-monmouth", "name": "Monmouth Coffee — Free Coffee",
+      "category": "🏷️ Offers", "cuisine": "Speciality coffee", "area": "Borough Market",
+      "priceRange": "£", "halal": false, "verifiedHalal": false,
+      "description": "One free coffee with any food purchase at Monmouth Coffee Borough Market. Show your TAP LONDON NFC souvenir to claim.",
+      "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Monmouth+Coffee+Borough",
+      "offer": true, "offerText": "FREE COFFEE"
+    },
+    {
+      "image": "https://images.pexels.com/photos/19121495/pexels-photo-19121495.jpeg?auto=compress&cs=tinysrgb&w=800",
+      "icon": "🏷️", "id": "offer-camden-food", "name": "Camden Market — 15% OFF Selected Stalls",
+      "category": "🏷️ Offers", "cuisine": "Global street food", "area": "Camden",
+      "priceRange": "££", "halal": false, "verifiedHalal": false,
+      "description": "15% discount at participating food stalls in Camden Market. Look for the TAP LONDON partner sticker at the stall.",
+      "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Camden+Market+food",
+      "offer": true, "offerText": "15% OFF"
     }
   ]
 }
