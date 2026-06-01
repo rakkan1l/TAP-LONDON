@@ -217,7 +217,7 @@ export default function PlaceDetailPage({ params }: Props) {
   const photos = PLACE_PHOTOS[place.id] ?? [place.image];
 
   return (
-    <main style={{ minHeight: "100vh", background: "#f9f7f2" }}>
+    <main style={{ minHeight: "100vh" }} className="bg-[#f9f7f2] dark:bg-[#0d0d1a]">
 
       {/* Hero */}
       <div style={{ position: "relative", height: "44vh", minHeight: "250px", overflow: "hidden" }}>
@@ -277,7 +277,7 @@ export default function PlaceDetailPage({ params }: Props) {
               <span style={{ fontSize: "1rem", flexShrink: 0 }}>📍</span>
               <div>
                 <div style={{ fontFamily: "'DM Sans', sans-serif", fontSize: "0.65rem", color: "#888", fontWeight: 600, textTransform: "uppercase" as const, letterSpacing: "0.5px" }}>Area</div>
-                <div style={{ fontFamily: "'DM Sans', sans-serif", fontSize: "0.88rem", color: "#1a1a2e", fontWeight: 600 }}>{place.area}</div>
+                <div style={{ fontFamily: "'DM Sans', sans-serif", fontSize: "0.88rem", color: "var(--card-title, #1a1a2e)", fontWeight: 600 }}>{place.area}</div>
               </div>
             </div>
           )}
@@ -286,7 +286,7 @@ export default function PlaceDetailPage({ params }: Props) {
               <span style={{ fontSize: "1rem", flexShrink: 0 }}>🕐</span>
               <div>
                 <div style={{ fontFamily: "'DM Sans', sans-serif", fontSize: "0.65rem", color: "#888", fontWeight: 600, textTransform: "uppercase" as const, letterSpacing: "0.5px" }}>Opening Hours</div>
-                <div style={{ fontFamily: "'DM Sans', sans-serif", fontSize: "0.88rem", color: "#1a1a2e", fontWeight: 600, lineHeight: 1.4 }}>{place.openingHours}</div>
+                <div style={{ fontFamily: "'DM Sans', sans-serif", fontSize: "0.88rem", color: "var(--card-title, #1a1a2e)", fontWeight: 600, lineHeight: 1.4 }}>{place.openingHours}</div>
               </div>
             </div>
           )}
@@ -295,16 +295,16 @@ export default function PlaceDetailPage({ params }: Props) {
               <span style={{ fontSize: "1rem", flexShrink: 0 }}>{place.priceType === "Free" ? "🎁" : "💷"}</span>
               <div>
                 <div style={{ fontFamily: "'DM Sans', sans-serif", fontSize: "0.65rem", color: "#888", fontWeight: 600, textTransform: "uppercase" as const, letterSpacing: "0.5px" }}>Entry</div>
-                <div style={{ fontFamily: "'DM Sans', sans-serif", fontSize: "0.88rem", color: "#1a1a2e", fontWeight: 600 }}>{place.entryFee}</div>
+                <div style={{ fontFamily: "'DM Sans', sans-serif", fontSize: "0.88rem", color: "var(--card-title, #1a1a2e)", fontWeight: 600 }}>{place.entryFee}</div>
               </div>
             </div>
           )}
         </div>
 
         {/* About */}
-        <div style={{ background: "#ffffff", borderRadius: "16px", padding: "20px", marginBottom: "18px", border: "1px solid rgba(26,26,46,0.08)", boxShadow: "0 4px 20px rgba(0,0,0,0.06)" }}>
+        <div style={{ background: "var(--tw-white, #ffffff)", borderRadius: "16px", padding: "20px", marginBottom: "18px", border: "1px solid rgba(26,26,46,0.08)", boxShadow: "0 4px 20px rgba(0,0,0,0.06)" }}>
           <h2 style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "1.4rem", fontWeight: 700, color: "#1a1a2e", marginBottom: "10px", marginTop: 0 }}>About {place.name}</h2>
-          <p style={{ fontFamily: "'DM Sans', sans-serif", fontSize: "0.9rem", color: "#444", lineHeight: 1.8, margin: 0 }}>{place.description}</p>
+          <p style={{ fontFamily: "'DM Sans', sans-serif", fontSize: "0.9rem", color: "var(--text-body, #444)", lineHeight: 1.8, margin: 0 }}>{place.description}</p>
         </div>
 
         {/* History */}
@@ -317,13 +317,13 @@ export default function PlaceDetailPage({ params }: Props) {
 
         {/* Facts */}
         {history && (
-          <div style={{ background: "#ffffff", borderRadius: "16px", padding: "20px", marginBottom: "18px", border: "1px solid rgba(26,26,46,0.08)", boxShadow: "0 4px 20px rgba(0,0,0,0.06)" }}>
+          <div style={{ background: "var(--tw-white, #ffffff)", borderRadius: "16px", padding: "20px", marginBottom: "18px", border: "1px solid rgba(26,26,46,0.08)", boxShadow: "0 4px 20px rgba(0,0,0,0.06)" }}>
             <h2 style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "1.4rem", fontWeight: 700, color: "#1a1a2e", marginBottom: "14px", marginTop: 0 }}>⭐ Fascinating Facts</h2>
             <div style={{ display: "flex", flexDirection: "column", gap: "10px" }}>
               {history.facts.map((fact, i) => (
                 <div key={i} style={{ display: "flex", gap: "10px", alignItems: "flex-start" }}>
                   <div style={{ width: "22px", height: "22px", borderRadius: "50%", background: "rgba(201,168,76,0.15)", color: "#c9a84c", display: "flex", alignItems: "center", justifyContent: "center", fontSize: "0.68rem", fontWeight: 700, flexShrink: 0, fontFamily: "'DM Sans', sans-serif" }}>{i + 1}</div>
-                  <p style={{ fontFamily: "'DM Sans', sans-serif", fontSize: "0.86rem", color: "#444", lineHeight: 1.6, margin: 0 }}>{fact}</p>
+                  <p style={{ fontFamily: "'DM Sans', sans-serif", fontSize: "0.86rem", color: "var(--text-body, #444)", lineHeight: 1.6, margin: 0 }}>{fact}</p>
                 </div>
               ))}
             </div>
@@ -334,7 +334,7 @@ export default function PlaceDetailPage({ params }: Props) {
         <div style={{ background: "rgba(201,168,76,0.08)", borderRadius: "16px", padding: "20px", marginBottom: "18px", border: "1px solid rgba(201,168,76,0.2)" }}>
           <h2 style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "1.4rem", fontWeight: 700, color: "#1a1a2e", marginBottom: "12px", marginTop: 0 }}>💡 Visitor Tips</h2>
           {["Book tickets online in advance to skip the queue", "Visit on weekday mornings for smaller crowds", "Check the official website for seasonal opening changes", "Nearest tube station is usually a short walk away"].map((tip, i) => (
-            <p key={i} style={{ fontFamily: "'DM Sans', sans-serif", fontSize: "0.86rem", color: "#555", lineHeight: 1.6, margin: "0 0 6px 0", display: "flex", gap: "8px" }}>
+            <p key={i} style={{ fontFamily: "'DM Sans', sans-serif", fontSize: "0.86rem", color: "var(--text-body, #555)", lineHeight: 1.6, margin: "0 0 6px 0", display: "flex", gap: "8px" }}>
               <span style={{ color: "#c9a84c", fontWeight: 700 }}>✓</span> {tip}
             </p>
           ))}
