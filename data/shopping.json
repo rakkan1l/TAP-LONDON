@@ -1,5 +1,5 @@
 {
-  "__comment": "Editable shopping content. Add objects to items with id, name, image, section, type, location, openingHours, description, and mapsUrl.",
+  "__comment": "Editable shopping content.",
   "items": [
     {
       "image": "https://images.pexels.com/photos/17340069/pexels-photo-17340069.jpeg?auto=compress&cs=tinysrgb&w=800",
@@ -132,6 +132,33 @@
       "id": "british-museum-shop", "name": "British Museum Shop", "section": "Souvenir Shops", "type": "Museum gifts", "location": "Bloomsbury", "openingHours": "Daily during museum hours",
       "description": "Books, prints, jewellery, replicas, children's gifts, and design objects inspired by the museum collection.",
       "mapsUrl": "https://www.google.com/maps/search/?api=1&query=British+Museum+Shop"
+    },
+    {
+      "image": "https://images.pexels.com/photos/18028809/pexels-photo-18028809.jpeg?auto=compress&cs=tinysrgb&w=800",
+      "id": "offer-portobello", "name": "Portobello Road — 10% OFF",
+      "section": "🏷️ Offers", "type": "Antiques and vintage", "location": "Notting Hill",
+      "openingHours": "Best Friday-Saturday",
+      "description": "10% off at participating antique and vintage stalls on Portobello Road. Show TAP LONDON souvenir at checkout.",
+      "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Portobello+Road+Market",
+      "offer": true, "offerText": "10% OFF"
+    },
+    {
+      "image": "https://images.pexels.com/photos/1536619/pexels-photo-1536619.jpeg?auto=compress&cs=tinysrgb&w=800",
+      "id": "offer-fortnum", "name": "Fortnum & Mason — Free Gift Wrapping",
+      "section": "🏷️ Offers", "type": "Luxury food gifts", "location": "Piccadilly",
+      "openingHours": "Daily; hours vary",
+      "description": "Free premium gift wrapping on any purchase at Fortnum & Mason. Show your TAP LONDON NFC souvenir at checkout.",
+      "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Fortnum+and+Mason",
+      "offer": true, "offerText": "FREE GIFT WRAP"
+    },
+    {
+      "image": "https://images.pexels.com/photos/32604930/pexels-photo-32604930.jpeg?auto=compress&cs=tinysrgb&w=800",
+      "id": "offer-camden-shop", "name": "Camden Market — 15% OFF",
+      "section": "🏷️ Offers", "type": "Street food and alternative fashion", "location": "Camden Town",
+      "openingHours": "Daily 10:00-late",
+      "description": "Exclusive 15% discount at participating stalls in Camden Market. Look for the TAP LONDON sticker at the stall.",
+      "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Camden+Market",
+      "offer": true, "offerText": "15% OFF"
     }
   ]
 }
