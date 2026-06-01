@@ -105,12 +105,7 @@ export default function PlaceCard({ item, mode = "place" }: PlaceCardProps) {
               {paid ? "Paid" : "Free"}
             </span>
           )}
-          {/* Halal badge — only show category label, no verified shield */}
-          {item.halal && (
-            <span className="inline-flex items-center gap-1 rounded-full bg-emerald-700 px-3 py-1 text-xs font-bold text-white">
-              🕌 Halal
-            </span>
-          )}
+
         </div>
 
         <h2 className="mt-4 flex items-start gap-2 font-heading text-2xl font-bold leading-tight text-navy dark:text-cream">
