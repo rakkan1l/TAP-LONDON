@@ -50,7 +50,7 @@ export default function KidsDetailPage({ params }: Props) {
   const photos = [item.image, "https://images.pexels.com/photos/247502/pexels-photo-247502.jpeg?auto=compress&cs=tinysrgb&w=800", "https://images.pexels.com/photos/8613089/pexels-photo-8613089.jpeg?auto=compress&cs=tinysrgb&w=800"];
 
   return (
-    <main style={{ minHeight: "100vh", background: "#f9f7f2" }}>
+    <main style={{ minHeight: "100vh" }} className="bg-[#f9f7f2] dark:bg-[#0d0d1a]">
       <div style={{ position: "relative", height: "44vh", minHeight: "250px", overflow: "hidden" }}>
         <img src={item.image} alt={item.name} style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "center" }} />
         <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to bottom, rgba(0,0,0,0.15) 0%, rgba(26,26,46,0.88) 100%)" }} />
@@ -66,7 +66,7 @@ export default function KidsDetailPage({ params }: Props) {
         <PhotoGallery photos={photos} name={item.name} />
 
         {/* Quick Info */}
-        <div style={{ background: "#ffffff", borderRadius: "16px", padding: "18px 20px", marginBottom: "18px", border: "1px solid rgba(26,26,46,0.08)", boxShadow: "0 4px 20px rgba(0,0,0,0.06)", display: "flex", flexDirection: "column", gap: "12px" }}>
+        <div className="bg-white dark:bg-[#1a1a2e] dark:border-gold/20" style={{ borderRadius: "16px", padding: "18px 20px", marginBottom: "18px", border: "1px solid rgba(26,26,46,0.08)", boxShadow: "0 4px 20px rgba(0,0,0,0.06)", display: "flex", flexDirection: "column", gap: "12px" }}>
           {[
             { icon: "📍", label: "Location", value: item.area },
             { icon: "🕐", label: "Opening Hours", value: item.openingHours },
@@ -78,7 +78,7 @@ export default function KidsDetailPage({ params }: Props) {
                 <div style={{ fontFamily: "'DM Sans', sans-serif", fontSize: "0.65rem", color: "#888", fontWeight: 600, textTransform: "uppercase" as const }}>
                   {info.label}
                 </div>
-                <div style={{ fontFamily: "'DM Sans', sans-serif", fontSize: "0.88rem", color: "#1a1a2e", fontWeight: 600, lineHeight: 1.4 }}>
+                <div style={{ fontFamily: "'DM Sans', sans-serif", fontSize: "0.88rem", color: "var(--card-title, #1a1a2e)", fontWeight: 600, lineHeight: 1.4 }}>
                   {info.value}
                 </div>
               </div>
@@ -87,15 +87,15 @@ export default function KidsDetailPage({ params }: Props) {
         </div>
 
         {/* About */}
-        <div style={{ background: "#ffffff", borderRadius: "16px", padding: "20px", marginBottom: "18px", border: "1px solid rgba(26,26,46,0.08)", boxShadow: "0 4px 20px rgba(0,0,0,0.06)" }}>
+        <div style={{ background: "var(--tw-white, #ffffff)", borderRadius: "16px", padding: "20px", marginBottom: "18px", border: "1px solid rgba(26,26,46,0.08)", boxShadow: "0 4px 20px rgba(0,0,0,0.06)" }}>
           <h2 style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "1.4rem", fontWeight: 700, color: "#1a1a2e", marginBottom: "10px", marginTop: 0 }}>About</h2>
-          <p style={{ fontFamily: "'DM Sans', sans-serif", fontSize: "0.9rem", color: "#444", lineHeight: 1.8, margin: 0 }}>{item.description}</p>
+          <p style={{ fontFamily: "'DM Sans', sans-serif", fontSize: "0.9rem", color: "var(--text-body, #444)", lineHeight: 1.8, margin: 0 }}>{item.description}</p>
         </div>
 
         {/* Must Try */}
         <div style={{ background: "rgba(201,168,76,0.1)", borderRadius: "16px", padding: "20px", marginBottom: "18px", border: "1px solid rgba(201,168,76,0.25)" }}>
           <h2 style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "1.4rem", fontWeight: 700, color: "#1a1a2e", marginBottom: "10px", marginTop: 0 }}>Must Do</h2>
-          <p style={{ fontFamily: "'DM Sans', sans-serif", fontSize: "0.9rem", color: "#444", fontWeight: 600, margin: 0 }}>🎯 {item.mustTry}</p>
+          <p style={{ fontFamily: "'DM Sans', sans-serif", fontSize: "0.9rem", color: "var(--text-body, #444)", fontWeight: 600, margin: 0 }}>🎯 {item.mustTry}</p>
         </div>
 
         {/* Tips */}
