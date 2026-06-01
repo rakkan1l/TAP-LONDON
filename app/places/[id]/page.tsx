@@ -1,8 +1,8 @@
 "use client";
 
+import React, { useState } from "react";
 import { notFound } from "next/navigation";
 import Link from "next/link";
-import { useState } from "react";
 import places from "@/data/places.json";
 
 type Props = { params: { id: string } };
@@ -134,7 +134,7 @@ function PhotoGallery({ photos, name }: { photos: string[]; name: string }) {
       {/* Main photo */}
       <div style={{
         borderRadius: "16px", overflow: "hidden",
-        height: "280px", marginBottom: "8px", position: "relative",
+        height: "260px", marginBottom: "8px", position: "relative",
       }}>
         <img
           src={photos[active]}
@@ -153,7 +153,7 @@ function PhotoGallery({ photos, name }: { photos: string[]; name: string }) {
       </div>
       {/* Thumbnails */}
       {photos.length > 1 && (
-        <div style={{ display: "flex", gap: "8px", overflowX: "auto" }}>
+        <div style={{ display: "flex", gap: "8px", overflowX: "auto", paddingBottom: "4px", WebkitOverflowScrolling: "touch", scrollbarWidth: "none" }}>
           {photos.map((photo, i) => (
             <button
               key={i}
@@ -189,9 +189,9 @@ export default function PlaceDetailPage({ params }: Props) {
     <main style={{ minHeight: "100vh", background: "#f9f7f2" }}>
 
       {/* Hero */}
-      <div style={{ position: "relative", height: "50vh", minHeight: "280px", overflow: "hidden" }}>
+      <div style={{ position: "relative", height: "45vh", minHeight: "260px", overflow: "hidden" }}>
         <img src={photos[0]} alt={place.name}
-          style={{ width: "100%", height: "100%", objectFit: "cover" }} />
+          style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "center top" }} />
         <div style={{
           position: "absolute", inset: 0,
           background: "linear-gradient(to bottom, rgba(0,0,0,0.2) 0%, rgba(26,26,46,0.88) 100%)",
