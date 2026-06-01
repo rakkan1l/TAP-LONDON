@@ -97,7 +97,7 @@ export default function ShoppingDetailPage({ params }: Props) {
   const shops = FAMOUS_SHOPS[item.id];
 
   return (
-    <main style={{ minHeight: "100vh", background: "#f9f7f2" }}>
+    <main style={{ minHeight: "100vh" }} className="bg-[#f9f7f2] dark:bg-[#0d0d1a]">
       {/* Hero */}
       <div style={{ position: "relative", height: "44vh", minHeight: "250px", overflow: "hidden" }}>
         <img src={photos[0]} alt={item.name} style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "center" }} />
@@ -118,16 +118,16 @@ export default function ShoppingDetailPage({ params }: Props) {
         <PhotoGallery photos={photos} name={item.name} />
 
         {/* Quick Info */}
-        <div style={{ background: "#ffffff", borderRadius: "16px", padding: "18px 20px", marginBottom: "18px", border: "1px solid rgba(26,26,46,0.08)", boxShadow: "0 4px 20px rgba(0,0,0,0.06)", display: "flex", flexDirection: "column", gap: "12px" }}>
-          {item.location && <div style={{ display: "flex", gap: "10px" }}><span>📍</span><div><div style={{ fontFamily: "'DM Sans', sans-serif", fontSize: "0.65rem", color: "#888", fontWeight: 600, textTransform: "uppercase" as const }}>Location</div><div style={{ fontFamily: "'DM Sans', sans-serif", fontSize: "0.88rem", color: "#1a1a2e", fontWeight: 600 }}>{item.location}</div></div></div>}
-          {item.openingHours && <div style={{ display: "flex", gap: "10px" }}><span>🕐</span><div><div style={{ fontFamily: "'DM Sans', sans-serif", fontSize: "0.65rem", color: "#888", fontWeight: 600, textTransform: "uppercase" as const }}>Opening Hours</div><div style={{ fontFamily: "'DM Sans', sans-serif", fontSize: "0.88rem", color: "#1a1a2e", fontWeight: 600, lineHeight: 1.5 }}>{item.openingHours}</div></div></div>}
-          <div style={{ display: "flex", gap: "10px" }}><span>🏷️</span><div><div style={{ fontFamily: "'DM Sans', sans-serif", fontSize: "0.65rem", color: "#888", fontWeight: 600, textTransform: "uppercase" as const }}>Type</div><div style={{ fontFamily: "'DM Sans', sans-serif", fontSize: "0.88rem", color: "#1a1a2e", fontWeight: 600 }}>{item.type}</div></div></div>
+        <div className="bg-white dark:bg-[#1a1a2e] dark:border-gold/20" style={{ borderRadius: "16px", padding: "18px 20px", marginBottom: "18px", border: "1px solid rgba(26,26,46,0.08)", boxShadow: "0 4px 20px rgba(0,0,0,0.06)", display: "flex", flexDirection: "column", gap: "12px" }}>
+          {item.location && <div style={{ display: "flex", gap: "10px" }}><span>📍</span><div><div style={{ fontFamily: "'DM Sans', sans-serif", fontSize: "0.65rem", color: "#888", fontWeight: 600, textTransform: "uppercase" as const }}>Location</div><div style={{ fontFamily: "'DM Sans', sans-serif", fontSize: "0.88rem", color: "var(--card-title, #1a1a2e)", fontWeight: 600 }}>{item.location}</div></div></div>}
+          {item.openingHours && <div style={{ display: "flex", gap: "10px" }}><span>🕐</span><div><div style={{ fontFamily: "'DM Sans', sans-serif", fontSize: "0.65rem", color: "#888", fontWeight: 600, textTransform: "uppercase" as const }}>Opening Hours</div><div style={{ fontFamily: "'DM Sans', sans-serif", fontSize: "0.88rem", color: "var(--card-title, #1a1a2e)", fontWeight: 600, lineHeight: 1.5 }}>{item.openingHours}</div></div></div>}
+          <div style={{ display: "flex", gap: "10px" }}><span>🏷️</span><div><div style={{ fontFamily: "'DM Sans', sans-serif", fontSize: "0.65rem", color: "#888", fontWeight: 600, textTransform: "uppercase" as const }}>Type</div><div style={{ fontFamily: "'DM Sans', sans-serif", fontSize: "0.88rem", color: "var(--card-title, #1a1a2e)", fontWeight: 600 }}>{item.type}</div></div></div>
         </div>
 
         {/* About */}
-        <div style={{ background: "#ffffff", borderRadius: "16px", padding: "20px", marginBottom: "18px", border: "1px solid rgba(26,26,46,0.08)", boxShadow: "0 4px 20px rgba(0,0,0,0.06)" }}>
+        <div style={{ background: "var(--tw-white, #ffffff)", borderRadius: "16px", padding: "20px", marginBottom: "18px", border: "1px solid rgba(26,26,46,0.08)", boxShadow: "0 4px 20px rgba(0,0,0,0.06)" }}>
           <h2 style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "1.4rem", fontWeight: 700, color: "#1a1a2e", marginBottom: "10px", marginTop: 0 }}>About {item.name}</h2>
-          <p style={{ fontFamily: "'DM Sans', sans-serif", fontSize: "0.9rem", color: "#444", lineHeight: 1.8, margin: 0 }}>{item.description}</p>
+          <p style={{ fontFamily: "'DM Sans', sans-serif", fontSize: "0.9rem", color: "var(--text-body, #444)", lineHeight: 1.8, margin: 0 }}>{item.description}</p>
         </div>
 
         {/* Famous Shops Inside */}
@@ -162,7 +162,7 @@ export default function ShoppingDetailPage({ params }: Props) {
         <div style={{ background: "rgba(201,168,76,0.08)", borderRadius: "16px", padding: "20px", marginBottom: "18px", border: "1px solid rgba(201,168,76,0.2)" }}>
           <h2 style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "1.4rem", fontWeight: 700, color: "#1a1a2e", marginBottom: "12px", marginTop: 0 }}>💡 Shopping Tips</h2>
           {["Visit on weekdays to avoid weekend crowds", "Most shops open later on Sundays — check before going", "Oxford Street and Carnaby are best accessed via Oxford Circus Tube", "Bring a reusable bag — plastic bags charged in the UK", "VAT refund available for non-UK visitors at most large stores"].map((tip, i) => (
-            <p key={i} style={{ fontFamily: "'DM Sans', sans-serif", fontSize: "0.86rem", color: "#555", lineHeight: 1.6, margin: "0 0 6px 0", display: "flex", gap: "8px" }}>
+            <p key={i} style={{ fontFamily: "'DM Sans', sans-serif", fontSize: "0.86rem", color: "var(--text-body, #555)", lineHeight: 1.6, margin: "0 0 6px 0", display: "flex", gap: "8px" }}>
               <span style={{ color: "#c9a84c", fontWeight: 700 }}>✓</span> {tip}
             </p>
           ))}
