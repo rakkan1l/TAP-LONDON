@@ -362,3 +362,18 @@ html.dark [style*="background: rgba(201,168,76,0.1)"] h2,
 html.dark [style*="background: rgba(201,168,76,0.1)"] p {
   color: #f9f7f2 !important;
 }
+
+/* CSS variables for dark mode detail pages */
+:root {
+  --card-bg: #ffffff;
+  --card-title: #1a1a2e;
+  --text-body: #444;
+  --tw-white: #ffffff;
+}
+
+html.dark {
+  --card-bg: #1a1a2e;
+  --card-title: #f9f7f2;
+  --text-body: #cccccc;
+  --tw-white: #1a1a2e;
+}
