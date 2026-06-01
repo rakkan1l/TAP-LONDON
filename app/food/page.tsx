@@ -3,7 +3,7 @@ import DirectoryClient from "@/components/DirectoryClient";
 import food from "@/data/food.json";
 
 export const metadata: Metadata = {
-  title: "Food & Drinks in London",
+  title: "Food & Drinks in London | TAP LONDON",
   description: "Find London restaurants, halal food, coffee shops, and local food spots with TAP LONDON."
 };
 
@@ -15,7 +15,7 @@ export default function FoodPage() {
           <p className="text-sm font-bold uppercase tracking-[0.18em] text-gold">Food & Drinks</p>
           <h1 className="mt-3 font-heading text-5xl font-bold text-navy dark:text-cream">Where to Eat in London</h1>
           <p className="mt-5 text-lg leading-8 text-ink/70 dark:text-cream/70">
-            Restaurants, verified halal-friendly picks, serious coffee, and local market stops for a better London day.
+            Restaurants, halal food, speciality coffee, and the best local food spots for a perfect London day.
           </p>
         </div>
         <DirectoryClient
@@ -24,11 +24,6 @@ export default function FoodPage() {
           mode="food"
           searchPlaceholder="Search food, cuisine, or area"
         />
-        {/* Verified halal concept box — moved to bottom */}
-        <div className="mt-10 rounded-lg border border-emerald-700/20 bg-emerald-50 p-5 text-sm leading-6 text-emerald-950 dark:bg-emerald-950/20 dark:text-emerald-300 dark:border-emerald-700/30">
-          <strong className="block text-base mb-1">Verified halal concept</strong>
-          Listings marked verified halal are intended for partner confirmation. Always ask staff about current suppliers, alcohol handling, and kitchen preparation if this matters to you.
-        </div>
       </div>
     </section>
   );
