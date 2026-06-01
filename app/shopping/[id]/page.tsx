@@ -19,50 +19,50 @@ const SHOPPING_PHOTOS: Record<string, string[]> = {
 };
 
 // Famous shops inside each shopping area
-const FAMOUS_SHOPS: Record<string, { name: string; type: string; hours: string; emoji: string }[]> = {
+const FAMOUS_SHOPS: Record<string, { name: string; type: string; hours: string; emoji: string; mapsUrl: string }[]> = {
   "oxford-street": [
-    { name: "Selfridges", type: "Luxury department store", hours: "Mon-Sat 9:30-21:00; Sun 11:30-18:00", emoji: "🏬" },
-    { name: "Zara", type: "Fast fashion", hours: "Mon-Sat 10:00-21:00; Sun 12:00-18:00", emoji: "👗" },
-    { name: "H&M Flagship", type: "High street fashion", hours: "Mon-Sat 9:00-21:00; Sun 11:00-18:00", emoji: "🛍️" },
-    { name: "Nike Town", type: "Sportswear flagship", hours: "Mon-Sat 10:00-20:00; Sun 12:00-18:00", emoji: "👟" },
-    { name: "John Lewis", type: "Department store", hours: "Mon-Sat 9:30-20:00; Sun 12:00-18:00", emoji: "🏪" },
-    { name: "Primark Flagship", type: "Affordable fashion — largest in world", hours: "Mon-Sat 8:00-22:00; Sun 11:30-18:00", emoji: "🛒" },
+    { name: "Selfridges", type: "Luxury department store", hours: "Mon-Sat 9:30-21:00; Sun 11:30-18:00", emoji: "🏬", mapsUrl: "https://www.google.com/maps/search/?api=1&query=Selfridges+Oxford+Street+London" },
+    { name: "Zara", type: "Fast fashion", hours: "Mon-Sat 10:00-21:00; Sun 12:00-18:00", emoji: "👗", mapsUrl: "https://www.google.com/maps/search/?api=1&query=Zara+Oxford+Street+London" },
+    { name: "H&M Flagship", type: "High street fashion", hours: "Mon-Sat 9:00-21:00; Sun 11:00-18:00", emoji: "🛍️", mapsUrl: "https://www.google.com/maps/search/?api=1&query=H%26M+Oxford+Street+London" },
+    { name: "Nike Town", type: "Sportswear flagship", hours: "Mon-Sat 10:00-20:00; Sun 12:00-18:00", emoji: "👟", mapsUrl: "https://www.google.com/maps/search/?api=1&query=Nike+Town+Oxford+Street+London" },
+    { name: "John Lewis", type: "Department store", hours: "Mon-Sat 9:30-20:00; Sun 12:00-18:00", emoji: "🏪", mapsUrl: "https://www.google.com/maps/search/?api=1&query=John+Lewis+Oxford+Street+London" },
+    { name: "Primark Flagship", type: "Affordable fashion — largest in world", hours: "Mon-Sat 8:00-22:00; Sun 11:30-18:00", emoji: "🛒", mapsUrl: "https://www.google.com/maps/search/?api=1&query=Primark+Oxford+Street+London" },
   ],
   "carnaby-street": [
-    { name: "Irregular Choice", type: "Quirky footwear and accessories", hours: "Mon-Sat 10:00-19:00; Sun 11:00-18:00", emoji: "👠" },
-    { name: "Levi's", type: "Denim flagship", hours: "Mon-Sat 10:00-19:00; Sun 12:00-18:00", emoji: "👖" },
-    { name: "Dr. Martens", type: "Iconic British boots", hours: "Mon-Sat 10:00-19:00; Sun 12:00-18:00", emoji: "🥾" },
-    { name: "Liberty London", type: "Designer fabrics and gifts", hours: "Mon-Sat 10:00-20:00; Sun 12:00-18:00", emoji: "🌸" },
-    { name: "Kiehl's", type: "Premium skincare", hours: "Mon-Sat 10:00-19:00; Sun 12:00-18:00", emoji: "🧴" },
+    { name: "Irregular Choice", type: "Quirky footwear and accessories", hours: "Mon-Sat 10:00-19:00; Sun 11:00-18:00", emoji: "👠", mapsUrl: "https://www.google.com/maps/search/?api=1&query=Irregular+Choice+Carnaby+Street+London" },
+    { name: "Levi's", type: "Denim flagship", hours: "Mon-Sat 10:00-19:00; Sun 12:00-18:00", emoji: "👖", mapsUrl: "https://www.google.com/maps/search/?api=1&query=Levi's+Carnaby+Street+London" },
+    { name: "Dr. Martens", type: "Iconic British boots", hours: "Mon-Sat 10:00-19:00; Sun 12:00-18:00", emoji: "🥾", mapsUrl: "https://www.google.com/maps/search/?api=1&query=Dr+Martens+Carnaby+Street+London" },
+    { name: "Liberty London", type: "Designer fabrics and gifts", hours: "Mon-Sat 10:00-20:00; Sun 12:00-18:00", emoji: "🌸", mapsUrl: "https://www.google.com/maps/search/?api=1&query=Liberty+London+Regent+Street" },
+    { name: "Kiehl's", type: "Premium skincare", hours: "Mon-Sat 10:00-19:00; Sun 12:00-18:00", emoji: "🧴", mapsUrl: "https://www.google.com/maps/search/?api=1&query=Kiehl's+Carnaby+Street+London" },
   ],
   "harrods": [
-    { name: "Food Halls", type: "World-famous luxury food and delicacies", hours: "Mon-Sat 10:00-21:00; Sun 11:30-18:00", emoji: "🍫" },
-    { name: "Designer Fashion Floor", type: "Gucci, Prada, Chanel, Louis Vuitton", hours: "Mon-Sat 10:00-21:00; Sun 11:30-18:00", emoji: "👜" },
-    { name: "Toy Kingdom", type: "Premium toys and collectibles", hours: "Mon-Sat 10:00-21:00; Sun 11:30-18:00", emoji: "🧸" },
-    { name: "Beauty Hall", type: "Luxury cosmetics and fragrances", hours: "Mon-Sat 10:00-21:00; Sun 11:30-18:00", emoji: "💄" },
-    { name: "Harrods Signature Bear Shop", type: "Famous Harrods teddy bears", hours: "Mon-Sat 10:00-21:00; Sun 11:30-18:00", emoji: "🐻" },
+    { name: "Food Halls", type: "World-famous luxury food and delicacies", hours: "Mon-Sat 10:00-21:00; Sun 11:30-18:00", emoji: "🍫", mapsUrl: "https://www.google.com/maps/search/?api=1&query=Harrods+Food+Hall+London" },
+    { name: "Designer Fashion Floor", type: "Gucci, Prada, Chanel, Louis Vuitton", hours: "Mon-Sat 10:00-21:00; Sun 11:30-18:00", emoji: "👜", mapsUrl: "https://www.google.com/maps/search/?api=1&query=Harrods+London+Knightsbridge" },
+    { name: "Toy Kingdom", type: "Premium toys and collectibles", hours: "Mon-Sat 10:00-21:00; Sun 11:30-18:00", emoji: "🧸", mapsUrl: "https://www.google.com/maps/search/?api=1&query=Harrods+Toy+Kingdom+London" },
+    { name: "Beauty Hall", type: "Luxury cosmetics and fragrances", hours: "Mon-Sat 10:00-21:00; Sun 11:30-18:00", emoji: "💄", mapsUrl: "https://www.google.com/maps/search/?api=1&query=Harrods+Beauty+Hall+London" },
+    { name: "Harrods Signature Bear Shop", type: "Famous Harrods teddy bears", hours: "Mon-Sat 10:00-21:00; Sun 11:30-18:00", emoji: "🐻", mapsUrl: "https://www.google.com/maps/search/?api=1&query=Harrods+London" },
   ],
   "camden-market": [
-    { name: "Stables Market", type: "Vintage clothing and antiques", hours: "Daily 10:00-18:00", emoji: "🐴" },
-    { name: "Camden Lock Market", type: "Arts, crafts, street food", hours: "Daily 10:00-18:00", emoji: "🔒" },
-    { name: "Electric Ballroom", type: "Vintage market on weekends", hours: "Sat-Sun 10:00-17:00", emoji: "⚡" },
-    { name: "Global Street Food Area", type: "Food stalls from around the world", hours: "Daily 10:00-late", emoji: "🌍" },
-    { name: "Rock & Metal Shops", type: "Music merchandise and accessories", hours: "Daily 10:00-18:00", emoji: "🎸" },
+    { name: "Stables Market", type: "Vintage clothing and antiques", hours: "Daily 10:00-18:00", emoji: "🐴", mapsUrl: "https://www.google.com/maps/search/?api=1&query=Stables+Market+Camden+London" },
+    { name: "Camden Lock Market", type: "Arts, crafts, street food", hours: "Daily 10:00-18:00", emoji: "🔒", mapsUrl: "https://www.google.com/maps/search/?api=1&query=Camden+Lock+Market+London" },
+    { name: "Electric Ballroom", type: "Vintage market on weekends", hours: "Sat-Sun 10:00-17:00", emoji: "⚡", mapsUrl: "https://www.google.com/maps/search/?api=1&query=Electric+Ballroom+Camden+London" },
+    { name: "Global Street Food Area", type: "Food stalls from around the world", hours: "Daily 10:00-late", emoji: "🌍", mapsUrl: "https://www.google.com/maps/search/?api=1&query=Camden+Market+food+London" },
+    { name: "Rock & Metal Shops", type: "Music merchandise and accessories", hours: "Daily 10:00-18:00", emoji: "🎸", mapsUrl: "https://www.google.com/maps/search/?api=1&query=Camden+Market+London" },
   ],
   "portobello-road-area": [
-    { name: "Antique Dealers Section", type: "Silver, jewellery, furniture (Sat only)", hours: "Saturday 5:30-16:00", emoji: "🏺" },
-    { name: "Vintage Clothing Stalls", type: "Retro fashion from all eras", hours: "Fri-Sat 9:00-18:00", emoji: "👒" },
-    { name: "Fresh Produce Market", type: "Fruit, veg, flowers", hours: "Mon-Wed 9:00-18:00", emoji: "🥦" },
-    { name: "Electric Cinema", type: "London's oldest working cinema nearby", hours: "Daily — check listings", emoji: "🎬" },
-    { name: "Books and Records Stalls", type: "Second-hand books and vinyl", hours: "Sat 9:00-17:00", emoji: "📚" },
+    { name: "Antique Dealers Section", type: "Silver, jewellery, furniture (Sat only)", hours: "Saturday 5:30-16:00", emoji: "🏺", mapsUrl: "https://www.google.com/maps/search/?api=1&query=Portobello+Road+Antiques+London" },
+    { name: "Vintage Clothing Stalls", type: "Retro fashion from all eras", hours: "Fri-Sat 9:00-18:00", emoji: "👒", mapsUrl: "https://www.google.com/maps/search/?api=1&query=Portobello+Road+Market+London" },
+    { name: "Fresh Produce Market", type: "Fruit, veg, flowers", hours: "Mon-Wed 9:00-18:00", emoji: "🥦", mapsUrl: "https://www.google.com/maps/search/?api=1&query=Portobello+Road+Market+London" },
+    { name: "Electric Cinema", type: "London's oldest working cinema nearby", hours: "Daily — check listings", emoji: "🎬", mapsUrl: "https://www.google.com/maps/search/?api=1&query=Electric+Cinema+Notting+Hill+London" },
+    { name: "Books and Records Stalls", type: "Second-hand books and vinyl", hours: "Sat 9:00-17:00", emoji: "📚", mapsUrl: "https://www.google.com/maps/search/?api=1&query=Portobello+Road+Market+London" },
   ],
   "westfield-stratford": [
-    { name: "John Lewis", type: "Department store", hours: "Mon-Sat 10:00-21:00; Sun 12:00-18:00", emoji: "🏬" },
-    { name: "Zara", type: "Fashion", hours: "Mon-Sat 10:00-21:00; Sun 12:00-18:00", emoji: "👗" },
-    { name: "Apple Store", type: "Tech flagship", hours: "Mon-Sat 10:00-21:00; Sun 12:00-18:00", emoji: "🍎" },
-    { name: "H&M", type: "High street fashion", hours: "Mon-Sat 10:00-21:00; Sun 12:00-18:00", emoji: "🛍️" },
-    { name: "The Village (Luxury)", type: "Hugo Boss, Calvin Klein, Coach", hours: "Mon-Sat 10:00-21:00; Sun 12:00-18:00", emoji: "💼" },
-    { name: "Food Court", type: "Global cuisine, halal options available", hours: "Daily until 22:00", emoji: "🍜" },
+    { name: "John Lewis", type: "Department store", hours: "Mon-Sat 10:00-21:00; Sun 12:00-18:00", emoji: "🏬", mapsUrl: "https://www.google.com/maps/search/?api=1&query=John+Lewis+Westfield+Stratford" },
+    { name: "Zara", type: "Fashion", hours: "Mon-Sat 10:00-21:00; Sun 12:00-18:00", emoji: "👗", mapsUrl: "https://www.google.com/maps/search/?api=1&query=Zara+Westfield+Stratford+London" },
+    { name: "Apple Store", type: "Tech flagship", hours: "Mon-Sat 10:00-21:00; Sun 12:00-18:00", emoji: "🍎", mapsUrl: "https://www.google.com/maps/search/?api=1&query=Apple+Store+Westfield+Stratford" },
+    { name: "H&M", type: "High street fashion", hours: "Mon-Sat 10:00-21:00; Sun 12:00-18:00", emoji: "🛍️", mapsUrl: "https://www.google.com/maps/search/?api=1&query=H%26M+Westfield+Stratford+London" },
+    { name: "The Village (Luxury)", type: "Hugo Boss, Calvin Klein, Coach", hours: "Mon-Sat 10:00-21:00; Sun 12:00-18:00", emoji: "💼", mapsUrl: "https://www.google.com/maps/search/?api=1&query=The+Village+Westfield+Stratford+London" },
+    { name: "Food Court", type: "Global cuisine, halal options available", hours: "Daily until 22:00", emoji: "🍜", mapsUrl: "https://www.google.com/maps/search/?api=1&query=Westfield+Stratford+food+court" },
   ],
 };
 
@@ -144,9 +144,12 @@ export default function ShoppingDetailPage({ params }: Props) {
                     <div style={{ flex: 1 }}>
                       <div style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "1rem", fontWeight: 700, color: "#ffffff", marginBottom: "3px" }}>{shop.name}</div>
                       <div style={{ fontFamily: "'DM Sans', sans-serif", fontSize: "0.75rem", color: "rgba(201,168,76,0.8)", marginBottom: "4px" }}>{shop.type}</div>
-                      <div style={{ fontFamily: "'DM Sans', sans-serif", fontSize: "0.72rem", color: "rgba(255,255,255,0.5)", display: "flex", gap: "4px", alignItems: "center" }}>
+                      <div style={{ fontFamily: "'DM Sans', sans-serif", fontSize: "0.72rem", color: "rgba(255,255,255,0.5)", display: "flex", gap: "4px", alignItems: "center", marginBottom: "10px" }}>
                         <span>🕐</span> {shop.hours}
                       </div>
+                      <a href={shop.mapsUrl} target="_blank" rel="noreferrer" style={{ display: "inline-flex", alignItems: "center", gap: "6px", background: "rgba(201,168,76,0.15)", border: "1px solid rgba(201,168,76,0.3)", color: "#c9a84c", borderRadius: "50px", padding: "5px 12px", fontFamily: "'DM Sans', sans-serif", fontSize: "0.72rem", fontWeight: 600, textDecoration: "none" }}>
+                        📍 Directions
+                      </a>
                     </div>
                   </div>
                 </div>
