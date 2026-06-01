@@ -53,7 +53,7 @@ export default function KidsPage() {
         <DirectoryClient
           items={kidsItems}
           tabs={["Top Attractions", "Fun Experiences", "Parks & Outdoor", "Family Food", "Toy Shops"]}
-          mode="place"
+          mode="kids"
           searchPlaceholder="Search kids activities, parks, or areas"
         />
       </div>
