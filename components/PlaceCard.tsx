@@ -210,6 +210,19 @@ export default function PlaceCard({ item, mode = "place" }: PlaceCardProps) {
     );
   }
 
-  // Kids and Nightlife — NOT clickable, just show the card
+  if (mode === "kids") {
+    return (
+      <Link href={`/kids/${item.id}`} style={{ textDecoration: "none", display: "block", height: "100%" }}>
+        {card}
+      </Link>
+    );
+  }
+  if (mode === "nightlife") {
+    return (
+      <Link href={`/nightlife/${item.id}`} style={{ textDecoration: "none", display: "block", height: "100%" }}>
+        {card}
+      </Link>
+    );
+  }
   return card;
 }
