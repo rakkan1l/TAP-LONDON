@@ -20,7 +20,7 @@ export default function ShoppingPage() {
         </div>
         <DirectoryClient
           items={shopping.items}
-          tabs={["Shopping Areas", "Markets", "Souvenir Shops", "🏷️ Offers"]}
+          tabs={["Shopping Areas", "🏷️ Offers", "Markets", "Souvenir Shops"]}
           mode="shopping"
           searchPlaceholder="Search shops, markets, or areas"
         />
