@@ -27,7 +27,7 @@ body {
 
 html.dark body,
 html.dark main { background: #0d0d1a !important; color: #f9f7f2 !important; }
-html.dark section { background: #0d0d1a !important; }
+/* section dark bg removed - handled per-section with className */
 html.dark header {
   background: rgba(10,10,20,0.96) !important;
   border-color: rgba(201,168,76,0.2) !important;
@@ -89,9 +89,10 @@ html.dark [style*="rgba(255,"] {
 }
 
 /* More specific — only badge-like elements (small, positioned) */
-html.dark span[style*="background"],
-html.dark div[style*="position: absolute"][style*="top"],
-html.dark div[style*="position: absolute"][style*="left"] {
+/* removed - was causing card overlay issues */
+html.dark span[style*="background-DISABLED"],
+html.dark div[style*="position: absolute-DISABLED"][style*="top"],
+html.dark div[style*="position: absolute-DISABLED"][style*="left"] {
   background: rgba(20,20,40,0.88) !important;
   color: #c9a84c !important;
 }
