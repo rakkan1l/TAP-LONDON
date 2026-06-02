@@ -17,18 +17,18 @@ const navLinks = [
 ];
 
 const LANGUAGES = [
-  { code: "en", label: "EN", flag: "🇬🇧", full: "English" },
-  { code: "fr", label: "FR", flag: "🇫🇷", full: "Français" },
-  { code: "es", label: "ES", flag: "🇪🇸", full: "Español" },
-  { code: "pt", label: "PT", flag: "🇧🇷", full: "Português" },
-  { code: "ar", label: "AR", flag: "🇸🇦", full: "العربية" },
-  { code: "it", label: "IT", flag: "🇮🇹", full: "Italiano" },
-  { code: "zh", label: "ZH", flag: "🇨🇳", full: "中文" },
-  { code: "ko", label: "KO", flag: "🇰🇷", full: "한국어" },
-  { code: "ja", label: "JA", flag: "🇯🇵", full: "日本語" },
-  { code: "nl", label: "NL", flag: "🇳🇱", full: "Nederlands" },
-  { code: "hi", label: "HI", flag: "🇮🇳", full: "हिंदी" },
-  { code: "de", label: "DE", flag: "🇩🇪", full: "Deutsch" },
+  { code: "en", label: "EN", flag: "🇬🇧", full: "English", googleCode: "" },
+  { code: "fr", label: "FR", flag: "🇫🇷", full: "Français", googleCode: "fr" },
+  { code: "es", label: "ES", flag: "🇪🇸", full: "Español", googleCode: "es" },
+  { code: "pt", label: "PT", flag: "🇧🇷", full: "Português", googleCode: "pt" },
+  { code: "ar", label: "AR", flag: "🇸🇦", full: "العربية", googleCode: "ar" },
+  { code: "it", label: "IT", flag: "🇮🇹", full: "Italiano", googleCode: "it" },
+  { code: "zh", label: "ZH", flag: "🇨🇳", full: "中文", googleCode: "zh-CN" },
+  { code: "ko", label: "KO", flag: "🇰🇷", full: "한국어", googleCode: "ko" },
+  { code: "ja", label: "JA", flag: "🇯🇵", full: "日本語", googleCode: "ja" },
+  { code: "nl", label: "NL", flag: "🇳🇱", full: "Nederlands", googleCode: "nl" },
+  { code: "hi", label: "HI", flag: "🇮🇳", full: "हिंदी", googleCode: "hi" },
+  { code: "de", label: "DE", flag: "🇩🇪", full: "Deutsch", googleCode: "de" },
 ];
 
 function getWeatherEmoji(code: number) {
@@ -80,16 +80,11 @@ export default function Navbar() {
   useEffect(() => {
     fetch("https://api.open-meteo.com/v1/forecast?latitude=51.5074&longitude=-0.1278&current_weather=true")
       .then((r) => r.json())
-      .then((d) => {
-        setWeather({
-          temp: Math.round(d.current_weather.temperature),
-          code: d.current_weather.weathercode,
-        });
-      })
+      .then((d) => setWeather({ temp: Math.round(d.current_weather.temperature), code: d.current_weather.weathercode }))
       .catch(() => {});
   }, []);
 
-  // Language init
+  // Language init from localStorage
   useEffect(() => {
     const saved = localStorage.getItem("taplon-lang");
     if (saved) {
@@ -98,37 +93,54 @@ export default function Navbar() {
     }
   }, []);
 
-  // Close lang dropdown on outside click
+  // Inject Google Translate script once
   useEffect(() => {
-    function handleClick(e: MouseEvent) {
-      if (langRef.current && !langRef.current.contains(e.target as Node)) {
-        setLangOpen(false);
-      }
-    }
-    document.addEventListener("mousedown", handleClick);
-    return () => document.removeEventListener("mousedown", handleClick);
+    if (document.getElementById("gt-script")) return;
+    (window as any).googleTranslateElementInit = () => {
+      new (window as any).google.translate.TranslateElement(
+        { pageLanguage: "en", autoDisplay: false },
+        "google_translate_element"
+      );
+    };
+    const script = document.createElement("script");
+    script.id = "gt-script";
+    script.src = "//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit";
+    script.async = true;
+    document.body.appendChild(script);
   }, []);
 
   function selectLang(lang: typeof LANGUAGES[0]) {
     setCurrentLang(lang);
     localStorage.setItem("taplon-lang", lang.code);
-    document.documentElement.lang = lang.code;
-    document.documentElement.dir = lang.code === "ar" ? "rtl" : "ltr";
     setLangOpen(false);
-    
-    // Use Google Translate to translate the page
-    if (lang.code !== "en") {
-      const gtUrl = `https://translate.google.com/translate?sl=en&tl=${lang.code}&u=${encodeURIComponent(window.location.href)}`;
-      window.location.href = gtUrl;
-    } else {
-      // If English selected, go back to original URL (strip translate if any)
-      const url = new URL(window.location.href);
-      if (url.hostname.includes("translate.google")) {
-        // Try to extract original URL
-        window.history.back();
+
+    if (lang.code === "en") {
+      // Reset to English — clear Google Translate cookie
+      const cookies = document.cookie.split(";");
+      for (const c of cookies) {
+        if (c.trim().startsWith("googtrans")) {
+          document.cookie = "googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+          document.cookie = "googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/; domain=" + window.location.hostname;
+        }
       }
+      window.location.reload();
+      return;
     }
+
+    // Set Google Translate cookie and reload
+    document.cookie = `googtrans=/en/${lang.googleCode}; path=/`;
+    document.cookie = `googtrans=/en/${lang.googleCode}; path=/; domain=${window.location.hostname}`;
+    window.location.reload();
   }
+
+  // Close dropdown on outside click
+  useEffect(() => {
+    function handleClick(e: MouseEvent) {
+      if (langRef.current && !langRef.current.contains(e.target as Node)) setLangOpen(false);
+    }
+    document.addEventListener("mousedown", handleClick);
+    return () => document.removeEventListener("mousedown", handleClick);
+  }, []);
 
   function getDesktopClass(color: string | null) {
     if (color === "emergency") return "text-red-600 hover:text-red-700 font-bold";
@@ -144,108 +156,112 @@ export default function Navbar() {
   }
 
   return (
-    <header className="sticky top-0 z-50 border-b border-white/35 bg-cream/86 shadow-sm backdrop-blur-xl dark:bg-[#0d0d1a]/90 dark:border-white/10">
-      <nav className="mx-auto flex max-w-7xl items-center justify-between px-4 py-3 sm:px-6 lg:px-8" aria-label="Main navigation">
+    <>
+      {/* Hidden Google Translate element */}
+      <div id="google_translate_element" style={{ display: "none" }} />
 
-        {/* Logo */}
-        <Link href="/" className="group flex min-h-12 items-center gap-3" onClick={() => setOpen(false)}>
-          <BridgeIcon />
-          <span className="font-heading text-xl font-bold tracking-[0.08em] text-navy dark:text-cream">
-            TAP LONDON
-          </span>
-        </Link>
+      <header className="sticky top-0 z-50 border-b border-white/35 bg-cream/86 shadow-sm backdrop-blur-xl dark:bg-[#0d0d1a]/90 dark:border-white/10">
+        <nav className="mx-auto flex max-w-7xl items-center justify-between px-4 py-3 sm:px-6 lg:px-8">
 
-        {/* Right side — weather + lang + dark + hamburger */}
-        <div className="flex items-center gap-2">
+          {/* Logo */}
+          <Link href="/" className="group flex min-h-12 items-center gap-3" onClick={() => setOpen(false)}>
+            <BridgeIcon />
+            <span className="font-heading text-xl font-bold tracking-[0.08em] text-navy dark:text-cream">
+              TAP LONDON
+            </span>
+          </Link>
 
-          {/* Weather widget */}
-          {weather && (
-            <div className="flex items-center gap-1.5 rounded-full bg-white/80 dark:bg-white/10 border border-navy/10 dark:border-white/15 px-3 py-1.5 text-sm font-semibold text-navy dark:text-cream shadow-sm backdrop-blur">
-              <span>{getWeatherEmoji(weather.code)}</span>
-              <span>London {weather.temp}°C</span>
+          {/* Right side */}
+          <div className="flex items-center gap-2">
+
+            {/* Weather — small pill */}
+            {weather && (
+              <div className="flex items-center gap-1 rounded-full bg-white/80 dark:bg-white/10 border border-navy/10 dark:border-white/15 px-2.5 py-1 text-xs font-semibold text-navy dark:text-cream backdrop-blur">
+                <span style={{ fontSize: "0.8rem" }}>{getWeatherEmoji(weather.code)}</span>
+                <span>{weather.temp}°C</span>
+              </div>
+            )}
+
+            {/* Language selector */}
+            <div ref={langRef} style={{ position: "relative" }}>
+              <button
+                onClick={() => setLangOpen(!langOpen)}
+                className="flex items-center gap-1 rounded-full bg-white/80 dark:bg-white/10 border border-navy/10 dark:border-white/15 px-2.5 py-1 text-xs font-semibold text-navy dark:text-cream backdrop-blur"
+                style={{ minHeight: "30px" }}
+              >
+                <span style={{ fontSize: "0.9rem" }}>{currentLang.flag}</span>
+                <span>{currentLang.label}</span>
+                <span style={{ fontSize: "0.5rem", opacity: 0.5 }}>{langOpen ? "▲" : "▼"}</span>
+              </button>
+
+              {langOpen && (
+                <div className="absolute right-0 top-[calc(100%+6px)] z-[9999] min-w-[160px] rounded-2xl border border-navy/10 dark:border-gold/20 bg-white dark:bg-[#1a1a2e] shadow-xl overflow-hidden"
+                  style={{ maxHeight: "280px", overflowY: "auto" }}>
+                  {LANGUAGES.map((lang) => (
+                    <button
+                      key={lang.code}
+                      onClick={() => selectLang(lang)}
+                      className={`flex w-full items-center gap-2 px-4 py-2.5 text-left text-sm border-b border-navy/5 dark:border-white/5 hover:bg-gold/10 transition ${currentLang.code === lang.code ? "text-[#c9a84c] font-bold" : "text-navy dark:text-cream"}`}
+                    >
+                      <span style={{ fontSize: "1rem" }}>{lang.flag}</span>
+                      <span>{lang.full}</span>
+                      {currentLang.code === lang.code && <span className="ml-auto text-[#c9a84c]">✓</span>}
+                    </button>
+                  ))}
+                </div>
+              )}
             </div>
-          )}
 
-          {/* Language selector */}
-          <div ref={langRef} style={{ position: "relative" }}>
+            {/* Dark mode toggle — small */}
             <button
-              onClick={() => setLangOpen(!langOpen)}
-              className="flex items-center gap-1 rounded-full bg-white/80 dark:bg-white/10 border border-navy/10 dark:border-white/15 px-3 py-1.5 text-sm font-semibold text-navy dark:text-cream shadow-sm backdrop-blur"
-              style={{ minHeight: "36px" }}
+              type="button"
+              onClick={toggleDark}
+              className="inline-flex h-8 w-8 items-center justify-center rounded-full bg-navy dark:bg-gold text-white dark:text-navy shadow-sm"
+              style={{ fontSize: "0.9rem" }}
+              aria-label="Toggle dark mode"
             >
-              <span style={{ fontSize: "1rem" }}>{currentLang.flag}</span>
-              <span className="hidden sm:inline">{currentLang.label}</span>
-              <span style={{ fontSize: "0.55rem", opacity: 0.5 }}>{langOpen ? "▲" : "▼"}</span>
+              {dark ? "☀️" : "🌙"}
             </button>
 
-            {langOpen && (
-              <div className="absolute right-0 top-[calc(100%+8px)] z-[9999] min-w-[160px] rounded-2xl border border-navy/10 dark:border-gold/20 bg-white dark:bg-[#1a1a2e] shadow-xl overflow-hidden"
-                style={{ maxHeight: "300px", overflowY: "auto" }}>
-                {LANGUAGES.map((lang) => (
-                  <button
-                    key={lang.code}
-                    onClick={() => selectLang(lang)}
-                    className={`flex w-full items-center gap-2 px-4 py-2.5 text-left text-sm border-b border-navy/5 dark:border-white/5 hover:bg-gold/10 transition ${currentLang.code === lang.code ? "text-[#c9a84c] font-bold" : "text-navy dark:text-cream font-normal"}`}
+            {/* Hamburger */}
+            <button
+              type="button"
+              className="inline-flex h-9 w-9 items-center justify-center rounded-full border border-navy/15 dark:border-white/15 bg-white dark:bg-white/10 text-navy dark:text-cream shadow-sm"
+              onClick={() => setOpen((v) => !v)}
+              aria-label={open ? "Close menu" : "Open menu"}
+            >
+              {open ? <X size={18} /> : <Menu size={18} />}
+            </button>
+          </div>
+        </nav>
+
+        {/* Mobile menu */}
+        {open && (
+          <div className="border-t border-navy/10 dark:border-white/10 bg-cream dark:bg-[#0d0d1a] px-4 pb-5 pt-2">
+            <div className="mx-auto grid max-w-7xl gap-2">
+              {weather && (
+                <div className="flex items-center gap-2 px-4 py-2 text-xs font-semibold text-navy/50 dark:text-cream/40">
+                  <span>{getWeatherEmoji(weather.code)}</span>
+                  <span>London {weather.temp}°C</span>
+                </div>
+              )}
+              {navLinks.map((link) => {
+                const active = pathname === link.href;
+                return (
+                  <Link
+                    key={link.href}
+                    href={link.href}
+                    onClick={() => setOpen(false)}
+                    className={`flex min-h-12 items-center rounded-full px-5 text-base font-semibold transition ${getMobileClass(link.color, active)}`}
                   >
-                    <span style={{ fontSize: "1rem" }}>{lang.flag}</span>
-                    <span>{lang.full}</span>
-                    {currentLang.code === lang.code && <span className="ml-auto text-[#c9a84c]">✓</span>}
-                  </button>
-                ))}
-              </div>
-            )}
+                    {link.label}
+                  </Link>
+                );
+              })}
+            </div>
           </div>
-
-          {/* Dark mode toggle */}
-          <button
-            type="button"
-            onClick={toggleDark}
-            className="inline-flex h-10 w-10 items-center justify-center rounded-full bg-navy dark:bg-gold text-white dark:text-navy shadow-sm text-lg"
-            aria-label="Toggle dark mode"
-          >
-            {dark ? "☀️" : "🌙"}
-          </button>
-
-          {/* Hamburger */}
-          <button
-            type="button"
-            className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-navy/15 dark:border-white/15 bg-white dark:bg-white/10 text-navy dark:text-cream shadow-sm"
-            onClick={() => setOpen((v) => !v)}
-            aria-label={open ? "Close menu" : "Open menu"}
-            aria-expanded={open}
-          >
-            {open ? <X size={20} /> : <Menu size={20} />}
-          </button>
-        </div>
-      </nav>
-
-      {/* Mobile menu */}
-      {open && (
-        <div className="border-t border-navy/10 dark:border-white/10 bg-cream dark:bg-[#0d0d1a] px-4 pb-5 pt-2">
-          <div className="mx-auto grid max-w-7xl gap-2">
-            {/* Weather in mobile menu */}
-            {weather && (
-              <div className="flex items-center gap-2 px-4 py-2 text-sm font-semibold text-navy/60 dark:text-cream/50">
-                <span>{getWeatherEmoji(weather.code)}</span>
-                <span>London {weather.temp}°C</span>
-              </div>
-            )}
-            {navLinks.map((link) => {
-              const active = pathname === link.href;
-              return (
-                <Link
-                  key={link.href}
-                  href={link.href}
-                  onClick={() => setOpen(false)}
-                  className={`flex min-h-12 items-center rounded-full px-5 text-base font-semibold transition ${getMobileClass(link.color, active)}`}
-                >
-                  {link.label}
-                </Link>
-              );
-            })}
-          </div>
-        </div>
-      )}
-    </header>
+        )}
+      </header>
+    </>
   );
 }
