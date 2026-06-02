@@ -138,24 +138,45 @@ export default function ShoppingDetailPage({ params }: Props) {
             </h2>
             <div style={{ display: "flex", flexDirection: "column", gap: "12px" }}>
               {shops.map((shop, i) => (
-                <div key={i} style={{ background: "rgba(255,255,255,0.06)", borderRadius: "12px", padding: "14px 16px", border: "1px solid rgba(201,168,76,0.15)" }}>
-                  <div style={{ display: "flex", gap: "12px", alignItems: "flex-start" }}>
-                    <span style={{ fontSize: "1.4rem", flexShrink: 0 }}>{shop.emoji}</span>
-                    <div style={{ flex: 1 }}>
-                      {shop.brandId ? (
-                        <Link href={`/brands/${shop.brandId}`} style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "1rem", fontWeight: 700, color: "#c9a84c", marginBottom: "3px", textDecoration: "none", display: "block" }}>{shop.name} →</Link>
-                      ) : (
-                        <div style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "1rem", fontWeight: 700, color: "#ffffff", marginBottom: "3px" }}>{shop.name}</div>
-                      )}
-                      <div style={{ fontFamily: "'DM Sans', sans-serif", fontSize: "0.75rem", color: "rgba(201,168,76,0.8)", marginBottom: "4px" }}>{shop.type}</div>
-                      <div style={{ fontFamily: "'DM Sans', sans-serif", fontSize: "0.72rem", color: "rgba(255,255,255,0.5)", display: "flex", gap: "4px", alignItems: "center", marginBottom: "10px" }}>
-                        <span>🕐</span> {shop.hours}
+                <div key={i} style={{ background: "rgba(255,255,255,0.06)", borderRadius: "12px", overflow: "hidden", border: "1px solid rgba(201,168,76,0.15)" }}>
+                  {shop.brandId ? (
+                    <Link href={`/brands/${shop.brandId}`} style={{ textDecoration: "none", display: "block" }}>
+                      <div style={{ display: "flex", gap: "12px", alignItems: "center", padding: "14px 16px", cursor: "pointer" }}>
+                        {/* Logo or initial */}
+                        <div style={{ width: "52px", height: "52px", borderRadius: "10px", background: "#ffffff", display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0, overflow: "hidden", padding: "6px" }}>
+                          {shop.logo ? (
+                            <img src={shop.logo} alt={shop.name} style={{ width: "100%", height: "100%", objectFit: "contain" }} onError={(e) => { (e.target as HTMLImageElement).style.display = "none"; }} />
+                          ) : (
+                            <span style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "1.2rem", fontWeight: 700, color: "#1a1a2e" }}>{shop.name[0]}</span>
+                          )}
+                        </div>
+                        <div style={{ flex: 1 }}>
+                          <div style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "1rem", fontWeight: 700, color: "#c9a84c", marginBottom: "2px" }}>{shop.name} →</div>
+                          <div style={{ fontFamily: "'DM Sans', sans-serif", fontSize: "0.72rem", color: "rgba(255,255,255,0.6)", marginBottom: "2px" }}>{shop.type}</div>
+                          <div style={{ fontFamily: "'DM Sans', sans-serif", fontSize: "0.68rem", color: "rgba(255,255,255,0.4)" }}>🕐 {shop.hours}</div>
+                        </div>
+                        <span style={{ color: "#c9a84c", fontSize: "1rem" }}>›</span>
                       </div>
-                      <a href={shop.mapsUrl} target="_blank" rel="noreferrer" style={{ display: "inline-flex", alignItems: "center", gap: "6px", background: "rgba(201,168,76,0.15)", border: "1px solid rgba(201,168,76,0.3)", color: "#c9a84c", borderRadius: "50px", padding: "5px 12px", fontFamily: "'DM Sans', sans-serif", fontSize: "0.72rem", fontWeight: 600, textDecoration: "none" }}>
-                        📍 Directions
-                      </a>
+                    </Link>
+                  ) : (
+                    <div style={{ display: "flex", gap: "12px", alignItems: "center", padding: "14px 16px" }}>
+                      <div style={{ width: "52px", height: "52px", borderRadius: "10px", background: "#ffffff", display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0, overflow: "hidden", padding: "6px" }}>
+                        {shop.logo ? (
+                          <img src={shop.logo} alt={shop.name} style={{ width: "100%", height: "100%", objectFit: "contain" }} onError={(e) => { (e.target as HTMLImageElement).style.display = "none"; }} />
+                        ) : (
+                          <span style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "1.2rem", fontWeight: 700, color: "#1a1a2e" }}>{shop.name[0]}</span>
+                        )}
+                      </div>
+                      <div style={{ flex: 1 }}>
+                        <div style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "1rem", fontWeight: 700, color: "#ffffff", marginBottom: "2px" }}>{shop.name}</div>
+                        <div style={{ fontFamily: "'DM Sans', sans-serif", fontSize: "0.72rem", color: "rgba(255,255,255,0.6)", marginBottom: "2px" }}>{shop.type}</div>
+                        <div style={{ fontFamily: "'DM Sans', sans-serif", fontSize: "0.68rem", color: "rgba(255,255,255,0.4)", marginBottom: "10px" }}>🕐 {shop.hours}</div>
+                        <a href={shop.mapsUrl} target="_blank" rel="noreferrer" style={{ display: "inline-flex", alignItems: "center", gap: "6px", background: "rgba(201,168,76,0.15)", border: "1px solid rgba(201,168,76,0.3)", color: "#c9a84c", borderRadius: "50px", padding: "5px 12px", fontFamily: "'DM Sans', sans-serif", fontSize: "0.72rem", fontWeight: 600, textDecoration: "none" }}>
+                          📍 Directions
+                        </a>
+                      </div>
                     </div>
-                  </div>
+                  )}
                 </div>
               ))}
             </div>
