@@ -56,7 +56,7 @@ export default function HomePage() {
         }} />
         <div style={{
           position: 'absolute', inset: 0,
-          background: 'linear-gradient(to bottom, rgba(0,0,0,0.72) 0%, rgba(26,26,46,0.92) 100%)',
+          background: 'linear-gradient(to bottom, rgba(0,0,0,0.5) 0%, rgba(0,0,0,0.75) 100%)',
           zIndex: 1,
         }} />
 
@@ -190,7 +190,7 @@ export default function HomePage() {
       </section>
 
       {/* CATEGORY CARDS */}
-      <section style={{ background: '#f9f7f2', padding: '56px 20px', width: '100%', boxSizing: 'border-box' }}>
+      <section className="bg-[#f9f7f2] dark:bg-[#0d0d1a]" style={{ padding: '56px 20px', width: '100%', boxSizing: 'border-box' as const }}>
         <div style={{ maxWidth: '1100px', margin: '0 auto' }}>
           <FadeUp>
             <p style={{
@@ -229,7 +229,7 @@ export default function HomePage() {
                       style={{ width: '100%', height: '100%', objectFit: 'cover', position: 'absolute', inset: 0 }} />
                     <div style={{
                       position: 'absolute', inset: 0,
-                      background: 'linear-gradient(to top, rgba(26,26,46,0.92) 0%, rgba(26,26,46,0.2) 60%, transparent 100%)',
+                      background: 'linear-gradient(to top, rgba(0,0,0,0.65) 0%, rgba(0,0,0,0.05) 40%, transparent 100%)',
                     }} />
                     <div style={{ position: 'absolute', bottom: 0, left: 0, right: 0, padding: '16px' }}>
                       <div style={{ fontSize: '1.4rem', marginBottom: '4px' }}>{card.emoji}</div>
@@ -295,7 +295,7 @@ export default function HomePage() {
       </section>
 
       {/* ABOUT */}
-      <section style={{ background: '#f9f7f2', padding: '56px 20px', width: '100%', boxSizing: 'border-box' }}>
+      <section className="bg-[#f9f7f2] dark:bg-[#0d0d1a]" style={{ padding: '56px 20px', width: '100%', boxSizing: 'border-box' as const }}>
         <div style={{ maxWidth: '700px', margin: '0 auto', textAlign: 'center' }}>
           <SlideLeft>
             <h2 style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: 'clamp(1.8rem, 4vw, 2.5rem)', color: '#1a1a2e', marginBottom: '20px', fontWeight: 700 }}>
