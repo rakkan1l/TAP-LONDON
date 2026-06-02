@@ -219,11 +219,11 @@ export default function HomePage() {
                   <motion.div
                     whileHover={{ y: -5, scale: 1.02 }}
                     transition={{ duration: 0.2 }}
+                    className="!bg-transparent"
                     style={{
                       position: 'relative', borderRadius: '16px',
                       overflow: 'hidden', height: '200px',
                       boxShadow: '0 4px 20px rgba(0,0,0,0.12)', cursor: 'pointer',
-                      background: 'transparent',
                     }}
                   >
                     <img src={card.image} alt={card.label}
