@@ -200,10 +200,10 @@ export default function HomePage() {
             }}>
               Everything you need
             </p>
-            <h2 style={{
+            <h2 className="text-navy dark:text-[#f9f7f2]" style={{
               fontFamily: "'Cormorant Garamond', serif",
               fontSize: 'clamp(2rem, 5vw, 3rem)',
-              color: '#1a1a2e', textAlign: 'center', marginBottom: '40px', fontWeight: 700,
+              textAlign: 'center', marginBottom: '40px', fontWeight: 700,
             }}>
               One tap. All of London.
             </h2>
@@ -223,10 +223,11 @@ export default function HomePage() {
                       position: 'relative', borderRadius: '16px',
                       overflow: 'hidden', height: '200px',
                       boxShadow: '0 4px 20px rgba(0,0,0,0.12)', cursor: 'pointer',
+                      background: 'transparent',
                     }}
                   >
                     <img src={card.image} alt={card.label}
-                      style={{ width: '100%', height: '100%', objectFit: 'cover', position: 'absolute', inset: 0 }} />
+                      style={{ width: '100%', height: '100%', objectFit: 'cover', position: 'absolute', inset: 0, filter: 'none' }} className="!brightness-100" />
                     <div style={{
                       position: 'absolute', inset: 0,
                       background: 'linear-gradient(to top, rgba(0,0,0,0.65) 0%, rgba(0,0,0,0.05) 40%, transparent 100%)',
@@ -298,17 +299,17 @@ export default function HomePage() {
       <section className="bg-[#f9f7f2] dark:bg-[#0d0d1a]" style={{ padding: '56px 20px', width: '100%', boxSizing: 'border-box' as const }}>
         <div style={{ maxWidth: '700px', margin: '0 auto', textAlign: 'center' }}>
           <SlideLeft>
-            <h2 style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: 'clamp(1.8rem, 4vw, 2.5rem)', color: '#1a1a2e', marginBottom: '20px', fontWeight: 700 }}>
+            <h2 className="text-navy dark:text-[#f9f7f2]" style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: 'clamp(1.8rem, 4vw, 2.5rem)', marginBottom: '20px', fontWeight: 700 }}>
               About TAP LONDON
             </h2>
           </SlideLeft>
           <SlideRight delay={0.1}>
-            <p style={{ fontFamily: "'DM Sans', sans-serif", fontSize: '0.95rem', color: '#444', lineHeight: 1.8, marginBottom: '16px' }}>
+            <p style={{ fontFamily: "'DM Sans', sans-serif", fontSize: '0.95rem', lineHeight: 1.8, marginBottom: '16px' }}>
               TAP LONDON turns a physical London souvenir into a smart travel companion. Tourists tap an NFC keyring, tote bag, card, or coaster and instantly land on a mobile guide built for the moment.
             </p>
           </SlideRight>
           <SlideLeft delay={0.2}>
-            <p style={{ fontFamily: "'DM Sans', sans-serif", fontSize: '0.95rem', color: '#444', lineHeight: 1.8, marginBottom: '32px' }}>
+            <p style={{ fontFamily: "'DM Sans', sans-serif", fontSize: '0.95rem', lineHeight: 1.8, marginBottom: '32px' }}>
               No app download. No account. No friction. Just tap, explore, and enjoy London — including a dedicated Muslim Tourist Guide and Tourist Emergency Help.
             </p>
           </SlideLeft>
@@ -317,7 +318,7 @@ export default function HomePage() {
               <Link href="/places" style={{ background: '#1a1a2e', color: '#c9a84c', padding: '12px 28px', borderRadius: '50px', fontFamily: "'DM Sans', sans-serif", fontWeight: 600, fontSize: '0.875rem', textDecoration: 'none' }}>
                 Explore London
               </Link>
-              <Link href="/emergency" style={{ background: 'transparent', color: '#1a1a2e', padding: '12px 28px', borderRadius: '50px', border: '2px solid #1a1a2e', fontFamily: "'DM Sans', sans-serif", fontWeight: 600, fontSize: '0.875rem', textDecoration: 'none' }}>
+              <Link href="/emergency" className="text-navy dark:text-cream border-navy dark:border-cream" style={{ background: 'transparent', padding: '12px 28px', borderRadius: '50px', border: '2px solid', fontFamily: "'DM Sans', sans-serif", fontWeight: 600, fontSize: '0.875rem', textDecoration: 'none' }}>
                 🚨 Emergency Help
               </Link>
             </div>
