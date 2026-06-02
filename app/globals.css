@@ -377,3 +377,16 @@ html.dark {
   --text-body: #cccccc;
   --tw-white: #1a1a2e;
 }
+
+/* Homepage category cards — prevent dark mode from adding bg to image containers */
+html.dark [style*="overflow: hidden"][style*="height: 200px"],
+html.dark [style*="overflow: hidden"][style*="height:200px"] {
+  background: transparent !important;
+}
+
+/* Prevent dark mode from dimming images inside cards */
+html.dark [style*="height: 200px"] img,
+html.dark [style*="height:200px"] img {
+  filter: none !important;
+  opacity: 1 !important;
+}
