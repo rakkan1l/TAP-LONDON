@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useRef } from "react";
+import React, { useState } from "react";
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import places from "@/data/places.json";
@@ -113,7 +113,7 @@ function PhotoGallery({ photos, name }: { photos: string[]; name: string }) {
 }
 
 export default function PlaceDetailPage({ params }: Props) {
-  const place = places.items.find((p) => p.id === params.id);
+  const place = (places.items as any[]).find((p: any) => p.id === params.id);
   if (!place) notFound();
 
   const history = PLACE_HISTORY[place.id];
@@ -232,4 +232,3 @@ export default function PlaceDetailPage({ params }: Props) {
     </main>
   );
 }
-
