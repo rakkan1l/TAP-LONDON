@@ -10,7 +10,7 @@ type Props = { params: { id: string } };
 const PLACE_HISTORY: Record<string, { founded: string; history: string; facts: string[] }> = {
   "tower-of-london": {
     founded: "Founded 1066 by William the Conqueror",
-    history: "The Tower of London was built in the 1070s by William the Conqueror following his victory at the Battle of Hastings. He constructed the massive White Tower to defend and proclaim his royal power. Built from limestone imported from Caen in Normandy, it took nearly 20 years to complete. The Tower has served as a royal palace, political prison, place of execution, royal mint, menagerie, and arsenal. Its most famous prisoners include Anne Boleyn, Thomas More, and Lady Jane Grey. Today it houses the Crown Jewels.",
+    history: "The Tower of London was built in the 1070s by William the Conqueror following his victory at the Battle of Hastings. Built from limestone imported from Caen in Normandy, it took nearly 20 years to complete. The Tower has served as a royal palace, political prison, place of execution, royal mint, menagerie, and arsenal. Its most famous prisoners include Anne Boleyn, Thomas More, and Lady Jane Grey. Today it houses the Crown Jewels.",
     facts: ["Built in the 1070s by William the Conqueror", "The White Tower took nearly 20 years to complete", "Stone was imported from Caen, Normandy, France", "Only 7 people were ever executed inside the Tower walls", "At least 6 ravens must live here by royal decree", "The Crown Jewels have been stored here since the 17th century", "2,817,852 visitors came in 2025", "Yeoman Warders (Beefeaters) have guarded it since the 15th century"],
   },
   "buckingham-palace": {
@@ -65,9 +65,7 @@ const PLACE_HISTORY: Record<string, { founded: string; history: string; facts: s
   },
 };
 
-// Multiple photos for ALL places across ALL categories
 const PLACE_PHOTOS: Record<string, string[]> = {
-  // Top Attractions
   "tower-of-london": ["https://images.pexels.com/photos/1055234/pexels-photo-1055234.jpeg?auto=compress&cs=tinysrgb&w=800","https://images.pexels.com/photos/726484/pexels-photo-726484.jpeg?auto=compress&cs=tinysrgb&w=800","https://images.pexels.com/photos/460672/pexels-photo-460672.jpeg?auto=compress&cs=tinysrgb&w=800"],
   "buckingham-palace": ["https://images.pexels.com/photos/29191806/pexels-photo-29191806.jpeg?auto=compress&cs=tinysrgb&w=800","https://images.pexels.com/photos/672532/pexels-photo-672532.jpeg?auto=compress&cs=tinysrgb&w=800","https://images.pexels.com/photos/13020613/pexels-photo-13020613.jpeg?auto=compress&cs=tinysrgb&w=800"],
   "big-ben": ["https://images.pexels.com/photos/29253512/pexels-photo-29253512.jpeg?auto=compress&cs=tinysrgb&w=800","https://images.pexels.com/photos/672532/pexels-photo-672532.jpeg?auto=compress&cs=tinysrgb&w=800","https://images.pexels.com/photos/460672/pexels-photo-460672.jpeg?auto=compress&cs=tinysrgb&w=800"],
@@ -78,129 +76,34 @@ const PLACE_PHOTOS: Record<string, string[]> = {
   "houses-of-parliament": ["https://images.pexels.com/photos/5209876/pexels-photo-5209876.jpeg?auto=compress&cs=tinysrgb&w=800","https://images.pexels.com/photos/672532/pexels-photo-672532.jpeg?auto=compress&cs=tinysrgb&w=800","https://images.pexels.com/photos/29253512/pexels-photo-29253512.jpeg?auto=compress&cs=tinysrgb&w=800"],
   "national-gallery": ["https://images.pexels.com/photos/2269593/pexels-photo-2269593.jpeg?auto=compress&cs=tinysrgb&w=800","https://images.pexels.com/photos/1179156/pexels-photo-1179156.jpeg?auto=compress&cs=tinysrgb&w=800","https://images.pexels.com/photos/568414/pexels-photo-568414.jpeg?auto=compress&cs=tinysrgb&w=800"],
   "british-museum": ["https://images.pexels.com/photos/135018/pexels-photo-135018.jpeg?auto=compress&cs=tinysrgb&w=800","https://images.pexels.com/photos/2269593/pexels-photo-2269593.jpeg?auto=compress&cs=tinysrgb&w=800","https://images.pexels.com/photos/1179156/pexels-photo-1179156.jpeg?auto=compress&cs=tinysrgb&w=800"],
-  "victoria-albert-museum": ["https://images.pexels.com/photos/568414/pexels-photo-568414.jpeg?auto=compress&cs=tinysrgb&w=800","https://images.pexels.com/photos/1179156/pexels-photo-1179156.jpeg?auto=compress&cs=tinysrgb&w=800","https://images.pexels.com/photos/2269593/pexels-photo-2269593.jpeg?auto=compress&cs=tinysrgb&w=800"],
   "natural-history-museum": ["https://images.pexels.com/photos/30397052/pexels-photo-30397052.jpeg?auto=compress&cs=tinysrgb&w=800","https://images.pexels.com/photos/247502/pexels-photo-247502.jpeg?auto=compress&cs=tinysrgb&w=800","https://images.pexels.com/photos/3308285/pexels-photo-3308285.jpeg?auto=compress&cs=tinysrgb&w=800"],
   "tate-modern": ["https://images.pexels.com/photos/6398533/pexels-photo-6398533.jpeg?auto=compress&cs=tinysrgb&w=800","https://images.pexels.com/photos/1179156/pexels-photo-1179156.jpeg?auto=compress&cs=tinysrgb&w=800","https://images.pexels.com/photos/35973696/pexels-photo-35973696.jpeg?auto=compress&cs=tinysrgb&w=800"],
-  "greenwich-observatory": ["https://images.pexels.com/photos/33806770/pexels-photo-33806770.jpeg?auto=compress&cs=tinysrgb&w=800","https://images.pexels.com/photos/460672/pexels-photo-460672.jpeg?auto=compress&cs=tinysrgb&w=800","https://images.pexels.com/photos/672532/pexels-photo-672532.jpeg?auto=compress&cs=tinysrgb&w=800"],
   "kew-gardens": ["https://images.pexels.com/photos/15046186/pexels-photo-15046186.jpeg?auto=compress&cs=tinysrgb&w=800","https://images.pexels.com/photos/13528203/pexels-photo-13528203.jpeg?auto=compress&cs=tinysrgb&w=800","https://images.pexels.com/photos/1166209/pexels-photo-1166209.jpeg?auto=compress&cs=tinysrgb&w=800"],
-  "hampton-court-palace": ["https://images.pexels.com/photos/17189048/pexels-photo-17189048.jpeg?auto=compress&cs=tinysrgb&w=800","https://images.pexels.com/photos/13020613/pexels-photo-13020613.jpeg?auto=compress&cs=tinysrgb&w=800","https://images.pexels.com/photos/15301981/pexels-photo-15301981.jpeg?auto=compress&cs=tinysrgb&w=800"],
-  "windsor-castle": ["https://images.pexels.com/photos/13020613/pexels-photo-13020613.jpeg?auto=compress&cs=tinysrgb&w=800","https://images.pexels.com/photos/17189048/pexels-photo-17189048.jpeg?auto=compress&cs=tinysrgb&w=800","https://images.pexels.com/photos/460672/pexels-photo-460672.jpeg?auto=compress&cs=tinysrgb&w=800"],
   "hyde-park": ["https://images.pexels.com/photos/15301981/pexels-photo-15301981.jpeg?auto=compress&cs=tinysrgb&w=800","https://images.pexels.com/photos/13528203/pexels-photo-13528203.jpeg?auto=compress&cs=tinysrgb&w=800","https://images.pexels.com/photos/1166209/pexels-photo-1166209.jpeg?auto=compress&cs=tinysrgb&w=800"],
-  "regents-park": ["https://images.pexels.com/photos/13528203/pexels-photo-13528203.jpeg?auto=compress&cs=tinysrgb&w=800","https://images.pexels.com/photos/15301981/pexels-photo-15301981.jpeg?auto=compress&cs=tinysrgb&w=800","https://images.pexels.com/photos/1166209/pexels-photo-1166209.jpeg?auto=compress&cs=tinysrgb&w=800"],
-  "covent-garden": ["https://images.pexels.com/photos/36680841/pexels-photo-36680841.jpeg?auto=compress&cs=tinysrgb&w=800","https://images.pexels.com/photos/1005638/pexels-photo-1005638.jpeg?auto=compress&cs=tinysrgb&w=800","https://images.pexels.com/photos/672532/pexels-photo-672532.jpeg?auto=compress&cs=tinysrgb&w=800"],
-  // Hidden Gems
-  "leadenhall-market": ["https://images.pexels.com/photos/20424060/pexels-photo-20424060.png?auto=compress&cs=tinysrgb&w=800","https://images.pexels.com/photos/672532/pexels-photo-672532.jpeg?auto=compress&cs=tinysrgb&w=800","https://images.pexels.com/photos/1005638/pexels-photo-1005638.jpeg?auto=compress&cs=tinysrgb&w=800"],
-  "kyoto-garden": ["https://images.pexels.com/photos/3571551/pexels-photo-3571551.jpeg?auto=compress&cs=tinysrgb&w=800","https://images.pexels.com/photos/13528203/pexels-photo-13528203.jpeg?auto=compress&cs=tinysrgb&w=800","https://images.pexels.com/photos/1166209/pexels-photo-1166209.jpeg?auto=compress&cs=tinysrgb&w=800"],
-  "little-venice": ["https://images.pexels.com/photos/33794525/pexels-photo-33794525.jpeg?auto=compress&cs=tinysrgb&w=800","https://images.pexels.com/photos/13528203/pexels-photo-13528203.jpeg?auto=compress&cs=tinysrgb&w=800","https://images.pexels.com/photos/1619317/pexels-photo-1619317.jpeg?auto=compress&cs=tinysrgb&w=800"],
-  "columbia-road": ["https://images.pexels.com/photos/31270596/pexels-photo-31270596.jpeg?auto=compress&cs=tinysrgb&w=800","https://images.pexels.com/photos/1640777/pexels-photo-1640777.jpeg?auto=compress&cs=tinysrgb&w=800","https://images.pexels.com/photos/13528203/pexels-photo-13528203.jpeg?auto=compress&cs=tinysrgb&w=800"],
-  "st-dunstan": ["https://images.pexels.com/photos/1834407/pexels-photo-1834407.jpeg?auto=compress&cs=tinysrgb&w=800","https://images.pexels.com/photos/13528203/pexels-photo-13528203.jpeg?auto=compress&cs=tinysrgb&w=800","https://images.pexels.com/photos/29014277/pexels-photo-29014277.jpeg?auto=compress&cs=tinysrgb&w=800"],
-  "leake-street": ["https://images.pexels.com/photos/2846217/pexels-photo-2846217.jpeg?auto=compress&cs=tinysrgb&w=800","https://images.pexels.com/photos/1183434/pexels-photo-1183434.jpeg?auto=compress&cs=tinysrgb&w=800","https://images.pexels.com/photos/672532/pexels-photo-672532.jpeg?auto=compress&cs=tinysrgb&w=800"],
-  "neals-yard": ["https://images.pexels.com/photos/1534057/pexels-photo-1534057.jpeg?auto=compress&cs=tinysrgb&w=800","https://images.pexels.com/photos/36680841/pexels-photo-36680841.jpeg?auto=compress&cs=tinysrgb&w=800","https://images.pexels.com/photos/1005638/pexels-photo-1005638.jpeg?auto=compress&cs=tinysrgb&w=800"],
-  "bermondsey-street": ["https://images.pexels.com/photos/2245436/pexels-photo-2245436.jpeg?auto=compress&cs=tinysrgb&w=800","https://images.pexels.com/photos/1640777/pexels-photo-1640777.jpeg?auto=compress&cs=tinysrgb&w=800","https://images.pexels.com/photos/672532/pexels-photo-672532.jpeg?auto=compress&cs=tinysrgb&w=800"],
-  "postmans-park": ["https://images.pexels.com/photos/1834407/pexels-photo-1834407.jpeg?auto=compress&cs=tinysrgb&w=800","https://images.pexels.com/photos/13528203/pexels-photo-13528203.jpeg?auto=compress&cs=tinysrgb&w=800","https://images.pexels.com/photos/1166209/pexels-photo-1166209.jpeg?auto=compress&cs=tinysrgb&w=800"],
-  "gods-own-junkyard": ["https://images.pexels.com/photos/1209978/pexels-photo-1209978.jpeg?auto=compress&cs=tinysrgb&w=800","https://images.pexels.com/photos/2846217/pexels-photo-2846217.jpeg?auto=compress&cs=tinysrgb&w=800","https://images.pexels.com/photos/1183434/pexels-photo-1183434.jpeg?auto=compress&cs=tinysrgb&w=800"],
-  "pergola-hill-garden": ["https://images.pexels.com/photos/1166209/pexels-photo-1166209.jpeg?auto=compress&cs=tinysrgb&w=800","https://images.pexels.com/photos/13528203/pexels-photo-13528203.jpeg?auto=compress&cs=tinysrgb&w=800","https://images.pexels.com/photos/15301981/pexels-photo-15301981.jpeg?auto=compress&cs=tinysrgb&w=800"],
-  // Photo Spots
-  "millennium-bridge": ["https://images.pexels.com/photos/35973696/pexels-photo-35973696.jpeg?auto=compress&cs=tinysrgb&w=800","https://images.pexels.com/photos/672532/pexels-photo-672532.jpeg?auto=compress&cs=tinysrgb&w=800","https://images.pexels.com/photos/29014277/pexels-photo-29014277.jpeg?auto=compress&cs=tinysrgb&w=800"],
-  "primrose-hill": ["https://images.pexels.com/photos/13528203/pexels-photo-13528203.jpeg?auto=compress&cs=tinysrgb&w=800","https://images.pexels.com/photos/460672/pexels-photo-460672.jpeg?auto=compress&cs=tinysrgb&w=800","https://images.pexels.com/photos/672532/pexels-photo-672532.jpeg?auto=compress&cs=tinysrgb&w=800"],
-  "sky-garden": ["https://images.pexels.com/photos/34284059/pexels-photo-34284059.jpeg?auto=compress&cs=tinysrgb&w=800","https://images.pexels.com/photos/672532/pexels-photo-672532.jpeg?auto=compress&cs=tinysrgb&w=800","https://images.pexels.com/photos/460672/pexels-photo-460672.jpeg?auto=compress&cs=tinysrgb&w=800"],
-  "southbank-night": ["https://images.pexels.com/photos/672532/pexels-photo-672532.jpeg?auto=compress&cs=tinysrgb&w=800","https://images.pexels.com/photos/35973696/pexels-photo-35973696.jpeg?auto=compress&cs=tinysrgb&w=800","https://images.pexels.com/photos/29014277/pexels-photo-29014277.jpeg?auto=compress&cs=tinysrgb&w=800"],
-  "alexandra-palace": ["https://images.pexels.com/photos/6170366/pexels-photo-6170366.jpeg?auto=compress&cs=tinysrgb&w=800","https://images.pexels.com/photos/460672/pexels-photo-460672.jpeg?auto=compress&cs=tinysrgb&w=800","https://images.pexels.com/photos/672532/pexels-photo-672532.jpeg?auto=compress&cs=tinysrgb&w=800"],
-  "greenwich-park-hill": ["https://images.pexels.com/photos/460672/pexels-photo-460672.jpeg?auto=compress&cs=tinysrgb&w=800","https://images.pexels.com/photos/13528203/pexels-photo-13528203.jpeg?auto=compress&cs=tinysrgb&w=800","https://images.pexels.com/photos/672532/pexels-photo-672532.jpeg?auto=compress&cs=tinysrgb&w=800"],
-  "borough-market-archway": ["https://images.pexels.com/photos/2901209/pexels-photo-2901209.jpeg?auto=compress&cs=tinysrgb&w=800","https://images.pexels.com/photos/1640777/pexels-photo-1640777.jpeg?auto=compress&cs=tinysrgb&w=800","https://images.pexels.com/photos/31270596/pexels-photo-31270596.jpeg?auto=compress&cs=tinysrgb&w=800"],
-  // Free Things
-  "science-museum": ["https://images.pexels.com/photos/30397052/pexels-photo-30397052.jpeg?auto=compress&cs=tinysrgb&w=800","https://images.pexels.com/photos/247502/pexels-photo-247502.jpeg?auto=compress&cs=tinysrgb&w=800","https://images.pexels.com/photos/3308285/pexels-photo-3308285.jpeg?auto=compress&cs=tinysrgb&w=800"],
-  "thames-path": ["https://images.pexels.com/photos/1619317/pexels-photo-1619317.jpeg?auto=compress&cs=tinysrgb&w=800","https://images.pexels.com/photos/672532/pexels-photo-672532.jpeg?auto=compress&cs=tinysrgb&w=800","https://images.pexels.com/photos/35973696/pexels-photo-35973696.jpeg?auto=compress&cs=tinysrgb&w=800"],
-  "changing-guard": ["https://images.pexels.com/photos/29191806/pexels-photo-29191806.jpeg?auto=compress&cs=tinysrgb&w=800","https://images.pexels.com/photos/672532/pexels-photo-672532.jpeg?auto=compress&cs=tinysrgb&w=800","https://images.pexels.com/photos/13020613/pexels-photo-13020613.jpeg?auto=compress&cs=tinysrgb&w=800"],
-  "vam-free": ["https://images.pexels.com/photos/568414/pexels-photo-568414.jpeg?auto=compress&cs=tinysrgb&w=800","https://images.pexels.com/photos/1179156/pexels-photo-1179156.jpeg?auto=compress&cs=tinysrgb&w=800","https://images.pexels.com/photos/2269593/pexels-photo-2269593.jpeg?auto=compress&cs=tinysrgb&w=800"],
-  "sky-garden-free": ["https://images.pexels.com/photos/34284059/pexels-photo-34284059.jpeg?auto=compress&cs=tinysrgb&w=800","https://images.pexels.com/photos/672532/pexels-photo-672532.jpeg?auto=compress&cs=tinysrgb&w=800","https://images.pexels.com/photos/460672/pexels-photo-460672.jpeg?auto=compress&cs=tinysrgb&w=800"],
-  "regents-canal-walk": ["https://images.pexels.com/photos/33794525/pexels-photo-33794525.jpeg?auto=compress&cs=tinysrgb&w=800","https://images.pexels.com/photos/13528203/pexels-photo-13528203.jpeg?auto=compress&cs=tinysrgb&w=800","https://images.pexels.com/photos/1619317/pexels-photo-1619317.jpeg?auto=compress&cs=tinysrgb&w=800"],
 };
 
 function PhotoGallery({ photos, name }: { photos: string[]; name: string }) {
   const [active, setActive] = useState(0);
-  const scrollRef = useRef<HTMLDivElement>(null);
-
   return (
     <div style={{ marginBottom: "24px" }}>
-      {/* Main photo */}
-      <div style={{
-        borderRadius: "16px", overflow: "hidden",
-        width: "100%", aspectRatio: "4/3",
-        position: "relative", background: "#1a1a2e",
-        marginBottom: "10px",
-      }}>
-        <img
-          key={active}
-          src={photos[active]}
-          alt={`${name} ${active + 1}`}
-          style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "center", display: "block" }}
-        />
-        {/* Arrows */}
+      <div style={{ borderRadius: "16px", overflow: "hidden", aspectRatio: "4/3", position: "relative", background: "#1a1a2e", marginBottom: "10px" }}>
+        <img key={active} src={photos[active]} alt={`${name} ${active + 1}`}
+          style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "center", display: "block" }} />
         {active > 0 && (
-          <button onClick={() => setActive(active - 1)} style={{
-            position: "absolute", left: "10px", top: "50%", transform: "translateY(-50%)",
-            background: "rgba(0,0,0,0.55)", border: "none", color: "#fff",
-            width: "38px", height: "38px", borderRadius: "50%",
-            fontSize: "1.3rem", cursor: "pointer", display: "flex",
-            alignItems: "center", justifyContent: "center", zIndex: 2,
-          }}>‹</button>
+          <button onClick={() => setActive(active - 1)} style={{ position: "absolute", left: "10px", top: "50%", transform: "translateY(-50%)", background: "rgba(0,0,0,0.5)", border: "none", color: "#fff", width: "36px", height: "36px", borderRadius: "50%", fontSize: "1.2rem", cursor: "pointer", display: "flex", alignItems: "center", justifyContent: "center" }}>‹</button>
         )}
         {active < photos.length - 1 && (
-          <button onClick={() => setActive(active + 1)} style={{
-            position: "absolute", right: "10px", top: "50%", transform: "translateY(-50%)",
-            background: "rgba(0,0,0,0.55)", border: "none", color: "#fff",
-            width: "38px", height: "38px", borderRadius: "50%",
-            fontSize: "1.3rem", cursor: "pointer", display: "flex",
-            alignItems: "center", justifyContent: "center", zIndex: 2,
-          }}>›</button>
+          <button onClick={() => setActive(active + 1)} style={{ position: "absolute", right: "10px", top: "50%", transform: "translateY(-50%)", background: "rgba(0,0,0,0.5)", border: "none", color: "#fff", width: "36px", height: "36px", borderRadius: "50%", fontSize: "1.2rem", cursor: "pointer", display: "flex", alignItems: "center", justifyContent: "center" }}>›</button>
         )}
-        {/* Counter */}
-        <div style={{
-          position: "absolute", bottom: "10px", right: "12px",
-          background: "rgba(0,0,0,0.6)", color: "#fff",
-          borderRadius: "20px", padding: "3px 10px",
-          fontFamily: "'DM Sans', sans-serif", fontSize: "0.72rem", fontWeight: 600,
-        }}>
+        <div style={{ position: "absolute", bottom: "10px", right: "12px", background: "rgba(0,0,0,0.6)", color: "#fff", borderRadius: "20px", padding: "3px 10px", fontFamily: "'DM Sans', sans-serif", fontSize: "0.72rem", fontWeight: 600 }}>
           {active + 1} / {photos.length}
         </div>
       </div>
-
-      {/* Thumbnails — native scroll on mobile */}
       {photos.length > 1 && (
-        <div
-          ref={scrollRef}
-          style={{
-            display: "flex",
-            gap: "8px",
-            overflowX: "auto",
-            overflowY: "hidden",
-            paddingBottom: "6px",
-            cursor: "grab",
-          }}
-        >
-          {photos.map((photo, i) => (
-            <button
-              key={i}
-              onClick={() => setActive(i)}
-              style={{
-                flexShrink: 0,
-                width: "80px",
-                height: "60px",
-                borderRadius: "8px",
-                overflow: "hidden",
-                padding: 0,
-                border: i === active ? "2.5px solid #c9a84c" : "2.5px solid rgba(0,0,0,0.1)",
-                cursor: "pointer",
-                opacity: i === active ? 1 : 0.6,
-                transition: "opacity 0.2s, border-color 0.2s",
-              }}
-            >
-              <img
-                src={photo}
-                alt={`${name} ${i + 1}`}
-                style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }}
-              />
+        <div style={{ display: "flex", gap: "8px", overflowX: "auto", paddingBottom: "4px" }}>
+          {photos.map((p, i) => (
+            <button key={i} onClick={() => setActive(i)} style={{ flexShrink: 0, width: "72px", height: "54px", borderRadius: "8px", overflow: "hidden", padding: 0, border: i === active ? "2.5px solid #c9a84c" : "2.5px solid transparent", cursor: "pointer", opacity: i === active ? 1 : 0.6 }}>
+              <img src={p} alt={`${name} ${i + 1}`} style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }} />
             </button>
           ))}
         </div>
@@ -217,38 +120,20 @@ export default function PlaceDetailPage({ params }: Props) {
   const photos = PLACE_PHOTOS[place.id] ?? [place.image];
 
   return (
-    <main style={{ minHeight: "100vh" }} className="bg-[#f9f7f2] dark:bg-[#0d0d1a]">
+    <main className="bg-[#f9f7f2] dark:bg-[#0d0d1a]" style={{ minHeight: "100vh" }}>
 
       {/* Hero */}
       <div style={{ position: "relative", height: "44vh", minHeight: "250px", overflow: "hidden" }}>
-        <img src={photos[0]} alt={place.name}
-          style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "center" }} />
+        <img src={photos[0]} alt={place.name} style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "center" }} />
         <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to bottom, rgba(0,0,0,0.15) 0%, rgba(26,26,46,0.88) 100%)" }} />
-        <Link href="/places" style={{
-          position: "absolute", top: "16px", left: "16px",
-          background: "rgba(255,255,255,0.18)", backdropFilter: "blur(8px)",
-          border: "1px solid rgba(255,255,255,0.3)", color: "#ffffff",
-          borderRadius: "50px", padding: "7px 16px",
-          fontFamily: "'DM Sans', sans-serif", fontSize: "0.8rem",
-          fontWeight: 600, textDecoration: "none",
-        }}>
+        <Link href="/places" style={{ position: "absolute", top: "16px", left: "16px", background: "rgba(255,255,255,0.18)", backdropFilter: "blur(8px)", border: "1px solid rgba(255,255,255,0.3)", color: "#ffffff", borderRadius: "50px", padding: "7px 16px", fontFamily: "'DM Sans', sans-serif", fontSize: "0.8rem", fontWeight: 600, textDecoration: "none" }}>
           ← Back
         </Link>
         <div style={{ position: "absolute", bottom: 0, left: 0, right: 0, padding: "16px 20px 20px" }}>
-          <div style={{
-            display: "inline-block", background: "rgba(201,168,76,0.2)",
-            border: "1px solid rgba(201,168,76,0.5)", color: "#c9a84c",
-            borderRadius: "50px", padding: "3px 12px", fontSize: "0.7rem",
-            fontWeight: 600, letterSpacing: "1px", textTransform: "uppercase" as const,
-            marginBottom: "6px", fontFamily: "'DM Sans', sans-serif",
-          }}>
+          <div style={{ display: "inline-block", background: "rgba(201,168,76,0.2)", border: "1px solid rgba(201,168,76,0.5)", color: "#c9a84c", borderRadius: "50px", padding: "3px 12px", fontSize: "0.7rem", fontWeight: 600, letterSpacing: "1px", textTransform: "uppercase" as const, marginBottom: "6px", fontFamily: "'DM Sans', sans-serif" }}>
             {place.category}
           </div>
-          <h1 style={{
-            fontFamily: "'Cormorant Garamond', serif",
-            fontSize: "clamp(1.7rem, 5.5vw, 2.8rem)",
-            fontWeight: 700, color: "#ffffff", lineHeight: 1.15, margin: "0 0 4px 0",
-          }}>
+          <h1 style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "clamp(1.7rem, 5.5vw, 2.8rem)", fontWeight: 700, color: "#ffffff", lineHeight: 1.15, margin: "0 0 4px 0" }}>
             {place.icon} {place.name}
           </h1>
           {history && (
@@ -262,22 +147,16 @@ export default function PlaceDetailPage({ params }: Props) {
       {/* Content */}
       <div style={{ maxWidth: "800px", margin: "0 auto", padding: "20px 16px 60px" }}>
 
-        {/* Photo Gallery */}
         <PhotoGallery photos={photos} name={place.name} />
 
-        {/* Quick Info */}
-        <div style={{
-          background: "#ffffff", borderRadius: "16px", padding: "18px 20px",
-          marginBottom: "18px", border: "1px solid rgba(26,26,46,0.08)",
-          boxShadow: "0 4px 20px rgba(0,0,0,0.06)",
-          display: "flex", flexDirection: "column", gap: "12px",
-        }}>
+        {/* Quick Info Card */}
+        <div className="bg-white dark:bg-[#1a1a2e] border border-navy/10 dark:border-gold/20" style={{ borderRadius: "16px", padding: "18px 20px", marginBottom: "18px", boxShadow: "0 4px 20px rgba(0,0,0,0.06)", display: "flex", flexDirection: "column", gap: "12px" }}>
           {place.area && (
             <div style={{ display: "flex", gap: "10px", alignItems: "flex-start" }}>
               <span style={{ fontSize: "1rem", flexShrink: 0 }}>📍</span>
               <div>
-                <div style={{ fontFamily: "'DM Sans', sans-serif", fontSize: "0.65rem", color: "#888", fontWeight: 600, textTransform: "uppercase" as const, letterSpacing: "0.5px" }}>Area</div>
-                <div style={{ fontFamily: "'DM Sans', sans-serif", fontSize: "0.88rem", color: "var(--card-title, #1a1a2e)", fontWeight: 600 }}>{place.area}</div>
+                <div className="text-[#888] dark:text-[#aaa]" style={{ fontFamily: "'DM Sans', sans-serif", fontSize: "0.65rem", fontWeight: 600, textTransform: "uppercase" as const, letterSpacing: "0.5px" }}>Area</div>
+                <div className="text-navy dark:text-[#f9f7f2]" style={{ fontFamily: "'DM Sans', sans-serif", fontSize: "0.88rem", fontWeight: 600 }}>{place.area}</div>
               </div>
             </div>
           )}
@@ -285,8 +164,8 @@ export default function PlaceDetailPage({ params }: Props) {
             <div style={{ display: "flex", gap: "10px", alignItems: "flex-start" }}>
               <span style={{ fontSize: "1rem", flexShrink: 0 }}>🕐</span>
               <div>
-                <div style={{ fontFamily: "'DM Sans', sans-serif", fontSize: "0.65rem", color: "#888", fontWeight: 600, textTransform: "uppercase" as const, letterSpacing: "0.5px" }}>Opening Hours</div>
-                <div style={{ fontFamily: "'DM Sans', sans-serif", fontSize: "0.88rem", color: "var(--card-title, #1a1a2e)", fontWeight: 600, lineHeight: 1.4 }}>{place.openingHours}</div>
+                <div className="text-[#888] dark:text-[#aaa]" style={{ fontFamily: "'DM Sans', sans-serif", fontSize: "0.65rem", fontWeight: 600, textTransform: "uppercase" as const, letterSpacing: "0.5px" }}>Opening Hours</div>
+                <div className="text-navy dark:text-[#f9f7f2]" style={{ fontFamily: "'DM Sans', sans-serif", fontSize: "0.88rem", fontWeight: 600, lineHeight: 1.4 }}>{place.openingHours}</div>
               </div>
             </div>
           )}
@@ -294,17 +173,17 @@ export default function PlaceDetailPage({ params }: Props) {
             <div style={{ display: "flex", gap: "10px", alignItems: "flex-start" }}>
               <span style={{ fontSize: "1rem", flexShrink: 0 }}>{place.priceType === "Free" ? "🎁" : "💷"}</span>
               <div>
-                <div style={{ fontFamily: "'DM Sans', sans-serif", fontSize: "0.65rem", color: "#888", fontWeight: 600, textTransform: "uppercase" as const, letterSpacing: "0.5px" }}>Entry</div>
-                <div style={{ fontFamily: "'DM Sans', sans-serif", fontSize: "0.88rem", color: "var(--card-title, #1a1a2e)", fontWeight: 600 }}>{place.entryFee}</div>
+                <div className="text-[#888] dark:text-[#aaa]" style={{ fontFamily: "'DM Sans', sans-serif", fontSize: "0.65rem", fontWeight: 600, textTransform: "uppercase" as const, letterSpacing: "0.5px" }}>Entry</div>
+                <div className="text-navy dark:text-[#f9f7f2]" style={{ fontFamily: "'DM Sans', sans-serif", fontSize: "0.88rem", fontWeight: 600 }}>{place.entryFee}</div>
               </div>
             </div>
           )}
         </div>
 
         {/* About */}
-        <div style={{ background: "var(--tw-white, #ffffff)", borderRadius: "16px", padding: "20px", marginBottom: "18px", border: "1px solid rgba(26,26,46,0.08)", boxShadow: "0 4px 20px rgba(0,0,0,0.06)" }}>
-          <h2 style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "1.4rem", fontWeight: 700, color: "#1a1a2e", marginBottom: "10px", marginTop: 0 }}>About {place.name}</h2>
-          <p style={{ fontFamily: "'DM Sans', sans-serif", fontSize: "0.9rem", color: "var(--text-body, #444)", lineHeight: 1.8, margin: 0 }}>{place.description}</p>
+        <div className="bg-white dark:bg-[#1a1a2e] border border-navy/10 dark:border-gold/20" style={{ borderRadius: "16px", padding: "20px", marginBottom: "18px", boxShadow: "0 4px 20px rgba(0,0,0,0.06)" }}>
+          <h2 className="text-navy dark:text-[#f9f7f2]" style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "1.4rem", fontWeight: 700, marginBottom: "10px", marginTop: 0 }}>About {place.name}</h2>
+          <p className="text-[#444] dark:text-[#ccc]" style={{ fontFamily: "'DM Sans', sans-serif", fontSize: "0.9rem", lineHeight: 1.8, margin: 0 }}>{place.description}</p>
         </div>
 
         {/* History */}
@@ -317,13 +196,13 @@ export default function PlaceDetailPage({ params }: Props) {
 
         {/* Facts */}
         {history && (
-          <div style={{ background: "var(--tw-white, #ffffff)", borderRadius: "16px", padding: "20px", marginBottom: "18px", border: "1px solid rgba(26,26,46,0.08)", boxShadow: "0 4px 20px rgba(0,0,0,0.06)" }}>
-            <h2 style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "1.4rem", fontWeight: 700, color: "#1a1a2e", marginBottom: "14px", marginTop: 0 }}>⭐ Fascinating Facts</h2>
+          <div className="bg-white dark:bg-[#1a1a2e] border border-navy/10 dark:border-gold/20" style={{ borderRadius: "16px", padding: "20px", marginBottom: "18px", boxShadow: "0 4px 20px rgba(0,0,0,0.06)" }}>
+            <h2 className="text-navy dark:text-[#f9f7f2]" style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "1.4rem", fontWeight: 700, marginBottom: "14px", marginTop: 0 }}>⭐ Fascinating Facts</h2>
             <div style={{ display: "flex", flexDirection: "column", gap: "10px" }}>
               {history.facts.map((fact, i) => (
                 <div key={i} style={{ display: "flex", gap: "10px", alignItems: "flex-start" }}>
                   <div style={{ width: "22px", height: "22px", borderRadius: "50%", background: "rgba(201,168,76,0.15)", color: "#c9a84c", display: "flex", alignItems: "center", justifyContent: "center", fontSize: "0.68rem", fontWeight: 700, flexShrink: 0, fontFamily: "'DM Sans', sans-serif" }}>{i + 1}</div>
-                  <p style={{ fontFamily: "'DM Sans', sans-serif", fontSize: "0.86rem", color: "var(--text-body, #444)", lineHeight: 1.6, margin: 0 }}>{fact}</p>
+                  <p className="text-[#444] dark:text-[#ccc]" style={{ fontFamily: "'DM Sans', sans-serif", fontSize: "0.86rem", lineHeight: 1.6, margin: 0 }}>{fact}</p>
                 </div>
               ))}
             </div>
@@ -331,10 +210,10 @@ export default function PlaceDetailPage({ params }: Props) {
         )}
 
         {/* Tips */}
-        <div style={{ background: "rgba(201,168,76,0.08)", borderRadius: "16px", padding: "20px", marginBottom: "18px", border: "1px solid rgba(201,168,76,0.2)" }}>
-          <h2 style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "1.4rem", fontWeight: 700, color: "#1a1a2e", marginBottom: "12px", marginTop: 0 }}>💡 Visitor Tips</h2>
+        <div className="dark:bg-[#1a1a2e] dark:border-gold/20" style={{ background: "rgba(201,168,76,0.08)", borderRadius: "16px", padding: "20px", marginBottom: "18px", border: "1px solid rgba(201,168,76,0.2)" }}>
+          <h2 className="text-navy dark:text-[#f9f7f2]" style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "1.4rem", fontWeight: 700, marginBottom: "12px", marginTop: 0 }}>💡 Visitor Tips</h2>
           {["Book tickets online in advance to skip the queue", "Visit on weekday mornings for smaller crowds", "Check the official website for seasonal opening changes", "Nearest tube station is usually a short walk away"].map((tip, i) => (
-            <p key={i} style={{ fontFamily: "'DM Sans', sans-serif", fontSize: "0.86rem", color: "var(--text-body, #555)", lineHeight: 1.6, margin: "0 0 6px 0", display: "flex", gap: "8px" }}>
+            <p key={i} className="text-[#555] dark:text-[#bbb]" style={{ fontFamily: "'DM Sans', sans-serif", fontSize: "0.86rem", lineHeight: 1.6, margin: "0 0 6px 0", display: "flex", gap: "8px" }}>
               <span style={{ color: "#c9a84c", fontWeight: 700 }}>✓</span> {tip}
             </p>
           ))}
@@ -342,28 +221,15 @@ export default function PlaceDetailPage({ params }: Props) {
 
         {/* Directions */}
         {place.mapsUrl && (
-          <a href={place.mapsUrl} target="_blank" rel="noreferrer" style={{
-            display: "flex", alignItems: "center", justifyContent: "center",
-            gap: "8px", width: "100%", background: "#1a1a2e", color: "#c9a84c",
-            padding: "15px", borderRadius: "50px", fontFamily: "'DM Sans', sans-serif",
-            fontSize: "0.95rem", fontWeight: 700, textDecoration: "none",
-            marginBottom: "12px", boxSizing: "border-box" as const,
-          }}>
+          <a href={place.mapsUrl} target="_blank" rel="noreferrer" style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: "8px", width: "100%", background: "#1a1a2e", color: "#c9a84c", padding: "15px", borderRadius: "50px", fontFamily: "'DM Sans', sans-serif", fontSize: "0.95rem", fontWeight: 700, textDecoration: "none", marginBottom: "12px", boxSizing: "border-box" as const }}>
             📍 Get Directions on Google Maps
           </a>
         )}
-
-        <Link href="/places" style={{
-          display: "flex", alignItems: "center", justifyContent: "center",
-          gap: "8px", width: "100%", background: "transparent", color: "#1a1a2e",
-          padding: "13px", borderRadius: "50px", border: "2px solid #1a1a2e",
-          fontFamily: "'DM Sans', sans-serif", fontSize: "0.9rem",
-          fontWeight: 600, textDecoration: "none", boxSizing: "border-box" as const,
-        }}>
+        <Link href="/places" style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: "8px", width: "100%", background: "transparent", padding: "13px", borderRadius: "50px", fontFamily: "'DM Sans', sans-serif", fontSize: "0.9rem", fontWeight: 600, textDecoration: "none", boxSizing: "border-box" as const, border: "2px solid" }} className="text-navy dark:text-[#f9f7f2] border-navy dark:border-[#f9f7f2]">
           ← Back to All Places
         </Link>
-
       </div>
     </main>
   );
 }
+
