@@ -93,9 +93,7 @@ export default function PlaceCard({ item, mode = "place" }: PlaceCardProps) {
           </div>
         )}
 
-        <div className="absolute bottom-4 right-4 flex h-12 w-12 items-center justify-center rounded-full border border-white/30 bg-navy/78 text-2xl shadow-premium backdrop-blur">
-          {icon}
-        </div>
+
       </div>
 
       <div className="flex flex-1 flex-col p-5">
@@ -127,9 +125,8 @@ export default function PlaceCard({ item, mode = "place" }: PlaceCardProps) {
           )}
         </div>
 
-        <h2 className="mt-4 flex items-start gap-2 font-heading text-2xl font-bold leading-tight text-navy dark:text-cream">
-          <span className="mt-0.5 text-[0.82em]">{icon}</span>
-          <span>{item.name}</span>
+        <h2 className="mt-4 font-heading text-2xl font-bold leading-tight text-navy dark:text-cream">
+          {item.name}
         </h2>
 
         {item.cuisine || item.type ? (
