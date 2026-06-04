@@ -5,337 +5,301 @@ import { useEffect, useState, useRef } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { FadeUp, SlideLeft, SlideRight, StaggerContainer, StaggerItem } from '@/components/ScrollAnimation';
 
+const TABS = ['All', 'Places', 'Food', 'Shopping', 'Nightlife'];
+
 const CATEGORY_CARDS = [
-  { label: 'Best Places', sub: 'Top attractions, hidden gems & photo spots', href: '/places', image: 'https://images.pexels.com/photos/460672/pexels-photo-460672.jpeg?auto=compress&cs=tinysrgb&w=800', accent: '#c9a84c' },
-  { label: 'Food & Drinks', sub: 'Restaurants, halal food & local favourites', href: '/food', image: 'https://images.pexels.com/photos/1640777/pexels-photo-1640777.jpeg?auto=compress&cs=tinysrgb&w=800', accent: '#d4956a' },
-  { label: 'Shopping', sub: 'Luxury streets, markets & hidden gems', href: '/shopping', image: 'https://images.pexels.com/photos/1005638/pexels-photo-1005638.jpeg?auto=compress&cs=tinysrgb&w=800', accent: '#9ab8d4' },
-  { label: 'Transport', sub: 'Tube, bus, taxi & travel tips', href: '/transport', image: 'https://images.pexels.com/photos/5765/london-street-landmark-double-decker.jpg?auto=compress&cs=tinysrgb&w=800', accent: '#c94c4c' },
-  { label: 'Kids & Family', sub: 'Attractions, parks & family fun', href: '/kids', image: 'https://images.pexels.com/photos/247502/pexels-photo-247502.jpeg?auto=compress&cs=tinysrgb&w=800', accent: '#7ac9a0' },
-  { label: 'Nightlife', sub: 'Rooftop bars, clubs & live music', href: '/nightlife', image: 'https://images.pexels.com/photos/1183434/pexels-photo-1183434.jpeg?auto=compress&cs=tinysrgb&w=800', accent: '#a884c9' },
-  { label: 'Muslim Guide', sub: 'Halal food, mosques & prayer rooms', href: '/muslim', image: 'https://images.pexels.com/photos/1537086/pexels-photo-1537086.jpeg?auto=compress&cs=tinysrgb&w=800', accent: '#84c9b8' },
-  { label: 'Emergency Help', sub: 'Safety tips, scam alerts & emergency numbers', href: '/emergency', image: 'https://images.pexels.com/photos/63901/pexels-photo-63901.jpeg?auto=compress&cs=tinysrgb&w=800', accent: '#c94c4c' },
+  { label: 'Best Places',    sub: 'Attractions, hidden gems & photo spots',   href: '/places',    image: 'https://images.pexels.com/photos/460672/pexels-photo-460672.jpeg?auto=compress&cs=tinysrgb&w=800',    tag: 'Places' },
+  { label: 'Food & Drinks',  sub: 'Restaurants, halal food & local eats',      href: '/food',      image: 'https://images.pexels.com/photos/1640777/pexels-photo-1640777.jpeg?auto=compress&cs=tinysrgb&w=800',   tag: 'Food' },
+  { label: 'Shopping',       sub: 'Luxury streets, markets & boutiques',       href: '/shopping',  image: 'https://images.pexels.com/photos/1005638/pexels-photo-1005638.jpeg?auto=compress&cs=tinysrgb&w=800',   tag: 'Shopping' },
+  { label: 'Nightlife',      sub: 'Rooftop bars, clubs & live music',          href: '/nightlife', image: 'https://images.pexels.com/photos/1183434/pexels-photo-1183434.jpeg?auto=compress&cs=tinysrgb&w=800',   tag: 'Nightlife' },
+  { label: 'Transport',      sub: 'Tube, bus, taxi & travel tips',             href: '/transport', image: 'https://images.pexels.com/photos/5765/london-street-landmark-double-decker.jpg?auto=compress&cs=tinysrgb&w=800', tag: 'Places' },
+  { label: 'Kids & Family',  sub: 'Attractions, parks & family fun',           href: '/kids',      image: 'https://images.pexels.com/photos/247502/pexels-photo-247502.jpeg?auto=compress&cs=tinysrgb&w=800',    tag: 'Places' },
+  { label: 'Muslim Guide',   sub: 'Halal food, mosques & prayer rooms',        href: '/muslim',    image: 'https://images.pexels.com/photos/1537086/pexels-photo-1537086.jpeg?auto=compress&cs=tinysrgb&w=800',   tag: 'Food' },
+  { label: 'Emergency Help', sub: 'Safety tips, scam alerts & numbers',        href: '/emergency', image: 'https://images.pexels.com/photos/63901/pexels-photo-63901.jpeg?auto=compress&cs=tinysrgb&w=800',      tag: 'Places' },
 ];
 
 const HOW_IT_WORKS = [
-  { icon: '📱', title: 'Tap the souvenir', desc: 'Hold your phone near the TAP LONDON NFC product — keyring, card, tote bag, or coaster.', step: '01' },
-  { icon: '🌐', title: 'Open the guide', desc: 'Your browser opens taplondon.co.uk instantly. No app, no login, no delay.', step: '02' },
-  { icon: '🗺️', title: 'Choose a section', desc: 'Find places, food, shopping, transport, or emergency help in seconds.', step: '03' },
-  { icon: '🎉', title: 'Enjoy London', desc: 'Use real directions, trusted tips, halal guides and future partner discounts.', step: '04' },
+  { title: 'Tap the souvenir', desc: 'Hold your phone near any TAP LONDON NFC product — keyring, card, tote bag, or coaster.', step: '01' },
+  { title: 'Open the guide',   desc: 'Your browser opens taplondon.co.uk instantly. No app, no login, no delay.',               step: '02' },
+  { title: 'Choose a section', desc: 'Find places, food, shopping, transport, or emergency help in seconds.',                   step: '03' },
+  { title: 'Enjoy London',     desc: 'Use real directions, trusted tips, halal guides and future partner discounts.',           step: '04' },
 ];
 
 const STATS = [
-  { number: '50+', label: 'Curated Places' },
-  { number: '35+', label: 'Restaurants' },
-  { number: '12', label: 'Languages' },
+  { number: '50+',  label: 'Curated Places' },
+  { number: '35+',  label: 'Restaurants' },
+  { number: '12',   label: 'Languages' },
   { number: '24/7', label: 'AI Guide' },
-];
-
-const FEATURED_SPOTS = [
-  { name: 'Tower Bridge', tag: 'Iconic', image: 'https://images.pexels.com/photos/672532/pexels-photo-672532.jpeg?auto=compress&cs=tinysrgb&w=800' },
-  { name: 'Notting Hill', tag: 'Neighbourhood', image: 'https://images.pexels.com/photos/1796735/pexels-photo-1796735.jpeg?auto=compress&cs=tinysrgb&w=800' },
-  { name: 'Borough Market', tag: 'Food & Drink', image: 'https://images.pexels.com/photos/1640777/pexels-photo-1640777.jpeg?auto=compress&cs=tinysrgb&w=800' },
 ];
 
 export default function HomePage() {
   const [visible, setVisible] = useState(false);
+  const [activeTab, setActiveTab] = useState('All');
+  const [searchVal, setSearchVal] = useState('');
   const heroRef = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({ target: heroRef, offset: ['start start', 'end start'] });
-  const heroY = useTransform(scrollYProgress, [0, 1], ['0%', '28%']);
-  const heroOpacity = useTransform(scrollYProgress, [0, 0.75], [1, 0]);
-  const heroScale = useTransform(scrollYProgress, [0, 1], [1, 1.1]);
+  const heroY = useTransform(scrollYProgress, [0, 1], ['0%', '25%']);
+  const heroOpacity = useTransform(scrollYProgress, [0, 0.7], [1, 0]);
+  const heroScale = useTransform(scrollYProgress, [0, 1], [1, 1.08]);
+
+  const filtered = CATEGORY_CARDS.filter(c =>
+    (activeTab === 'All' || c.tag === activeTab) &&
+    c.label.toLowerCase().includes(searchVal.toLowerCase())
+  );
 
   useEffect(() => {
-    const timer = setTimeout(() => setVisible(true), 100);
-    return () => clearTimeout(timer);
+    const t = setTimeout(() => setVisible(true), 80);
+    return () => clearTimeout(t);
   }, []);
 
   return (
     <main style={{ overflowX: 'hidden', width: '100%' }}>
 
-      {/* ══════════════════════════ HERO */}
-      <section ref={heroRef} style={{
-        position: 'relative', height: '100vh', width: '100%',
-        display: 'flex', alignItems: 'center', justifyContent: 'center',
-        overflow: 'hidden', textAlign: 'center',
-      }}>
-        {/* Parallax background */}
+      {/* ═══════════════ HERO */}
+      <section ref={heroRef} style={{ position: 'relative', height: '92vh', minHeight: '560px', width: '100%', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', overflow: 'hidden' }}>
+
+        {/* Parallax BG */}
         <motion.div style={{
-          position: 'absolute', inset: '-10%',
-          y: heroY, scale: heroScale,
+          position: 'absolute', inset: '-10%', y: heroY, scale: heroScale,
           backgroundImage: `url('https://images.pexels.com/photos/672532/pexels-photo-672532.jpeg?auto=compress&cs=tinysrgb&w=1920')`,
-          backgroundSize: 'cover', backgroundPosition: 'center', zIndex: 0,
+          backgroundSize: 'cover', backgroundPosition: 'center 30%', zIndex: 0,
         }} />
-        {/* Gradient overlays */}
-        <div style={{ position: 'absolute', inset: 0, zIndex: 1, background: 'linear-gradient(135deg, rgba(26,26,46,0.72) 0%, rgba(0,0,0,0.25) 50%, rgba(26,26,46,0.62) 100%)' }} />
-        <div style={{ position: 'absolute', inset: 0, zIndex: 1, background: 'linear-gradient(to bottom, transparent 30%, rgba(26,26,46,0.97) 100%)' }} />
+        <div style={{ position: 'absolute', inset: 0, zIndex: 1, background: 'linear-gradient(to bottom, rgba(10,10,24,0.45) 0%, rgba(10,10,24,0.3) 40%, rgba(10,10,24,0.82) 100%)' }} />
 
-        {/* Decorative gold rings */}
+        {/* Content */}
         <motion.div
-          initial={{ opacity: 0, scale: 0.6 }}
-          animate={{ opacity: visible ? 0.13 : 0, scale: 1 }}
-          transition={{ duration: 2.5, delay: 0.6 }}
-          style={{ position: 'absolute', zIndex: 2, width: 'clamp(320px, 55vw, 640px)', height: 'clamp(320px, 55vw, 640px)', border: '1px solid #c9a84c', borderRadius: '50%', pointerEvents: 'none' }}
-        />
-        <motion.div
-          initial={{ opacity: 0, scale: 0.6 }}
-          animate={{ opacity: visible ? 0.06 : 0, scale: 1 }}
-          transition={{ duration: 2.5, delay: 0.85 }}
-          style={{ position: 'absolute', zIndex: 2, width: 'clamp(520px, 82vw, 940px)', height: 'clamp(520px, 82vw, 940px)', border: '1px solid #c9a84c', borderRadius: '50%', pointerEvents: 'none' }}
-        />
-
-        {/* Hero content */}
-        <motion.div
-          style={{ position: 'relative', zIndex: 3, width: '100%', maxWidth: '780px', padding: '0 24px', boxSizing: 'border-box' as const, opacity: heroOpacity }}
-          initial={{ opacity: 0, y: 64 }}
-          animate={{ opacity: visible ? 1 : 0, y: visible ? 0 : 64 }}
-          transition={{ duration: 1.1, ease: [0.22, 1, 0.36, 1] }}
+          style={{ position: 'relative', zIndex: 2, width: '100%', maxWidth: '860px', padding: '0 20px', boxSizing: 'border-box' as const, textAlign: 'center', opacity: heroOpacity }}
+          initial={{ opacity: 0, y: 50 }}
+          animate={{ opacity: visible ? 1 : 0, y: visible ? 0 : 50 }}
+          transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
         >
-          {/* Glowing badge */}
+          {/* Badge */}
           <motion.div
-            initial={{ opacity: 0, y: -20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, delay: 0.2 }}
-            style={{
-              display: 'inline-flex', alignItems: 'center', gap: '9px',
-              background: 'rgba(201,168,76,0.11)', border: '1px solid rgba(201,168,76,0.38)',
-              color: '#c9a84c', borderRadius: '40px', padding: '7px 20px',
-              fontSize: '0.68rem', fontWeight: 700, letterSpacing: '2px',
-              marginBottom: '30px', textTransform: 'uppercase' as const,
-              backdropFilter: 'blur(10px)', fontFamily: "'DM Sans', sans-serif",
-            }}
+            initial={{ opacity: 0, y: -16 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.2, duration: 0.6 }}
+            style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', background: 'rgba(201,168,76,0.13)', border: '1px solid rgba(201,168,76,0.35)', color: '#c9a84c', borderRadius: '40px', padding: '6px 18px', fontSize: '0.68rem', fontWeight: 700, letterSpacing: '2px', marginBottom: '24px', textTransform: 'uppercase' as const, backdropFilter: 'blur(10px)', fontFamily: "'DM Sans', sans-serif" }}
           >
-            <span style={{ width: '6px', height: '6px', borderRadius: '50%', background: '#c9a84c', display: 'inline-block', boxShadow: '0 0 8px #c9a84c, 0 0 16px rgba(201,168,76,0.5)' }} />
-            Smart NFC Tourist Guide
+            <span style={{ width: '5px', height: '5px', borderRadius: '50%', background: '#c9a84c', boxShadow: '0 0 8px #c9a84c' }} />
+            London's Smart Travel Guide
           </motion.div>
 
-          {/* Big heading */}
-          <motion.div initial={{ opacity: 0, y: 40 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 1, delay: 0.35 }}>
-            <h1 style={{
-              fontFamily: "'Cormorant Garamond', serif",
-              fontSize: 'clamp(3rem, 10vw, 6.8rem)',
-              fontWeight: 700, color: '#ffffff', lineHeight: 0.93,
-              margin: '0 0 6px', letterSpacing: '-1.5px',
-            }}>
-              Welcome to
-            </h1>
-            <h1 style={{
-              fontFamily: "'Cormorant Garamond', serif",
-              fontSize: 'clamp(3rem, 10vw, 6.8rem)',
-              fontWeight: 700, lineHeight: 0.93,
-              margin: '0 0 30px', letterSpacing: '-1.5px',
-              background: 'linear-gradient(135deg, #c9a84c 0%, #f0d07a 45%, #c9a84c 72%, #9a6e28 100%)',
-              WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text',
-            }}>
-              London
-            </h1>
-          </motion.div>
-
-          {/* Gold line */}
-          <motion.div
-            initial={{ scaleX: 0 }} animate={{ scaleX: 1 }}
-            transition={{ duration: 0.9, delay: 0.6 }}
-            style={{ width: '48px', height: '2px', background: 'linear-gradient(90deg, #c9a84c, #f0d07a)', margin: '0 auto 26px', transformOrigin: 'center', borderRadius: '2px' }}
-          />
+          {/* Headline */}
+          <motion.h1
+            initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.32, duration: 0.9 }}
+            style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: 'clamp(2.8rem, 9vw, 6.2rem)', fontWeight: 700, lineHeight: 1, margin: '0 0 20px', letterSpacing: '-1px' }}
+          >
+            <span style={{ color: '#ffffff' }}>Discover </span>
+            <span style={{ background: 'linear-gradient(130deg, #c9a84c 0%, #f5d97a 50%, #b8882e 100%)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text' }}>London</span>
+          </motion.h1>
 
           <motion.p
-            initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.55 }}
-            style={{ fontFamily: "'DM Sans', sans-serif", fontSize: 'clamp(0.93rem, 2.4vw, 1.15rem)', color: 'rgba(255,255,255,0.68)', maxWidth: '460px', margin: '0 auto 42px', lineHeight: 1.65 }}
+            initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.5, duration: 0.8 }}
+            style={{ fontFamily: "'DM Sans', sans-serif", fontSize: 'clamp(0.9rem, 2vw, 1.08rem)', color: 'rgba(255,255,255,0.62)', marginBottom: '36px', lineHeight: 1.6 }}
           >
-            Your smart guide to the greatest city in the world — tap, explore, enjoy.
+            Tap. Explore. Enjoy — your city guide, one touch away.
           </motion.p>
 
+          {/* Search bar */}
           <motion.div
-            initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, delay: 0.78 }}
-            style={{ display: 'flex', gap: '13px', justifyContent: 'center', flexWrap: 'wrap' }}
+            initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.6, duration: 0.7 }}
+            style={{ position: 'relative', maxWidth: '580px', margin: '0 auto 24px' }}
           >
-            <Link href="/places" style={{
-              background: 'linear-gradient(135deg, #c9a84c 0%, #f0d07a 100%)',
-              color: '#1a1a2e', padding: '15px 40px', borderRadius: '3px',
-              fontFamily: "'DM Sans', sans-serif", fontWeight: 700, fontSize: '0.88rem',
-              textDecoration: 'none', letterSpacing: '0.3px',
-              boxShadow: '0 8px 32px rgba(201,168,76,0.42), 0 2px 8px rgba(0,0,0,0.2)',
+            <div style={{ position: 'absolute', left: '20px', top: '50%', transform: 'translateY(-50%)', color: 'rgba(255,255,255,0.4)', fontSize: '1rem', pointerEvents: 'none' }}>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
+                <circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/>
+              </svg>
+            </div>
+            <input
+              type="text"
+              placeholder="Search places, food, shopping..."
+              value={searchVal}
+              onChange={e => setSearchVal(e.target.value)}
+              style={{
+                width: '100%', boxSizing: 'border-box' as const,
+                background: 'rgba(255,255,255,0.1)', backdropFilter: 'blur(16px)',
+                border: '1px solid rgba(255,255,255,0.18)', borderRadius: '50px',
+                padding: '16px 56px 16px 52px',
+                fontFamily: "'DM Sans', sans-serif", fontSize: '0.92rem',
+                color: '#ffffff', outline: 'none',
+              }}
+            />
+            <Link href={`/places`} style={{
+              position: 'absolute', right: '6px', top: '50%', transform: 'translateY(-50%)',
+              background: 'linear-gradient(135deg, #c9a84c, #f0d07a)', color: '#1a1a2e',
+              border: 'none', borderRadius: '40px', padding: '9px 22px',
+              fontFamily: "'DM Sans', sans-serif", fontWeight: 700, fontSize: '0.8rem',
+              cursor: 'pointer', textDecoration: 'none', whiteSpace: 'nowrap' as const,
             }}>
-              Explore London
+              Search
             </Link>
-            <Link href="/muslim" style={{
-              background: 'rgba(255,255,255,0.07)', color: '#ffffff',
-              padding: '15px 40px', borderRadius: '3px',
-              fontFamily: "'DM Sans', sans-serif", fontWeight: 600, fontSize: '0.88rem',
-              textDecoration: 'none', border: '1px solid rgba(255,255,255,0.18)',
-              backdropFilter: 'blur(10px)',
-            }}>
-              Muslim Guide
-            </Link>
+          </motion.div>
+
+          {/* Quick links */}
+          <motion.div
+            initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.75, duration: 0.6 }}
+            style={{ display: 'flex', gap: '10px', justifyContent: 'center', flexWrap: 'wrap' }}
+          >
+            {[
+              { label: 'Tower Bridge', href: '/places' },
+              { label: 'Halal Food', href: '/muslim' },
+              { label: 'Nightlife', href: '/nightlife' },
+              { label: 'Emergency', href: '/emergency' },
+            ].map(item => (
+              <Link key={item.label} href={item.href} style={{
+                fontFamily: "'DM Sans', sans-serif", fontSize: '0.72rem', color: 'rgba(255,255,255,0.55)',
+                textDecoration: 'none', background: 'rgba(255,255,255,0.07)',
+                border: '1px solid rgba(255,255,255,0.12)', borderRadius: '40px',
+                padding: '5px 14px', transition: 'all 0.2s',
+              }}>
+                {item.label}
+              </Link>
+            ))}
           </motion.div>
         </motion.div>
 
-        {/* Scroll line */}
-        <motion.div
-          initial={{ opacity: 0 }} animate={{ opacity: 1 }}
-          transition={{ duration: 1, delay: 1.5 }}
-          style={{ position: 'absolute', bottom: '34px', left: '50%', transform: 'translateX(-50%)', zIndex: 3, display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '8px' }}
-        >
-          <span style={{ fontFamily: "'DM Sans', sans-serif", fontSize: '0.56rem', color: 'rgba(255,255,255,0.26)', letterSpacing: '3px', textTransform: 'uppercase' as const }}>Scroll</span>
-          <motion.div
-            animate={{ scaleY: [1, 0.2, 1] }}
-            transition={{ duration: 1.6, repeat: Infinity, ease: 'easeInOut' }}
-            style={{ width: '1px', height: '44px', background: 'linear-gradient(to bottom, rgba(201,168,76,0.8), transparent)', borderRadius: '2px' }}
-          />
+        {/* Scroll indicator */}
+        <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 1.4, duration: 1 }} style={{ position: 'absolute', bottom: '28px', left: '50%', transform: 'translateX(-50%)', zIndex: 2, display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '6px' }}>
+          <motion.div animate={{ scaleY: [1, 0.2, 1] }} transition={{ duration: 1.5, repeat: Infinity, ease: 'easeInOut' }} style={{ width: '1px', height: '36px', background: 'linear-gradient(to bottom, rgba(201,168,76,0.7), transparent)' }} />
         </motion.div>
       </section>
 
-      {/* ══════════════════════════ STATS */}
-      <section style={{ background: '#1a1a2e', borderTop: '1px solid rgba(201,168,76,0.1)', borderBottom: '1px solid rgba(201,168,76,0.1)', width: '100%' }}>
-        <div style={{ maxWidth: '900px', margin: '0 auto', display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)' }}>
-          {STATS.map((stat, i) => (
-            <motion.div
-              key={stat.label}
-              initial={{ opacity: 0, y: 18 }} whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }} transition={{ duration: 0.5, delay: i * 0.08 }}
-              style={{ textAlign: 'center', padding: '28px 12px', borderRight: i < 3 ? '1px solid rgba(201,168,76,0.08)' : 'none' }}
+      {/* ═══════════════ STATS BAR */}
+      <section style={{ background: '#1a1a2e', borderBottom: '1px solid rgba(201,168,76,0.1)', width: '100%' }}>
+        <div style={{ maxWidth: '860px', margin: '0 auto', display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)' }}>
+          {STATS.map((s, i) => (
+            <motion.div key={s.label} initial={{ opacity: 0, y: 14 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.07, duration: 0.45 }}
+              style={{ textAlign: 'center', padding: '26px 8px', borderRight: i < 3 ? '1px solid rgba(201,168,76,0.08)' : 'none' }}
             >
-              <div style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: 'clamp(1.5rem, 4.5vw, 2.6rem)', fontWeight: 700, color: '#c9a84c', lineHeight: 1 }}>{stat.number}</div>
-              <div style={{ fontFamily: "'DM Sans', sans-serif", fontSize: 'clamp(0.56rem, 1.4vw, 0.68rem)', color: 'rgba(249,247,242,0.36)', marginTop: '5px', letterSpacing: '1.2px', textTransform: 'uppercase' as const }}>{stat.label}</div>
+              <div style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: 'clamp(1.4rem, 4vw, 2.4rem)', fontWeight: 700, color: '#c9a84c', lineHeight: 1 }}>{s.number}</div>
+              <div style={{ fontFamily: "'DM Sans', sans-serif", fontSize: 'clamp(0.55rem, 1.3vw, 0.65rem)', color: 'rgba(249,247,242,0.35)', marginTop: '4px', letterSpacing: '1.2px', textTransform: 'uppercase' as const }}>{s.label}</div>
             </motion.div>
           ))}
         </div>
       </section>
 
-      {/* ══════════════════════════ FEATURED SPOTS */}
-      <section className="bg-[#f9f7f2] dark:bg-[#0d0d1a]" style={{ padding: '80px 20px 0', width: '100%', boxSizing: 'border-box' as const }}>
+      {/* ═══════════════ EXPLORE SECTION */}
+      <section className="bg-[#f9f7f2] dark:bg-[#0d0d1a]" style={{ padding: '72px 20px 88px', width: '100%', boxSizing: 'border-box' as const }}>
         <div style={{ maxWidth: '1100px', margin: '0 auto' }}>
+
+          {/* Header + tabs row */}
           <FadeUp>
-            <div style={{ display: 'flex', alignItems: 'flex-end', justifyContent: 'space-between', marginBottom: '36px', flexWrap: 'wrap', gap: '12px' }}>
+            <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', gap: '16px', marginBottom: '32px' }}>
               <div>
-                <p style={{ fontFamily: "'DM Sans', sans-serif", fontSize: '0.68rem', color: '#c9a84c', fontWeight: 700, letterSpacing: '2.5px', textTransform: 'uppercase' as const, marginBottom: '8px' }}>Featured</p>
-                <h2 className="text-navy dark:text-[#f9f7f2]" style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: 'clamp(2rem, 5vw, 3.2rem)', fontWeight: 700, margin: 0, lineHeight: 1.1 }}>London Icons</h2>
+                <p style={{ fontFamily: "'DM Sans', sans-serif", fontSize: '0.66rem', color: '#c9a84c', fontWeight: 700, letterSpacing: '2.5px', textTransform: 'uppercase' as const, marginBottom: '6px' }}>Explore</p>
+                <h2 className="text-navy dark:text-[#f9f7f2]" style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: 'clamp(1.8rem, 4vw, 2.8rem)', fontWeight: 700, margin: 0, lineHeight: 1.1 }}>
+                  Everything in London
+                </h2>
               </div>
-              <Link href="/places" style={{ fontFamily: "'DM Sans', sans-serif", fontSize: '0.76rem', color: '#c9a84c', textDecoration: 'none', fontWeight: 600, letterSpacing: '0.2px', display: 'flex', alignItems: 'center', gap: '5px', paddingBottom: '3px', borderBottom: '1px solid rgba(201,168,76,0.3)' }}>
-                View all places →
-              </Link>
+              {/* Filter tabs */}
+              <div style={{ display: 'flex', gap: '8px', flexWrap: 'wrap' }}>
+                {TABS.map(tab => (
+                  <button
+                    key={tab}
+                    onClick={() => setActiveTab(tab)}
+                    style={{
+                      fontFamily: "'DM Sans', sans-serif", fontSize: '0.78rem', fontWeight: 600,
+                      padding: '8px 18px', borderRadius: '40px', cursor: 'pointer', border: 'none',
+                      background: activeTab === tab ? '#c9a84c' : 'transparent',
+                      color: activeTab === tab ? '#1a1a2e' : '#888',
+                      outline: activeTab === tab ? 'none' : '1px solid rgba(150,150,150,0.25)',
+                      transition: 'all 0.2s ease',
+                    }}
+                  >
+                    {tab}
+                  </button>
+                ))}
+              </div>
             </div>
           </FadeUp>
 
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '12px', marginBottom: '80px' }}>
-            {FEATURED_SPOTS.map((spot, i) => (
+          {/* Card grid */}
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(260px, 1fr))', gap: '14px' }}>
+            {filtered.map((card, i) => (
               <motion.div
-                key={spot.name}
-                initial={{ opacity: 0, y: 28 }} whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }} transition={{ duration: 0.6, delay: i * 0.1 }}
-                whileHover={{ y: -6 }}
-                style={{
-                  position: 'relative', borderRadius: '2px', overflow: 'hidden', cursor: 'pointer',
-                  height: i === 0 ? 'clamp(240px, 28vw, 360px)' : 'clamp(180px, 20vw, 260px)',
-                  boxShadow: '0 8px 40px rgba(0,0,0,0.13)',
-                }}
+                key={card.href + card.label}
+                initial={{ opacity: 0, y: 22 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.4, delay: i * 0.05 }}
               >
-                <img src={spot.image} alt={spot.name} style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block', transition: 'transform 0.5s ease' }} />
-                <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to top, rgba(0,0,0,0.74) 0%, transparent 55%)' }} />
-                <div style={{ position: 'absolute', top: '14px', left: '14px', background: 'rgba(201,168,76,0.93)', color: '#1a1a2e', padding: '3px 10px', borderRadius: '2px', fontFamily: "'DM Sans', sans-serif", fontSize: '0.58rem', fontWeight: 700, letterSpacing: '1.2px', textTransform: 'uppercase' as const }}>{spot.tag}</div>
-                <div style={{ position: 'absolute', bottom: '18px', left: '18px' }}>
-                  <div style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: 'clamp(1rem, 2.2vw, 1.45rem)', fontWeight: 700, color: '#ffffff' }}>{spot.name}</div>
-                </div>
+                <Link href={card.href} style={{ textDecoration: 'none', display: 'block' }}>
+                  <motion.div
+                    whileHover={{ y: -6 }}
+                    transition={{ duration: 0.22, ease: [0.22, 1, 0.36, 1] }}
+                    style={{ position: 'relative', borderRadius: '12px', overflow: 'hidden', height: '230px', boxShadow: '0 2px 16px rgba(0,0,0,0.1)', cursor: 'pointer' }}
+                  >
+                    <img src={card.image} alt={card.label} style={{ width: '100%', height: '100%', objectFit: 'cover', position: 'absolute', inset: 0 }} />
+                    <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to top, rgba(10,10,22,0.88) 0%, rgba(10,10,22,0.1) 55%, transparent 100%)' }} />
+
+                    {/* Tag pill top-left */}
+                    <div style={{ position: 'absolute', top: '14px', left: '14px', background: 'rgba(201,168,76,0.9)', color: '#1a1a2e', padding: '3px 10px', borderRadius: '40px', fontFamily: "'DM Sans', sans-serif", fontSize: '0.6rem', fontWeight: 700, letterSpacing: '0.8px', textTransform: 'uppercase' as const }}>
+                      {card.tag}
+                    </div>
+
+                    {/* Text bottom */}
+                    <div style={{ position: 'absolute', bottom: 0, left: 0, right: 0, padding: '20px 18px' }}>
+                      <div style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: '1.3rem', fontWeight: 700, color: '#ffffff', marginBottom: '5px', lineHeight: 1.15 }}>{card.label}</div>
+                      <div style={{ fontFamily: "'DM Sans', sans-serif", fontSize: '0.7rem', color: 'rgba(255,255,255,0.5)' }}>{card.sub}</div>
+                    </div>
+
+                    {/* Arrow */}
+                    <div style={{ position: 'absolute', bottom: '20px', right: '18px', width: '32px', height: '32px', background: 'rgba(201,168,76,0.15)', border: '1px solid rgba(201,168,76,0.3)', borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#c9a84c" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                        <path d="M5 12h14M12 5l7 7-7 7"/>
+                      </svg>
+                    </div>
+                  </motion.div>
+                </Link>
               </motion.div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* ══════════════════════════ CATEGORY GRID */}
-      <section className="bg-[#f9f7f2] dark:bg-[#0d0d1a]" style={{ padding: '0 20px 88px', width: '100%', boxSizing: 'border-box' as const }}>
-        <div style={{ maxWidth: '1100px', margin: '0 auto' }}>
-          <FadeUp>
-            <div style={{ textAlign: 'center', marginBottom: '48px' }}>
-              <p style={{ fontFamily: "'DM Sans', sans-serif", fontSize: '0.68rem', color: '#c9a84c', fontWeight: 700, letterSpacing: '2.5px', textTransform: 'uppercase' as const, marginBottom: '10px' }}>Everything you need</p>
-              <h2 className="text-navy dark:text-[#f9f7f2]" style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: 'clamp(2rem, 5vw, 3.2rem)', fontWeight: 700, margin: 0 }}>One tap. All of London.</h2>
-            </div>
-          </FadeUp>
-
-          <StaggerContainer style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(255px, 1fr))', gap: '12px' }} staggerDelay={0.055}>
-            {CATEGORY_CARDS.map((card, i) => (
-              <StaggerItem key={card.href}>
-                <Link href={card.href} style={{ textDecoration: 'none', display: 'block' }}>
-                  <motion.div
-                    whileHover={{ y: -7, scale: 1.015 }}
-                    transition={{ duration: 0.24, ease: [0.22, 1, 0.36, 1] }}
-                    style={{ position: 'relative', borderRadius: '2px', overflow: 'hidden', height: '220px', boxShadow: '0 4px 24px rgba(0,0,0,0.1)', cursor: 'pointer' }}
-                  >
-                    <img src={card.image} alt={card.label} style={{ width: '100%', height: '100%', objectFit: 'cover', position: 'absolute', inset: 0 }} />
-                    <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to top, rgba(8,8,18,0.92) 0%, rgba(8,8,18,0.12) 50%, transparent 100%)' }} />
-                    {/* Number */}
-                    <div style={{ position: 'absolute', top: '13px', right: '13px', fontFamily: "'Cormorant Garamond', serif", fontSize: '0.76rem', color: 'rgba(201,168,76,0.4)', fontWeight: 700 }}>
-                      {String(i + 1).padStart(2, '0')}
-                    </div>
-                    <div style={{ position: 'absolute', bottom: 0, left: 0, right: 0, padding: '18px 16px' }}>
-                      <div style={{ width: '20px', height: '2px', background: card.accent, marginBottom: '10px', borderRadius: '1px' }} />
-                      <div style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: '1.22rem', fontWeight: 700, color: '#ffffff', marginBottom: '5px', lineHeight: 1.15 }}>{card.label}</div>
-                      <div style={{ fontFamily: "'DM Sans', sans-serif", fontSize: '0.67rem', color: 'rgba(255,255,255,0.48)', display: 'flex', alignItems: 'center', gap: '5px' }}>
-                        {card.sub} <span style={{ color: card.accent, fontSize: '0.78rem' }}>→</span>
-                      </div>
-                    </div>
-                  </motion.div>
-                </Link>
-              </StaggerItem>
-            ))}
-          </StaggerContainer>
-        </div>
-      </section>
-
-      {/* ══════════════════════════ HOW IT WORKS */}
+      {/* ═══════════════ HOW IT WORKS */}
       <section style={{ background: '#1a1a2e', padding: '88px 20px', width: '100%', boxSizing: 'border-box', position: 'relative', overflow: 'hidden' }}>
-        <div style={{ position: 'absolute', right: '-180px', top: '-180px', width: '500px', height: '500px', borderRadius: '50%', background: 'radial-gradient(circle, rgba(201,168,76,0.05) 0%, transparent 70%)', pointerEvents: 'none' }} />
-        <div style={{ position: 'absolute', left: '-120px', bottom: '-100px', width: '420px', height: '420px', borderRadius: '50%', background: 'radial-gradient(circle, rgba(201,168,76,0.04) 0%, transparent 70%)', pointerEvents: 'none' }} />
+        <div style={{ position: 'absolute', right: '-150px', top: '-150px', width: '460px', height: '460px', borderRadius: '50%', background: 'radial-gradient(circle, rgba(201,168,76,0.05) 0%, transparent 70%)', pointerEvents: 'none' }} />
         <div style={{ maxWidth: '1000px', margin: '0 auto', position: 'relative', zIndex: 1 }}>
           <FadeUp>
             <div style={{ textAlign: 'center', marginBottom: '60px' }}>
-              <p style={{ fontFamily: "'DM Sans', sans-serif", fontSize: '0.68rem', color: '#c9a84c', fontWeight: 700, letterSpacing: '2.5px', textTransform: 'uppercase' as const, marginBottom: '10px' }}>How it works</p>
-              <h2 style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: 'clamp(2rem, 5vw, 3.2rem)', color: '#ffffff', fontWeight: 700, margin: '0 0 14px' }}>A souvenir that opens the city</h2>
-              <p style={{ fontFamily: "'DM Sans', sans-serif", fontSize: '0.86rem', color: 'rgba(255,255,255,0.38)', maxWidth: '380px', margin: '0 auto' }}>Tap any TAP LONDON product and unlock the full city guide instantly.</p>
+              <p style={{ fontFamily: "'DM Sans', sans-serif", fontSize: '0.66rem', color: '#c9a84c', fontWeight: 700, letterSpacing: '2.5px', textTransform: 'uppercase' as const, marginBottom: '10px' }}>How it works</p>
+              <h2 style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: 'clamp(1.9rem, 4.5vw, 3rem)', color: '#ffffff', fontWeight: 700, margin: 0 }}>A souvenir that opens the city</h2>
             </div>
           </FadeUp>
 
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '1px', background: 'rgba(201,168,76,0.07)' }}>
             {HOW_IT_WORKS.map((item, i) => (
-              <motion.div
-                key={item.title}
-                initial={{ opacity: 0, y: 28 }} whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }} transition={{ duration: 0.5, delay: i * 0.1 }}
-                whileHover={{ background: 'rgba(201,168,76,0.055)' } as any}
-                style={{ background: '#1a1a2e', padding: '38px 26px', textAlign: 'center', transition: 'background 0.3s' }}
+              <motion.div key={item.title} initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.45, delay: i * 0.09 }}
+                style={{ background: '#1a1a2e', padding: '40px 24px', textAlign: 'center' }}
               >
-                <div style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: '3rem', color: 'rgba(201,168,76,0.09)', fontWeight: 700, lineHeight: 1, marginBottom: '2px' }}>{item.step}</div>
-                <div style={{ fontSize: '1.85rem', marginBottom: '14px', marginTop: '-4px' }}>{item.icon}</div>
-                <div style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: '1.1rem', fontWeight: 700, color: '#c9a84c', marginBottom: '10px' }}>{item.title}</div>
-                <p style={{ fontFamily: "'DM Sans', sans-serif", fontSize: '0.76rem', color: 'rgba(255,255,255,0.46)', lineHeight: 1.72, margin: 0 }}>{item.desc}</p>
+                <div style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: '2.8rem', color: 'rgba(201,168,76,0.1)', fontWeight: 700, lineHeight: 1 }}>{item.step}</div>
+                <div style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: '1.1rem', fontWeight: 700, color: '#c9a84c', margin: '10px 0 10px' }}>{item.title}</div>
+                <p style={{ fontFamily: "'DM Sans', sans-serif", fontSize: '0.76rem', color: 'rgba(255,255,255,0.44)', lineHeight: 1.7, margin: 0 }}>{item.desc}</p>
               </motion.div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* ══════════════════════════ ABOUT */}
+      {/* ═══════════════ ABOUT */}
       <section className="bg-[#f9f7f2] dark:bg-[#0d0d1a]" style={{ padding: '88px 20px', width: '100%', boxSizing: 'border-box' as const }}>
-        <div style={{ maxWidth: '1100px', margin: '0 auto', display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '72px', alignItems: 'center' }}>
+        <div style={{ maxWidth: '1100px', margin: '0 auto', display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '64px', alignItems: 'center' }}>
           <div>
             <SlideLeft>
-              <p style={{ fontFamily: "'DM Sans', sans-serif", fontSize: '0.68rem', color: '#c9a84c', fontWeight: 700, letterSpacing: '2.5px', textTransform: 'uppercase' as const, marginBottom: '12px' }}>About</p>
-              <h2 className="text-navy dark:text-[#f9f7f2]" style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: 'clamp(1.9rem, 4vw, 3rem)', fontWeight: 700, margin: '0 0 24px', lineHeight: 1.15 }}>
+              <p style={{ fontFamily: "'DM Sans', sans-serif", fontSize: '0.66rem', color: '#c9a84c', fontWeight: 700, letterSpacing: '2.5px', textTransform: 'uppercase' as const, marginBottom: '12px' }}>About</p>
+              <h2 className="text-navy dark:text-[#f9f7f2]" style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: 'clamp(1.8rem, 4vw, 2.9rem)', fontWeight: 700, margin: '0 0 20px', lineHeight: 1.15 }}>
                 Built for the<br />modern traveller
               </h2>
-              <div style={{ width: '40px', height: '2px', background: '#c9a84c', marginBottom: '24px', borderRadius: '2px' }} />
-              <p className="text-ink/70 dark:text-[#f9f7f2]/60" style={{ fontFamily: "'DM Sans', sans-serif", fontSize: '0.92rem', lineHeight: 1.85, marginBottom: '16px' }}>
-                TAP LONDON turns a physical London souvenir into a smart travel companion. Tourists tap an NFC keyring, tote bag, card, or coaster and instantly land on a mobile guide built for the moment.
+              <div style={{ width: '36px', height: '2px', background: '#c9a84c', marginBottom: '22px', borderRadius: '2px' }} />
+              <p className="text-ink/70 dark:text-[#f9f7f2]/55" style={{ fontFamily: "'DM Sans', sans-serif", fontSize: '0.91rem', lineHeight: 1.85, marginBottom: '14px' }}>
+                TAP LONDON turns a physical London souvenir into a smart travel companion. Tap an NFC keyring, tote bag, card, or coaster and instantly land on a mobile guide built for the moment.
               </p>
-              <p className="text-ink/70 dark:text-[#f9f7f2]/60" style={{ fontFamily: "'DM Sans', sans-serif", fontSize: '0.92rem', lineHeight: 1.85, marginBottom: '36px' }}>
-                No app download. No account. No friction. Just tap, explore, and enjoy London — including a dedicated Muslim Tourist Guide and Tourist Emergency Help.
+              <p className="text-ink/70 dark:text-[#f9f7f2]/55" style={{ fontFamily: "'DM Sans', sans-serif", fontSize: '0.91rem', lineHeight: 1.85, marginBottom: '32px' }}>
+                No app. No login. No friction. Just tap, explore, and enjoy London — with a dedicated Muslim Guide and Emergency Help built in.
               </p>
               <div style={{ display: 'flex', gap: '12px', flexWrap: 'wrap' }}>
-                <Link href="/places" style={{ background: '#1a1a2e', color: '#c9a84c', padding: '13px 30px', borderRadius: '3px', fontFamily: "'DM Sans', sans-serif", fontWeight: 700, fontSize: '0.84rem', textDecoration: 'none' }}>
+                <Link href="/places" style={{ background: '#1a1a2e', color: '#c9a84c', padding: '13px 28px', borderRadius: '8px', fontFamily: "'DM Sans', sans-serif", fontWeight: 700, fontSize: '0.84rem', textDecoration: 'none' }}>
                   Explore London
                 </Link>
-                <Link href="/emergency" className="text-navy dark:text-cream" style={{ background: 'transparent', padding: '13px 30px', borderRadius: '3px', border: '1.5px solid currentColor', fontFamily: "'DM Sans', sans-serif", fontWeight: 600, fontSize: '0.84rem', textDecoration: 'none' }}>
+                <Link href="/emergency" className="text-navy dark:text-cream" style={{ background: 'transparent', padding: '13px 28px', borderRadius: '8px', border: '1.5px solid currentColor', fontFamily: "'DM Sans', sans-serif", fontWeight: 600, fontSize: '0.84rem', textDecoration: 'none' }}>
                   Emergency Help
                 </Link>
               </div>
@@ -344,32 +308,22 @@ export default function HomePage() {
 
           <SlideRight delay={0.15}>
             <div style={{ position: 'relative', height: '420px' }}>
-              <motion.div
-                initial={{ opacity: 0, x: 36, rotate: 3 }}
-                whileInView={{ opacity: 1, x: 0, rotate: 3 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.7, delay: 0.1 }}
-                style={{ position: 'absolute', right: 0, top: 0, width: '74%', height: '290px', borderRadius: '2px', overflow: 'hidden', boxShadow: '0 20px 60px rgba(0,0,0,0.18)' }}
+              <motion.div initial={{ opacity: 0, x: 32, rotate: 3 }} whileInView={{ opacity: 1, x: 0, rotate: 3 }} viewport={{ once: true }} transition={{ duration: 0.65, delay: 0.1 }}
+                style={{ position: 'absolute', right: 0, top: 0, width: '73%', height: '285px', borderRadius: '12px', overflow: 'hidden', boxShadow: '0 20px 56px rgba(0,0,0,0.16)' }}
               >
                 <img src="https://images.pexels.com/photos/460672/pexels-photo-460672.jpeg?auto=compress&cs=tinysrgb&w=600" alt="London" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
               </motion.div>
-              <motion.div
-                initial={{ opacity: 0, x: -28, rotate: -2 }}
-                whileInView={{ opacity: 1, x: 0, rotate: -2 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.7, delay: 0.25 }}
-                style={{ position: 'absolute', left: 0, bottom: 0, width: '63%', height: '232px', borderRadius: '2px', overflow: 'hidden', boxShadow: '0 20px 60px rgba(0,0,0,0.18)', border: '3px solid #f9f7f2' }}
+              <motion.div initial={{ opacity: 0, x: -24, rotate: -2 }} whileInView={{ opacity: 1, x: 0, rotate: -2 }} viewport={{ once: true }} transition={{ duration: 0.65, delay: 0.22 }}
+                style={{ position: 'absolute', left: 0, bottom: 0, width: '62%', height: '228px', borderRadius: '12px', overflow: 'hidden', boxShadow: '0 20px 56px rgba(0,0,0,0.16)', border: '3px solid #f9f7f2' }}
               >
                 <img src="https://images.pexels.com/photos/672532/pexels-photo-672532.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Tower Bridge" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
               </motion.div>
-              <motion.div
-                initial={{ opacity: 0, scale: 0 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.4, delay: 0.42 }}
-                style={{ position: 'absolute', bottom: '54px', right: '18px', width: '54px', height: '54px', background: 'linear-gradient(135deg, #c9a84c, #f0d07a)', borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '1.3rem', boxShadow: '0 8px 24px rgba(201,168,76,0.45)' }}
+              <motion.div initial={{ opacity: 0, scale: 0 }} whileInView={{ opacity: 1, scale: 1 }} viewport={{ once: true }} transition={{ duration: 0.35, delay: 0.38 }}
+                style={{ position: 'absolute', bottom: '50px', right: '14px', width: '52px', height: '52px', background: 'linear-gradient(135deg, #c9a84c, #f0d07a)', borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center', boxShadow: '0 8px 24px rgba(201,168,76,0.45)' }}
               >
-                🗺️
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#1a1a2e" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/>
+                </svg>
               </motion.div>
             </div>
           </SlideRight>
