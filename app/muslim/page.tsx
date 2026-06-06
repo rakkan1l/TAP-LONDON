@@ -1,33 +1,33 @@
-import type { Metadata } from "next";
-import DirectoryClient from "@/components/DirectoryClient";
-import { db } from "@/lib/firebase";
-import { collection, getDocs, orderBy, query } from "firebase/firestore";
-import fallbackData from "@/data/muslim.json";
+'use client';
 
-export const revalidate = 60;
+import { useEffect, useState } from 'react';
+import DirectoryClient from '@/components/DirectoryClient';
+import { db } from '@/lib/firebase';
+import { collection, getDocs, orderBy, query } from 'firebase/firestore';
+import fallbackData from '@/data/muslim.json';
 
-export const metadata: Metadata = {
-  title: "Muslim Guide London | TAP LONDON",
-  description: "Halal food, mosques, and prayer rooms in London."
-};
+export default function MuslimPage() {
+  const [items, setItems] = useState<any[]>([]);
+  const [loading, setLoading] = useState(true);
 
-export default async function MuslimPage() {
-  let items: any[] = [];
-
-  try {
-    const snap = await getDocs(
-      query(collection(db, "muslim"), orderBy("order", "asc"))
-    );
-    if (!snap.empty) {
-      items = snap.docs.map(doc => ({ id: doc.id, ...doc.data() }));
-    } else {
-      // Fallback to JSON if Firebase is empty
-      items = (fallbackData as any).items ?? [];
-    }
-  } catch {
-    // Fallback to JSON on any error
-    items = (fallbackData as any).items ?? [];
-  }
+  useEffect(() => {
+    const load = async () => {
+      try {
+        const snap = await getDocs(
+          query(collection(db, 'muslim'), orderBy('order', 'asc'))
+        );
+        if (!snap.empty) {
+          setItems(snap.docs.map(doc => ({ id: doc.id, ...doc.data() })));
+        } else {
+          setItems((fallbackData as any).items ?? []);
+        }
+      } catch {
+        setItems((fallbackData as any).items ?? []);
+      }
+      setLoading(false);
+    };
+    load();
+  }, []);
 
   return (
     <section className="px-4 py-12 sm:px-6 lg:px-8">
@@ -35,16 +35,20 @@ export default async function MuslimPage() {
         <div className="mb-9 max-w-3xl">
           <p className="text-sm font-bold uppercase tracking-[0.18em] text-gold">Muslim Guide</p>
           <h1 className="mt-3 font-heading text-5xl font-bold text-navy dark:text-cream">Muslim Guide</h1>
-          <p className="mt-5 text-lg leading-8 text-ink/70 dark:text-cream/70">
-            Halal food, mosques, prayer rooms and Islamic sites across London.
-          </p>
+          <p className="mt-5 text-lg leading-8 text-ink/70 dark:text-cream/70">Halal food, mosques, prayer rooms and Islamic sites across London.</p>
         </div>
-        <DirectoryClient
-          items={items}
-          tabs={["Mosques", "Halal Food", "Prayer Rooms", "Islamic Sites"]}
-          mode="place"
-          searchPlaceholder="Search halal food or mosques"
-        />
+        {loading ? (
+          <div style={{ textAlign: 'center', padding: '60px', color: 'rgba(255,255,255,0.3)', fontFamily: "'DM Sans', sans-serif" }}>
+            Loading...
+          </div>
+        ) : (
+          <DirectoryClient
+            items={items}
+            tabs={["Mosques", "Halal Food", "Prayer Rooms", "Islamic Sites"]}
+            mode="place"
+            searchPlaceholder="Search halal food or mosques"
+          />
+        )}
       </div>
     </section>
   );
