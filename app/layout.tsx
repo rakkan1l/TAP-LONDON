@@ -6,6 +6,7 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import NFCBanner from "@/components/NFCBanner";
 import NovaAssistant from "@/components/NovaAssistant";
+import PopupLoader from "@/components/PopupLoader";
 
 const dmSans = DM_Sans({
   subsets: ["latin"],
@@ -61,8 +62,8 @@ export default function RootLayout({ children }: Readonly<{ children: ReactNode 
         <Navbar />
         <NFCBanner />
         <main>{children}</main>
-        {/* NOVA AI Assistant only — WhatsApp button removed */}
         <NovaAssistant />
+        <PopupLoader />
         <Footer />
       </body>
     </html>
