@@ -1,60 +1,49 @@
 import type { Metadata } from "next";
 import DirectoryClient from "@/components/DirectoryClient";
+import { db } from "@/lib/firebase";
+import { collection, getDocs, orderBy, query } from "firebase/firestore";
+import fallbackData from "@/data/kids.json";
+
+export const revalidate = 60;
 
 export const metadata: Metadata = {
-  title: "Kids & Family London | TAP LONDON",
-  description: "Best things to do with kids in London — attractions, entertainment, parks, family food, and toy shops."
+  title: "Kids \& Family in London | TAP LONDON",
+  description: "Best family attractions, parks and activities for kids in London."
 };
 
-const kidsItems = [
-  // Top Attractions
-  { id: "london-zoo", name: "ZSL London Zoo", category: "Top Attractions", area: "Regent's Park", icon: "🦁", image: "https://images.pexels.com/photos/247502/pexels-photo-247502.jpeg?auto=compress&cs=tinysrgb&w=800", description: "One of the world's oldest scientific zoos with over 700 species. Gorilla Kingdom, Penguin Beach, and Butterfly Paradise are family favourites.", openingHours: "Daily 10:00-18:00; varies by season", entryFee: "Paid — book online for discount", priceType: "Paid", mapsUrl: "https://www.google.com/maps/search/?api=1&query=London+Zoo+Regent's+Park" },
-  { id: "sealife", name: "SEA LIFE London Aquarium", category: "Top Attractions", area: "South Bank", icon: "🦈", image: "https://images.pexels.com/photos/3308285/pexels-photo-3308285.jpeg?auto=compress&cs=tinysrgb&w=800", description: "Stunning aquarium on the South Bank with sharks, rays, penguins, and a glass tunnel walk-through. Kids absolutely love it.", openingHours: "Daily 10:00-18:00", entryFee: "Paid — book online to save", priceType: "Paid", mapsUrl: "https://www.google.com/maps/search/?api=1&query=SEA+LIFE+London+Aquarium" },
-  { id: "natural-history-kids", name: "Natural History Museum", category: "Top Attractions", area: "South Kensington", icon: "🦕", image: "https://images.pexels.com/photos/30397052/pexels-photo-30397052.jpeg?auto=compress&cs=tinysrgb&w=800", description: "Free and completely unmissable — dinosaur galleries, blue whale skeleton, earthquake simulator, and hands-on science activities.", openingHours: "Daily 10:00-17:50", entryFee: "Free general admission", priceType: "Free", mapsUrl: "https://www.google.com/maps/search/?api=1&query=Natural+History+Museum+London" },
-  { id: "science-museum-kids", name: "Science Museum", category: "Top Attractions", area: "South Kensington", icon: "🚀", image: "https://images.pexels.com/photos/30397052/pexels-photo-30397052.jpeg?auto=compress&cs=tinysrgb&w=800", description: "Interactive exhibits on space, technology, medicine, and engineering. The Garden for under-5s and IMAX cinema are highlights.", openingHours: "Daily 10:00-18:00", entryFee: "Free general admission", priceType: "Free", mapsUrl: "https://www.google.com/maps/search/?api=1&query=Science+Museum+London" },
-  { id: "kidzania", name: "KidZania London", category: "Top Attractions", area: "Westfield London", icon: "🏙️", image: "https://images.pexels.com/photos/8613089/pexels-photo-8613089.jpeg?auto=compress&cs=tinysrgb&w=800", description: "A mini city where kids aged 4-14 can role-play as doctors, pilots, chefs, firefighters and 60+ other professions.", openingHours: "Daily 10:00-17:00; check website", entryFee: "Paid — book in advance", priceType: "Paid", mapsUrl: "https://www.google.com/maps/search/?api=1&query=KidZania+London+Westfield" },
-  { id: "british-museum-kids", name: "British Museum", category: "Top Attractions", area: "Bloomsbury", icon: "🏺", image: "https://images.pexels.com/photos/135018/pexels-photo-135018.jpeg?auto=compress&cs=tinysrgb&w=800", description: "Free world-class museum with Egyptian mummies, Greek sculptures, and family trails designed for children.", openingHours: "Daily 10:00-17:00", entryFee: "Free general admission", priceType: "Free", mapsUrl: "https://www.google.com/maps/search/?api=1&query=British+Museum+London" },
+export default async function KidsPage() {
+  let items: any[] = [];
 
-  // Fun Experiences
-  { id: "shreks-adventure", name: "Shrek's Adventure London", category: "Fun Experiences", area: "South Bank", icon: "🟢", image: "https://images.pexels.com/photos/1148998/pexels-photo-1148998.jpeg?auto=compress&cs=tinysrgb&w=800", description: "An immersive 4D DreamWorks experience with live actors, bus ride through fairy tale land, and Shrek's Swamp. Perfect for ages 4-12.", openingHours: "Daily 10:00-17:00; varies", entryFee: "Paid — book online", priceType: "Paid", mapsUrl: "https://www.google.com/maps/search/?api=1&query=Shrek's+Adventure+London" },
-  { id: "madame-tussauds", name: "Madame Tussauds London", category: "Fun Experiences", area: "Marylebone", icon: "⭐", image: "https://images.pexels.com/photos/1179156/pexels-photo-1179156.jpeg?auto=compress&cs=tinysrgb&w=800", description: "Famous wax figure attraction with celebrities, royals, Marvel superheroes, and Star Wars characters. Great for photos.", openingHours: "Daily 10:00-16:00; varies", entryFee: "Paid — book online for best price", priceType: "Paid", mapsUrl: "https://www.google.com/maps/search/?api=1&query=Madame+Tussauds+London" },
-  { id: "london-dungeon", name: "The London Dungeon", category: "Fun Experiences", area: "South Bank", icon: "👻", image: "https://images.pexels.com/photos/3030268/pexels-photo-3030268.jpeg?auto=compress&cs=tinysrgb&w=800", description: "Dark, theatrical walk-through London history with live actors, special effects, and thrilling rides. Best for ages 10+.", openingHours: "Daily 10:00-17:00; varies", entryFee: "Paid — book online", priceType: "Paid", mapsUrl: "https://www.google.com/maps/search/?api=1&query=London+Dungeon" },
-  { id: "london-eye-kids", name: "London Eye", category: "Fun Experiences", area: "South Bank", icon: "🎡", image: "https://images.pexels.com/photos/10548993/pexels-photo-10548993.jpeg?auto=compress&cs=tinysrgb&w=800", description: "30-minute rotation with amazing city views. Kids love spotting landmarks from above — Big Ben, Buckingham Palace and more.", openingHours: "Daily 11:00-18:00; varies", entryFee: "Paid — book in advance", priceType: "Paid", mapsUrl: "https://www.google.com/maps/search/?api=1&query=London+Eye" },
-  { id: "ripley-believe", name: "Ripley's Believe It or Not!", category: "Fun Experiences", area: "Piccadilly", icon: "🤯", image: "https://images.pexels.com/photos/1148998/pexels-photo-1148998.jpeg?auto=compress&cs=tinysrgb&w=800", description: "Weird and wonderful exhibits from around the world — shrunken heads, optical illusions, laser maze and interactive galleries.", openingHours: "Daily 10:00-19:00", entryFee: "Paid — book online", priceType: "Paid", mapsUrl: "https://www.google.com/maps/search/?api=1&query=Ripley's+Believe+It+or+Not+London" },
+  try {
+    const snap = await getDocs(
+      query(collection(db, "kids"), orderBy("order", "asc"))
+    );
+    if (!snap.empty) {
+      items = snap.docs.map(doc => ({ id: doc.id, ...doc.data() }));
+    } else {
+      // Fallback to JSON if Firebase is empty
+      items = (fallbackData as any).items ?? [];
+    }
+  } catch {
+    // Fallback to JSON on any error
+    items = (fallbackData as any).items ?? [];
+  }
 
-  // Parks & Outdoor
-  { id: "hyde-park-kids", name: "Hyde Park", category: "Parks & Outdoor", area: "West London", icon: "🌳", image: "https://images.pexels.com/photos/15301981/pexels-photo-15301981.jpeg?auto=compress&cs=tinysrgb&w=800", description: "Huge park with the Diana Memorial Playground — a pirate ship, teepees, and sand pit for young children. Plus boating on the Serpentine.", openingHours: "Daily 5:00-24:00", entryFee: "Free", priceType: "Free", mapsUrl: "https://www.google.com/maps/search/?api=1&query=Hyde+Park+London" },
-  { id: "regents-park-kids", name: "Regent's Park", category: "Parks & Outdoor", area: "Marylebone", icon: "🌹", image: "https://images.pexels.com/photos/13528203/pexels-photo-13528203.jpeg?auto=compress&cs=tinysrgb&w=800", description: "Spacious park next to London Zoo with playgrounds, boating lake, open air theatre, and beautiful rose gardens.", openingHours: "Daily from 5:00", entryFee: "Free", priceType: "Free", mapsUrl: "https://www.google.com/maps/search/?api=1&query=Regent's+Park+London" },
-  { id: "greenwich-park-kids", name: "Greenwich Park", category: "Parks & Outdoor", area: "Greenwich", icon: "⛳", image: "https://images.pexels.com/photos/460672/pexels-photo-460672.jpeg?auto=compress&cs=tinysrgb&w=800", description: "Hilltop park with a deer park, great skyline views, and plenty of space for kids to run around. Combine with the Cutty Sark nearby.", openingHours: "Daily from 6:00", entryFee: "Free", priceType: "Free", mapsUrl: "https://www.google.com/maps/search/?api=1&query=Greenwich+Park+London" },
-  { id: "crystal-palace-park", name: "Crystal Palace Park", category: "Parks & Outdoor", area: "Crystal Palace", icon: "🦖", image: "https://images.pexels.com/photos/1166209/pexels-photo-1166209.jpeg?auto=compress&cs=tinysrgb&w=800", description: "Victorian park famous for its life-size dinosaur sculptures by the lake — a unique, free, and totally memorable visit for kids.", openingHours: "Daily from 7:30", entryFee: "Free", priceType: "Free", mapsUrl: "https://www.google.com/maps/search/?api=1&query=Crystal+Palace+Park+London" },
-
-  // Family Food
-  { id: "hamleys-food", name: "Hamleys Toy Store Café", category: "Family Food", area: "Regent Street", icon: "🧸", image: "https://images.pexels.com/photos/1005638/pexels-photo-1005638.jpeg?auto=compress&cs=tinysrgb&w=800", description: "Grab a bite inside the world-famous Hamleys store. Kids are already entertained by toys on every floor.", openingHours: "Daily 10:00-21:00", entryFee: "Free to enter", priceType: "Free", mapsUrl: "https://www.google.com/maps/search/?api=1&query=Hamleys+London+Regent+Street" },
-  { id: "pizza-express-kids", name: "Pizza Express", category: "Family Food", area: "Citywide", icon: "🍕", image: "https://images.pexels.com/photos/1279330/pexels-photo-1279330.jpeg?auto=compress&cs=tinysrgb&w=800", description: "London's most family-friendly restaurant chain — dedicated kids menu, dough-making activities at selected branches, and relaxed atmosphere.", openingHours: "Daily 11:30-22:00; varies", entryFee: "££", priceType: "Paid", mapsUrl: "https://www.google.com/maps/search/?api=1&query=Pizza+Express+London" },
-  { id: "borough-market-kids", name: "Borough Market Family Visit", category: "Family Food", area: "London Bridge", icon: "🥐", image: "https://images.pexels.com/photos/31270596/pexels-photo-31270596.jpeg?auto=compress&cs=tinysrgb&w=800", description: "Let kids choose from global street food stalls — churros, mac and cheese, fresh juice, and hot dogs. A food adventure for curious eaters.", openingHours: "Mon-Sat; full market Wed-Sat", entryFee: "Free to enter", priceType: "Free", mapsUrl: "https://www.google.com/maps/search/?api=1&query=Borough+Market+London" },
-
-  // Toy Shops
-  { id: "hamleys", name: "Hamleys", category: "Toy Shops", area: "Regent Street", icon: "🧸", image: "https://images.pexels.com/photos/1005638/pexels-photo-1005638.jpeg?auto=compress&cs=tinysrgb&w=800", description: "The world's most famous toy shop — 7 floors of toys, games, demonstrations, and magic. Kids go absolutely wild here.", openingHours: "Daily 10:00-21:00", entryFee: "Free to enter", priceType: "Free", mapsUrl: "https://www.google.com/maps/search/?api=1&query=Hamleys+Regent+Street+London" },
-  { id: "lego-store", name: "LEGO Store London", category: "Toy Shops", area: "Leicester Square", icon: "🧱", image: "https://images.pexels.com/photos/3308285/pexels-photo-3308285.jpeg?auto=compress&cs=tinysrgb&w=800", description: "Flagship LEGO store with London-themed builds, pick-a-brick wall, and personalised minifigures. A must for any LEGO fan.", openingHours: "Daily 10:00-21:00; varies", entryFee: "Free to enter", priceType: "Free", mapsUrl: "https://www.google.com/maps/search/?api=1&query=LEGO+Store+Leicester+Square+London" },
-  { id: "disney-store", name: "Disney Store Oxford Street", category: "Toy Shops", area: "Oxford Street", icon: "✨", image: "https://images.pexels.com/photos/1005638/pexels-photo-1005638.jpeg?auto=compress&cs=tinysrgb&w=800", description: "Magical Disney flagship store on Oxford Street with character costumes, toys, collectibles, and interactive experiences.", openingHours: "Daily 10:00-21:00; varies", entryFee: "Free to enter", priceType: "Free", mapsUrl: "https://www.google.com/maps/search/?api=1&query=Disney+Store+Oxford+Street+London" },
-];
-
-export default function KidsPage() {
   return (
     <section className="px-4 py-12 sm:px-6 lg:px-8">
       <div className="mx-auto max-w-7xl">
         <div className="mb-9 max-w-3xl">
-          <p className="text-sm font-bold uppercase tracking-[0.18em] text-gold">Kids & Family</p>
-          <h1 className="mt-3 font-heading text-5xl font-bold text-navy dark:text-cream">Kids & Family London</h1>
+          <p className="text-sm font-bold uppercase tracking-[0.18em] text-gold">Kids \& Family</p>
+          <h1 className="mt-3 font-heading text-5xl font-bold text-navy dark:text-cream">Kids \& Family</h1>
           <p className="mt-5 text-lg leading-8 text-ink/70 dark:text-cream/70">
-            The best attractions, experiences, parks, food spots, and toy shops for families visiting London.
+            Attractions, parks, museums and activities the whole family will love.
           </p>
         </div>
         <DirectoryClient
-          items={kidsItems}
-          tabs={["Top Attractions", "Fun Experiences", "Parks & Outdoor", "Family Food", "Toy Shops"]}
+          items={items}
+          tabs={["Parks", "Museums", "Activities", "Entertainment"]}
           mode="kids"
-          searchPlaceholder="Search kids activities, parks, or areas"
+          searchPlaceholder="Search kids activities"
         />
       </div>
     </section>
