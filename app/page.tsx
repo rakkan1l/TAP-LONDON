@@ -3,20 +3,22 @@
 import Link from 'next/link';
 import { useEffect, useState, useRef } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
-import { FadeUp, SlideLeft, SlideRight, StaggerContainer, StaggerItem } from '@/components/ScrollAnimation';
+import { FadeUp, SlideLeft, SlideRight } from '@/components/ScrollAnimation';
 import SearchBar from '@/components/SearchBar';
+import { db } from '@/lib/firebase';
+import { doc, getDoc } from 'firebase/firestore';
 
 const TABS = ['All', 'Places', 'Food', 'Shopping', 'Nightlife'];
 
-const CATEGORY_CARDS = [
-  { label: 'Best Places',    sub: 'Attractions, hidden gems & photo spots',   href: '/places',    image: 'https://images.pexels.com/photos/460672/pexels-photo-460672.jpeg?auto=compress&cs=tinysrgb&w=800',    tag: 'Places' },
-  { label: 'Food & Drinks',  sub: 'Restaurants, halal food & local eats',      href: '/food',      image: 'https://images.pexels.com/photos/1640777/pexels-photo-1640777.jpeg?auto=compress&cs=tinysrgb&w=800',   tag: 'Food' },
-  { label: 'Shopping',       sub: 'Luxury streets, markets & boutiques',       href: '/shopping',  image: 'https://images.pexels.com/photos/1005638/pexels-photo-1005638.jpeg?auto=compress&cs=tinysrgb&w=800',   tag: 'Shopping' },
-  { label: 'Nightlife',      sub: 'Rooftop bars, clubs & live music',          href: '/nightlife', image: 'https://images.pexels.com/photos/1183434/pexels-photo-1183434.jpeg?auto=compress&cs=tinysrgb&w=800',   tag: 'Nightlife' },
-  { label: 'Transport',      sub: 'Tube, bus, taxi & travel tips',             href: '/transport', image: 'https://images.pexels.com/photos/5765/london-street-landmark-double-decker.jpg?auto=compress&cs=tinysrgb&w=800', tag: 'Places' },
-  { label: 'Kids & Family',  sub: 'Attractions, parks & family fun',           href: '/kids',      image: 'https://images.pexels.com/photos/247502/pexels-photo-247502.jpeg?auto=compress&cs=tinysrgb&w=800',    tag: 'Places' },
-  { label: 'Muslim Guide',   sub: 'Halal food, mosques & prayer rooms',        href: '/muslim',    image: 'https://images.pexels.com/photos/1537086/pexels-photo-1537086.jpeg?auto=compress&cs=tinysrgb&w=800',   tag: 'Food' },
-  { label: 'Emergency Help', sub: 'Safety tips, scam alerts & numbers',        href: '/emergency', image: 'https://images.pexels.com/photos/63901/pexels-photo-63901.jpeg?auto=compress&cs=tinysrgb&w=800',      tag: 'Places' },
+const DEFAULT_CARDS = [
+  { id: 'places',    label: 'Best Places',    sub: 'Attractions, hidden gems & photo spots', href: '/places',    image: 'https://images.pexels.com/photos/460672/pexels-photo-460672.jpeg?auto=compress&cs=tinysrgb&w=800',    tag: 'Places' },
+  { id: 'food',      label: 'Food & Drinks',  sub: 'Restaurants, halal food & local eats',   href: '/food',      image: 'https://images.pexels.com/photos/1640777/pexels-photo-1640777.jpeg?auto=compress&cs=tinysrgb&w=800',   tag: 'Food' },
+  { id: 'shopping',  label: 'Shopping',       sub: 'Luxury streets, markets & boutiques',    href: '/shopping',  image: 'https://images.pexels.com/photos/1005638/pexels-photo-1005638.jpeg?auto=compress&cs=tinysrgb&w=800',   tag: 'Shopping' },
+  { id: 'nightlife', label: 'Nightlife',      sub: 'Rooftop bars, clubs & live music',       href: '/nightlife', image: 'https://images.pexels.com/photos/1183434/pexels-photo-1183434.jpeg?auto=compress&cs=tinysrgb&w=800',   tag: 'Nightlife' },
+  { id: 'transport', label: 'Transport',      sub: 'Tube, bus, taxi & travel tips',          href: '/transport', image: 'https://images.pexels.com/photos/5765/london-street-landmark-double-decker.jpg?auto=compress&cs=tinysrgb&w=800', tag: 'Places' },
+  { id: 'kids',      label: 'Kids & Family',  sub: 'Attractions, parks & family fun',        href: '/kids',      image: 'https://images.pexels.com/photos/247502/pexels-photo-247502.jpeg?auto=compress&cs=tinysrgb&w=800',    tag: 'Places' },
+  { id: 'muslim',    label: 'Muslim Guide',   sub: 'Halal food, mosques & prayer rooms',     href: '/muslim',    image: 'https://images.pexels.com/photos/1537086/pexels-photo-1537086.jpeg?auto=compress&cs=tinysrgb&w=800',   tag: 'Food' },
+  { id: 'emergency', label: 'Emergency Help', sub: 'Safety tips, scam alerts & numbers',     href: '/emergency', image: 'https://images.pexels.com/photos/63901/pexels-photo-63901.jpeg?auto=compress&cs=tinysrgb&w=800',      tag: 'Places' },
 ];
 
 const HOW_IT_WORKS = [
@@ -33,24 +35,53 @@ const STATS = [
   { number: '24/7', label: 'AI Guide' },
 ];
 
+const DEFAULT_HERO = 'https://images.pexels.com/photos/672532/pexels-photo-672532.jpeg?auto=compress&cs=tinysrgb&w=1920';
+
 export default function HomePage() {
   const [visible, setVisible] = useState(false);
   const [activeTab, setActiveTab] = useState('All');
+  const [heroImage, setHeroImage] = useState(DEFAULT_HERO);
+  const [cards, setCards] = useState(DEFAULT_CARDS);
   const heroRef = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({ target: heroRef, offset: ['start start', 'end start'] });
   const heroY = useTransform(scrollYProgress, [0, 1], ['0%', '25%']);
   const heroOpacity = useTransform(scrollYProgress, [0, 0.7], [1, 0]);
   const heroScale = useTransform(scrollYProgress, [0, 1], [1, 1.08]);
 
-  const filtered = CATEGORY_CARDS.filter(c =>
-    (activeTab === 'All' || c.tag === activeTab) &&
-    c.label.toLowerCase().includes(searchVal.toLowerCase())
-  );
-
   useEffect(() => {
     const t = setTimeout(() => setVisible(true), 80);
     return () => clearTimeout(t);
   }, []);
+
+  // Load hero image and card images from Firebase
+  useEffect(() => {
+    const loadImages = async () => {
+      try {
+        // Load hero image
+        const heroDoc = await getDoc(doc(db, 'siteImages', 'hero'));
+        if (heroDoc.exists() && heroDoc.data()?.url) {
+          setHeroImage(heroDoc.data().url);
+        }
+
+        // Load category card images from Firebase siteImages
+        const updatedCards = await Promise.all(
+          DEFAULT_CARDS.map(async (card) => {
+            try {
+              const cardDoc = await getDoc(doc(db, 'siteImages', 'card-' + card.id));
+              if (cardDoc.exists() && cardDoc.data()?.url) {
+                return { ...card, image: cardDoc.data().url };
+              }
+            } catch {}
+            return card;
+          })
+        );
+        setCards(updatedCards);
+      } catch {}
+    };
+    loadImages();
+  }, []);
+
+  const filtered = cards.filter(c => activeTab === 'All' || c.tag === activeTab);
 
   return (
     <main style={{ overflowX: 'hidden', width: '100%' }}>
@@ -58,10 +89,10 @@ export default function HomePage() {
       {/* ═══════════════ HERO */}
       <section ref={heroRef} style={{ position: 'relative', height: '92vh', minHeight: '560px', width: '100%', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', overflow: 'hidden' }}>
 
-        {/* Parallax BG */}
+        {/* Parallax BG — reads from Firebase */}
         <motion.div style={{
           position: 'absolute', inset: '-10%', y: heroY, scale: heroScale,
-          backgroundImage: `url('https://images.pexels.com/photos/672532/pexels-photo-672532.jpeg?auto=compress&cs=tinysrgb&w=1920')`,
+          backgroundImage: `url('${heroImage}')`,
           backgroundSize: 'cover', backgroundPosition: 'center 30%', zIndex: 0,
         }} />
         <div style={{ position: 'absolute', inset: 0, zIndex: 1, background: 'linear-gradient(to bottom, rgba(10,10,24,0.45) 0%, rgba(10,10,24,0.3) 40%, rgba(10,10,24,0.82) 100%)' }} />
@@ -73,7 +104,6 @@ export default function HomePage() {
           animate={{ opacity: visible ? 1 : 0, y: visible ? 0 : 50 }}
           transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
         >
-          {/* Badge */}
           <motion.div
             initial={{ opacity: 0, y: -16 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.2, duration: 0.6 }}
             style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', background: 'rgba(201,168,76,0.13)', border: '1px solid rgba(201,168,76,0.35)', color: '#c9a84c', borderRadius: '40px', padding: '6px 18px', fontSize: '0.68rem', fontWeight: 700, letterSpacing: '2px', marginBottom: '24px', textTransform: 'uppercase' as const, backdropFilter: 'blur(10px)', fontFamily: "'DM Sans', sans-serif" }}
@@ -82,7 +112,6 @@ export default function HomePage() {
             London's Smart Travel Guide
           </motion.div>
 
-          {/* Headline */}
           <motion.h1
             initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.32, duration: 0.9 }}
             style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: 'clamp(2.8rem, 9vw, 6.2rem)', fontWeight: 700, lineHeight: 1, margin: '0 0 20px', letterSpacing: '-1px' }}
@@ -98,7 +127,6 @@ export default function HomePage() {
             Tap. Explore. Enjoy — your city guide, one touch away.
           </motion.p>
 
-          {/* Search bar */}
           <motion.div
             initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.6, duration: 0.7 }}
             style={{ marginBottom: '24px', width: '100%' }}
@@ -106,7 +134,6 @@ export default function HomePage() {
             <SearchBar />
           </motion.div>
 
-          {/* Quick links */}
           <motion.div
             initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.75, duration: 0.6 }}
             style={{ display: 'flex', gap: '10px', justifyContent: 'center', flexWrap: 'wrap' }}
@@ -121,7 +148,7 @@ export default function HomePage() {
                 fontFamily: "'DM Sans', sans-serif", fontSize: '0.72rem', color: 'rgba(255,255,255,0.55)',
                 textDecoration: 'none', background: 'rgba(255,255,255,0.07)',
                 border: '1px solid rgba(255,255,255,0.12)', borderRadius: '40px',
-                padding: '5px 14px', transition: 'all 0.2s',
+                padding: '5px 14px',
               }}>
                 {item.label}
               </Link>
@@ -129,13 +156,12 @@ export default function HomePage() {
           </motion.div>
         </motion.div>
 
-        {/* Scroll indicator */}
         <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 1.4, duration: 1 }} style={{ position: 'absolute', bottom: '28px', left: '50%', transform: 'translateX(-50%)', zIndex: 2, display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '6px' }}>
           <motion.div animate={{ scaleY: [1, 0.2, 1] }} transition={{ duration: 1.5, repeat: Infinity, ease: 'easeInOut' }} style={{ width: '1px', height: '36px', background: 'linear-gradient(to bottom, rgba(201,168,76,0.7), transparent)' }} />
         </motion.div>
       </section>
 
-      {/* ═══════════════ STATS BAR */}
+      {/* ═══════════════ STATS */}
       <section style={{ background: '#1a1a2e', borderBottom: '1px solid rgba(201,168,76,0.1)', width: '100%' }}>
         <div style={{ maxWidth: '860px', margin: '0 auto', display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)' }}>
           {STATS.map((s, i) => (
@@ -149,11 +175,9 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ═══════════════ EXPLORE SECTION */}
+      {/* ═══════════════ EXPLORE */}
       <section className="bg-[#f9f7f2] dark:bg-[#0d0d1a]" style={{ padding: '72px 20px 88px', width: '100%', boxSizing: 'border-box' as const }}>
         <div style={{ maxWidth: '1100px', margin: '0 auto' }}>
-
-          {/* Header + tabs row */}
           <FadeUp>
             <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', gap: '16px', marginBottom: '32px' }}>
               <div>
@@ -162,21 +186,16 @@ export default function HomePage() {
                   Everything in London
                 </h2>
               </div>
-              {/* Filter tabs */}
               <div style={{ display: 'flex', gap: '8px', flexWrap: 'wrap' }}>
                 {TABS.map(tab => (
-                  <button
-                    key={tab}
-                    onClick={() => setActiveTab(tab)}
-                    style={{
-                      fontFamily: "'DM Sans', sans-serif", fontSize: '0.78rem', fontWeight: 600,
-                      padding: '8px 18px', borderRadius: '40px', cursor: 'pointer', border: 'none',
-                      background: activeTab === tab ? '#c9a84c' : 'transparent',
-                      color: activeTab === tab ? '#1a1a2e' : '#888',
-                      outline: activeTab === tab ? 'none' : '1px solid rgba(150,150,150,0.25)',
-                      transition: 'all 0.2s ease',
-                    }}
-                  >
+                  <button key={tab} onClick={() => setActiveTab(tab)} style={{
+                    fontFamily: "'DM Sans', sans-serif", fontSize: '0.78rem', fontWeight: 600,
+                    padding: '8px 18px', borderRadius: '40px', cursor: 'pointer', border: 'none',
+                    background: activeTab === tab ? '#c9a84c' : 'transparent',
+                    color: activeTab === tab ? '#1a1a2e' : '#888',
+                    outline: activeTab === tab ? 'none' : '1px solid rgba(150,150,150,0.25)',
+                    transition: 'all 0.2s ease',
+                  }}>
                     {tab}
                   </button>
                 ))}
@@ -184,15 +203,9 @@ export default function HomePage() {
             </div>
           </FadeUp>
 
-          {/* Card grid */}
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(260px, 1fr))', gap: '14px' }}>
             {filtered.map((card, i) => (
-              <motion.div
-                key={card.href + card.label}
-                initial={{ opacity: 0, y: 22 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.4, delay: i * 0.05 }}
-              >
+              <motion.div key={card.id} initial={{ opacity: 0, y: 22 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.4, delay: i * 0.05 }}>
                 <Link href={card.href} style={{ textDecoration: 'none', display: 'block' }}>
                   <motion.div
                     whileHover={{ y: -6 }}
@@ -201,19 +214,13 @@ export default function HomePage() {
                   >
                     <img src={card.image} alt={card.label} style={{ width: '100%', height: '100%', objectFit: 'cover', position: 'absolute', inset: 0 }} />
                     <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to top, rgba(10,10,22,0.88) 0%, rgba(10,10,22,0.1) 55%, transparent 100%)' }} />
-
-                    {/* Tag pill top-left */}
                     <div style={{ position: 'absolute', top: '14px', left: '14px', background: 'rgba(201,168,76,0.9)', color: '#1a1a2e', padding: '3px 10px', borderRadius: '40px', fontFamily: "'DM Sans', sans-serif", fontSize: '0.6rem', fontWeight: 700, letterSpacing: '0.8px', textTransform: 'uppercase' as const }}>
                       {card.tag}
                     </div>
-
-                    {/* Text bottom */}
                     <div style={{ position: 'absolute', bottom: 0, left: 0, right: 0, padding: '20px 18px' }}>
                       <div style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: '1.3rem', fontWeight: 700, color: '#ffffff', marginBottom: '5px', lineHeight: 1.15 }}>{card.label}</div>
                       <div style={{ fontFamily: "'DM Sans', sans-serif", fontSize: '0.7rem', color: 'rgba(255,255,255,0.5)' }}>{card.sub}</div>
                     </div>
-
-                    {/* Arrow */}
                     <div style={{ position: 'absolute', bottom: '20px', right: '18px', width: '32px', height: '32px', background: 'rgba(201,168,76,0.15)', border: '1px solid rgba(201,168,76,0.3)', borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
                       <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#c9a84c" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
                         <path d="M5 12h14M12 5l7 7-7 7"/>
@@ -237,7 +244,6 @@ export default function HomePage() {
               <h2 style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: 'clamp(1.9rem, 4.5vw, 3rem)', color: '#ffffff', fontWeight: 700, margin: 0 }}>A souvenir that opens the city</h2>
             </div>
           </FadeUp>
-
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '1px', background: 'rgba(201,168,76,0.07)' }}>
             {HOW_IT_WORKS.map((item, i) => (
               <motion.div key={item.title} initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.45, delay: i * 0.09 }}
