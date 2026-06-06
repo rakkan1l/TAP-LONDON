@@ -1,13 +1,34 @@
 import type { Metadata } from "next";
 import DirectoryClient from "@/components/DirectoryClient";
-import places from "@/data/places.json";
+import { db } from "@/lib/firebase";
+import { collection, getDocs, orderBy, query } from "firebase/firestore";
+import fallbackData from "@/data/places.json";
+
+export const revalidate = 60;
 
 export const metadata: Metadata = {
   title: "Best Places in London | TAP LONDON",
-  description: "Top attractions, hidden gems, photo spots and free things to do in London with TAP LONDON."
+  description: "Top attractions, hidden gems, photo spots and free things to do in London."
 };
 
-export default function PlacesPage() {
+export default async function PlacesPage() {
+  let items: any[] = [];
+
+  try {
+    const snap = await getDocs(
+      query(collection(db, "places"), orderBy("order", "asc"))
+    );
+    if (!snap.empty) {
+      items = snap.docs.map(doc => ({ id: doc.id, ...doc.data() }));
+    } else {
+      // Fallback to JSON if Firebase is empty
+      items = (fallbackData as any).items ?? [];
+    }
+  } catch {
+    // Fallback to JSON on any error
+    items = (fallbackData as any).items ?? [];
+  }
+
   return (
     <section className="px-4 py-12 sm:px-6 lg:px-8">
       <div className="mx-auto max-w-7xl">
@@ -19,7 +40,7 @@ export default function PlacesPage() {
           </p>
         </div>
         <DirectoryClient
-          items={places.items}
+          items={items}
           tabs={["Top Attractions", "Hidden Gems", "Photo Spots", "Free Things"]}
           mode="place"
           searchPlaceholder="Search places, areas, or attractions"
