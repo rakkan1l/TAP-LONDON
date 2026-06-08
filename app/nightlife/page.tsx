@@ -2,8 +2,7 @@
 
 import { useEffect, useState } from 'react';
 import DirectoryClient from '@/components/DirectoryClient';
-import { db } from '@/lib/firebase';
-import { collection, getDocs, orderBy, query } from 'firebase/firestore';
+import { fetchCollection } from '@/lib/firestore';
 import fallbackData from '@/data/nightlife.json';
 
 export default function NightlifePage() {
@@ -12,16 +11,10 @@ export default function NightlifePage() {
 
   useEffect(() => {
     const load = async () => {
-      try {
-        const snap = await getDocs(
-          query(collection(db, 'nightlife'), orderBy('order', 'asc'))
-        );
-        if (!snap.empty) {
-          setItems(snap.docs.map(doc => ({ id: doc.id, ...doc.data() })));
-        } else {
-          setItems((fallbackData as any).items ?? []);
-        }
-      } catch {
+      const firebaseItems = await fetchCollection('nightlife');
+      if (firebaseItems && firebaseItems.length > 0) {
+        setItems(firebaseItems);
+      } else {
         setItems((fallbackData as any).items ?? []);
       }
       setLoading(false);
@@ -38,16 +31,9 @@ export default function NightlifePage() {
           <p className="mt-5 text-lg leading-8 text-ink/70 dark:text-cream/70">Rooftop bars, underground clubs, live music venues and more.</p>
         </div>
         {loading ? (
-          <div style={{ textAlign: 'center', padding: '60px', color: 'rgba(255,255,255,0.3)', fontFamily: "'DM Sans', sans-serif" }}>
-            Loading...
-          </div>
+          <div style={{ textAlign: 'center', padding: '60px', color: 'rgba(26,26,46,0.3)', fontFamily: "'DM Sans', sans-serif" }}>Loading...</div>
         ) : (
-          <DirectoryClient
-            items={items}
-            tabs={["Bars", "Clubs", "Live Music", "Rooftop Bars"]}
-            mode="nightlife"
-            searchPlaceholder="Search venues or areas"
-          />
+          <DirectoryClient items={items} tabs={["Bars", "Clubs", "Live Music", "Rooftop Bars"]} mode="nightlife" searchPlaceholder="Search venues or areas" />
         )}
       </div>
     </section>
