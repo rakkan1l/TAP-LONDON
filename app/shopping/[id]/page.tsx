@@ -3,8 +3,7 @@
 import React, { useEffect, useState } from "react";
 import Link from "next/link";
 import { useParams } from "next/navigation";
-import { db } from "@/lib/firebase";
-import { doc, getDoc } from "firebase/firestore";
+import { fetchDocument } from "@/lib/firestore";
 import shoppingJson from "@/data/shopping.json";
 
 export default function ShoppingDetailPage() {
@@ -15,11 +14,9 @@ export default function ShoppingDetailPage() {
 
   useEffect(() => {
     const load = async () => {
-      try {
-        const fbDoc = await getDoc(doc(db, "shopping", id));
-        if (fbDoc.exists()) { setItem({ id: fbDoc.id, ...fbDoc.data() }); }
-        else { const found = (shoppingJson.items as any[]).find((s: any) => s.id === id); setItem(found || null); }
-      } catch { const found = (shoppingJson.items as any[]).find((s: any) => s.id === id); setItem(found || null); }
+      const fbItem = await fetchDocument('shopping', id);
+      if (fbItem && fbItem.name) { setItem(fbItem); }
+      else { setItem((shoppingJson.items as any[]).find((s: any) => s.id === id) || null); }
       setLoading(false);
     };
     load();
@@ -35,7 +32,6 @@ export default function ShoppingDetailPage() {
         <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to bottom, rgba(0,0,0,0.15) 0%, rgba(26,26,46,0.88) 100%)" }} />
         <Link href="/shopping" style={{ position: "absolute", top: "16px", left: "16px", background: "rgba(255,255,255,0.18)", backdropFilter: "blur(8px)", border: "1px solid rgba(255,255,255,0.3)", color: "#ffffff", borderRadius: "50px", padding: "7px 16px", fontFamily: "'DM Sans',sans-serif", fontSize: "0.8rem", fontWeight: 600, textDecoration: "none" }}>← Back</Link>
         <div style={{ position: "absolute", bottom: 0, left: 0, right: 0, padding: "16px 20px 20px" }}>
-          <div style={{ display: "inline-block", background: "rgba(201,168,76,0.2)", border: "1px solid rgba(201,168,76,0.5)", color: "#c9a84c", borderRadius: "50px", padding: "3px 12px", fontSize: "0.7rem", fontWeight: 600, letterSpacing: "1px", textTransform: "uppercase" as const, marginBottom: "6px", fontFamily: "'DM Sans',sans-serif" }}>{item.category}</div>
           <h1 style={{ fontFamily: "'Cormorant Garamond',serif", fontSize: "clamp(1.7rem,5.5vw,2.8rem)", fontWeight: 700, color: "#ffffff", lineHeight: 1.15, margin: 0 }}>{item.name}</h1>
         </div>
       </div>
