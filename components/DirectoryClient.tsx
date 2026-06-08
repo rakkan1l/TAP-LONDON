@@ -2,7 +2,6 @@
 
 import { useMemo, useState } from "react";
 import PlaceCard, { type CardItem } from "./PlaceCard";
-import SearchBar from "./SearchBar";
 
 type DirectoryClientProps = {
   items: CardItem[];
@@ -24,7 +23,7 @@ const FOOD_FILTERS = [
 ];
 
 export default function DirectoryClient({
-  items, tabs, mode = "place", searchPlaceholder, showSearch = true
+  items, tabs, mode = "place", searchPlaceholder = "Search...", showSearch = true
 }: DirectoryClientProps) {
   const [active, setActive] = useState(tabs[0] ?? "All");
   const [query, setQuery] = useState("");
@@ -33,17 +32,14 @@ export default function DirectoryClient({
   const showFilters = mode === "food";
 
   const filtered = useMemo(() => {
-    // Tab filter
     const source = active === "All"
       ? items
       : items.filter((item) => (item.category ?? item.section) === active);
 
-    // Tag filter
     const tagFiltered = activeFilter
       ? source.filter((item) => item.tags?.includes(activeFilter))
       : source;
 
-    // Search filter
     const needle = query.trim().toLowerCase();
     if (!needle) return tagFiltered;
 
@@ -65,7 +61,20 @@ export default function DirectoryClient({
       {/* Search + Tabs */}
       <div className="grid gap-4 lg:grid-cols-[1fr_auto] lg:items-center">
         {showSearch ? (
-          <SearchBar value={query} onChange={setQuery} placeholder={searchPlaceholder} />
+          <input
+            type="text"
+            value={query}
+            onChange={e => setQuery(e.target.value)}
+            placeholder={searchPlaceholder}
+            style={{
+              width: "100%", boxSizing: "border-box" as const,
+              background: "rgba(26,26,46,0.06)",
+              border: "1px solid rgba(26,26,46,0.12)",
+              borderRadius: "50px", padding: "12px 20px",
+              fontFamily: "'DM Sans', sans-serif", fontSize: "0.9rem",
+              color: "#1a1a2e", outline: "none",
+            }}
+          />
         ) : (
           <div />
         )}
@@ -95,15 +104,10 @@ export default function DirectoryClient({
               key={f.value}
               onClick={() => setActiveFilter(activeFilter === f.value ? null : f.value)}
               style={{
-                flexShrink: 0,
-                borderRadius: "50px",
-                padding: "6px 14px",
-                fontSize: "0.75rem",
-                fontWeight: 700,
-                fontFamily: "'DM Sans', sans-serif",
-                cursor: "pointer",
-                border: "none",
-                transition: "all 0.2s",
+                flexShrink: 0, borderRadius: "50px", padding: "6px 14px",
+                fontSize: "0.75rem", fontWeight: 700,
+                fontFamily: "'DM Sans', sans-serif", cursor: "pointer",
+                border: "none", transition: "all 0.2s",
                 background: activeFilter === f.value ? "#c9a84c" : "rgba(26,26,46,0.06)",
                 color: activeFilter === f.value ? "#1a1a2e" : "#555",
               }}
