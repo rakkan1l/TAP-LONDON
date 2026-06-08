@@ -2,8 +2,7 @@
 
 import { useEffect, useState } from 'react';
 import DirectoryClient from '@/components/DirectoryClient';
-import { db } from '@/lib/firebase';
-import { collection, getDocs, orderBy, query } from 'firebase/firestore';
+import { fetchCollection } from '@/lib/firestore';
 import fallbackData from '@/data/food.json';
 
 export default function FoodPage() {
@@ -12,16 +11,10 @@ export default function FoodPage() {
 
   useEffect(() => {
     const load = async () => {
-      try {
-        const snap = await getDocs(
-          query(collection(db, 'food'), orderBy('order', 'asc'))
-        );
-        if (!snap.empty) {
-          setItems(snap.docs.map(doc => ({ id: doc.id, ...doc.data() })));
-        } else {
-          setItems((fallbackData as any).items ?? []);
-        }
-      } catch {
+      const firebaseItems = await fetchCollection('food');
+      if (firebaseItems && firebaseItems.length > 0) {
+        setItems(firebaseItems);
+      } else {
         setItems((fallbackData as any).items ?? []);
       }
       setLoading(false);
@@ -38,16 +31,9 @@ export default function FoodPage() {
           <p className="mt-5 text-lg leading-8 text-ink/70 dark:text-cream/70">Restaurants, halal food, speciality coffee, and the best local food spots.</p>
         </div>
         {loading ? (
-          <div style={{ textAlign: 'center', padding: '60px', color: 'rgba(255,255,255,0.3)', fontFamily: "'DM Sans', sans-serif" }}>
-            Loading...
-          </div>
+          <div style={{ textAlign: 'center', padding: '60px', color: 'rgba(26,26,46,0.3)', fontFamily: "'DM Sans', sans-serif" }}>Loading...</div>
         ) : (
-          <DirectoryClient
-            items={items}
-            tabs={["Restaurants", "🏷️ Offers", "Halal Food", "Coffee Shops", "Local Spots"]}
-            mode="food"
-            searchPlaceholder="Search food, cuisine, or area"
-          />
+          <DirectoryClient items={items} tabs={["Restaurants", "Halal Food", "Coffee Shops", "Local Spots"]} mode="food" searchPlaceholder="Search food, cuisine, or area" />
         )}
       </div>
     </section>
