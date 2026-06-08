@@ -3,28 +3,19 @@
 import React, { useEffect, useState } from "react";
 import Link from "next/link";
 import { useParams } from "next/navigation";
-import { db } from "@/lib/firebase";
-import { doc, getDoc } from "firebase/firestore";
+import { fetchDocument } from "@/lib/firestore";
 import foodJson from "@/data/food.json";
 
 function PhotoGallery({ photos, name }: { photos: string[]; name: string }) {
   const [active, setActive] = useState(0);
+  if (!photos.length) return null;
   return (
     <div style={{ marginBottom: "24px" }}>
       <div style={{ borderRadius: "16px", overflow: "hidden", aspectRatio: "4/3", position: "relative", background: "#1a1a2e", marginBottom: "10px" }}>
-        <img src={photos[active]} alt={`${name} ${active + 1}`} style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }} />
-        {active > 0 && <button onClick={() => setActive(active - 1)} style={{ position: "absolute", left: "10px", top: "50%", transform: "translateY(-50%)", background: "rgba(0,0,0,0.5)", border: "none", color: "#fff", width: "36px", height: "36px", borderRadius: "50%", fontSize: "1.2rem", cursor: "pointer" }}>‹</button>}
-        {active < photos.length - 1 && <button onClick={() => setActive(active + 1)} style={{ position: "absolute", right: "10px", top: "50%", transform: "translateY(-50%)", background: "rgba(0,0,0,0.5)", border: "none", color: "#fff", width: "36px", height: "36px", borderRadius: "50%", fontSize: "1.2rem", cursor: "pointer" }}>›</button>}
+        <img src={photos[active]} alt={name} style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }} />
+        {active > 0 && <button onClick={() => setActive(active - 1)} style={{ position: "absolute", left: "10px", top: "50%", transform: "translateY(-50%)", background: "rgba(0,0,0,0.5)", border: "none", color: "#fff", width: "36px", height: "36px", borderRadius: "50%", fontSize: "1.2rem", cursor: "pointer", display: "flex", alignItems: "center", justifyContent: "center" }}>‹</button>}
+        {active < photos.length - 1 && <button onClick={() => setActive(active + 1)} style={{ position: "absolute", right: "10px", top: "50%", transform: "translateY(-50%)", background: "rgba(0,0,0,0.5)", border: "none", color: "#fff", width: "36px", height: "36px", borderRadius: "50%", fontSize: "1.2rem", cursor: "pointer", display: "flex", alignItems: "center", justifyContent: "center" }}>›</button>}
       </div>
-      {photos.length > 1 && (
-        <div style={{ display: "flex", gap: "8px", overflowX: "auto" }}>
-          {photos.map((p, i) => (
-            <button key={i} onClick={() => setActive(i)} style={{ flexShrink: 0, width: "72px", height: "54px", borderRadius: "8px", overflow: "hidden", padding: 0, border: i === active ? "2.5px solid #c9a84c" : "2.5px solid transparent", cursor: "pointer", opacity: i === active ? 1 : 0.6 }}>
-              <img src={p} alt="" style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }} />
-            </button>
-          ))}
-        </div>
-      )}
     </div>
   );
 }
@@ -37,27 +28,18 @@ export default function FoodDetailPage() {
 
   useEffect(() => {
     const load = async () => {
-      try {
-        const fbDoc = await getDoc(doc(db, "food", id));
-        if (fbDoc.exists()) {
-          setItem({ id: fbDoc.id, ...fbDoc.data() });
-        } else {
-          const found = (foodJson.items as any[]).find((f: any) => f.id === id);
-          setItem(found || null);
-        }
-      } catch {
-        const found = (foodJson.items as any[]).find((f: any) => f.id === id);
-        setItem(found || null);
-      }
+      const fbItem = await fetchDocument('food', id);
+      if (fbItem && fbItem.name) { setItem(fbItem); }
+      else { setItem((foodJson.items as any[]).find((f: any) => f.id === id) || null); }
       setLoading(false);
     };
     load();
   }, [id]);
 
   if (loading) return <div style={{ minHeight: "100vh", display: "flex", alignItems: "center", justifyContent: "center" }}><div style={{ fontFamily: "'DM Sans',sans-serif", color: "rgba(26,26,46,0.4)" }}>Loading...</div></div>;
-  if (!item) return <div style={{ minHeight: "100vh", display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", gap: "16px" }}><div style={{ fontFamily: "'Cormorant Garamond',serif", fontSize: "2rem" }}>Not found</div><Link href="/food" style={{ color: "#c9a84c" }}>← Back to Food</Link></div>;
+  if (!item) return <div style={{ minHeight: "100vh", display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", gap: "16px" }}><div style={{ fontFamily: "'Cormorant Garamond',serif", fontSize: "2rem" }}>Not found</div><Link href="/food" style={{ color: "#c9a84c" }}>← Back</Link></div>;
 
-  const photos = (item.gallery && item.gallery.length > 0) ? [item.image, ...item.gallery].filter(Boolean) : [item.image].filter(Boolean);
+  const photos = (item.gallery?.length > 0) ? [item.image, ...item.gallery].filter(Boolean) : [item.image].filter(Boolean);
 
   return (
     <main className="bg-[#f9f7f2] dark:bg-[#0d0d1a]" style={{ minHeight: "100vh" }}>
@@ -71,24 +53,19 @@ export default function FoodDetailPage() {
           {item.cuisine && <p style={{ fontFamily: "'DM Sans',sans-serif", fontSize: "0.72rem", color: "rgba(201,168,76,0.85)", margin: 0 }}>🍽️ {item.cuisine}</p>}
         </div>
       </div>
-
       <div style={{ maxWidth: "800px", margin: "0 auto", padding: "20px 16px 60px" }}>
         <PhotoGallery photos={photos} name={item.name} />
-
-        <div className="bg-white dark:bg-[#1a1a2e] border border-navy/10 dark:border-gold/20" style={{ borderRadius: "16px", padding: "18px 20px", marginBottom: "18px", boxShadow: "0 4px 20px rgba(0,0,0,0.06)", display: "flex", flexDirection: "column", gap: "12px" }}>
+        <div className="bg-white dark:bg-[#1a1a2e] border border-navy/10 dark:border-gold/20" style={{ borderRadius: "16px", padding: "18px 20px", marginBottom: "18px", display: "flex", flexDirection: "column", gap: "12px" }}>
           {item.area && <div style={{ display: "flex", gap: "10px" }}><span>📍</span><div><div style={{ fontFamily: "'DM Sans',sans-serif", fontSize: "0.65rem", color: "#888", fontWeight: 600, textTransform: "uppercase" as const }}>Area</div><div style={{ fontFamily: "'DM Sans',sans-serif", fontSize: "0.88rem", fontWeight: 600 }}>{item.area}</div></div></div>}
           {item.openingHours && <div style={{ display: "flex", gap: "10px" }}><span>🕐</span><div><div style={{ fontFamily: "'DM Sans',sans-serif", fontSize: "0.65rem", color: "#888", fontWeight: 600, textTransform: "uppercase" as const }}>Hours</div><div style={{ fontFamily: "'DM Sans',sans-serif", fontSize: "0.88rem", fontWeight: 600 }}>{item.openingHours}</div></div></div>}
           {item.priceRange && <div style={{ display: "flex", gap: "10px" }}><span>💷</span><div><div style={{ fontFamily: "'DM Sans',sans-serif", fontSize: "0.65rem", color: "#888", fontWeight: 600, textTransform: "uppercase" as const }}>Price</div><div style={{ fontFamily: "'DM Sans',sans-serif", fontSize: "0.88rem", fontWeight: 600 }}>{item.priceRange}</div></div></div>}
           {item.mustTry && <div style={{ display: "flex", gap: "10px" }}><span>⭐</span><div><div style={{ fontFamily: "'DM Sans',sans-serif", fontSize: "0.65rem", color: "#888", fontWeight: 600, textTransform: "uppercase" as const }}>Must Try</div><div style={{ fontFamily: "'DM Sans',sans-serif", fontSize: "0.88rem", fontWeight: 600 }}>{item.mustTry}</div></div></div>}
           {item.vibe && <div style={{ display: "flex", gap: "10px" }}><span>✨</span><div><div style={{ fontFamily: "'DM Sans',sans-serif", fontSize: "0.65rem", color: "#888", fontWeight: 600, textTransform: "uppercase" as const }}>Vibe</div><div style={{ fontFamily: "'DM Sans',sans-serif", fontSize: "0.88rem", fontWeight: 600 }}>{item.vibe}</div></div></div>}
-          {item.offerTag && <div style={{ display: "flex", gap: "10px", alignItems: "center" }}><span>🏷️</span><div style={{ background: "linear-gradient(135deg,#c9a84c,#f0d07a)", color: "#1a1a2e", borderRadius: "20px", padding: "4px 14px", fontSize: "0.76rem", fontWeight: 700, fontFamily: "'DM Sans',sans-serif" }}>Special Offer Available</div></div>}
         </div>
-
-        <div className="bg-white dark:bg-[#1a1a2e] border border-navy/10 dark:border-gold/20" style={{ borderRadius: "16px", padding: "20px", marginBottom: "18px", boxShadow: "0 4px 20px rgba(0,0,0,0.06)" }}>
+        <div className="bg-white dark:bg-[#1a1a2e] border border-navy/10 dark:border-gold/20" style={{ borderRadius: "16px", padding: "20px", marginBottom: "18px" }}>
           <h2 className="text-navy dark:text-[#f9f7f2]" style={{ fontFamily: "'Cormorant Garamond',serif", fontSize: "1.4rem", fontWeight: 700, marginBottom: "10px", marginTop: 0 }}>About {item.name}</h2>
           <p className="text-[#444] dark:text-[#ccc]" style={{ fontFamily: "'DM Sans',sans-serif", fontSize: "0.9rem", lineHeight: 1.8, margin: 0 }}>{item.description}</p>
         </div>
-
         {item.mapsUrl && <a href={item.mapsUrl} target="_blank" rel="noreferrer" style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: "8px", width: "100%", background: "#1a1a2e", color: "#c9a84c", padding: "15px", borderRadius: "50px", fontFamily: "'DM Sans',sans-serif", fontSize: "0.95rem", fontWeight: 700, textDecoration: "none", marginBottom: "12px", boxSizing: "border-box" as const }}>📍 Get Directions on Google Maps</a>}
         <Link href="/food" style={{ display: "flex", alignItems: "center", justifyContent: "center", width: "100%", background: "transparent", padding: "13px", borderRadius: "50px", fontFamily: "'DM Sans',sans-serif", fontSize: "0.9rem", fontWeight: 600, textDecoration: "none", boxSizing: "border-box" as const, border: "2px solid" }} className="text-navy dark:text-[#f9f7f2] border-navy dark:border-[#f9f7f2]">← Back to Food</Link>
       </div>
