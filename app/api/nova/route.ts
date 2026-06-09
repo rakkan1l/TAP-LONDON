@@ -4,8 +4,7 @@ export async function POST(req: NextRequest) {
   try {
     const { message } = await req.json();
 
-    // API key hardcoded — Vercel free plan doesn't support env vars
-    const apiKey = "AQ.Ab8RN6IA_dZyLvqil55E23kGPJZqvMBzIx5AFPaqfUeTX1vq6w";
+    const apiKey = "AIzaSyD_I58jmUocEbluOOEy5mlyPJtSQLzjIl4";
 
     const systemPrompt = `You are NOVA, a smart friendly AI assistant built into TAP LONDON — a premium London tourism app.
 
