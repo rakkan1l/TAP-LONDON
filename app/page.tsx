@@ -1,3 +1,4 @@
+
 'use client';
 
 import Link from 'next/link';
@@ -196,24 +197,6 @@ export default function HomePage() {
             ))}
           </div>
 
-          {/* Top Lists SEO links */}
-          <div style={{ marginTop: '48px', padding: '28px', background: 'rgba(201,168,76,0.05)', border: '1px solid rgba(201,168,76,0.15)', borderRadius: '14px' }}>
-            <p style={{ fontFamily: "'DM Sans', sans-serif", fontSize: '0.68rem', color: '#c9a84c', fontWeight: 700, letterSpacing: '2px', textTransform: 'uppercase' as const, marginBottom: '14px' }}>Top Lists</p>
-            <div style={{ display: 'flex', flexWrap: 'wrap', gap: '8px' }}>
-              {[
-                { label: 'Best Free Things To Do', href: '/best-free-things-london' },
-                { label: 'Best Places For Kids', href: '/best-places-kids-london' },
-                { label: 'Best Rooftop Bars', href: '/best-rooftop-bars-london' },
-                { label: 'Best Markets', href: '/best-markets-london' },
-                { label: 'Best Halal Restaurants', href: '/best-halal-restaurants-london' },
-                { label: 'Best Hidden Gems', href: '/best-hidden-gems-london' },
-              ].map(item => (
-                <Link key={item.href} href={item.href} style={{ fontFamily: "'DM Sans', sans-serif", fontSize: '0.78rem', color: '#c9a84c', textDecoration: 'none', background: 'rgba(201,168,76,0.08)', border: '1px solid rgba(201,168,76,0.2)', borderRadius: '8px', padding: '7px 14px', fontWeight: 600 }}>
-                  {item.label} →
-                </Link>
-              ))}
-            </div>
-          </div>
         </div>
       </section>
 
