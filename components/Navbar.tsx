@@ -9,11 +9,11 @@ const navLinks = [
   { href: "/places", label: "Places", color: null },
   { href: "/food", label: "Food", color: null },
   { href: "/shopping", label: "Shopping", color: null },
-  { href: "/transport", label: "Transport", color: null },
-  { href: "/kids", label: "Kids", color: null },
   { href: "/nightlife", label: "Nightlife", color: null },
-  { href: "/muslim", label: "Muslim Guide", color: "muslim" },
+  { href: "/kids", label: "Kids & Family", color: null },
+  { href: "/transport", label: "Transport", color: null },
   { href: "/emergency", label: "Emergency", color: "emergency" },
+  { href: "/muslim", label: "Muslim Guide", color: "muslim" },
 ];
 
 const LANGUAGES = [
@@ -61,7 +61,6 @@ export default function Navbar() {
   const [currentLang, setCurrentLang] = useState(LANGUAGES[0]);
   const langRef = useRef<HTMLDivElement>(null);
 
-  // Dark mode init
   useEffect(() => {
     const saved = localStorage.getItem("taplon-dark");
     const isDark = saved === "true";
@@ -76,7 +75,6 @@ export default function Navbar() {
     localStorage.setItem("taplon-dark", String(next));
   }
 
-  // Weather fetch
   useEffect(() => {
     fetch("https://api.open-meteo.com/v1/forecast?latitude=51.5074&longitude=-0.1278&current_weather=true")
       .then((r) => r.json())
@@ -84,7 +82,6 @@ export default function Navbar() {
       .catch(() => {});
   }, []);
 
-  // Language init from localStorage
   useEffect(() => {
     const saved = localStorage.getItem("taplon-lang");
     if (saved) {
@@ -93,7 +90,6 @@ export default function Navbar() {
     }
   }, []);
 
-  // Inject Google Translate script once
   useEffect(() => {
     if (document.getElementById("gt-script")) return;
     (window as any).googleTranslateElementInit = () => {
@@ -113,9 +109,7 @@ export default function Navbar() {
     setCurrentLang(lang);
     localStorage.setItem("taplon-lang", lang.code);
     setLangOpen(false);
-
     if (lang.code === "en") {
-      // Reset to English — clear Google Translate cookie
       const cookies = document.cookie.split(";");
       for (const c of cookies) {
         if (c.trim().startsWith("googtrans")) {
@@ -126,14 +120,11 @@ export default function Navbar() {
       window.location.reload();
       return;
     }
-
-    // Set Google Translate cookie and reload
     document.cookie = `googtrans=/en/${lang.googleCode}; path=/`;
     document.cookie = `googtrans=/en/${lang.googleCode}; path=/; domain=${window.location.hostname}`;
     window.location.reload();
   }
 
-  // Close dropdown on outside click
   useEffect(() => {
     function handleClick(e: MouseEvent) {
       if (langRef.current && !langRef.current.contains(e.target as Node)) setLangOpen(false);
@@ -157,7 +148,6 @@ export default function Navbar() {
 
   return (
     <>
-      {/* Hidden Google Translate element + hide toolbar */}
       <div id="google_translate_element" style={{ display: "none" }} />
       <style>{`
         .goog-te-banner-frame, .skiptranslate { display: none !important; }
@@ -169,7 +159,6 @@ export default function Navbar() {
       <header className="sticky top-0 z-50 border-b border-white/35 bg-cream/86 shadow-sm backdrop-blur-xl dark:bg-[#0d0d1a]/90 dark:border-white/10">
         <nav className="mx-auto flex max-w-7xl items-center justify-between px-4 py-3 sm:px-6 lg:px-8">
 
-          {/* Logo */}
           <Link href="/" className="group flex min-h-12 items-center gap-3" onClick={() => setOpen(false)}>
             <BridgeIcon />
             <span className="font-heading text-xl font-bold tracking-[0.08em] text-navy dark:text-cream">
@@ -177,10 +166,7 @@ export default function Navbar() {
             </span>
           </Link>
 
-          {/* Right side */}
           <div className="flex items-center gap-2">
-
-            {/* Weather — small pill */}
             {weather && (
               <div className="flex items-center gap-1 rounded-full bg-white/80 dark:bg-white/10 border border-navy/10 dark:border-white/15 px-2.5 py-1 text-xs font-semibold text-navy dark:text-cream backdrop-blur">
                 <span style={{ fontSize: "0.8rem" }}>{getWeatherEmoji(weather.code)}</span>
@@ -188,7 +174,6 @@ export default function Navbar() {
               </div>
             )}
 
-            {/* Language selector */}
             <div ref={langRef} style={{ position: "relative" }}>
               <button
                 onClick={() => setLangOpen(!langOpen)}
@@ -218,7 +203,6 @@ export default function Navbar() {
               )}
             </div>
 
-            {/* Dark mode toggle — small */}
             <button
               type="button"
               onClick={toggleDark}
@@ -229,7 +213,6 @@ export default function Navbar() {
               {dark ? "☀️" : "🌙"}
             </button>
 
-            {/* Hamburger */}
             <button
               type="button"
               className="inline-flex h-9 w-9 items-center justify-center rounded-full border border-navy/15 dark:border-white/15 bg-white dark:bg-white/10 text-navy dark:text-cream shadow-sm"
@@ -241,7 +224,6 @@ export default function Navbar() {
           </div>
         </nav>
 
-        {/* Mobile menu */}
         {open && (
           <div className="border-t border-navy/10 dark:border-white/10 bg-cream dark:bg-[#0d0d1a] px-4 pb-5 pt-2">
             <div className="mx-auto grid max-w-7xl gap-2">
