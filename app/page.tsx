@@ -11,21 +11,21 @@ const DEFAULT_HERO = 'https://images.pexels.com/photos/672532/pexels-photo-67253
 
 const DEFAULT_CARDS = [
   { id: 'places',    label: 'Best Places',    sub: 'Attractions, hidden gems & photo spots', href: '/places',    image: 'https://images.pexels.com/photos/460672/pexels-photo-460672.jpeg?auto=compress&cs=tinysrgb&w=800',    tag: 'Places' },
-  { id: 'food',      label: 'Food & Drinks',  sub: 'Restaurants, halal food & local eats',   href: '/food',      image: 'https://images.pexels.com/photos/1640777/pexels-photo-1640777.jpeg?auto=compress&cs=tinysrgb&w=800',   tag: 'Food' },
-  { id: 'shopping',  label: 'Shopping',       sub: 'Luxury streets, markets & boutiques',    href: '/shopping',  image: 'https://images.pexels.com/photos/1005638/pexels-photo-1005638.jpeg?auto=compress&cs=tinysrgb&w=800',   tag: 'Shopping' },
-  { id: 'nightlife', label: 'Nightlife',      sub: 'Rooftop bars, clubs & live music',       href: '/nightlife', image: 'https://images.pexels.com/photos/1183434/pexels-photo-1183434.jpeg?auto=compress&cs=tinysrgb&w=800',   tag: 'Nightlife' },
+  { id: 'food',      label: 'Food & Drinks',  sub: 'Restaurants, halal food & local eats',   href: '/food',      image: 'https://images.pexels.com/photos/1267320/pexels-photo-1267320.jpeg?auto=compress&cs=tinysrgb&w=800',   tag: 'Food' },
+  { id: 'shopping',  label: 'Shopping',       sub: 'Luxury streets, markets & boutiques',    href: '/shopping',  image: 'https://images.pexels.com/photos/3965548/pexels-photo-3965548.jpeg?auto=compress&cs=tinysrgb&w=800',   tag: 'Shopping' },
+  { id: 'nightlife', label: 'Nightlife',      sub: 'Rooftop bars, clubs & live music',       href: '/nightlife', image: 'https://images.pexels.com/photos/2034851/pexels-photo-2034851.jpeg?auto=compress&cs=tinysrgb&w=800',   tag: 'Nightlife' },
   { id: 'transport', label: 'Transport',      sub: 'Tube, bus, taxi & travel tips',          href: '/transport', image: 'https://images.pexels.com/photos/5765/london-street-landmark-double-decker.jpg?auto=compress&cs=tinysrgb&w=800', tag: 'Places' },
-  { id: 'kids',      label: 'Kids & Family',  sub: 'Attractions, parks & family fun',        href: '/kids',      image: 'https://images.pexels.com/photos/247502/pexels-photo-247502.jpeg?auto=compress&cs=tinysrgb&w=800',    tag: 'Places' },
-  { id: 'muslim',    label: 'Muslim Guide',   sub: 'Halal food, mosques & prayer rooms',     href: '/muslim',    image: 'https://images.pexels.com/photos/1537086/pexels-photo-1537086.jpeg?auto=compress&cs=tinysrgb&w=800',   tag: 'Food' },
+  { id: 'kids',      label: 'Kids & Family',  sub: 'Attractions, parks & family fun',        href: '/kids',      image: 'https://images.pexels.com/photos/1148998/pexels-photo-1148998.jpeg?auto=compress&cs=tinysrgb&w=800',    tag: 'Places' },
+  { id: 'muslim',    label: 'Muslim Guide',   sub: 'Halal food, mosques & prayer rooms',     href: '/muslim',    image: 'https://images.pexels.com/photos/3874832/pexels-photo-3874832.jpeg?auto=compress&cs=tinysrgb&w=800',   tag: 'Food' },
   { id: 'emergency', label: 'Emergency Help', sub: 'Safety tips, scam alerts & numbers',     href: '/emergency', image: 'https://images.pexels.com/photos/63901/pexels-photo-63901.jpeg?auto=compress&cs=tinysrgb&w=800',      tag: 'Places' },
 ];
 
 const TABS = ['All', 'Places', 'Food', 'Shopping', 'Nightlife'];
 const HOW_IT_WORKS = [
-  { title: 'Tap the souvenir', desc: 'Hold your phone near any TAP LONDON NFC product — keyring, card, tote bag, or coaster.', step: '01' },
-  { title: 'Open the guide',   desc: 'Your browser opens taplondon.co.uk instantly. No app, no login, no delay.',               step: '02' },
-  { title: 'Choose a section', desc: 'Find places, food, shopping, transport, or emergency help in seconds.',                   step: '03' },
-  { title: 'Enjoy London',     desc: 'Use real directions, trusted tips, halal guides and future partner discounts.',           step: '04' },
+  { title: 'Tap the souvenir', desc: 'Hold your phone near any TAP LONDON NFC product.', step: '01' },
+  { title: 'Open the guide',   desc: 'Your browser opens instantly. No app, no login.',  step: '02' },
+  { title: 'Choose a section', desc: 'Find places, food, shopping, transport in seconds.',step: '03' },
+  { title: 'Enjoy London',     desc: 'Real directions, trusted tips, halal guides.',      step: '04' },
 ];
 const STATS = [
   { number: '50+', label: 'Curated Places' },
@@ -35,10 +35,11 @@ const STATS = [
 ];
 
 export default function HomePage() {
-  const [visible, setVisible] = useState(false);
   const [activeTab, setActiveTab] = useState('All');
-  const [heroImage, setHeroImage] = useState(DEFAULT_HERO);
+  // Hero starts null — invisible until Firebase URL loaded
+  const [heroImage, setHeroImage] = useState<string | null>(null);
   const [cards, setCards] = useState(DEFAULT_CARDS);
+  const [heroReady, setHeroReady] = useState(false);
   const heroRef = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({ target: heroRef, offset: ['start start', 'end start'] });
   const heroY = useTransform(scrollYProgress, [0, 1], ['0%', '25%']);
@@ -46,16 +47,23 @@ export default function HomePage() {
   const heroScale = useTransform(scrollYProgress, [0, 1], [1, 1.08]);
 
   useEffect(() => {
-    setTimeout(() => setVisible(true), 80);
-  }, []);
-
-  useEffect(() => {
     const loadImages = async () => {
-      // Load hero image
+      // Load hero from Firebase first
       const heroDoc = await fetchDocument('siteImages', 'hero');
-      if (heroDoc?.url) setHeroImage(heroDoc.url);
+      const url = heroDoc?.url || DEFAULT_HERO;
+      // Preload image before showing
+      const img = new Image();
+      img.onload = () => {
+        setHeroImage(url);
+        setHeroReady(true);
+      };
+      img.onerror = () => {
+        setHeroImage(DEFAULT_HERO);
+        setHeroReady(true);
+      };
+      img.src = url;
 
-      // Load category card images
+      // Load card images
       const updatedCards = await Promise.all(
         DEFAULT_CARDS.map(async (card) => {
           const cardDoc = await fetchDocument('siteImages', 'card-' + card.id);
@@ -74,27 +82,50 @@ export default function HomePage() {
     <main style={{ overflowX: 'hidden', width: '100%' }}>
 
       {/* HERO */}
-      <section ref={heroRef} style={{ position: 'relative', height: '92vh', minHeight: '560px', width: '100%', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', overflow: 'hidden' }}>
-        <motion.div style={{ position: 'absolute', inset: '-10%', y: heroY, scale: heroScale, backgroundImage: `url('${heroImage}')`, backgroundSize: 'cover', backgroundPosition: 'center 30%', zIndex: 0 }} />
+      <section ref={heroRef} style={{ position: 'relative', height: '92vh', minHeight: '560px', width: '100%', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', overflow: 'hidden', background: '#0d0d1a' }}>
+
+        {/* BG — only shown once preloaded, no flash */}
+        {heroImage && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: heroReady ? 1 : 0 }}
+            transition={{ duration: 0.6 }}
+            style={{
+              position: 'absolute', inset: '-10%', y: heroY, scale: heroScale,
+              backgroundImage: `url('${heroImage}')`,
+              backgroundSize: 'cover', backgroundPosition: 'center 30%', zIndex: 0,
+            }}
+          />
+        )}
         <div style={{ position: 'absolute', inset: 0, zIndex: 1, background: 'linear-gradient(to bottom, rgba(10,10,24,0.45) 0%, rgba(10,10,24,0.3) 40%, rgba(10,10,24,0.82) 100%)' }} />
 
-        <motion.div style={{ position: 'relative', zIndex: 2, width: '100%', maxWidth: '860px', padding: '0 20px', boxSizing: 'border-box' as const, textAlign: 'center', opacity: heroOpacity }}
-          initial={{ opacity: 0, y: 50 }} animate={{ opacity: visible ? 1 : 0, y: visible ? 0 : 50 }} transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}>
-
-          <motion.div initial={{ opacity: 0, y: -16 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.2, duration: 0.6 }}
-            style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', background: 'rgba(201,168,76,0.13)', border: '1px solid rgba(201,168,76,0.35)', color: '#c9a84c', borderRadius: '40px', padding: '6px 18px', fontSize: '0.68rem', fontWeight: 700, letterSpacing: '2px', marginBottom: '24px', textTransform: 'uppercase' as const, backdropFilter: 'blur(10px)', fontFamily: "'DM Sans', sans-serif" }}>
+        {/* Content */}
+        <motion.div
+          style={{ position: 'relative', zIndex: 2, width: '100%', maxWidth: '860px', padding: '0 20px', boxSizing: 'border-box' as const, textAlign: 'center', opacity: heroOpacity }}
+          initial={{ opacity: 0, y: 50 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
+        >
+          <motion.div
+            initial={{ opacity: 0, y: -16 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.2, duration: 0.6 }}
+            style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', background: 'rgba(201,168,76,0.13)', border: '1px solid rgba(201,168,76,0.35)', color: '#c9a84c', borderRadius: '40px', padding: '6px 18px', fontSize: '0.68rem', fontWeight: 700, letterSpacing: '2px', marginBottom: '24px', textTransform: 'uppercase' as const, backdropFilter: 'blur(10px)', fontFamily: "'DM Sans', sans-serif" }}
+          >
             <span style={{ width: '5px', height: '5px', borderRadius: '50%', background: '#c9a84c', boxShadow: '0 0 8px #c9a84c' }} />
             London's Smart Travel Guide
           </motion.div>
 
-          <motion.h1 initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.32, duration: 0.9 }}
-            style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: 'clamp(2.8rem, 9vw, 6.2rem)', fontWeight: 700, lineHeight: 1, margin: '0 0 20px', letterSpacing: '-1px' }}>
+          <motion.h1
+            initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.32, duration: 0.9 }}
+            style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: 'clamp(2.8rem, 9vw, 6.2rem)', fontWeight: 700, lineHeight: 1, margin: '0 0 20px', letterSpacing: '-1px' }}
+          >
             <span style={{ color: '#ffffff' }}>Discover </span>
             <span style={{ background: 'linear-gradient(130deg, #c9a84c 0%, #f5d97a 50%, #b8882e 100%)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text' }}>London</span>
           </motion.h1>
 
-          <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.5, duration: 0.8 }}
-            style={{ fontFamily: "'DM Sans', sans-serif", fontSize: 'clamp(0.9rem, 2vw, 1.08rem)', color: 'rgba(255,255,255,0.62)', marginBottom: '36px', lineHeight: 1.6 }}>
+          <motion.p
+            initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.5, duration: 0.8 }}
+            style={{ fontFamily: "'DM Sans', sans-serif", fontSize: 'clamp(0.9rem, 2vw, 1.08rem)', color: 'rgba(255,255,255,0.62)', marginBottom: '36px', lineHeight: 1.6 }}
+          >
             Tap. Explore. Enjoy — your city guide, one touch away.
           </motion.p>
 
@@ -102,12 +133,9 @@ export default function HomePage() {
             <SearchBar />
           </motion.div>
 
-          <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.75, duration: 0.6 }}
-            style={{ display: 'flex', gap: '10px', justifyContent: 'center', flexWrap: 'wrap' }}>
+          <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.75, duration: 0.6 }} style={{ display: 'flex', gap: '10px', justifyContent: 'center', flexWrap: 'wrap' }}>
             {[{ label: 'Tower Bridge', href: '/places' }, { label: 'Halal Food', href: '/muslim' }, { label: 'Nightlife', href: '/nightlife' }, { label: 'Emergency', href: '/emergency' }].map(item => (
-              <Link key={item.label} href={item.href} style={{ fontFamily: "'DM Sans', sans-serif", fontSize: '0.72rem', color: 'rgba(255,255,255,0.55)', textDecoration: 'none', background: 'rgba(255,255,255,0.07)', border: '1px solid rgba(255,255,255,0.12)', borderRadius: '40px', padding: '5px 14px' }}>
-                {item.label}
-              </Link>
+              <Link key={item.label} href={item.href} style={{ fontFamily: "'DM Sans', sans-serif", fontSize: '0.72rem', color: 'rgba(255,255,255,0.55)', textDecoration: 'none', background: 'rgba(255,255,255,0.07)', border: '1px solid rgba(255,255,255,0.12)', borderRadius: '40px', padding: '5px 14px' }}>{item.label}</Link>
             ))}
           </motion.div>
         </motion.div>
@@ -141,9 +169,7 @@ export default function HomePage() {
               </div>
               <div style={{ display: 'flex', gap: '8px', flexWrap: 'wrap' }}>
                 {TABS.map(tab => (
-                  <button key={tab} onClick={() => setActiveTab(tab)} style={{ fontFamily: "'DM Sans', sans-serif", fontSize: '0.78rem', fontWeight: 600, padding: '8px 18px', borderRadius: '40px', cursor: 'pointer', border: 'none', background: activeTab === tab ? '#c9a84c' : 'transparent', color: activeTab === tab ? '#1a1a2e' : '#888', outline: activeTab === tab ? 'none' : '1px solid rgba(150,150,150,0.25)', transition: 'all 0.2s ease' }}>
-                    {tab}
-                  </button>
+                  <button key={tab} onClick={() => setActiveTab(tab)} style={{ fontFamily: "'DM Sans', sans-serif", fontSize: '0.78rem', fontWeight: 600, padding: '8px 18px', borderRadius: '40px', cursor: 'pointer', border: 'none', background: activeTab === tab ? '#c9a84c' : 'transparent', color: activeTab === tab ? '#1a1a2e' : '#888', outline: activeTab === tab ? 'none' : '1px solid rgba(150,150,150,0.25)', transition: 'all 0.2s ease' }}>{tab}</button>
                 ))}
               </div>
             </div>
@@ -153,8 +179,7 @@ export default function HomePage() {
             {filtered.map((card, i) => (
               <motion.div key={card.id} initial={{ opacity: 0, y: 22 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.4, delay: i * 0.05 }}>
                 <Link href={card.href} style={{ textDecoration: 'none', display: 'block' }}>
-                  <motion.div whileHover={{ y: -6 }} transition={{ duration: 0.22, ease: [0.22, 1, 0.36, 1] }}
-                    style={{ position: 'relative', borderRadius: '12px', overflow: 'hidden', height: '230px', boxShadow: '0 2px 16px rgba(0,0,0,0.1)', cursor: 'pointer' }}>
+                  <motion.div whileHover={{ y: -6 }} transition={{ duration: 0.22, ease: [0.22, 1, 0.36, 1] }} style={{ position: 'relative', borderRadius: '12px', overflow: 'hidden', height: '230px', boxShadow: '0 2px 16px rgba(0,0,0,0.1)', cursor: 'pointer' }}>
                     <img src={card.image} alt={card.label} style={{ width: '100%', height: '100%', objectFit: 'cover', position: 'absolute', inset: 0 }} />
                     <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to top, rgba(10,10,22,0.88) 0%, rgba(10,10,22,0.1) 55%, transparent 100%)' }} />
                     <div style={{ position: 'absolute', top: '14px', left: '14px', background: 'rgba(201,168,76,0.9)', color: '#1a1a2e', padding: '3px 10px', borderRadius: '40px', fontFamily: "'DM Sans', sans-serif", fontSize: '0.6rem', fontWeight: 700, letterSpacing: '0.8px', textTransform: 'uppercase' as const }}>{card.tag}</div>
@@ -170,6 +195,25 @@ export default function HomePage() {
               </motion.div>
             ))}
           </div>
+
+          {/* Top Lists SEO links */}
+          <div style={{ marginTop: '48px', padding: '28px', background: 'rgba(201,168,76,0.05)', border: '1px solid rgba(201,168,76,0.15)', borderRadius: '14px' }}>
+            <p style={{ fontFamily: "'DM Sans', sans-serif", fontSize: '0.68rem', color: '#c9a84c', fontWeight: 700, letterSpacing: '2px', textTransform: 'uppercase' as const, marginBottom: '14px' }}>Top Lists</p>
+            <div style={{ display: 'flex', flexWrap: 'wrap', gap: '8px' }}>
+              {[
+                { label: 'Best Free Things To Do', href: '/best-free-things-london' },
+                { label: 'Best Places For Kids', href: '/best-places-kids-london' },
+                { label: 'Best Rooftop Bars', href: '/best-rooftop-bars-london' },
+                { label: 'Best Markets', href: '/best-markets-london' },
+                { label: 'Best Halal Restaurants', href: '/best-halal-restaurants-london' },
+                { label: 'Best Hidden Gems', href: '/best-hidden-gems-london' },
+              ].map(item => (
+                <Link key={item.href} href={item.href} style={{ fontFamily: "'DM Sans', sans-serif", fontSize: '0.78rem', color: '#c9a84c', textDecoration: 'none', background: 'rgba(201,168,76,0.08)', border: '1px solid rgba(201,168,76,0.2)', borderRadius: '8px', padding: '7px 14px', fontWeight: 600 }}>
+                  {item.label} →
+                </Link>
+              ))}
+            </div>
+          </div>
         </div>
       </section>
 
@@ -184,8 +228,7 @@ export default function HomePage() {
           </FadeUp>
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '1px', background: 'rgba(201,168,76,0.07)' }}>
             {HOW_IT_WORKS.map((item, i) => (
-              <motion.div key={item.title} initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.45, delay: i * 0.09 }}
-                style={{ background: '#1a1a2e', padding: '40px 24px', textAlign: 'center' }}>
+              <motion.div key={item.title} initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.45, delay: i * 0.09 }} style={{ background: '#1a1a2e', padding: '40px 24px', textAlign: 'center' }}>
                 <div style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: '2.8rem', color: 'rgba(201,168,76,0.1)', fontWeight: 700, lineHeight: 1 }}>{item.step}</div>
                 <div style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: '1.1rem', fontWeight: 700, color: '#c9a84c', margin: '10px 0 10px' }}>{item.title}</div>
                 <p style={{ fontFamily: "'DM Sans', sans-serif", fontSize: '0.76rem', color: 'rgba(255,255,255,0.44)', lineHeight: 1.7, margin: 0 }}>{item.desc}</p>
@@ -203,8 +246,7 @@ export default function HomePage() {
               <p style={{ fontFamily: "'DM Sans', sans-serif", fontSize: '0.66rem', color: '#c9a84c', fontWeight: 700, letterSpacing: '2.5px', textTransform: 'uppercase' as const, marginBottom: '12px' }}>About</p>
               <h2 className="text-navy dark:text-[#f9f7f2]" style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: 'clamp(1.8rem, 4vw, 2.9rem)', fontWeight: 700, margin: '0 0 20px', lineHeight: 1.15 }}>Built for the<br />modern traveller</h2>
               <div style={{ width: '36px', height: '2px', background: '#c9a84c', marginBottom: '22px', borderRadius: '2px' }} />
-              <p className="text-ink/70 dark:text-[#f9f7f2]/55" style={{ fontFamily: "'DM Sans', sans-serif", fontSize: '0.91rem', lineHeight: 1.85, marginBottom: '14px' }}>TAP LONDON turns a physical London souvenir into a smart travel companion. Tap an NFC keyring, tote bag, card, or coaster and instantly land on a mobile guide built for the moment.</p>
-              <p className="text-ink/70 dark:text-[#f9f7f2]/55" style={{ fontFamily: "'DM Sans', sans-serif", fontSize: '0.91rem', lineHeight: 1.85, marginBottom: '32px' }}>No app. No login. No friction. Just tap, explore, and enjoy London.</p>
+              <p className="text-ink/70 dark:text-[#f9f7f2]/55" style={{ fontFamily: "'DM Sans', sans-serif", fontSize: '0.91rem', lineHeight: 1.85, marginBottom: '32px' }}>TAP LONDON turns a physical London souvenir into a smart travel companion. No app. No login. No friction. Just tap, explore, and enjoy London.</p>
               <div style={{ display: 'flex', gap: '12px', flexWrap: 'wrap' }}>
                 <Link href="/places" style={{ background: '#1a1a2e', color: '#c9a84c', padding: '13px 28px', borderRadius: '8px', fontFamily: "'DM Sans', sans-serif", fontWeight: 700, fontSize: '0.84rem', textDecoration: 'none' }}>Explore London</Link>
                 <Link href="/emergency" className="text-navy dark:text-cream" style={{ background: 'transparent', padding: '13px 28px', borderRadius: '8px', border: '1.5px solid currentColor', fontFamily: "'DM Sans', sans-serif", fontWeight: 600, fontSize: '0.84rem', textDecoration: 'none' }}>Emergency Help</Link>
@@ -213,12 +255,10 @@ export default function HomePage() {
           </div>
           <SlideRight delay={0.15}>
             <div style={{ position: 'relative', height: '420px' }}>
-              <motion.div initial={{ opacity: 0, x: 32, rotate: 3 }} whileInView={{ opacity: 1, x: 0, rotate: 3 }} viewport={{ once: true }} transition={{ duration: 0.65, delay: 0.1 }}
-                style={{ position: 'absolute', right: 0, top: 0, width: '73%', height: '285px', borderRadius: '12px', overflow: 'hidden', boxShadow: '0 20px 56px rgba(0,0,0,0.16)' }}>
+              <motion.div initial={{ opacity: 0, x: 32, rotate: 3 }} whileInView={{ opacity: 1, x: 0, rotate: 3 }} viewport={{ once: true }} transition={{ duration: 0.65, delay: 0.1 }} style={{ position: 'absolute', right: 0, top: 0, width: '73%', height: '285px', borderRadius: '12px', overflow: 'hidden', boxShadow: '0 20px 56px rgba(0,0,0,0.16)' }}>
                 <img src="https://images.pexels.com/photos/460672/pexels-photo-460672.jpeg?auto=compress&cs=tinysrgb&w=600" alt="London" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
               </motion.div>
-              <motion.div initial={{ opacity: 0, x: -24, rotate: -2 }} whileInView={{ opacity: 1, x: 0, rotate: -2 }} viewport={{ once: true }} transition={{ duration: 0.65, delay: 0.22 }}
-                style={{ position: 'absolute', left: 0, bottom: 0, width: '62%', height: '228px', borderRadius: '12px', overflow: 'hidden', boxShadow: '0 20px 56px rgba(0,0,0,0.16)', border: '3px solid #f9f7f2' }}>
+              <motion.div initial={{ opacity: 0, x: -24, rotate: -2 }} whileInView={{ opacity: 1, x: 0, rotate: -2 }} viewport={{ once: true }} transition={{ duration: 0.65, delay: 0.22 }} style={{ position: 'absolute', left: 0, bottom: 0, width: '62%', height: '228px', borderRadius: '12px', overflow: 'hidden', boxShadow: '0 20px 56px rgba(0,0,0,0.16)', border: '3px solid #f9f7f2' }}>
                 <img src="https://images.pexels.com/photos/672532/pexels-photo-672532.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Tower Bridge" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
               </motion.div>
             </div>
