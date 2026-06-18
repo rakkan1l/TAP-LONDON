@@ -13,7 +13,7 @@ export default function HiddenGemsPage() {
   const [activeCategory, setActiveCategory] = useState('All');
 
   useEffect(() => {
-    fetchCollection('hidden-gems').then(data => {
+    fetchCollection('hiddenGems').then(data => {
       setItems(data?.length ? data : (fallbackData as any).items ?? []);
       setLoading(false);
     });
