@@ -5,40 +5,48 @@ import { useEffect, useState, useRef } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { FadeUp, SlideLeft, SlideRight } from '@/components/ScrollAnimation';
 import SearchBar from '@/components/SearchBar';
+import NearMe from '@/components/NearMe';
 import { fetchDocument } from '@/lib/firestore';
 
 const DEFAULT_HERO = 'https://images.pexels.com/photos/672532/pexels-photo-672532.jpeg?auto=compress&cs=tinysrgb&w=1920';
 
-const DEFAULT_CARDS = [
-  { id: 'places',    label: 'Best Places',    sub: 'Attractions, hidden gems & photo spots', href: '/places',    image: 'https://images.pexels.com/photos/460672/pexels-photo-460672.jpeg?auto=compress&cs=tinysrgb&w=800',    tag: 'Places' },
-  { id: 'food',      label: 'Food & Drinks',  sub: 'Restaurants, halal food & local eats',   href: '/food',      image: 'https://images.pexels.com/photos/1267320/pexels-photo-1267320.jpeg?auto=compress&cs=tinysrgb&w=800',   tag: 'Food' },
-  { id: 'shopping',  label: 'Shopping',       sub: 'Luxury streets, markets & boutiques',    href: '/shopping',  image: 'https://images.pexels.com/photos/3965548/pexels-photo-3965548.jpeg?auto=compress&cs=tinysrgb&w=800',   tag: 'Shopping' },
-  { id: 'nightlife', label: 'Nightlife',      sub: 'Rooftop bars, clubs & live music',       href: '/nightlife', image: 'https://images.pexels.com/photos/2034851/pexels-photo-2034851.jpeg?auto=compress&cs=tinysrgb&w=800',   tag: 'Nightlife' },
-  { id: 'transport', label: 'Transport',      sub: 'Tube, bus, taxi & travel tips',          href: '/transport', image: 'https://images.pexels.com/photos/5765/london-street-landmark-double-decker.jpg?auto=compress&cs=tinysrgb&w=800', tag: 'Places' },
-  { id: 'kids',      label: 'Kids & Family',  sub: 'Attractions, parks & family fun',        href: '/kids',      image: 'https://images.pexels.com/photos/1148998/pexels-photo-1148998.jpeg?auto=compress&cs=tinysrgb&w=800',    tag: 'Places' },
-  { id: 'muslim',    label: 'Muslim Guide',   sub: 'Halal food, mosques & prayer rooms',     href: '/muslim',    image: 'https://images.pexels.com/photos/3874832/pexels-photo-3874832.jpeg?auto=compress&cs=tinysrgb&w=800',   tag: 'Food' },
-  { id: 'emergency', label: 'Emergency Help', sub: 'Safety tips, scam alerts & numbers',     href: '/emergency', image: 'https://images.pexels.com/photos/63901/pexels-photo-63901.jpeg?auto=compress&cs=tinysrgb&w=800',      tag: 'Places' },
+const MAIN_CARDS = [
+  { id: 'places',       label: 'Best Places',    sub: 'Attractions, hidden gems & photo spots', href: '/places',       image: 'https://images.pexels.com/photos/460672/pexels-photo-460672.jpeg?auto=compress&cs=tinysrgb&w=800',    tag: 'Places' },
+  { id: 'food',         label: 'Food & Drinks',  sub: 'Restaurants, halal food & local eats',   href: '/food',         image: 'https://images.pexels.com/photos/1267320/pexels-photo-1267320.jpeg?auto=compress&cs=tinysrgb&w=800',   tag: 'Food' },
+  { id: 'shopping',     label: 'Shopping',        sub: 'Luxury streets, markets & boutiques',   href: '/shopping',     image: 'https://images.pexels.com/photos/3965548/pexels-photo-3965548.jpeg?auto=compress&cs=tinysrgb&w=800',   tag: 'Shopping' },
+  { id: 'nightlife',    label: 'Nightlife',       sub: 'Rooftop bars, clubs & live music',      href: '/nightlife',    image: 'https://images.pexels.com/photos/2034851/pexels-photo-2034851.jpeg?auto=compress&cs=tinysrgb&w=800',   tag: 'Nightlife' },
+  { id: 'hotels',       label: 'Hotels',          sub: 'Budget to luxury — find your stay',     href: '/hotels',       image: 'https://images.pexels.com/photos/261102/pexels-photo-261102.jpeg?auto=compress&cs=tinysrgb&w=800',    tag: 'Hotels' },
+  { id: 'transport',    label: 'Transport',       sub: 'Tube, bus, taxi & travel tips',         href: '/transport',    image: 'https://images.pexels.com/photos/5765/london-street-landmark-double-decker.jpg?auto=compress&cs=tinysrgb&w=800', tag: 'Places' },
+  { id: 'kids',         label: 'Kids & Family',   sub: 'Attractions, parks & family fun',       href: '/kids',         image: 'https://images.pexels.com/photos/1148998/pexels-photo-1148998.jpeg?auto=compress&cs=tinysrgb&w=800',   tag: 'Places' },
+  { id: 'muslim',       label: 'Muslim Guide',    sub: 'Halal food, mosques & prayer rooms',    href: '/muslim',       image: 'https://images.pexels.com/photos/3874832/pexels-photo-3874832.jpeg?auto=compress&cs=tinysrgb&w=800',   tag: 'Food' },
+  { id: 'emergency',    label: 'Emergency Help',  sub: 'Safety tips, scam alerts & numbers',   href: '/emergency',    image: 'https://images.pexels.com/photos/63901/pexels-photo-63901.jpeg?auto=compress&cs=tinysrgb&w=800',      tag: 'Places' },
 ];
 
-const TABS = ['All', 'Places', 'Food', 'Shopping', 'Nightlife'];
+const DISCOVER_CARDS = [
+  { label: 'Offers & Deals',  sub: 'Best London deals right now',     href: '/offers',       icon: '🏷️',  color: '#e8a020' },
+  { label: 'Sports',          sub: 'Football, cricket, boxing & more', href: '/sports',       icon: '⚽',  color: '#2d9e4f' },
+  { label: 'Hidden Gems',     sub: 'Secret spots only locals know',   href: '/hidden-gems',  icon: '💎',  color: '#7c5cbf' },
+  { label: 'Trending Now',    sub: 'Viral restaurants & hotspots',    href: '/trending',     icon: '🔥',  color: '#e55' },
+];
+
+const TABS = ['All', 'Places', 'Food', 'Shopping', 'Nightlife', 'Hotels'];
 const HOW_IT_WORKS = [
   { title: 'Tap the souvenir', desc: 'Hold your phone near any TAP LONDON NFC product.', step: '01' },
   { title: 'Open the guide',   desc: 'Your browser opens instantly. No app, no login.',  step: '02' },
-  { title: 'Choose a section', desc: 'Find places, food, shopping, transport in seconds.',step: '03' },
+  { title: 'Choose a section', desc: 'Find places, food, shopping, hotels in seconds.',  step: '03' },
   { title: 'Enjoy London',     desc: 'Real directions, trusted tips, halal guides.',      step: '04' },
 ];
 const STATS = [
-  { number: '50+', label: 'Curated Places' },
-  { number: '35+', label: 'Restaurants' },
-  { number: '12',  label: 'Languages' },
-  { number: '24/7',label: 'AI Guide' },
+  { number: '50+',  label: 'Curated Places' },
+  { number: '35+',  label: 'Restaurants' },
+  { number: '12',   label: 'Languages' },
+  { number: '24/7', label: 'AI Guide' },
 ];
 
 export default function HomePage() {
   const [activeTab, setActiveTab] = useState('All');
-  // Hero starts null — invisible until Firebase URL loaded
   const [heroImage, setHeroImage] = useState<string | null>(null);
-  const [cards, setCards] = useState(DEFAULT_CARDS);
+  const [cards, setCards] = useState(MAIN_CARDS);
   const [heroReady, setHeroReady] = useState(false);
   const heroRef = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({ target: heroRef, offset: ['start start', 'end start'] });
@@ -48,24 +56,15 @@ export default function HomePage() {
 
   useEffect(() => {
     const loadImages = async () => {
-      // Load hero from Firebase first
       const heroDoc = await fetchDocument('siteImages', 'hero');
       const url = heroDoc?.url || DEFAULT_HERO;
-      // Preload image before showing
       const img = new Image();
-      img.onload = () => {
-        setHeroImage(url);
-        setHeroReady(true);
-      };
-      img.onerror = () => {
-        setHeroImage(DEFAULT_HERO);
-        setHeroReady(true);
-      };
+      img.onload = () => { setHeroImage(url); setHeroReady(true); };
+      img.onerror = () => { setHeroImage(DEFAULT_HERO); setHeroReady(true); };
       img.src = url;
 
-      // Load card images
       const updatedCards = await Promise.all(
-        DEFAULT_CARDS.map(async (card) => {
+        MAIN_CARDS.map(async (card) => {
           const cardDoc = await fetchDocument('siteImages', 'card-' + card.id);
           if (cardDoc?.url) return { ...card, image: cardDoc.url };
           return card;
@@ -76,71 +75,62 @@ export default function HomePage() {
     loadImages();
   }, []);
 
-  const filtered = cards.filter(c => activeTab === 'All' || c.tag === activeTab);
+  const filtered = cards.filter(c => {
+    if (activeTab === 'All') return true;
+    if (activeTab === 'Hotels') return c.tag === 'Hotels';
+    return c.tag === activeTab;
+  });
 
   return (
     <main style={{ overflowX: 'hidden', width: '100%' }}>
 
       {/* HERO */}
       <section ref={heroRef} style={{ position: 'relative', height: '92vh', minHeight: '560px', width: '100%', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', overflow: 'hidden', background: '#0d0d1a' }}>
-
-        {/* BG — only shown once preloaded, no flash */}
         {heroImage && (
           <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: heroReady ? 1 : 0 }}
-            transition={{ duration: 0.6 }}
-            style={{
-              position: 'absolute', inset: '-10%', y: heroY, scale: heroScale,
-              backgroundImage: `url('${heroImage}')`,
-              backgroundSize: 'cover', backgroundPosition: 'center 30%', zIndex: 0,
-            }}
+            initial={{ opacity: 0 }} animate={{ opacity: heroReady ? 1 : 0 }} transition={{ duration: 0.6 }}
+            style={{ position: 'absolute', inset: '-10%', y: heroY, scale: heroScale, backgroundImage: `url('${heroImage}')`, backgroundSize: 'cover', backgroundPosition: 'center 30%', zIndex: 0 }}
           />
         )}
         <div style={{ position: 'absolute', inset: 0, zIndex: 1, background: 'linear-gradient(to bottom, rgba(10,10,24,0.45) 0%, rgba(10,10,24,0.3) 40%, rgba(10,10,24,0.82) 100%)' }} />
 
-        {/* Content */}
-        <motion.div
-          style={{ position: 'relative', zIndex: 2, width: '100%', maxWidth: '860px', padding: '0 20px', boxSizing: 'border-box' as const, textAlign: 'center', opacity: heroOpacity }}
-          initial={{ opacity: 0, y: 50 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
-        >
-          <motion.div
-            initial={{ opacity: 0, y: -16 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.2, duration: 0.6 }}
-            style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', background: 'rgba(201,168,76,0.13)', border: '1px solid rgba(201,168,76,0.35)', color: '#c9a84c', borderRadius: '40px', padding: '6px 18px', fontSize: '0.68rem', fontWeight: 700, letterSpacing: '2px', marginBottom: '24px', textTransform: 'uppercase' as const, backdropFilter: 'blur(10px)', fontFamily: "'DM Sans', sans-serif" }}
-          >
+        <motion.div style={{ position: 'relative', zIndex: 2, width: '100%', maxWidth: '860px', padding: '0 20px', boxSizing: 'border-box' as const, textAlign: 'center', opacity: heroOpacity }}
+          initial={{ opacity: 0, y: 50 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}>
+
+          <motion.div initial={{ opacity: 0, y: -16 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.2, duration: 0.6 }}
+            style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', background: 'rgba(201,168,76,0.13)', border: '1px solid rgba(201,168,76,0.35)', color: '#c9a84c', borderRadius: '40px', padding: '6px 18px', fontSize: '0.68rem', fontWeight: 700, letterSpacing: '2px', marginBottom: '24px', textTransform: 'uppercase' as const, backdropFilter: 'blur(10px)', fontFamily: "'DM Sans', sans-serif" }}>
             <span style={{ width: '5px', height: '5px', borderRadius: '50%', background: '#c9a84c', boxShadow: '0 0 8px #c9a84c' }} />
             London's Smart Travel Guide
           </motion.div>
 
-          <motion.h1
-            initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.32, duration: 0.9 }}
-            style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: 'clamp(2.8rem, 9vw, 6.2rem)', fontWeight: 700, lineHeight: 1, margin: '0 0 20px', letterSpacing: '-1px' }}
-          >
+          <motion.h1 initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.32, duration: 0.9 }}
+            style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: 'clamp(2.8rem, 9vw, 6.2rem)', fontWeight: 700, lineHeight: 1, margin: '0 0 20px', letterSpacing: '-1px' }}>
             <span style={{ color: '#ffffff' }}>Discover </span>
             <span style={{ background: 'linear-gradient(130deg, #c9a84c 0%, #f5d97a 50%, #b8882e 100%)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text' }}>London</span>
           </motion.h1>
 
-          <motion.p
-            initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.5, duration: 0.8 }}
-            style={{ fontFamily: "'DM Sans', sans-serif", fontSize: 'clamp(0.9rem, 2vw, 1.08rem)', color: 'rgba(255,255,255,0.62)', marginBottom: '36px', lineHeight: 1.6 }}
-          >
-            Tap. Explore. Enjoy — your city guide, one touch away.
+          <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.5, duration: 0.8 }}
+            style={{ fontFamily: "'DM Sans', sans-serif", fontSize: 'clamp(0.9rem, 2vw, 1.08rem)', color: 'rgba(255,255,255,0.62)', marginBottom: '36px', lineHeight: 1.6 }}>
+            Food, hotels, nightlife, sports, hidden gems — everything London in one place.
           </motion.p>
 
-          <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.6, duration: 0.7 }} style={{ marginBottom: '24px', width: '100%' }}>
+          <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.6, duration: 0.7 }} style={{ marginBottom: '20px', width: '100%' }}>
             <SearchBar />
           </motion.div>
 
-          <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.75, duration: 0.6 }} style={{ display: 'flex', gap: '10px', justifyContent: 'center', flexWrap: 'wrap' }}>
+          <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.72, duration: 0.6 }} style={{ display: 'flex', gap: '10px', justifyContent: 'center', flexWrap: 'wrap', marginBottom: '20px' }}>
             {[{ label: 'Tower Bridge', href: '/places' }, { label: 'Kids Entertainment', href: '/kids' }, { label: 'Rooftop Bar', href: '/nightlife' }, { label: 'Nightlife', href: '/nightlife' }].map(item => (
               <Link key={item.label} href={item.href} style={{ fontFamily: "'DM Sans', sans-serif", fontSize: '0.72rem', color: 'rgba(255,255,255,0.55)', textDecoration: 'none', background: 'rgba(255,255,255,0.07)', border: '1px solid rgba(255,255,255,0.12)', borderRadius: '40px', padding: '5px 14px' }}>{item.label}</Link>
             ))}
           </motion.div>
+
+          {/* Near Me button */}
+          <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.85, duration: 0.6 }} style={{ display: 'flex', justifyContent: 'center' }}>
+            <NearMe />
+          </motion.div>
         </motion.div>
 
-        <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 1.4, duration: 1 }} style={{ position: 'absolute', bottom: '28px', left: '50%', transform: 'translateX(-50%)', zIndex: 2, display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '6px' }}>
+        <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 1.4, duration: 1 }} style={{ position: 'absolute', bottom: '28px', left: '50%', transform: 'translateX(-50%)', zIndex: 2 }}>
           <motion.div animate={{ scaleY: [1, 0.2, 1] }} transition={{ duration: 1.5, repeat: Infinity, ease: 'easeInOut' }} style={{ width: '1px', height: '36px', background: 'linear-gradient(to bottom, rgba(201,168,76,0.7), transparent)' }} />
         </motion.div>
       </section>
@@ -158,14 +148,41 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* EXPLORE */}
-      <section className="bg-[#f9f7f2] dark:bg-[#0d0d1a]" style={{ padding: '72px 20px 88px', width: '100%', boxSizing: 'border-box' as const }}>
+      {/* DISCOVER MORE — new sections */}
+      <section className="bg-[#f9f7f2] dark:bg-[#0d0d1a]" style={{ padding: '48px 20px 0', width: '100%', boxSizing: 'border-box' as const }}>
         <div style={{ maxWidth: '1100px', margin: '0 auto' }}>
           <FadeUp>
-            <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', gap: '16px', marginBottom: '32px' }}>
+            <div style={{ marginBottom: '20px' }}>
+              <p style={{ fontFamily: "'DM Sans', sans-serif", fontSize: '0.66rem', color: '#c9a84c', fontWeight: 700, letterSpacing: '2.5px', textTransform: 'uppercase' as const, marginBottom: '6px' }}>Discover More</p>
+              <h2 className="text-navy dark:text-[#f9f7f2]" style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: 'clamp(1.6rem, 4vw, 2.4rem)', fontWeight: 700, margin: 0 }}>More of London</h2>
+            </div>
+          </FadeUp>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(220px, 1fr))', gap: '12px', marginBottom: '48px' }}>
+            {DISCOVER_CARDS.map((card, i) => (
+              <motion.div key={card.href} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.07 }}>
+                <Link href={card.href} style={{ textDecoration: 'none', display: 'block' }}>
+                  <motion.div whileHover={{ y: -4 }} transition={{ duration: 0.2 }} className="bg-white dark:bg-[#1a1a2e]"
+                    style={{ borderRadius: '14px', padding: '20px', border: '1px solid rgba(201,168,76,0.12)', boxShadow: '0 2px 12px rgba(0,0,0,0.06)', cursor: 'pointer' }}>
+                    <div style={{ fontSize: '2rem', marginBottom: '10px' }}>{card.icon}</div>
+                    <div className="text-navy dark:text-[#f9f7f2]" style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: '1.1rem', fontWeight: 700, marginBottom: '4px' }}>{card.label}</div>
+                    <div style={{ fontFamily: "'DM Sans', sans-serif", fontSize: '0.72rem', color: '#888' }}>{card.sub}</div>
+                    <div style={{ marginTop: '12px', color: card.color, fontFamily: "'DM Sans', sans-serif", fontSize: '0.76rem', fontWeight: 700 }}>Explore →</div>
+                  </motion.div>
+                </Link>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* MAIN EXPLORE GRID */}
+      <section className="bg-[#f9f7f2] dark:bg-[#0d0d1a]" style={{ padding: '0 20px 88px', width: '100%', boxSizing: 'border-box' as const }}>
+        <div style={{ maxWidth: '1100px', margin: '0 auto' }}>
+          <FadeUp>
+            <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', gap: '16px', marginBottom: '28px' }}>
               <div>
                 <p style={{ fontFamily: "'DM Sans', sans-serif", fontSize: '0.66rem', color: '#c9a84c', fontWeight: 700, letterSpacing: '2.5px', textTransform: 'uppercase' as const, marginBottom: '6px' }}>Explore</p>
-                <h2 className="text-navy dark:text-[#f9f7f2]" style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: 'clamp(1.8rem, 4vw, 2.8rem)', fontWeight: 700, margin: 0, lineHeight: 1.1 }}>Everything in London</h2>
+                <h2 className="text-navy dark:text-[#f9f7f2]" style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: 'clamp(1.8rem, 4vw, 2.8rem)', fontWeight: 700, margin: 0 }}>Everything in London</h2>
               </div>
               <div style={{ display: 'flex', gap: '8px', flexWrap: 'wrap' }}>
                 {TABS.map(tab => (
@@ -195,7 +212,6 @@ export default function HomePage() {
               </motion.div>
             ))}
           </div>
-
         </div>
       </section>
 
@@ -226,9 +242,9 @@ export default function HomePage() {
           <div>
             <SlideLeft>
               <p style={{ fontFamily: "'DM Sans', sans-serif", fontSize: '0.66rem', color: '#c9a84c', fontWeight: 700, letterSpacing: '2.5px', textTransform: 'uppercase' as const, marginBottom: '12px' }}>About</p>
-              <h2 className="text-navy dark:text-[#f9f7f2]" style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: 'clamp(1.8rem, 4vw, 2.9rem)', fontWeight: 700, margin: '0 0 20px', lineHeight: 1.15 }}>Built for the<br />modern traveller</h2>
+              <h2 className="text-navy dark:text-[#f9f7f2]" style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: 'clamp(1.8rem, 4vw, 2.9rem)', fontWeight: 700, margin: '0 0 20px', lineHeight: 1.15 }}>Built for every<br />London moment</h2>
               <div style={{ width: '36px', height: '2px', background: '#c9a84c', marginBottom: '22px', borderRadius: '2px' }} />
-              <p className="text-ink/70 dark:text-[#f9f7f2]/55" style={{ fontFamily: "'DM Sans', sans-serif", fontSize: '0.91rem', lineHeight: 1.85, marginBottom: '32px' }}>TAP LONDON turns a physical London souvenir into a smart travel companion. No app. No login. No friction. Just tap, explore, and enjoy London.</p>
+              <p className="text-ink/70 dark:text-[#f9f7f2]/55" style={{ fontFamily: "'DM Sans', sans-serif", fontSize: '0.91rem', lineHeight: 1.85, marginBottom: '32px' }}>TAP LONDON is the daily discovery platform for food, hotels, sports, offers and hidden gems across London. Tap, explore and enjoy — no app needed.</p>
               <div style={{ display: 'flex', gap: '12px', flexWrap: 'wrap' }}>
                 <Link href="/places" style={{ background: '#1a1a2e', color: '#c9a84c', padding: '13px 28px', borderRadius: '8px', fontFamily: "'DM Sans', sans-serif", fontWeight: 700, fontSize: '0.84rem', textDecoration: 'none' }}>Explore London</Link>
                 <Link href="/emergency" className="text-navy dark:text-cream" style={{ background: 'transparent', padding: '13px 28px', borderRadius: '8px', border: '1.5px solid currentColor', fontFamily: "'DM Sans', sans-serif", fontWeight: 600, fontSize: '0.84rem', textDecoration: 'none' }}>Emergency Help</Link>
