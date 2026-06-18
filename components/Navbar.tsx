@@ -6,14 +6,19 @@ import { Menu, X } from "lucide-react";
 import { useState, useEffect, useRef } from "react";
 
 const navLinks = [
-  { href: "/places", label: "Places", color: null },
-  { href: "/food", label: "Food", color: null },
-  { href: "/shopping", label: "Shopping", color: null },
-  { href: "/nightlife", label: "Nightlife", color: null },
-  { href: "/kids", label: "Kids & Family", color: null },
-  { href: "/transport", label: "Transport", color: null },
-  { href: "/emergency", label: "Emergency", color: "emergency" },
-  { href: "/muslim", label: "Muslim Guide", color: "muslim" },
+  { href: "/places",      label: "Places",       color: null },
+  { href: "/food",        label: "Food",         color: null },
+  { href: "/shopping",    label: "Shopping",     color: null },
+  { href: "/nightlife",   label: "Nightlife",    color: null },
+  { href: "/hotels",      label: "Hotels",       color: null },
+  { href: "/kids",        label: "Kids & Family",color: null },
+  { href: "/offers",      label: "Offers 🏷️",    color: "offers" },
+  { href: "/sports",      label: "Sports ⚽",    color: null },
+  { href: "/hidden-gems", label: "Hidden Gems",  color: null },
+  { href: "/trending",    label: "Trending 🔥",  color: null },
+  { href: "/transport",   label: "Transport",    color: null },
+  { href: "/emergency",   label: "Emergency",    color: "emergency" },
+  { href: "/muslim",      label: "Muslim Guide", color: "muslim" },
 ];
 
 const LANGUAGES = [
@@ -93,10 +98,7 @@ export default function Navbar() {
   useEffect(() => {
     if (document.getElementById("gt-script")) return;
     (window as any).googleTranslateElementInit = () => {
-      new (window as any).google.translate.TranslateElement(
-        { pageLanguage: "en", autoDisplay: false },
-        "google_translate_element"
-      );
+      new (window as any).google.translate.TranslateElement({ pageLanguage: "en", autoDisplay: false }, "google_translate_element");
     };
     const script = document.createElement("script");
     script.id = "gt-script";
@@ -110,13 +112,8 @@ export default function Navbar() {
     localStorage.setItem("taplon-lang", lang.code);
     setLangOpen(false);
     if (lang.code === "en") {
-      const cookies = document.cookie.split(";");
-      for (const c of cookies) {
-        if (c.trim().startsWith("googtrans")) {
-          document.cookie = "googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
-          document.cookie = "googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/; domain=" + window.location.hostname;
-        }
-      }
+      document.cookie = "googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+      document.cookie = "googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/; domain=" + window.location.hostname;
       window.location.reload();
       return;
     }
@@ -133,37 +130,24 @@ export default function Navbar() {
     return () => document.removeEventListener("mousedown", handleClick);
   }, []);
 
-  function getDesktopClass(color: string | null) {
-    if (color === "emergency") return "text-red-600 hover:text-red-700 font-bold";
-    if (color === "muslim") return "text-emerald-600 hover:text-emerald-700 font-bold";
-    return "text-navy/80 hover:text-navy dark:text-cream/80 dark:hover:text-cream";
-  }
-
   function getMobileClass(color: string | null, active: boolean) {
     if (active) return "bg-navy text-white dark:bg-gold dark:text-navy";
     if (color === "emergency") return "bg-red-50 text-red-600 border border-red-200 dark:bg-red-950/30 dark:border-red-800/40";
     if (color === "muslim") return "bg-emerald-50 text-emerald-700 border border-emerald-200 dark:bg-emerald-950/30 dark:border-emerald-800/40";
+    if (color === "offers") return "bg-amber-50 text-amber-700 border border-amber-200 dark:bg-amber-950/30 dark:border-amber-800/40";
     return "bg-white text-navy hover:bg-white/70 dark:bg-white/10 dark:text-cream dark:hover:bg-white/20";
   }
 
   return (
     <>
       <div id="google_translate_element" style={{ display: "none" }} />
-      <style>{`
-        .goog-te-banner-frame, .skiptranslate { display: none !important; }
-        body { top: 0 !important; }
-        .goog-te-gadget { display: none !important; }
-        #goog-gt-tt, .goog-te-balloon-frame { display: none !important; }
-      `}</style>
+      <style>{`.goog-te-banner-frame, .skiptranslate { display: none !important; } body { top: 0 !important; } .goog-te-gadget { display: none !important; } #goog-gt-tt, .goog-te-balloon-frame { display: none !important; }`}</style>
 
       <header className="sticky top-0 z-50 border-b border-white/35 bg-cream/86 shadow-sm backdrop-blur-xl dark:bg-[#0d0d1a]/90 dark:border-white/10">
         <nav className="mx-auto flex max-w-7xl items-center justify-between px-4 py-3 sm:px-6 lg:px-8">
-
           <Link href="/" className="group flex min-h-12 items-center gap-3" onClick={() => setOpen(false)}>
             <BridgeIcon />
-            <span className="font-heading text-xl font-bold tracking-[0.08em] text-navy dark:text-cream">
-              TAP LONDON
-            </span>
+            <span className="font-heading text-xl font-bold tracking-[0.08em] text-navy dark:text-cream">TAP LONDON</span>
           </Link>
 
           <div className="flex items-center gap-2">
@@ -175,25 +159,15 @@ export default function Navbar() {
             )}
 
             <div ref={langRef} style={{ position: "relative" }}>
-              <button
-                onClick={() => setLangOpen(!langOpen)}
-                className="flex items-center gap-1 rounded-full bg-white/80 dark:bg-white/10 border border-navy/10 dark:border-white/15 px-2.5 py-1 text-xs font-semibold text-navy dark:text-cream backdrop-blur"
-                style={{ minHeight: "30px" }}
-              >
+              <button onClick={() => setLangOpen(!langOpen)} className="flex items-center gap-1 rounded-full bg-white/80 dark:bg-white/10 border border-navy/10 dark:border-white/15 px-2.5 py-1 text-xs font-semibold text-navy dark:text-cream backdrop-blur" style={{ minHeight: "30px" }}>
                 <span style={{ fontSize: "0.9rem" }}>{currentLang.flag}</span>
                 <span>{currentLang.label}</span>
                 <span style={{ fontSize: "0.5rem", opacity: 0.5 }}>{langOpen ? "▲" : "▼"}</span>
               </button>
-
               {langOpen && (
-                <div className="absolute right-0 top-[calc(100%+6px)] z-[9999] min-w-[160px] rounded-2xl border border-navy/10 dark:border-gold/20 bg-white dark:bg-[#1a1a2e] shadow-xl overflow-hidden"
-                  style={{ maxHeight: "280px", overflowY: "auto" }}>
+                <div className="absolute right-0 top-[calc(100%+6px)] z-[9999] min-w-[160px] rounded-2xl border border-navy/10 dark:border-gold/20 bg-white dark:bg-[#1a1a2e] shadow-xl overflow-hidden" style={{ maxHeight: "280px", overflowY: "auto" }}>
                   {LANGUAGES.map((lang) => (
-                    <button
-                      key={lang.code}
-                      onClick={() => selectLang(lang)}
-                      className={`flex w-full items-center gap-2 px-4 py-2.5 text-left text-sm border-b border-navy/5 dark:border-white/5 hover:bg-gold/10 transition ${currentLang.code === lang.code ? "text-[#c9a84c] font-bold" : "text-navy dark:text-cream"}`}
-                    >
+                    <button key={lang.code} onClick={() => selectLang(lang)} className={`flex w-full items-center gap-2 px-4 py-2.5 text-left text-sm border-b border-navy/5 dark:border-white/5 hover:bg-gold/10 transition ${currentLang.code === lang.code ? "text-[#c9a84c] font-bold" : "text-navy dark:text-cream"}`}>
                       <span style={{ fontSize: "1rem" }}>{lang.flag}</span>
                       <span>{lang.full}</span>
                       {currentLang.code === lang.code && <span className="ml-auto text-[#c9a84c]">✓</span>}
@@ -203,22 +177,11 @@ export default function Navbar() {
               )}
             </div>
 
-            <button
-              type="button"
-              onClick={toggleDark}
-              className="inline-flex h-8 w-8 items-center justify-center rounded-full bg-navy dark:bg-gold text-white dark:text-navy shadow-sm"
-              style={{ fontSize: "0.9rem" }}
-              aria-label="Toggle dark mode"
-            >
+            <button type="button" onClick={toggleDark} className="inline-flex h-8 w-8 items-center justify-center rounded-full bg-navy dark:bg-gold text-white dark:text-navy shadow-sm" style={{ fontSize: "0.9rem" }} aria-label="Toggle dark mode">
               {dark ? "☀️" : "🌙"}
             </button>
 
-            <button
-              type="button"
-              className="inline-flex h-9 w-9 items-center justify-center rounded-full border border-navy/15 dark:border-white/15 bg-white dark:bg-white/10 text-navy dark:text-cream shadow-sm"
-              onClick={() => setOpen((v) => !v)}
-              aria-label={open ? "Close menu" : "Open menu"}
-            >
+            <button type="button" className="inline-flex h-9 w-9 items-center justify-center rounded-full border border-navy/15 dark:border-white/15 bg-white dark:bg-white/10 text-navy dark:text-cream shadow-sm" onClick={() => setOpen((v) => !v)} aria-label={open ? "Close menu" : "Open menu"}>
               {open ? <X size={18} /> : <Menu size={18} />}
             </button>
           </div>
@@ -236,12 +199,7 @@ export default function Navbar() {
               {navLinks.map((link) => {
                 const active = pathname === link.href;
                 return (
-                  <Link
-                    key={link.href}
-                    href={link.href}
-                    onClick={() => setOpen(false)}
-                    className={`flex min-h-12 items-center rounded-full px-5 text-base font-semibold transition ${getMobileClass(link.color, active)}`}
-                  >
+                  <Link key={link.href} href={link.href} onClick={() => setOpen(false)} className={`flex min-h-12 items-center rounded-full px-5 text-base font-semibold transition ${getMobileClass(link.color, active)}`}>
                     {link.label}
                   </Link>
                 );
