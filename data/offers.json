@@ -1,34 +1,13 @@
 {
-  "__comment": "Editable offers content. Add partner offers to partners and future discount codes to discountCodes. Keep code values short and memorable.",
-  "partners": [
-    {
-      "id": "partner-cafe",
-      "name": "Independent London Cafe",
-      "area": "Central London",
-      "offer": "Partner slot available for coffee, brunch, or dessert discounts.",
-      "cta": "Partner with TAP LONDON"
-    },
-    {
-      "id": "partner-tour",
-      "name": "Walking Tour Operator",
-      "area": "Westminster and City",
-      "offer": "Partner slot available for guided walks, private tours, and family-friendly routes.",
-      "cta": "Partner with TAP LONDON"
-    },
-    {
-      "id": "partner-shop",
-      "name": "Souvenir and Gift Shop",
-      "area": "West End",
-      "offer": "Partner slot available for NFC-triggered gift discounts and tourist bundles.",
-      "cta": "Partner with TAP LONDON"
-    }
-  ],
-  "discountCodes": [
-    {
-      "code": "TAPLONDON10",
-      "label": "Example future code",
-      "description": "A ready-to-use display pattern for future partner discounts claimed after an NFC tap.",
-      "status": "Coming soon"
-    }
+  "items": [
+    { "id": "dishoom-offer", "name": "Dishoom — Free Chai", "category": "Food Offers", "area": "Multiple Locations", "description": "Get a complimentary chai with any main course ordered before 12pm. One of London's most loved restaurants at a great deal.", "discount": "Free Chai", "validUntil": "2026-12-31", "code": "TAPCHIAI", "image": "https://images.pexels.com/photos/1267320/pexels-photo-1267320.jpeg?auto=compress&cs=tinysrgb&w=800", "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Dishoom+London", "tags": ["halal", "food"], "order": 0 },
+    { "id": "kids-eat-free", "name": "Kids Eat Free — Selected Restaurants", "category": "Kids Offers", "description": "Kids eat free every Sunday at selected London restaurants. Under 12s eat free with every adult main purchased.", "discount": "Kids Eat Free", "validUntil": "2026-12-31", "image": "https://images.pexels.com/photos/1148998/pexels-photo-1148998.jpeg?auto=compress&cs=tinysrgb&w=800", "tags": ["kids", "family", "food"], "area": "London Wide", "order": 1 },
+    { "id": "afternoon-tea-deal", "name": "Afternoon Tea for 2 — 20% Off", "category": "Food Offers", "area": "Central London", "description": "Enjoy a classic British afternoon tea for two with 20% off at selected London hotels. Scones, sandwiches and champagne.", "discount": "20% Off", "validUntil": "2026-12-31", "code": "TAPTEA20", "image": "https://images.pexels.com/photos/1640777/pexels-photo-1640777.jpeg?auto=compress&cs=tinysrgb&w=800", "tags": ["food", "luxury"], "order": 2 },
+    { "id": "primark-sale", "name": "Primark Oxford Street — Sale Now On", "category": "Shopping Offers", "area": "Oxford Street, W1C", "description": "Up to 50% off selected lines at Europe's biggest Primark. Fashion, beauty, homeware and kids clothes at incredible prices.", "discount": "Up to 50% Off", "validUntil": "2026-12-31", "image": "https://images.pexels.com/photos/3965548/pexels-photo-3965548.jpeg?auto=compress&cs=tinysrgb&w=800", "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Primark+Oxford+Street", "tags": ["shopping"], "order": 3 },
+    { "id": "sea-life-kids", "name": "SEA LIFE Aquarium — Kids Go Free", "category": "Kids Offers", "area": "South Bank, SE1", "description": "One child goes free with every full-paying adult at SEA LIFE London Aquarium. Book online for best prices.", "discount": "Kids Go Free", "validUntil": "2026-12-31", "code": "TAPKIDS", "image": "https://images.pexels.com/photos/3308285/pexels-photo-3308285.jpeg?auto=compress&cs=tinysrgb&w=800", "mapsUrl": "https://www.google.com/maps/search/?api=1&query=SEA+LIFE+London+Aquarium", "tags": ["kids", "family"], "order": 4 },
+    { "id": "hotel-spa-deal", "name": "Hotel Spa Day — 30% Off", "category": "Hotel Offers", "area": "Central London", "description": "Luxury spa day at selected London hotels with 30% off. Includes access to pool, steam room, sauna and relaxation areas.", "discount": "30% Off", "validUntil": "2026-12-31", "code": "TAPSPA30", "image": "https://images.pexels.com/photos/261102/pexels-photo-261102.jpeg?auto=compress&cs=tinysrgb&w=800", "tags": ["hotel", "luxury"], "order": 5 },
+    { "id": "student-museum", "name": "Student — Free Museum Entry", "category": "Student Offers", "area": "London Wide", "description": "All major London museums are free — British Museum, Natural History Museum, Science Museum, V&A, Tate Modern and more. Show your student card.", "discount": "Free Entry", "validUntil": "2026-12-31", "image": "https://images.pexels.com/photos/2068849/pexels-photo-2068849.jpeg?auto=compress&cs=tinysrgb&w=800", "tags": ["student", "free"], "order": 6 },
+    { "id": "weekend-brunch", "name": "Weekend Brunch — 2 for 1", "category": "Weekend Deals", "area": "Shoreditch & Soho", "description": "Two for one brunch at selected East London restaurants every Saturday and Sunday from 10am-3pm. Book via their websites.", "discount": "2 for 1", "validUntil": "2026-12-31", "image": "https://images.pexels.com/photos/1640777/pexels-photo-1640777.jpeg?auto=compress&cs=tinysrgb&w=800", "tags": ["food", "weekend"], "order": 7 },
+    { "id": "family-travelcard", "name": "Family & Friends Railcard", "category": "Family Deals", "area": "All London Stations", "description": "Save 1/3 on rail fares across the UK. Adults save 33% and kids save 60%. Perfect for London day trips with the family.", "discount": "Up to 60% Off", "validUntil": "2026-12-31", "image": "https://images.pexels.com/photos/5765/london-street-landmark-double-decker.jpg?auto=compress&cs=tinysrgb&w=800", "mapsUrl": "https://www.google.com/maps/search/?api=1&query=London+Victoria+Station", "tags": ["family", "transport"], "order": 8 }
   ]
 }
