@@ -22,58 +22,50 @@
         {
           "name": "Selfridges",
           "type": "Department Store",
-          "note": "Iconic luxury department store \u2014 beauty, designer fashion, food hall and more.",
-          "image": "https://images.pexels.com/photos/3965548/pexels-photo-3965548.jpeg?auto=compress&cs=tinysrgb&w=800",
+          "note": "London's most iconic department store \u2014 5 floors of luxury fashion, beauty, tech and food.",
+          "image": "https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=600&q=80",
           "openingHours": "Mon\u2013Sat 10:00\u201321:00, Sun 11:30\u201318:00",
           "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Selfridges+Oxford+Street+London"
         },
         {
           "name": "Primark",
           "type": "Fashion",
-          "note": "Europe's biggest Primark \u2014 unbeatable prices on fashion, beauty and homeware.",
-          "image": "https://images.pexels.com/photos/1488463/pexels-photo-1488463.jpeg?auto=compress&cs=tinysrgb&w=800",
+          "note": "Europe's biggest Primark \u2014 massive 5-floor store with fashion, beauty and homeware at unbeatable prices.",
+          "image": "https://images.unsplash.com/photo-1567401893414-76b7b1e5a7a5?w=600&q=80",
           "openingHours": "Mon\u2013Fri 08:00\u201322:00, Sat 08:00\u201322:00, Sun 11:00\u201318:00",
           "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Primark+Oxford+Street+London"
         },
         {
           "name": "H&M",
           "type": "Fashion",
-          "note": "Multiple floors of affordable fashion for women, men, kids and home.",
-          "image": "https://images.pexels.com/photos/2285399/pexels-photo-2285399.jpeg?auto=compress&cs=tinysrgb&w=800",
+          "note": "Affordable everyday fashion for women, men and kids across multiple floors.",
+          "image": "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&q=80",
           "openingHours": "Mon\u2013Sat 10:00\u201321:00, Sun 12:00\u201318:00",
           "mapsUrl": "https://www.google.com/maps/search/?api=1&query=H%26M+Oxford+Street+London"
         },
         {
           "name": "Zara",
           "type": "Fashion",
-          "note": "On-trend fashion and accessories across 3 floors.",
-          "image": "https://images.pexels.com/photos/3965548/pexels-photo-3965548.jpeg?auto=compress&cs=tinysrgb&w=800",
+          "note": "On-trend fashion and accessories across 3 floors of the flagship Oxford Street store.",
+          "image": "https://images.unsplash.com/photo-1490481651871-ab68de25d43d?w=600&q=80",
           "openingHours": "Mon\u2013Sat 10:00\u201321:00, Sun 12:00\u201318:00",
           "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Zara+Oxford+Street+London"
         },
         {
           "name": "Nike Town",
-          "type": "Sports",
-          "note": "Flagship Nike store with the latest trainers and sportswear across multiple floors.",
-          "image": "https://images.pexels.com/photos/1488463/pexels-photo-1488463.jpeg?auto=compress&cs=tinysrgb&w=800",
+          "type": "Sports & Trainers",
+          "note": "Massive flagship store with the latest Nike trainers, sportswear and exclusive drops.",
+          "image": "https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=600&q=80",
           "openingHours": "Mon\u2013Sat 10:00\u201321:00, Sun 11:30\u201318:00",
           "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Nike+Town+Oxford+Street+London"
         },
         {
           "name": "John Lewis",
           "type": "Department Store",
-          "note": "Classic British department store \u2014 tech, home, fashion and beauty.",
-          "image": "https://images.pexels.com/photos/3965548/pexels-photo-3965548.jpeg?auto=compress&cs=tinysrgb&w=800",
+          "note": "Classic British department store \u2014 tech, home, fashion and beauty all in one place.",
+          "image": "https://images.unsplash.com/photo-1441984904996-e0b6ba687e04?w=600&q=80",
           "openingHours": "Mon\u2013Sat 10:00\u201321:00, Sun 11:30\u201318:00",
           "mapsUrl": "https://www.google.com/maps/search/?api=1&query=John+Lewis+Oxford+Street+London"
-        },
-        {
-          "name": "Marks & Spencer",
-          "type": "Clothing & Food",
-          "note": "British institution \u2014 great food hall and classic clothing.",
-          "image": "https://images.pexels.com/photos/2285399/pexels-photo-2285399.jpeg?auto=compress&cs=tinysrgb&w=800",
-          "openingHours": "Mon\u2013Sat 08:00\u201321:00, Sun 12:00\u201318:00",
-          "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Marks+Spencer+Oxford+Street+London"
         }
       ]
     },
@@ -96,27 +88,34 @@
         {
           "name": "Levi's",
           "type": "Denim & Casual",
-          "note": "Classic Levi's store \u2014 jeans, jackets and streetwear"
+          "note": "The original denim brand \u2014 jeans, jackets and streetwear. Classic and modern fits.",
+          "image": "https://images.unsplash.com/photo-1542272604-787c3835535d?w=600&q=80",
+          "openingHours": "Mon\u2013Sat 10:00\u201320:00, Sun 12:00\u201318:00",
+          "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Levis+Carnaby+Street+London"
         },
         {
           "name": "Vans",
           "type": "Skate & Streetwear",
-          "note": "Iconic skate brand with shoes, clothing and accessories"
+          "note": "Iconic skate brand with shoes, clothing and accessories. Exclusives you won't find elsewhere.",
+          "image": "https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=600&q=80",
+          "openingHours": "Mon\u2013Sat 10:00\u201320:00, Sun 12:00\u201318:00",
+          "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Vans+Carnaby+Street+London"
         },
         {
           "name": "Dr. Martens",
           "type": "Footwear",
-          "note": "Signature boots and shoes \u2014 the original Carnaby spirit"
+          "note": "The original Carnaby boots \u2014 classic 1460s, Chelsea boots and seasonal collaborations.",
+          "image": "https://images.unsplash.com/photo-1543163521-1bf539c55dd2?w=600&q=80",
+          "openingHours": "Mon\u2013Sat 10:00\u201320:00, Sun 12:00\u201318:00",
+          "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Dr+Martens+Carnaby+Street+London"
         },
         {
           "name": "Liberty London",
           "type": "Luxury Department Store",
-          "note": "Steps away \u2014 iconic Tudor building with luxury fashion, beauty and homeware"
-        },
-        {
-          "name": "Irregular Choice",
-          "type": "Footwear",
-          "note": "Quirky, unique shoes and accessories unlike anywhere else"
+          "note": "Just steps away \u2014 iconic Tudor building with luxury fashion, beauty and the famous Liberty print fabrics.",
+          "image": "https://images.unsplash.com/photo-1441984904996-e0b6ba687e04?w=600&q=80",
+          "openingHours": "Mon\u2013Sat 10:00\u201320:00, Sun 12:00\u201318:00",
+          "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Liberty+London+Great+Marlborough+Street"
         }
       ]
     },
@@ -139,22 +138,34 @@
         {
           "name": "Anthropologie",
           "type": "Lifestyle & Fashion",
-          "note": "Beautiful boho fashion, homeware and gifts"
-        },
-        {
-          "name": "Vivienne Westwood",
-          "type": "Designer Fashion",
-          "note": "Iconic British punk-turned-luxury designer"
+          "note": "Beautiful bohemian fashion, homeware and gifts. One of the most gorgeous shops on King's Road.",
+          "image": "https://images.unsplash.com/photo-1441984904996-e0b6ba687e04?w=600&q=80",
+          "openingHours": "Mon\u2013Sat 10:00\u201319:00, Sun 12:00\u201317:00",
+          "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Anthropologie+Kings+Road+London"
         },
         {
           "name": "Peter Jones",
           "type": "Department Store",
-          "note": "John Lewis partner store \u2014 a Chelsea institution"
+          "note": "A Chelsea institution and John Lewis partner \u2014 fashion, home, beauty and tech.",
+          "image": "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&q=80",
+          "openingHours": "Mon\u2013Sat 09:30\u201320:00, Sun 12:00\u201318:00",
+          "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Peter+Jones+Chelsea+London"
+        },
+        {
+          "name": "Vivienne Westwood",
+          "type": "Designer Fashion",
+          "note": "The original punk-turned-luxury British designer. Bold, iconic and uniquely British.",
+          "image": "https://images.unsplash.com/photo-1483985988355-763728e1935b?w=600&q=80",
+          "openingHours": "Mon\u2013Sat 10:00\u201318:00, Sun 12:00\u201317:00",
+          "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Vivienne+Westwood+Kings+Road+London"
         },
         {
           "name": "Space NK",
-          "type": "Beauty",
-          "note": "Premium beauty and skincare from cult brands"
+          "type": "Luxury Beauty",
+          "note": "Premium beauty and skincare \u2014 Nars, Charlotte Tilbury, By Terry and more cult brands.",
+          "image": "https://images.unsplash.com/photo-1585386959984-a4155224a1ad?w=600&q=80",
+          "openingHours": "Mon\u2013Sat 10:00\u201318:30, Sun 12:00\u201317:00",
+          "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Space+NK+Kings+Road+London"
         }
       ]
     },
@@ -172,40 +183,40 @@
         {
           "name": "John Lewis",
           "type": "Department Store",
-          "note": "Flagship store \u2014 tech, fashion, home and beauty all under one roof.",
-          "image": "https://images.pexels.com/photos/3965548/pexels-photo-3965548.jpeg?auto=compress&cs=tinysrgb&w=800",
+          "note": "Flagship Westfield store \u2014 tech, fashion, home and beauty all under one roof.",
+          "image": "https://images.unsplash.com/photo-1441984904996-e0b6ba687e04?w=600&q=80",
           "openingHours": "Mon\u2013Sat 09:00\u201321:00, Sun 11:00\u201317:00",
           "mapsUrl": "https://www.google.com/maps/search/?api=1&query=John+Lewis+Westfield+Stratford+London"
         },
         {
           "name": "Zara",
           "type": "Fashion",
-          "note": "On-trend fashion across multiple floors.",
-          "image": "https://images.pexels.com/photos/2285399/pexels-photo-2285399.jpeg?auto=compress&cs=tinysrgb&w=800",
+          "note": "On-trend fashion for women, men and kids. Multiple floors in the Westfield location.",
+          "image": "https://images.unsplash.com/photo-1490481651871-ab68de25d43d?w=600&q=80",
           "openingHours": "Mon\u2013Sat 09:00\u201321:00, Sun 11:00\u201317:00",
           "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Zara+Westfield+Stratford+London"
         },
         {
           "name": "Apple Store",
           "type": "Tech",
-          "note": "Full Apple product range with Genius Bar.",
-          "image": "https://images.pexels.com/photos/3965548/pexels-photo-3965548.jpeg?auto=compress&cs=tinysrgb&w=800",
+          "note": "Full Apple product range \u2014 iPhone, Mac, iPad and accessories with Genius Bar support.",
+          "image": "https://images.unsplash.com/photo-1491933382434-500287f9b54b?w=600&q=80",
           "openingHours": "Mon\u2013Sat 09:00\u201321:00, Sun 11:00\u201317:00",
           "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Apple+Store+Westfield+Stratford+London"
         },
         {
           "name": "Nike",
-          "type": "Sports",
-          "note": "Latest Nike trainers and sportswear.",
-          "image": "https://images.pexels.com/photos/1488463/pexels-photo-1488463.jpeg?auto=compress&cs=tinysrgb&w=800",
+          "type": "Sports & Trainers",
+          "note": "Latest Nike trainers and sportswear. Great for limited edition drops.",
+          "image": "https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=600&q=80",
           "openingHours": "Mon\u2013Sat 09:00\u201321:00, Sun 11:00\u201317:00",
           "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Nike+Westfield+Stratford+London"
         },
         {
           "name": "Adidas",
-          "type": "Sports",
-          "note": "Flagship Adidas store with full clothing and footwear range.",
-          "image": "https://images.pexels.com/photos/2285399/pexels-photo-2285399.jpeg?auto=compress&cs=tinysrgb&w=800",
+          "type": "Sports & Streetwear",
+          "note": "Flagship Adidas store \u2014 trainers, sportswear, Originals and exclusive collab pieces.",
+          "image": "https://images.unsplash.com/photo-1543163521-1bf539c55dd2?w=600&q=80",
           "openingHours": "Mon\u2013Sat 09:00\u201321:00, Sun 11:00\u201317:00",
           "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Adidas+Westfield+Stratford+London"
         }
@@ -220,7 +231,41 @@
       "location": "Docklands",
       "openingHours": "Daily; weekday lunch hours busiest",
       "description": "Sleek malls, restaurants, waterside walks, and public art beneath the financial district's towers.",
-      "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Canary+Wharf+shopping"
+      "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Canary+Wharf+shopping",
+      "subShops": [
+        {
+          "name": "Marks & Spencer",
+          "type": "Fashion & Food",
+          "note": "Great M&S food hall for lunch plus classic British clothing and homeware.",
+          "image": "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&q=80",
+          "openingHours": "Mon\u2013Fri 07:00\u201321:00, Sat 08:00\u201320:00, Sun 11:00\u201317:00",
+          "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Marks+Spencer+Canary+Wharf+London"
+        },
+        {
+          "name": "Reiss",
+          "type": "Premium Fashion",
+          "note": "Contemporary British fashion \u2014 sharp workwear, occasion wear and weekend casual.",
+          "image": "https://images.unsplash.com/photo-1490481651871-ab68de25d43d?w=600&q=80",
+          "openingHours": "Mon\u2013Fri 08:00\u201320:00, Sat 09:00\u201319:00, Sun 11:00\u201317:00",
+          "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Reiss+Canary+Wharf+London"
+        },
+        {
+          "name": "Hugo Boss",
+          "type": "Luxury Fashion",
+          "note": "German premium fashion \u2014 tailored suits, smart casual and sportswear.",
+          "image": "https://images.unsplash.com/photo-1483985988355-763728e1935b?w=600&q=80",
+          "openingHours": "Mon\u2013Fri 08:00\u201320:00, Sat 09:00\u201319:00, Sun 11:00\u201317:00",
+          "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Hugo+Boss+Canary+Wharf+London"
+        },
+        {
+          "name": "Sweaty Betty",
+          "type": "Activewear",
+          "note": "Premium British activewear for women \u2014 yoga, running and gym wear that actually looks good.",
+          "image": "https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=600&q=80",
+          "openingHours": "Mon\u2013Fri 08:00\u201320:00, Sat 09:00\u201319:00, Sun 11:00\u201317:00",
+          "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Sweaty+Betty+Canary+Wharf+London"
+        }
+      ]
     },
     {
       "image": "https://images.pexels.com/photos/36680841/pexels-photo-36680841.jpeg?auto=compress&cs=tinysrgb&w=800",
@@ -234,36 +279,44 @@
       "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Covent+Garden+shopping",
       "subShops": [
         {
-          "name": "Apple Store Covent Garden",
+          "name": "Apple Store",
           "type": "Tech",
-          "note": "Stunning Apple flagship in the historic market building with Genius Bar.",
-          "image": "https://images.pexels.com/photos/3965548/pexels-photo-3965548.jpeg?auto=compress&cs=tinysrgb&w=800",
+          "note": "Stunning Apple flagship store inside the historic market building. Full range with Genius Bar.",
+          "image": "https://images.unsplash.com/photo-1491933382434-500287f9b54b?w=600&q=80",
           "openingHours": "Mon\u2013Sat 10:00\u201320:00, Sun 12:00\u201318:00",
           "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Apple+Store+Covent+Garden+London"
         },
         {
           "name": "Mulberry",
-          "type": "Luxury Fashion",
-          "note": "British luxury leather bags and accessories.",
-          "image": "https://images.pexels.com/photos/2285399/pexels-photo-2285399.jpeg?auto=compress&cs=tinysrgb&w=800",
+          "type": "Luxury Bags",
+          "note": "British luxury leather bags and accessories. Somerset and Bayswater bags are iconic.",
+          "image": "https://images.unsplash.com/photo-1548036328-c9fa89d128fa?w=600&q=80",
           "openingHours": "Mon\u2013Sat 10:00\u201319:00, Sun 12:00\u201318:00",
           "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Mulberry+Covent+Garden+London"
         },
         {
           "name": "Lush",
           "type": "Beauty",
-          "note": "Handmade cosmetics, bath bombs and fresh skincare products.",
-          "image": "https://images.pexels.com/photos/1488463/pexels-photo-1488463.jpeg?auto=compress&cs=tinysrgb&w=800",
+          "note": "Handmade cosmetics, bath bombs, shampoo bars and fresh skincare in the flagship Covent Garden store.",
+          "image": "https://images.unsplash.com/photo-1585386959984-a4155224a1ad?w=600&q=80",
           "openingHours": "Mon\u2013Sat 09:00\u201320:00, Sun 11:00\u201318:00",
           "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Lush+Covent+Garden+London"
         },
         {
           "name": "Jo Malone",
           "type": "Luxury Fragrance",
-          "note": "Classic British perfume house \u2014 candles and colognes.",
-          "image": "https://images.pexels.com/photos/3965548/pexels-photo-3965548.jpeg?auto=compress&cs=tinysrgb&w=800",
+          "note": "Classic British perfume house \u2014 colognes, candles and bath products in stunning packaging.",
+          "image": "https://images.unsplash.com/photo-1523293182086-7651a899d37f?w=600&q=80",
           "openingHours": "Mon\u2013Sat 10:00\u201319:00, Sun 12:00\u201317:00",
           "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Jo+Malone+Covent+Garden+London"
+        },
+        {
+          "name": "Fossil",
+          "type": "Watches & Accessories",
+          "note": "Stylish watches, leather bags and accessories at accessible luxury prices.",
+          "image": "https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=600&q=80",
+          "openingHours": "Mon\u2013Sat 10:00\u201319:00, Sun 12:00\u201317:00",
+          "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Fossil+Covent+Garden+London"
         }
       ]
     },
@@ -276,7 +329,41 @@
       "location": "Notting Hill",
       "openingHours": "Best Friday-Saturday; shops vary",
       "description": "Pastel streets, antique dealers, vintage clothing, cafes, and one of London's most photogenic market walks.",
-      "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Portobello+Road+Market"
+      "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Portobello+Road+Market",
+      "subShops": [
+        {
+          "name": "Antique Stalls",
+          "type": "Antiques & Collectibles",
+          "note": "Hundreds of stalls selling silverware, vintage jewellery, ceramics and rare collectibles.",
+          "image": "https://images.unsplash.com/photo-1441984904996-e0b6ba687e04?w=600&q=80",
+          "openingHours": "Sat 05:30\u201315:00 (best day)",
+          "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Portobello+Road+Market+London"
+        },
+        {
+          "name": "Vintage Clothing Stalls",
+          "type": "Vintage Fashion",
+          "note": "Amazing selection of vintage and retro clothing \u2014 1950s to 1990s fashion.",
+          "image": "https://images.unsplash.com/photo-1490481651871-ab68de25d43d?w=600&q=80",
+          "openingHours": "Fri\u2013Sun 09:00\u201317:00",
+          "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Portobello+Road+Vintage+London"
+        },
+        {
+          "name": "Books for Cooks",
+          "type": "Specialist Books",
+          "note": "Legendary cookbook shop with a tiny test kitchen inside where recipes are cooked daily.",
+          "image": "https://images.unsplash.com/photo-1481627834876-b7833e8f5570?w=600&q=80",
+          "openingHours": "Tue\u2013Sat 10:00\u201318:00",
+          "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Books+for+Cooks+Notting+Hill+London"
+        },
+        {
+          "name": "The Spice Shop",
+          "type": "Gourmet Food",
+          "note": "Incredible selection of global spices, teas, herbs and exotic ingredients from around the world.",
+          "image": "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=600&q=80",
+          "openingHours": "Mon\u2013Sat 10:00\u201318:00",
+          "mapsUrl": "https://www.google.com/maps/search/?api=1&query=The+Spice+Shop+Portobello+London"
+        }
+      ]
     },
     {
       "image": "https://images.pexels.com/photos/31270596/pexels-photo-31270596.jpeg?auto=compress&cs=tinysrgb&w=800",
@@ -287,7 +374,41 @@
       "location": "London Bridge",
       "openingHours": "Monday-Saturday; full market Wednesday-Saturday",
       "description": "Historic food market for artisan produce, prepared dishes, baked goods, spices, coffee, and edible gifts.",
-      "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Borough+Market"
+      "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Borough+Market",
+      "subShops": [
+        {
+          "name": "Neal's Yard Dairy",
+          "type": "Artisan Cheese",
+          "note": "The best British and Irish artisan cheeses \u2014 friendly staff who let you taste before you buy.",
+          "image": "https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=600&q=80",
+          "openingHours": "Mon\u2013Fri 09:00\u201318:00, Sat 09:00\u201318:00",
+          "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Neals+Yard+Dairy+Borough+Market+London"
+        },
+        {
+          "name": "Monmouth Coffee",
+          "type": "Specialty Coffee",
+          "note": "London's best coffee. Queue is always worth it \u2014 iconic Borough Market institution since 1978.",
+          "image": "https://images.unsplash.com/photo-1523293182086-7651a899d37f?w=600&q=80",
+          "openingHours": "Mon\u2013Sat 07:30\u201318:00",
+          "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Monmouth+Coffee+Borough+Market+London"
+        },
+        {
+          "name": "The Flour Station",
+          "type": "Artisan Bread",
+          "note": "Incredible sourdough and artisan breads baked fresh daily \u2014 sellout by midday on weekends.",
+          "image": "https://images.unsplash.com/photo-1481627834876-b7833e8f5570?w=600&q=80",
+          "openingHours": "Wed\u2013Sat 08:00\u201317:00",
+          "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Borough+Market+London"
+        },
+        {
+          "name": "Turnips",
+          "type": "Fresh Produce",
+          "note": "Best fruit, vegetables and herbs from award-winning Borough Market traders.",
+          "image": "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=600&q=80",
+          "openingHours": "Wed\u2013Sat 08:00\u201317:00",
+          "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Turnips+Borough+Market+London"
+        }
+      ]
     },
     {
       "image": "https://images.pexels.com/photos/18028809/pexels-photo-18028809.jpeg?auto=compress&cs=tinysrgb&w=800",
@@ -325,34 +446,34 @@
         {
           "name": "Stables Market",
           "type": "Vintage & Alternative",
-          "note": "Huge market in Victorian horse stables \u2014 vintage clothing, tattoos and alternative fashion.",
-          "image": "https://images.pexels.com/photos/3965548/pexels-photo-3965548.jpeg?auto=compress&cs=tinysrgb&w=800",
+          "note": "Huge market in Victorian horse stables \u2014 vintage clothing, tattoos, alternative fashion and street food.",
+          "image": "https://images.unsplash.com/photo-1567401893414-76b7b1e5a7a5?w=600&q=80",
           "openingHours": "Daily 10:00\u201318:00",
           "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Stables+Market+Camden+London"
         },
         {
           "name": "Camden Lock Market",
           "type": "Street Food & Crafts",
-          "note": "Artisan food stalls, crafts and gifts by the canal.",
-          "image": "https://images.pexels.com/photos/1267320/pexels-photo-1267320.jpeg?auto=compress&cs=tinysrgb&w=800",
+          "note": "Artisan food traders, handmade crafts and unique gifts right by the canal.",
+          "image": "https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=600&q=80",
           "openingHours": "Daily 10:00\u201318:00",
           "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Camden+Lock+Market+London"
         },
         {
-          "name": "Electric Market",
-          "type": "Music & Culture",
-          "note": "Music memorabilia, band tees, vinyl records and punk fashion.",
-          "image": "https://images.pexels.com/photos/2285399/pexels-photo-2285399.jpeg?auto=compress&cs=tinysrgb&w=800",
-          "openingHours": "Sat\u2013Sun 10:00\u201317:00",
-          "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Electric+Market+Camden+London"
-        },
-        {
           "name": "Psychedelic Vintage",
           "type": "Vintage Clothing",
-          "note": "Amazing vintage clothing and retro pieces from every decade.",
-          "image": "https://images.pexels.com/photos/1488463/pexels-photo-1488463.jpeg?auto=compress&cs=tinysrgb&w=800",
+          "note": "Incredible vintage clothing and retro pieces from every era \u2014 great for unique finds.",
+          "image": "https://images.unsplash.com/photo-1490481651871-ab68de25d43d?w=600&q=80",
           "openingHours": "Daily 10:00\u201318:00",
           "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Psychedelic+Vintage+Camden+London"
+        },
+        {
+          "name": "Electric Market",
+          "type": "Music & Streetwear",
+          "note": "Band tees, vinyl records, punk fashion and music memorabilia across multiple stalls.",
+          "image": "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&q=80",
+          "openingHours": "Sat\u2013Sun 10:00\u201317:00",
+          "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Electric+Market+Camden+London"
         }
       ]
     },
@@ -365,7 +486,33 @@
       "location": "Greenwich",
       "openingHours": "Daily 10:00-17:30",
       "description": "Covered market with crafts, jewellery, street food, and easy access to the Cutty Sark and park.",
-      "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Greenwich+Market"
+      "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Greenwich+Market",
+      "subShops": [
+        {
+          "name": "Antique Stalls",
+          "type": "Antiques",
+          "note": "Weekend antique market with jewellery, silverware, vintage maps and maritime collectibles.",
+          "image": "https://images.unsplash.com/photo-1481627834876-b7833e8f5570?w=600&q=80",
+          "openingHours": "Sat\u2013Sun 10:00\u201317:30",
+          "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Greenwich+Market+London"
+        },
+        {
+          "name": "Artisan Food Stalls",
+          "type": "Street Food",
+          "note": "Amazing rotating food stalls \u2014 Ethiopian, Venezuelan, Vietnamese, Indian and more.",
+          "image": "https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=600&q=80",
+          "openingHours": "Thu\u2013Sun 10:00\u201317:30",
+          "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Greenwich+Market+Street+Food"
+        },
+        {
+          "name": "Craft & Handmade Stalls",
+          "type": "Crafts & Art",
+          "note": "Local artists selling handmade jewellery, ceramics, prints and gifts.",
+          "image": "https://images.unsplash.com/photo-1523293182086-7651a899d37f?w=600&q=80",
+          "openingHours": "Thu\u2013Sun 10:00\u201317:30",
+          "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Greenwich+Market+London"
+        }
+      ]
     },
     {
       "image": "https://images.pexels.com/photos/5411383/pexels-photo-5411383.jpeg?auto=compress&cs=tinysrgb&w=800",
@@ -376,7 +523,41 @@
       "location": "Spitalfields",
       "openingHours": "Daily; best Thursday-Sunday",
       "description": "Covered market with independent designers, food traders, vintage days, and walks to Brick Lane.",
-      "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Old+Spitalfields+Market"
+      "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Old+Spitalfields+Market",
+      "subShops": [
+        {
+          "name": "Independent Designer Stalls",
+          "type": "Independent Fashion",
+          "note": "New London designers selling unique clothing, prints and accessories \u2014 find something truly one-of-a-kind.",
+          "image": "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&q=80",
+          "openingHours": "Daily 10:00\u201317:00, best Thu\u2013Sun",
+          "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Old+Spitalfields+Market+London"
+        },
+        {
+          "name": "Street Food Traders",
+          "type": "Street Food",
+          "note": "Rotating international street food stalls \u2014 Japanese, Ethiopian, Lebanese, Indian and more.",
+          "image": "https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=600&q=80",
+          "openingHours": "Daily 10:00\u201317:00",
+          "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Spitalfields+Market+Street+Food+London"
+        },
+        {
+          "name": "Tatty Devine",
+          "type": "Jewellery",
+          "note": "Fun, colourful acrylic jewellery handmade in London. Perfect for unique gifts.",
+          "image": "https://images.unsplash.com/photo-1523293182086-7651a899d37f?w=600&q=80",
+          "openingHours": "Mon\u2013Fri 10:00\u201317:00, Sat 10:00\u201318:00",
+          "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Tatty+Devine+Spitalfields+London"
+        },
+        {
+          "name": "Vintage & Art Stalls",
+          "type": "Vintage & Art",
+          "note": "Second-hand books, handmade art, ceramics and gifts from local artists every week.",
+          "image": "https://images.unsplash.com/photo-1567401893414-76b7b1e5a7a5?w=600&q=80",
+          "openingHours": "Thu\u2013Sun 10:00\u201317:00",
+          "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Old+Spitalfields+Market+London"
+        }
+      ]
     },
     {
       "image": "https://images.pexels.com/photos/4000028/pexels-photo-4000028.jpeg?auto=compress&cs=tinysrgb&w=800",
@@ -387,7 +568,33 @@
       "location": "Shoreditch",
       "openingHours": "Sunday is main market day",
       "description": "Vintage clothing, records, street food, curry houses, murals, and East London weekend energy.",
-      "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Brick+Lane+Market"
+      "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Brick+Lane+Market",
+      "subShops": [
+        {
+          "name": "Vintage Clothing Warehouse",
+          "type": "Vintage Fashion",
+          "note": "Massive indoor warehouse full of vintage clothing by weight \u2014 one of the best in London.",
+          "image": "https://images.unsplash.com/photo-1490481651871-ab68de25d43d?w=600&q=80",
+          "openingHours": "Sun 10:00\u201317:00",
+          "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Brick+Lane+Market+London"
+        },
+        {
+          "name": "Street Food Stalls",
+          "type": "Street Food",
+          "note": "London's most diverse food market \u2014 Bengali curries, salt beef bagels, Ethiopian and more.",
+          "image": "https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=600&q=80",
+          "openingHours": "Sun 09:00\u201317:00",
+          "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Brick+Lane+Street+Food+London"
+        },
+        {
+          "name": "Vintage Record Stalls",
+          "type": "Music & Vinyl",
+          "note": "Vinyl records, cassettes and music memorabilia for collectors and music lovers.",
+          "image": "https://images.unsplash.com/photo-1481627834876-b7833e8f5570?w=600&q=80",
+          "openingHours": "Sun 09:00\u201317:00",
+          "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Brick+Lane+London"
+        }
+      ]
     },
     {
       "image": "https://images.pexels.com/photos/2245436/pexels-photo-2245436.jpeg?auto=compress&cs=tinysrgb&w=800",
@@ -431,7 +638,33 @@
       "location": "Piccadilly",
       "openingHours": "Daily; hours vary",
       "description": "Tea, biscuits, hampers, preserves, and polished British gifts in an iconic department store.",
-      "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Fortnum+and+Mason"
+      "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Fortnum+and+Mason",
+      "subShops": [
+        {
+          "name": "Tea Room & Caf\u00e9",
+          "type": "Afternoon Tea",
+          "note": "World-famous afternoon tea \u2014 quintessentially British. Book in advance.",
+          "image": "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&q=80",
+          "openingHours": "Mon\u2013Sat 10:00\u201319:30, Sun 11:00\u201317:00",
+          "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Fortnum+Mason+Tea+Room+London"
+        },
+        {
+          "name": "Food Hall",
+          "type": "Luxury Groceries",
+          "note": "Exquisite hampers, biscuits, preserves, teas, chocolates and luxury groceries.",
+          "image": "https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=600&q=80",
+          "openingHours": "Mon\u2013Sat 10:00\u201320:00, Sun 11:30\u201318:00",
+          "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Fortnum+Mason+Food+Hall+London"
+        },
+        {
+          "name": "Chocolate & Confectionery",
+          "type": "Luxury Sweets",
+          "note": "Handmade chocolates, truffles and luxury sweets in beautiful Fortnum's gift boxes.",
+          "image": "https://images.unsplash.com/photo-1481627834876-b7833e8f5570?w=600&q=80",
+          "openingHours": "Mon\u2013Sat 10:00\u201320:00, Sun 11:30\u201318:00",
+          "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Fortnum+Mason+London"
+        }
+      ]
     },
     {
       "image": "https://images.pexels.com/photos/1884581/pexels-photo-1884581.jpeg?auto=compress&cs=tinysrgb&w=800",
@@ -442,7 +675,41 @@
       "location": "Regent Street",
       "openingHours": "Daily; hours vary",
       "description": "Timber-framed department store with signature prints, scarves, beauty, homeware, and memorable gifts.",
-      "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Liberty+London"
+      "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Liberty+London",
+      "subShops": [
+        {
+          "name": "Liberty Print Fabrics",
+          "type": "Fabrics & Prints",
+          "note": "The most famous fabrics in Britain \u2014 iconic Liberty floral prints sold by the metre.",
+          "image": "https://images.unsplash.com/photo-1567401893414-76b7b1e5a7a5?w=600&q=80",
+          "openingHours": "Mon\u2013Sat 10:00\u201320:00, Sun 12:00\u201318:00",
+          "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Liberty+London"
+        },
+        {
+          "name": "Beauty Hall",
+          "type": "Luxury Beauty",
+          "note": "Carefully curated luxury beauty \u2014 Aesop, Diptyque, By Terry and many cult brands.",
+          "image": "https://images.unsplash.com/photo-1585386959984-a4155224a1ad?w=600&q=80",
+          "openingHours": "Mon\u2013Sat 10:00\u201320:00, Sun 12:00\u201318:00",
+          "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Liberty+London+Beauty"
+        },
+        {
+          "name": "Designer Fashion Floor",
+          "type": "Luxury Fashion",
+          "note": "Curated international designers \u2014 pieces you won't find in regular department stores.",
+          "image": "https://images.unsplash.com/photo-1483985988355-763728e1935b?w=600&q=80",
+          "openingHours": "Mon\u2013Sat 10:00\u201320:00, Sun 12:00\u201318:00",
+          "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Liberty+London"
+        },
+        {
+          "name": "Gifts & Homeware",
+          "type": "Lifestyle & Gifts",
+          "note": "Unique gifts, ceramics, candles and homeware \u2014 perfect for something special.",
+          "image": "https://images.unsplash.com/photo-1441984904996-e0b6ba687e04?w=600&q=80",
+          "openingHours": "Mon\u2013Sat 10:00\u201320:00, Sun 12:00\u201318:00",
+          "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Liberty+London"
+        }
+      ]
     },
     {
       "image": "https://images.pexels.com/photos/29191806/pexels-photo-29191806.jpeg?auto=compress&cs=tinysrgb&w=800",
@@ -469,42 +736,42 @@
         {
           "name": "Chanel",
           "type": "Luxury Fashion",
-          "note": "Iconic French luxury fashion and beauty house.",
-          "image": "https://images.pexels.com/photos/3965548/pexels-photo-3965548.jpeg?auto=compress&cs=tinysrgb&w=800",
+          "note": "The iconic French luxury fashion and beauty house. Bags, perfume and ready-to-wear.",
+          "image": "https://images.unsplash.com/photo-1585386959984-a4155224a1ad?w=600&q=80",
           "openingHours": "Mon\u2013Sat 10:00\u201320:00, Sun 11:30\u201318:00",
           "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Chanel+Harrods+London"
         },
         {
           "name": "Louis Vuitton",
           "type": "Luxury Fashion",
-          "note": "Designer handbags, luggage and accessories.",
-          "image": "https://images.pexels.com/photos/2285399/pexels-photo-2285399.jpeg?auto=compress&cs=tinysrgb&w=800",
+          "note": "Designer handbags, luggage, shoes and accessories from the world's most iconic luxury house.",
+          "image": "https://images.unsplash.com/photo-1548036328-c9fa89d128fa?w=600&q=80",
           "openingHours": "Mon\u2013Sat 10:00\u201320:00, Sun 11:30\u201318:00",
           "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Louis+Vuitton+Harrods+London"
         },
         {
           "name": "Gucci",
           "type": "Luxury Fashion",
-          "note": "Italian luxury fashion, bags and accessories.",
-          "image": "https://images.pexels.com/photos/3965548/pexels-photo-3965548.jpeg?auto=compress&cs=tinysrgb&w=800",
+          "note": "Italian luxury fashion \u2014 iconic bags, shoes, and ready-to-wear from the Florence house.",
+          "image": "https://images.unsplash.com/photo-1491553895911-0055eca6402d?w=600&q=80",
           "openingHours": "Mon\u2013Sat 10:00\u201320:00, Sun 11:30\u201318:00",
           "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Gucci+Harrods+London"
         },
         {
           "name": "Harrods Food Hall",
           "type": "Luxury Food",
-          "note": "World-famous luxury food hall \u2014 caviar, sushi, pastries, chocolate and more.",
-          "image": "https://images.pexels.com/photos/1640777/pexels-photo-1640777.jpeg?auto=compress&cs=tinysrgb&w=800",
+          "note": "World-famous luxury food hall \u2014 caviar, sushi, fresh pastries, cheese and incredible chocolate.",
+          "image": "https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=600&q=80",
           "openingHours": "Mon\u2013Sat 10:00\u201320:00, Sun 11:30\u201318:00",
           "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Harrods+Food+Hall+London"
         },
         {
-          "name": "Jo Malone",
-          "type": "Fragrance",
-          "note": "British luxury fragrances, candles and bath products.",
-          "image": "https://images.pexels.com/photos/1488463/pexels-photo-1488463.jpeg?auto=compress&cs=tinysrgb&w=800",
+          "name": "Dior",
+          "type": "Luxury Fashion",
+          "note": "French haute couture \u2014 elegant fashion, fine jewellery and world-famous fragrances.",
+          "image": "https://images.unsplash.com/photo-1483985988355-763728e1935b?w=600&q=80",
           "openingHours": "Mon\u2013Sat 10:00\u201320:00, Sun 11:30\u201318:00",
-          "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Jo+Malone+Harrods+London"
+          "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Dior+Harrods+London"
         }
       ]
     },
