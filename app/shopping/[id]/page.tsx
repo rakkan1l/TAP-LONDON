@@ -15,9 +15,21 @@ export default function ShoppingDetailPage() {
 
   useEffect(() => {
     const load = async () => {
+      const jsonItem = (shoppingJson.items as any[]).find((s: any) => s.id === id) || null;
       const fbItem = await fetchDocument("shopping", id);
-      if (fbItem && fbItem.name) { setItem(fbItem); }
-      else { setItem((shoppingJson.items as any[]).find((s: any) => s.id === id) || null); }
+      if (fbItem && fbItem.name) {
+        // Merge: use Firebase data but keep JSON subShops/gallery if Firebase doesn't have them
+        const merged = {
+          ...fbItem,
+          subShops: fbItem.subShops?.length ? fbItem.subShops : (jsonItem?.subShops || []),
+          gallery: fbItem.gallery?.length ? fbItem.gallery : (jsonItem?.gallery || []),
+          nearestStation: fbItem.nearestStation || jsonItem?.nearestStation || '',
+          highlights: fbItem.highlights || jsonItem?.highlights || '',
+        };
+        setItem(merged);
+      } else {
+        setItem(jsonItem);
+      }
       setLoading(false);
     };
     load();
