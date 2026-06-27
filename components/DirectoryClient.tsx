@@ -6,55 +6,129 @@ import PlaceCard, { type CardItem } from "./PlaceCard";
 type DirectoryClientProps = {
   items: CardItem[];
   tabs: string[];
-  mode?: "place" | "food" | "shopping" | "kids" | "nightlife";
+  mode?: "place" | "food" | "shopping" | "kids" | "nightlife" | "hotels" | "offers" | "hidden-gems" | "trending" | "sports" | "muslim";
   searchPlaceholder?: string;
   showSearch?: boolean;
 };
 
-const FOOD_FILTERS = [
-  { label: "Halal",      value: "halal" },
-  { label: "Cheap eats", value: "cheap-eats" },
-  { label: "Aesthetic",  value: "aesthetic" },
-  { label: "Date night", value: "date-night" },
-  { label: "Quick bite", value: "quick-bite" },
-  { label: "Open late",  value: "open-late" },
-  { label: "Viral",      value: "viral" },
-  { label: "Hidden gem", value: "hidden-gem" },
-];
+// Universal smart filters — work across all sections by inspecting common fields
+type SmartFilter = {
+  label: string;
+  value: string;
+  test: (item: any) => boolean;
+};
+
+function isOpenNow(item: any): boolean {
+  if (!item.openingHours) return false;
+  const hours = item.openingHours.toLowerCase();
+  if (hours.includes("24")) return true;
+  // Best-effort: if it doesn't explicitly say closed, treat as a soft match
+  const now = new Date();
+  const hour = now.getHours();
+  // crude heuristic: most places open 9am-6pm / restaurants stay open later
+  if (hours.includes("daily") || hours.includes("mon") || hours.includes("open")) {
+    return hour >= 8 && hour <= 22;
+  }
+  return false;
+}
+
+function isOpenLate(item: any): boolean {
+  const hours = (item.openingHours || "").toLowerCase();
+  return /2[2-3]:00|midnight|late|24/.test(hours);
+}
+
+function getSmartFilters(mode: string): SmartFilter[] {
+  const common: SmartFilter[] = [
+    { label: "Open Now", value: "open-now", test: isOpenNow },
+    { label: "Open Late", value: "open-late", test: isOpenLate },
+    { label: "Free", value: "free", test: (i) => i.priceType === "Free" || /free/i.test(i.entryFee || "") },
+    { label: "Near Station", value: "near-station", test: (i) => !!i.nearestStation },
+  ];
+
+  const byMode: Record<string, SmartFilter[]> = {
+    food: [
+      { label: "Halal", value: "halal", test: (i) => !!i.halal || !!i.verifiedHalal || (i.tags || []).includes("halal") },
+      { label: "Cheap Eats", value: "cheap", test: (i) => i.priceRange === "£" || (i.tags || []).includes("cheap-eats") },
+      { label: "Date Night", value: "date-night", test: (i) => i.vibe === "Date night" || (i.tags || []).includes("date-night") },
+      { label: "Family", value: "family", test: (i) => i.vibe === "Family" || (i.tags || []).includes("family") },
+      { label: "Viral", value: "viral", test: (i) => (i.tags || []).includes("viral") },
+      { label: "Hidden Gem", value: "hidden-gem", test: (i) => i.vibe === "Hidden gem" || (i.tags || []).includes("hidden-gem") },
+    ],
+    muslim: [
+      { label: "Halal", value: "halal", test: (i) => !!i.halal || !!i.verifiedHalal },
+    ],
+    kids: [
+      { label: "Free", value: "free", test: (i) => i.priceType === "Free" || /free/i.test(i.entryFee || "") },
+      { label: "Indoor", value: "indoor", test: (i) => /museum|indoor|aquarium/i.test(i.category || "") },
+      { label: "Outdoor", value: "outdoor", test: (i) => /park|zoo|garden|outdoor/i.test(i.category || "") },
+    ],
+    hotels: [
+      { label: "Family Friendly", value: "family", test: (i) => i.familyFriendly === true || i.familyFriendly === "true" },
+      { label: "Has Pool", value: "pool", test: (i) => (i.amenities || []).some((a: string) => /pool/i.test(a)) },
+      { label: "Has Spa", value: "spa", test: (i) => (i.amenities || []).some((a: string) => /spa/i.test(a)) },
+      { label: "Budget", value: "budget", test: (i) => i.category === "Budget" },
+      { label: "Luxury", value: "luxury", test: (i) => i.category === "5-star" || i.category === "Luxury" },
+    ],
+    nightlife: [
+      { label: "Rooftop", value: "rooftop", test: (i) => /rooftop/i.test(i.category || "") },
+      { label: "Free Entry", value: "free-entry", test: (i) => /free/i.test(i.entryFee || "") },
+      { label: "Open Late", value: "open-late", test: isOpenLate },
+    ],
+    place: [
+      { label: "Free", value: "free", test: (i) => i.priceType === "Free" },
+      { label: "Special Offer", value: "offer", test: (i) => !!i.offerTag || !!i.offer },
+    ],
+  };
+
+  return [...(byMode[mode] || []), ...common].filter(
+    (f, i, arr) => arr.findIndex(x => x.value === f.value) === i
+  );
+}
 
 export default function DirectoryClient({
   items, tabs, mode = "place", searchPlaceholder = "Search...", showSearch = true
 }: DirectoryClientProps) {
   const [active, setActive] = useState(tabs[0] ?? "All");
   const [query, setQuery] = useState("");
-  const [activeFilter, setActiveFilter] = useState<string | null>(null);
+  const [activeFilters, setActiveFilters] = useState<string[]>([]);
 
-  const showFilters = mode === "food";
+  const smartFilters = useMemo(() => getSmartFilters(mode), [mode]);
+
+  function toggleFilter(value: string) {
+    setActiveFilters(prev =>
+      prev.includes(value) ? prev.filter(v => v !== value) : [...prev, value]
+    );
+  }
 
   const filtered = useMemo(() => {
-    const source = active === "All"
+    let source = active === "All"
       ? items
-      : items.filter((item) => (item.category ?? item.section) === active);
+      : items.filter((item: any) => (item.category ?? item.section ?? item.sport) === active);
 
-    const tagFiltered = activeFilter
-      ? source.filter((item) => item.tags?.includes(activeFilter))
-      : source;
+    if (activeFilters.length > 0) {
+      source = source.filter((item: any) =>
+        activeFilters.every(fVal => {
+          const filterDef = smartFilters.find(f => f.value === fVal);
+          return filterDef ? filterDef.test(item) : true;
+        })
+      );
+    }
 
     const needle = query.trim().toLowerCase();
-    if (!needle) return tagFiltered;
+    if (!needle) return source;
 
-    return tagFiltered.filter((item) => {
+    return source.filter((item: any) => {
       const text = [
         item.name, item.category, item.section, item.area,
         item.location, item.cuisine, item.type, item.description,
-        item.vibe, item.opinion, item.mustTry,
+        item.vibe, item.opinion, item.mustTry, item.nearestStation,
       ]
         .filter(Boolean)
         .join(" ")
         .toLowerCase();
       return text.includes(needle);
     });
-  }, [active, items, query, activeFilter]);
+  }, [active, items, query, activeFilters, smartFilters]);
 
   return (
     <div className="space-y-6">
@@ -83,7 +157,7 @@ export default function DirectoryClient({
             <button
               key={tab}
               type="button"
-              onClick={() => { setActive(tab); setActiveFilter(null); }}
+              onClick={() => { setActive(tab); }}
               className={`min-h-12 shrink-0 rounded-full px-5 text-sm font-bold transition ${
                 active === tab
                   ? "bg-navy text-white shadow-premium dark:bg-gold dark:text-navy"
@@ -96,20 +170,20 @@ export default function DirectoryClient({
         </div>
       </div>
 
-      {/* Filter chips — food mode only */}
-      {showFilters && (
+      {/* Smart filter chips — works for every section */}
+      {smartFilters.length > 0 && (
         <div style={{ display: "flex", gap: "8px", overflowX: "auto", paddingBottom: "4px" }}>
-          {FOOD_FILTERS.map((f) => (
+          {smartFilters.map((f) => (
             <button
               key={f.value}
-              onClick={() => setActiveFilter(activeFilter === f.value ? null : f.value)}
+              onClick={() => toggleFilter(f.value)}
               style={{
                 flexShrink: 0, borderRadius: "50px", padding: "6px 14px",
                 fontSize: "0.75rem", fontWeight: 700,
                 fontFamily: "'DM Sans', sans-serif", cursor: "pointer",
                 border: "none", transition: "all 0.2s",
-                background: activeFilter === f.value ? "#c9a84c" : "rgba(26,26,46,0.06)",
-                color: activeFilter === f.value ? "#1a1a2e" : "#555",
+                background: activeFilters.includes(f.value) ? "#c9a84c" : "rgba(26,26,46,0.06)",
+                color: activeFilters.includes(f.value) ? "#1a1a2e" : "#555",
               }}
             >
               {f.label}
@@ -120,21 +194,28 @@ export default function DirectoryClient({
 
       <p className="text-sm font-semibold text-ink/62 dark:text-cream/60">
         {filtered.length} results
-        {activeFilter && (
+        {activeFilters.length > 0 && (
           <button
-            onClick={() => setActiveFilter(null)}
+            onClick={() => setActiveFilters([])}
             style={{ marginLeft: "8px", color: "#c9a84c", fontSize: "0.75rem", fontWeight: 700, background: "none", border: "none", cursor: "pointer" }}
           >
-            ✕ Clear filter
+            ✕ Clear {activeFilters.length} filter{activeFilters.length > 1 ? 's' : ''}
           </button>
         )}
       </p>
 
       <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
         {filtered.map((item) => (
-          <PlaceCard key={item.id} item={item} mode={mode} />
+          <PlaceCard key={item.id} item={item} mode={mode as any} />
         ))}
       </div>
+
+      {filtered.length === 0 && (
+        <div style={{ textAlign: 'center', padding: '48px 20px', color: 'rgba(26,26,46,0.4)' }}>
+          <div style={{ fontSize: '2rem', marginBottom: '10px' }}>🔍</div>
+          <p style={{ fontFamily: "'DM Sans', sans-serif", fontSize: '0.9rem' }}>No results match your filters. Try clearing some.</p>
+        </div>
+      )}
     </div>
   );
 }
