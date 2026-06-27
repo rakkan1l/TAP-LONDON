@@ -3,162 +3,387 @@
   "items": [
     {
       "image": "https://images.pexels.com/photos/17340069/pexels-photo-17340069.jpeg?auto=compress&cs=tinysrgb&w=800",
-      "id": "oxford-street", "name": "Oxford Street", "section": "Shopping Areas", "type": "High street shopping", "location": "Oxford Circus to Marble Arch", "openingHours": "Daily; most shops 10:00-20:00",
+      "id": "oxford-street",
+      "name": "Oxford Street",
+      "section": "Shopping Areas",
+      "type": "High street shopping",
+      "location": "Oxford Circus to Marble Arch",
+      "openingHours": "Daily; most shops 10:00-20:00",
       "description": "London's busiest shopping street for department stores, global brands, trainers, beauty, and quick central browsing.",
-      "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Oxford+Street+London"
+      "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Oxford+Street+London",
+      "gallery": [
+        "https://images.pexels.com/photos/3965548/pexels-photo-3965548.jpeg?auto=compress&cs=tinysrgb&w=800",
+        "https://images.pexels.com/photos/1488463/pexels-photo-1488463.jpeg?auto=compress&cs=tinysrgb&w=800",
+        "https://images.pexels.com/photos/2285399/pexels-photo-2285399.jpeg?auto=compress&cs=tinysrgb&w=800"
+      ],
+      "nearestStation": "Oxford Circus (1 min walk)",
+      "highlights": "Nike, H&M, Zara, Primark, Selfridges, John Lewis, Marks & Spencer, ASOS, Topshop building",
+      "subShops": [
+        {
+          "name": "Selfridges",
+          "type": "Department Store",
+          "note": "Iconic luxury department store \u2014 beauty, designer fashion, food hall"
+        },
+        {
+          "name": "Primark",
+          "type": "Fashion",
+          "note": "Europe's biggest Primark \u2014 unbeatable prices on fashion, beauty and homeware"
+        },
+        {
+          "name": "H&M",
+          "type": "Fashion",
+          "note": "Multiple floors of affordable fashion \u2014 women, men, kids and home"
+        },
+        {
+          "name": "Zara",
+          "type": "Fashion",
+          "note": "On-trend fashion and accessories across 3 floors"
+        },
+        {
+          "name": "Nike Town",
+          "type": "Sports",
+          "note": "Flagship Nike store with the latest trainers and sportswear"
+        },
+        {
+          "name": "John Lewis",
+          "type": "Department Store",
+          "note": "Classic British department store \u2014 tech, home, fashion and beauty"
+        },
+        {
+          "name": "Marks & Spencer",
+          "type": "Clothing & Food",
+          "note": "British institution \u2014 great food hall and classic clothing"
+        }
+      ]
     },
     {
       "image": "https://images.pexels.com/photos/10865652/pexels-photo-10865652.jpeg?auto=compress&cs=tinysrgb&w=800",
-      "id": "carnaby-street", "name": "Carnaby Street", "section": "Shopping Areas", "type": "Fashion and lifestyle", "location": "Soho", "openingHours": "Daily; shops usually 10:00-19:00",
+      "id": "carnaby-street",
+      "name": "Carnaby Street",
+      "section": "Shopping Areas",
+      "type": "Fashion and lifestyle",
+      "location": "Soho",
+      "openingHours": "Daily; shops usually 10:00-19:00",
       "description": "Colourful pedestrian streets with independent labels, sneaker shops, restaurants, and easy access to Liberty.",
-      "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Carnaby+Street"
+      "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Carnaby+Street",
+      "gallery": [
+        "https://images.pexels.com/photos/17340069/pexels-photo-17340069.jpeg?auto=compress&cs=tinysrgb&w=800",
+        "https://images.pexels.com/photos/1488463/pexels-photo-1488463.jpeg?auto=compress&cs=tinysrgb&w=800"
+      ],
+      "nearestStation": "Oxford Circus (5 min walk)",
+      "subShops": [
+        {
+          "name": "Levi's",
+          "type": "Denim & Casual",
+          "note": "Classic Levi's store \u2014 jeans, jackets and streetwear"
+        },
+        {
+          "name": "Vans",
+          "type": "Skate & Streetwear",
+          "note": "Iconic skate brand with shoes, clothing and accessories"
+        },
+        {
+          "name": "Dr. Martens",
+          "type": "Footwear",
+          "note": "Signature boots and shoes \u2014 the original Carnaby spirit"
+        },
+        {
+          "name": "Liberty London",
+          "type": "Luxury Department Store",
+          "note": "Steps away \u2014 iconic Tudor building with luxury fashion, beauty and homeware"
+        },
+        {
+          "name": "Irregular Choice",
+          "type": "Footwear",
+          "note": "Quirky, unique shoes and accessories unlike anywhere else"
+        }
+      ]
     },
     {
       "image": "https://images.pexels.com/photos/813362/pexels-photo-813362.jpeg?auto=compress&cs=tinysrgb&w=800",
-      "id": "kings-road", "name": "King's Road", "section": "Shopping Areas", "type": "Boutiques and interiors", "location": "Chelsea", "openingHours": "Daily; shops vary",
+      "id": "kings-road",
+      "name": "King's Road",
+      "section": "Shopping Areas",
+      "type": "Boutiques and interiors",
+      "location": "Chelsea",
+      "openingHours": "Daily; shops vary",
       "description": "Chelsea shopping with fashion boutiques, interior design stores, cafes, and a polished west London pace.",
-      "mapsUrl": "https://www.google.com/maps/search/?api=1&query=King's+Road+Chelsea"
+      "mapsUrl": "https://www.google.com/maps/search/?api=1&query=King's+Road+Chelsea",
+      "gallery": [
+        "https://images.pexels.com/photos/813362/pexels-photo-813362.jpeg?auto=compress&cs=tinysrgb&w=800",
+        "https://images.pexels.com/photos/3965548/pexels-photo-3965548.jpeg?auto=compress&cs=tinysrgb&w=800"
+      ],
+      "nearestStation": "Sloane Square (5 min walk)",
+      "subShops": [
+        {
+          "name": "Anthropologie",
+          "type": "Lifestyle & Fashion",
+          "note": "Beautiful boho fashion, homeware and gifts"
+        },
+        {
+          "name": "Vivienne Westwood",
+          "type": "Designer Fashion",
+          "note": "Iconic British punk-turned-luxury designer"
+        },
+        {
+          "name": "Peter Jones",
+          "type": "Department Store",
+          "note": "John Lewis partner store \u2014 a Chelsea institution"
+        },
+        {
+          "name": "Space NK",
+          "type": "Beauty",
+          "note": "Premium beauty and skincare from cult brands"
+        }
+      ]
     },
     {
       "image": "https://images.pexels.com/photos/1005638/pexels-photo-1005638.jpeg?auto=compress&cs=tinysrgb&w=800",
-      "id": "westfield-stratford", "name": "Westfield Stratford City", "section": "Shopping Areas", "type": "Shopping centre", "location": "Stratford", "openingHours": "Usually daily 10:00-21:00",
+      "id": "westfield-stratford",
+      "name": "Westfield Stratford City",
+      "section": "Shopping Areas",
+      "type": "Shopping centre",
+      "location": "Stratford",
+      "openingHours": "Usually daily 10:00-21:00",
       "description": "Large indoor mall with fashion, tech, food courts, cinema, and direct links to the Elizabeth line and Central line.",
       "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Westfield+Stratford+City"
     },
     {
       "image": "https://images.pexels.com/photos/2079234/pexels-photo-2079234.jpeg?auto=compress&cs=tinysrgb&w=800",
-      "id": "canary-wharf", "name": "Canary Wharf", "section": "Shopping Areas", "type": "Modern retail district", "location": "Docklands", "openingHours": "Daily; weekday lunch hours busiest",
+      "id": "canary-wharf",
+      "name": "Canary Wharf",
+      "section": "Shopping Areas",
+      "type": "Modern retail district",
+      "location": "Docklands",
+      "openingHours": "Daily; weekday lunch hours busiest",
       "description": "Sleek malls, restaurants, waterside walks, and public art beneath the financial district's towers.",
       "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Canary+Wharf+shopping"
     },
     {
       "image": "https://images.pexels.com/photos/36680841/pexels-photo-36680841.jpeg?auto=compress&cs=tinysrgb&w=800",
-      "id": "covent-garden-shopping", "name": "Covent Garden", "section": "Shopping Areas", "type": "Boutiques and gifts", "location": "West End", "openingHours": "Daily; shops vary",
+      "id": "covent-garden-shopping",
+      "name": "Covent Garden",
+      "section": "Shopping Areas",
+      "type": "Boutiques and gifts",
+      "location": "West End",
+      "openingHours": "Daily; shops vary",
       "description": "Beauty brands, boutiques, Apple Market crafts, street performers, and excellent pre-theatre browsing.",
       "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Covent+Garden+shopping"
     },
     {
       "image": "https://images.pexels.com/photos/18028809/pexels-photo-18028809.jpeg?auto=compress&cs=tinysrgb&w=800",
-      "id": "portobello-road-area", "name": "Portobello Road Area", "section": "Shopping Areas", "type": "Antiques and vintage", "location": "Notting Hill", "openingHours": "Best Friday-Saturday; shops vary",
+      "id": "portobello-road-area",
+      "name": "Portobello Road Area",
+      "section": "Shopping Areas",
+      "type": "Antiques and vintage",
+      "location": "Notting Hill",
+      "openingHours": "Best Friday-Saturday; shops vary",
       "description": "Pastel streets, antique dealers, vintage clothing, cafes, and one of London's most photogenic market walks.",
       "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Portobello+Road+Market"
     },
     {
       "image": "https://images.pexels.com/photos/31270596/pexels-photo-31270596.jpeg?auto=compress&cs=tinysrgb&w=800",
-      "id": "borough-market-shopping", "name": "Borough Market", "section": "Markets", "type": "Food market", "location": "London Bridge", "openingHours": "Monday-Saturday; full market Wednesday-Saturday",
+      "id": "borough-market-shopping",
+      "name": "Borough Market",
+      "section": "Markets",
+      "type": "Food market",
+      "location": "London Bridge",
+      "openingHours": "Monday-Saturday; full market Wednesday-Saturday",
       "description": "Historic food market for artisan produce, prepared dishes, baked goods, spices, coffee, and edible gifts.",
       "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Borough+Market"
     },
     {
       "image": "https://images.pexels.com/photos/18028809/pexels-photo-18028809.jpeg?auto=compress&cs=tinysrgb&w=800",
-      "id": "portobello-market", "name": "Portobello Road Market", "section": "Markets", "type": "Antiques and street market", "location": "Notting Hill", "openingHours": "Monday-Saturday; Saturday is main antiques day",
+      "id": "portobello-market",
+      "name": "Portobello Road Market",
+      "section": "Markets",
+      "type": "Antiques and street market",
+      "location": "Notting Hill",
+      "openingHours": "Monday-Saturday; Saturday is main antiques day",
       "description": "Antiques, vintage clothes, bric-a-brac, produce, and colourful Notting Hill streets in one long market route.",
       "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Portobello+Road+Market"
     },
     {
       "image": "https://images.pexels.com/photos/931177/pexels-photo-931177.jpeg?auto=compress&cs=tinysrgb&w=800",
-      "id": "columbia-flower-market", "name": "Columbia Road Flower Market", "section": "Markets", "type": "Flower market", "location": "Bethnal Green", "openingHours": "Sunday roughly 8:00-15:00",
+      "id": "columbia-flower-market",
+      "name": "Columbia Road Flower Market",
+      "section": "Markets",
+      "type": "Flower market",
+      "location": "Bethnal Green",
+      "openingHours": "Sunday roughly 8:00-15:00",
       "description": "Plants, flowers, independent shops, and loud market banter. Go early for space or late for bargains.",
       "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Columbia+Road+Flower+Market"
     },
     {
       "image": "https://images.pexels.com/photos/32604930/pexels-photo-32604930.jpeg?auto=compress&cs=tinysrgb&w=800",
-      "id": "camden-market", "name": "Camden Market", "section": "Markets", "type": "Street food and alternative fashion", "location": "Camden Town", "openingHours": "Daily 10:00-late",
+      "id": "camden-market",
+      "name": "Camden Market",
+      "section": "Markets",
+      "type": "Street food and alternative fashion",
+      "location": "Camden Town",
+      "openingHours": "Daily 10:00-late",
       "description": "A sprawling mix of food stalls, music culture, vintage, souvenirs, canalside views, and bold street style.",
       "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Camden+Market"
     },
     {
       "image": "https://images.pexels.com/photos/10672506/pexels-photo-10672506.jpeg?auto=compress&cs=tinysrgb&w=800",
-      "id": "greenwich-market", "name": "Greenwich Market", "section": "Markets", "type": "Craft and food market", "location": "Greenwich", "openingHours": "Daily 10:00-17:30",
+      "id": "greenwich-market",
+      "name": "Greenwich Market",
+      "section": "Markets",
+      "type": "Craft and food market",
+      "location": "Greenwich",
+      "openingHours": "Daily 10:00-17:30",
       "description": "Covered market with crafts, jewellery, street food, and easy access to the Cutty Sark and park.",
       "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Greenwich+Market"
     },
     {
       "image": "https://images.pexels.com/photos/5411383/pexels-photo-5411383.jpeg?auto=compress&cs=tinysrgb&w=800",
-      "id": "spitalfields-market", "name": "Old Spitalfields Market", "section": "Markets", "type": "Fashion, food, and design", "location": "Spitalfields", "openingHours": "Daily; best Thursday-Sunday",
+      "id": "spitalfields-market",
+      "name": "Old Spitalfields Market",
+      "section": "Markets",
+      "type": "Fashion, food, and design",
+      "location": "Spitalfields",
+      "openingHours": "Daily; best Thursday-Sunday",
       "description": "Covered market with independent designers, food traders, vintage days, and walks to Brick Lane.",
       "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Old+Spitalfields+Market"
     },
     {
       "image": "https://images.pexels.com/photos/4000028/pexels-photo-4000028.jpeg?auto=compress&cs=tinysrgb&w=800",
-      "id": "brick-lane-market", "name": "Brick Lane Market", "section": "Markets", "type": "Vintage and street food", "location": "Shoreditch", "openingHours": "Sunday is main market day",
+      "id": "brick-lane-market",
+      "name": "Brick Lane Market",
+      "section": "Markets",
+      "type": "Vintage and street food",
+      "location": "Shoreditch",
+      "openingHours": "Sunday is main market day",
       "description": "Vintage clothing, records, street food, curry houses, murals, and East London weekend energy.",
       "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Brick+Lane+Market"
     },
     {
       "image": "https://images.pexels.com/photos/2245436/pexels-photo-2245436.jpeg?auto=compress&cs=tinysrgb&w=800",
-      "id": "bermondsey-antiques", "name": "Bermondsey Antiques Market", "section": "Markets", "type": "Antiques", "location": "Bermondsey Square", "openingHours": "Friday early morning to afternoon",
+      "id": "bermondsey-antiques",
+      "name": "Bermondsey Antiques Market",
+      "section": "Markets",
+      "type": "Antiques",
+      "location": "Bermondsey Square",
+      "openingHours": "Friday early morning to afternoon",
       "description": "Early-bird antiques market for jewellery, silver, prints, collectables, and dealers who know their stock.",
       "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Bermondsey+Antiques+Market"
     },
     {
       "image": "https://images.pexels.com/photos/1005638/pexels-photo-1005638.jpeg?auto=compress&cs=tinysrgb&w=800",
-      "id": "leather-lane", "name": "Leather Lane Market", "section": "Markets", "type": "Lunch market", "location": "Clerkenwell", "openingHours": "Weekdays lunchtime",
+      "id": "leather-lane",
+      "name": "Leather Lane Market",
+      "section": "Markets",
+      "type": "Lunch market",
+      "location": "Clerkenwell",
+      "openingHours": "Weekdays lunchtime",
       "description": "A practical local lunch market for office workers, with street food, coffee, and bargain stalls.",
       "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Leather+Lane+Market"
     },
     {
       "image": "https://images.pexels.com/photos/3184183/pexels-photo-3184183.jpeg?auto=compress&cs=tinysrgb&w=800",
-      "id": "london-transport-museum-shop", "name": "London Transport Museum Shop", "section": "Souvenir Shops", "type": "Design-led London gifts", "location": "Covent Garden", "openingHours": "Daily; hours follow museum shop schedule",
+      "id": "london-transport-museum-shop",
+      "name": "London Transport Museum Shop",
+      "section": "Souvenir Shops",
+      "type": "Design-led London gifts",
+      "location": "Covent Garden",
+      "openingHours": "Daily; hours follow museum shop schedule",
       "description": "Beautiful Tube posters, moquette gifts, maps, toys, books, and well-made London transport souvenirs.",
       "mapsUrl": "https://www.google.com/maps/search/?api=1&query=London+Transport+Museum+Shop"
     },
     {
       "image": "https://images.pexels.com/photos/1536619/pexels-photo-1536619.jpeg?auto=compress&cs=tinysrgb&w=800",
-      "id": "fortnum-mason", "name": "Fortnum & Mason", "section": "Souvenir Shops", "type": "Luxury food gifts", "location": "Piccadilly", "openingHours": "Daily; hours vary",
+      "id": "fortnum-mason",
+      "name": "Fortnum & Mason",
+      "section": "Souvenir Shops",
+      "type": "Luxury food gifts",
+      "location": "Piccadilly",
+      "openingHours": "Daily; hours vary",
       "description": "Tea, biscuits, hampers, preserves, and polished British gifts in an iconic department store.",
       "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Fortnum+and+Mason"
     },
     {
       "image": "https://images.pexels.com/photos/1884581/pexels-photo-1884581.jpeg?auto=compress&cs=tinysrgb&w=800",
-      "id": "liberty", "name": "Liberty London", "section": "Souvenir Shops", "type": "Designer department store", "location": "Regent Street", "openingHours": "Daily; hours vary",
+      "id": "liberty",
+      "name": "Liberty London",
+      "section": "Souvenir Shops",
+      "type": "Designer department store",
+      "location": "Regent Street",
+      "openingHours": "Daily; hours vary",
       "description": "Timber-framed department store with signature prints, scarves, beauty, homeware, and memorable gifts.",
       "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Liberty+London"
     },
     {
       "image": "https://images.pexels.com/photos/29191806/pexels-photo-29191806.jpeg?auto=compress&cs=tinysrgb&w=800",
-      "id": "royal-collection-shop", "name": "Royal Collection Shop", "section": "Souvenir Shops", "type": "Royal gifts", "location": "Buckingham Palace Road", "openingHours": "Daily; hours vary seasonally",
+      "id": "royal-collection-shop",
+      "name": "Royal Collection Shop",
+      "section": "Souvenir Shops",
+      "type": "Royal gifts",
+      "location": "Buckingham Palace Road",
+      "openingHours": "Daily; hours vary seasonally",
       "description": "Official royal china, books, ornaments, decorations, and tasteful palace-themed keepsakes.",
       "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Royal+Collection+Shop+Buckingham+Palace"
     },
     {
       "image": "https://images.pexels.com/photos/30847180/pexels-photo-30847180.jpeg?auto=compress&cs=tinysrgb&w=800",
-      "id": "harrods", "name": "Harrods", "section": "Souvenir Shops", "type": "Luxury department store", "location": "Knightsbridge", "openingHours": "Daily; hours vary",
+      "id": "harrods",
+      "name": "Harrods",
+      "section": "Souvenir Shops",
+      "type": "Luxury department store",
+      "location": "Knightsbridge",
+      "openingHours": "Daily; hours vary",
       "description": "A landmark department store for food halls, teddy bears, fragrance, designer goods, and premium London gifts.",
       "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Harrods"
     },
     {
       "image": "https://images.pexels.com/photos/135018/pexels-photo-135018.jpeg?auto=compress&cs=tinysrgb&w=800",
-      "id": "british-museum-shop", "name": "British Museum Shop", "section": "Souvenir Shops", "type": "Museum gifts", "location": "Bloomsbury", "openingHours": "Daily during museum hours",
+      "id": "british-museum-shop",
+      "name": "British Museum Shop",
+      "section": "Souvenir Shops",
+      "type": "Museum gifts",
+      "location": "Bloomsbury",
+      "openingHours": "Daily during museum hours",
       "description": "Books, prints, jewellery, replicas, children's gifts, and design objects inspired by the museum collection.",
       "mapsUrl": "https://www.google.com/maps/search/?api=1&query=British+Museum+Shop"
     },
     {
       "image": "https://images.pexels.com/photos/18028809/pexels-photo-18028809.jpeg?auto=compress&cs=tinysrgb&w=800",
-      "id": "offer-portobello", "name": "Portobello Road — 10% OFF",
-      "section": "🏷️ Offers", "type": "Antiques and vintage", "location": "Notting Hill",
+      "id": "offer-portobello",
+      "name": "Portobello Road \u2014 10% OFF",
+      "section": "\ud83c\udff7\ufe0f Offers",
+      "type": "Antiques and vintage",
+      "location": "Notting Hill",
       "openingHours": "Best Friday-Saturday",
       "description": "10% off at participating antique and vintage stalls on Portobello Road. Show TAP LONDON souvenir at checkout.",
       "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Portobello+Road+Market",
-      "offer": true, "offerText": "10% OFF"
+      "offer": true,
+      "offerText": "10% OFF"
     },
     {
       "image": "https://images.pexels.com/photos/1536619/pexels-photo-1536619.jpeg?auto=compress&cs=tinysrgb&w=800",
-      "id": "offer-fortnum", "name": "Fortnum & Mason — Free Gift Wrapping",
-      "section": "🏷️ Offers", "type": "Luxury food gifts", "location": "Piccadilly",
+      "id": "offer-fortnum",
+      "name": "Fortnum & Mason \u2014 Free Gift Wrapping",
+      "section": "\ud83c\udff7\ufe0f Offers",
+      "type": "Luxury food gifts",
+      "location": "Piccadilly",
       "openingHours": "Daily; hours vary",
       "description": "Free premium gift wrapping on any purchase at Fortnum & Mason. Show your TAP LONDON NFC souvenir at checkout.",
       "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Fortnum+and+Mason",
-      "offer": true, "offerText": "FREE GIFT WRAP"
+      "offer": true,
+      "offerText": "FREE GIFT WRAP"
     },
     {
       "image": "https://images.pexels.com/photos/32604930/pexels-photo-32604930.jpeg?auto=compress&cs=tinysrgb&w=800",
-      "id": "offer-camden-shop", "name": "Camden Market — 15% OFF",
-      "section": "🏷️ Offers", "type": "Street food and alternative fashion", "location": "Camden Town",
+      "id": "offer-camden-shop",
+      "name": "Camden Market \u2014 15% OFF",
+      "section": "\ud83c\udff7\ufe0f Offers",
+      "type": "Street food and alternative fashion",
+      "location": "Camden Town",
       "openingHours": "Daily 10:00-late",
       "description": "Exclusive 15% discount at participating stalls in Camden Market. Look for the TAP LONDON sticker at the stall.",
       "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Camden+Market",
-      "offer": true, "offerText": "15% OFF"
+      "offer": true,
+      "offerText": "15% OFF"
     }
   ]
 }
