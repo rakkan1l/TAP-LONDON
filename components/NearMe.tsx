@@ -131,18 +131,56 @@ export default function NearMe() {
   }, [findNearby]);
 
   const handleOpen = () => {
+    // MUST call geolocation synchronously in click handler before any state updates
+    // State updates break the user gesture chain on mobile Safari/Chrome
+    if (!navigator.geolocation) {
+      setOpen(true);
+      setStatus('error');
+      setErrorMsg('Location is not supported on this device.');
+      return;
+    }
     setOpen(true);
-    // Request location immediately when button tapped — this triggers the browser permission dialog
-    requestLocation('food');
+    setStatus('requesting');
+    setActiveCategory('food');
+    // Call synchronously — no awaits, no state updates before this line
+    navigator.geolocation.getCurrentPosition(
+      (pos) => {
+        const p = { lat: pos.coords.latitude, lng: pos.coords.longitude };
+        setUserPos(p);
+        findNearby('food', p);
+      },
+      (err) => {
+        if (err.code === 1) {
+          setErrorMsg('Location access was denied. Please go to your browser Settings → Site permissions → Location → Allow.');
+        } else {
+          setErrorMsg('Could not get your location. Please try again.');
+        }
+        setStatus('error');
+      },
+      { enableHighAccuracy: false, timeout: 15000, maximumAge: 60000 }
+    );
   };
 
   const handleCategoryChange = (col: string) => {
     setActiveCategory(col);
     if (userPos) {
       findNearby(col, userPos);
-    } else {
-      requestLocation(col);
+      return;
     }
+    // No position yet — request again synchronously
+    setStatus('requesting');
+    navigator.geolocation?.getCurrentPosition(
+      (pos) => {
+        const p = { lat: pos.coords.latitude, lng: pos.coords.longitude };
+        setUserPos(p);
+        findNearby(col, p);
+      },
+      () => {
+        setErrorMsg('Could not get your location. Please allow location access and try again.');
+        setStatus('error');
+      },
+      { enableHighAccuracy: false, timeout: 15000, maximumAge: 60000 }
+    );
   };
 
   if (!open) return (
