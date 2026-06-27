@@ -190,7 +190,7 @@ export default function NovaAssistant() {
       `}</style>
 
       <button className="nova-btn" onClick={() => setOpen(v => !v)} aria-label="Open NOVA AI">
-        <img src="/nova-avatar.png" alt="NOVA" style={{ width: "100%", height: "100%", objectFit: "cover" }}
+        <img src="/ailogo.png" alt="NOVA" style={{ width: "100%", height: "100%", objectFit: "cover" }}
           onError={e => { (e.currentTarget as any).style.display="none"; (e.currentTarget.nextSibling as any).style.display="flex"; }} />
         <div style={{ display: "none", alignItems: "center", justifyContent: "center", width: "100%", height: "100%", fontSize: "1.5rem" }}>🗺️</div>
       </button>
