@@ -30,6 +30,7 @@ export type CardItem = {
   vibe?: string;
   opinion?: string;
   tags?: string[];
+  nearestStation?: string;
 };
 
 const VIBE_COLORS: Record<string, { bg: string; text: string }> = {
@@ -160,6 +161,14 @@ export default function PlaceCard({ item, mode = "place" }: PlaceCardProps) {
             <p className="flex gap-2">
               <Clock size={16} className="mt-0.5 shrink-0 text-gold" />
               {item.openingHours}
+            </p>
+          )}
+          {item.nearestStation && (
+            <p className="flex gap-2">
+              <span style={{ fontSize: '0.9rem' }}>🚇</span>
+              <span style={{ fontFamily: "'DM Sans', sans-serif", fontSize: '0.78rem', color: 'rgba(26,26,46,0.6)' }}>
+                {item.nearestStation}
+              </span>
             </p>
           )}
           {item.entryFee && (
