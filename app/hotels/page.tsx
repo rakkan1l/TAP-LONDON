@@ -5,7 +5,7 @@ import { fetchCollection } from '@/lib/firestore';
 import Link from 'next/link';
 import fallbackData from '@/data/hotels.json';
 
-const CATEGORIES = ['All', '5-star', '4-star', 'Budget', 'Family', 'Spa'];
+const CATEGORIES = ['All', '5-star', '4-star', 'Budget', 'Family', 'Spa', 'Luxury'];
 const AMENITY_FILTERS = ['Pool', 'Spa', 'Family Friendly', 'Restaurant', 'Gym'];
 
 export default function HotelsPage() {
@@ -22,7 +22,9 @@ export default function HotelsPage() {
   }, []);
 
   const filtered = items.filter(h => {
-    const matchCat = activeCategory === 'All' || h.category === activeCategory;
+    const matchCat = activeCategory === 'All' 
+      || h.category === activeCategory
+      || (activeCategory === 'Spa' && (h.amenities || []).some((a: string) => /spa/i.test(a)));
     const matchSearch = !search || h.name.toLowerCase().includes(search.toLowerCase()) || h.area?.toLowerCase().includes(search.toLowerCase());
     return matchCat && matchSearch;
   });
