@@ -49,7 +49,7 @@ const AREA_COORDS: Record<string, [number, number]> = {
   'crystal palace': [51.4154, -0.0714], 'croydon': [51.3714, -0.0983],
   'ealing': [51.5130, -0.3089], 'acton': [51.5086, -0.2694],
   'chiswick': [51.4853, -0.2472], 'hammersmith': [51.4927, -0.2239],
-  'shepherd's bush': [51.5042, -0.2275], 'ladbroke grove': [51.5165, -0.2093],
+  "shepherd's bush": [51.5042, -0.2275], 'ladbroke grove': [51.5165, -0.2093],
 };
 
 function getAreaCoords(area: string): [number, number] | null {
