@@ -1,0 +1,64 @@
+{
+  "items": [
+    {
+      "id": "top-10-this-week",
+      "name": "Top 10 Places This Week",
+      "category": "Weekly Picks",
+      "icon": "\ud83d\udd25",
+      "description": "Our curated pick of the best London spots to visit right now \u2014 from iconic landmarks to viral new openings.",
+      "image": "https://images.unsplash.com/photo-1513635269975-59663e0ac1ad?w=800&q=80",
+      "content": "1. Tower of London \u2014 history and crown jewels\\n2. Sketch \u2014 London's most Instagrammed restaurant\\n3. Little Venice \u2014 peaceful canals away from crowds\\n4. Borough Market \u2014 best food market in London\\n5. Sky Garden \u2014 free panoramic views\\n6. Camden Market \u2014 quirky shops and street food\\n7. Tate Modern \u2014 world-class free art\\n8. Notting Hill \u2014 colourful houses and Portobello Road\\n9. The Shard \u2014 iconic skyline views\\n10. Covent Garden \u2014 street performers and shopping",
+      "order": 0
+    },
+    {
+      "id": "date-night",
+      "name": "Date Night Ideas",
+      "category": "Romance",
+      "icon": "\ud83d\udc95",
+      "description": "Romantic spots for a perfect London evening \u2014 from candlelit dinners to rooftop views.",
+      "image": "https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=800&q=80",
+      "content": "1. Sky Garden at sunset \u2014 free entry, stunning views\\n2. Dinner at Duck & Waffle \u2014 24hr dining with skyline views\\n3. A walk along South Bank at night\\n4. Rooftop cocktails at Radio Bar\\n5. Little Venice canal boat evening\\n6. Comedy show in Soho\\n7. Late night at a Shoreditch speakeasy",
+      "order": 1
+    },
+    {
+      "id": "rainy-day",
+      "name": "Rainy Day Activities",
+      "category": "Indoor",
+      "icon": "\u2614",
+      "description": "Indoor things to do when London weather doesn't cooperate \u2014 museums, shopping and cosy cafes.",
+      "image": "https://images.unsplash.com/photo-1519378058457-4c29a0a2efac?w=800&q=80",
+      "content": "1. Natural History Museum \u2014 free, always impressive\\n2. Harrods \u2014 luxury shopping under one roof\\n3. British Museum \u2014 world history, free entry\\n4. Westfield Stratford \u2014 huge indoor mall\\n5. Science Museum \u2014 interactive and free\\n6. Tate Modern \u2014 free contemporary art\\n7. Leadenhall Market \u2014 covered Victorian arcade",
+      "order": 2
+    },
+    {
+      "id": "london-budget",
+      "name": "London on a Budget",
+      "category": "Budget",
+      "icon": "\ud83d\udcb7",
+      "description": "See London without spending a fortune \u2014 free attractions, cheap eats and smart travel tips.",
+      "image": "https://images.unsplash.com/photo-1513635269975-59663e0ac1ad?w=800&q=80",
+      "content": "1. All major museums are FREE (British Museum, Natural History, Science Museum, Tate Modern)\\n2. Free walking tours (tip-based)\\n3. Sky Garden \u2014 free views, just book ahead\\n4. Primark Oxford Street for shopping\\n5. Borough Market for cheap eats\\n6. Use Oyster/contactless, never buy paper tickets\\n7. Student railcard saves 1/3 on travel",
+      "order": 3
+    },
+    {
+      "id": "free-today",
+      "name": "Free Things to Do Today",
+      "category": "Free",
+      "icon": "\ud83c\udd93",
+      "description": "Zero cost, maximum London experience \u2014 no booking, no entry fee.",
+      "image": "https://images.unsplash.com/photo-1416879595882-3373a0480b5b?w=800&q=80",
+      "content": "1. Natural History Museum\\n2. Kyoto Garden in Holland Park\\n3. Sky Garden (book free ticket online)\\n4. Changing of the Guard at Buckingham Palace\\n5. Tate Modern\\n6. Greenwich Park views\\n7. South Bank riverside walk\\n8. British Museum",
+      "order": 4
+    },
+    {
+      "id": "instagram-spots",
+      "name": "Best Instagram Spots",
+      "category": "Photo Spots",
+      "icon": "\ud83d\udcf8",
+      "description": "The most photogenic locations in London for your feed.",
+      "image": "https://images.unsplash.com/photo-1513635269975-59663e0ac1ad?w=800&q=80",
+      "content": "1. Notting Hill's colourful houses\\n2. Neal's Yard, Covent Garden\\n3. Tower Bridge at golden hour\\n4. Leadenhall Market\\n5. Sky Garden\\n6. God's Own Junkyard neon warehouse\\n7. Primrose Hill skyline view",
+      "order": 5
+    }
+  ]
+}
