@@ -33,8 +33,9 @@ function isOpenNow(item: any): boolean {
 }
 
 function isOpenLate(item: any): boolean {
+  if (item.openLate === true) return true;
   const hours = (item.openingHours || "").toLowerCase();
-  return /2[2-3]:00|midnight|late|24/.test(hours);
+  return /2[2-3]:00|midnight|late|24 hour/.test(hours);
 }
 
 function getSmartFilters(mode: string): SmartFilter[] {
