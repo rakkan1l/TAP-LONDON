@@ -5,9 +5,12 @@ import Link from 'next/link';
 import { fetchCollection } from '@/lib/firestore';
 import fallbackData from '@/data/guides.json';
 
+const CATEGORIES = ['All', 'Weekly Picks', 'Seasonal', 'Romance', 'Indoor', 'Budget', 'Free', 'Photo Spots'];
+
 export default function GuidesPage() {
   const [items, setItems] = useState<any[]>([]);
   const [loading, setLoading] = useState(true);
+  const [activeCategory, setActiveCategory] = useState('All');
 
   useEffect(() => {
     fetchCollection('guides').then(data => {
@@ -15,6 +18,8 @@ export default function GuidesPage() {
       setLoading(false);
     });
   }, []);
+
+  const filtered = activeCategory === 'All' ? items : items.filter((g: any) => g.category === activeCategory);
 
   return (
     <main className="bg-[#f9f7f2] dark:bg-[#0d0d1a]" style={{ minHeight: '100vh' }}>
@@ -27,11 +32,17 @@ export default function GuidesPage() {
       </div>
 
       <div style={{ maxWidth: '1100px', margin: '0 auto', padding: '32px 20px 80px' }}>
+        <div style={{ display: 'flex', gap: '8px', marginBottom: '24px', flexWrap: 'wrap' }}>
+          {CATEGORIES.map(cat => (
+            <button key={cat} onClick={() => setActiveCategory(cat)} style={{ padding: '8px 16px', borderRadius: '40px', border: 'none', cursor: 'pointer', fontFamily: "'DM Sans', sans-serif", fontSize: '0.78rem', fontWeight: 600, background: activeCategory === cat ? '#c9a84c' : 'rgba(26,26,46,0.08)', color: activeCategory === cat ? '#1a1a2e' : '#666', transition: 'all 0.2s' }}>{cat}</button>
+          ))}
+        </div>
+
         {loading ? (
           <div style={{ textAlign: 'center', padding: '60px', color: 'rgba(26,26,46,0.3)', fontFamily: "'DM Sans', sans-serif" }}>Loading...</div>
         ) : (
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(300px, 1fr))', gap: '20px' }}>
-            {items.map(guide => (
+            {filtered.map(guide => (
               <Link key={guide.id} href={`/guides/${guide.id}`} style={{ textDecoration: 'none' }}>
                 <div className="bg-white dark:bg-[#1a1a2e]" style={{ borderRadius: '16px', overflow: 'hidden', boxShadow: '0 4px 20px rgba(0,0,0,0.08)', border: '1px solid rgba(201,168,76,0.12)', cursor: 'pointer', height: '100%' }}>
                   <div style={{ position: 'relative', height: '180px' }}>
