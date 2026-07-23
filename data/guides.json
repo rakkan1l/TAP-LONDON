@@ -59,6 +59,66 @@
       "image": "https://images.unsplash.com/photo-1513635269975-59663e0ac1ad?w=800&q=80",
       "content": "1. Notting Hill's colourful houses\\n2. Neal's Yard, Covent Garden\\n3. Tower Bridge at golden hour\\n4. Leadenhall Market\\n5. Sky Garden\\n6. God's Own Junkyard neon warehouse\\n7. Primrose Hill skyline view",
       "order": 5
+    },
+    {
+      "id": "ramadan-guide",
+      "name": "Ramadan Food Guide",
+      "category": "Seasonal",
+      "icon": "\ud83c\udf19",
+      "description": "Best halal restaurants and iftar spots across London during Ramadan \u2014 from Whitechapel to Edgware Road.",
+      "image": "https://images.unsplash.com/photo-1564769662646-be8db8de37e3?w=800&q=80",
+      "content": "1. Whitechapel \u2014 huge range of Bengali and South Asian halal food, great value iftar deals\\n2. Edgware Road \u2014 Lebanese and Middle Eastern restaurants, many with special Ramadan menus\\n3. Shepherd's Bush \u2014 diverse halal options, family-friendly\\n4. East London Mosque area \u2014 community iftar events, very welcoming\\n5. Green Street, Newham \u2014 South Asian sweets, samosas and dates\\n6. Many restaurants offer set iftar menus \u2014 always call ahead to check timing and book a table\\n7. Tip: Suhoor (pre-dawn meal) spots stay open very early in areas like Whitechapel",
+      "order": 6
+    },
+    {
+      "id": "christmas-london",
+      "name": "Christmas in London",
+      "category": "Seasonal",
+      "icon": "\ud83c\udf84",
+      "description": "Festive markets, lights and winter magic across the city \u2014 the best of London at Christmas.",
+      "image": "https://images.unsplash.com/photo-1512389142860-9c449e58a543?w=800&q=80",
+      "content": "1. Winter Wonderland Hyde Park \u2014 funfair, ice rink and Christmas market (book tickets early)\\n2. Oxford Street Christmas Lights \u2014 iconic, best viewed in the evening\\n3. Covent Garden \u2014 huge Christmas tree and festive decorations\\n4. Southbank Christmas Market \u2014 mulled wine and street food by the Thames\\n5. Kew Gardens Christmas \u2014 illuminated trail through the gardens\\n6. Somerset House Ice Rink \u2014 skating in a stunning courtyard setting\\n7. Harrods Christmas Windows \u2014 famous festive window displays\\n8. Regent Street Christmas Lights \u2014 beautiful angel-themed lights",
+      "order": 7
+    },
+    {
+      "id": "summer-rooftop-guide",
+      "name": "Summer Rooftop Guide",
+      "category": "Seasonal",
+      "icon": "\u2600\ufe0f",
+      "description": "The best rooftop bars and terraces to enjoy London sunshine \u2014 with skyline views included.",
+      "image": "https://images.unsplash.com/photo-1519671482749-fd09be7ccebf?w=800&q=80",
+      "content": "1. Sky Garden \u2014 free entry (book ahead), stunning 360\u00b0 views\\n2. Radio Rooftop Bar \u2014 cocktails with panoramic skyline views\\n3. Madison Rooftop Bar \u2014 St Paul's Cathedral views, great sunset spot\\n4. Aqua Nueva \u2014 Spanish tapas with London skyline backdrop\\n5. Coq d'Argent \u2014 City views with a beautiful rooftop garden\\n6. Netil360 \u2014 laid-back East London rooftop, less touristy\\n7. Tip: book ahead on weekends, most rooftops get busy at golden hour",
+      "order": 8
+    },
+    {
+      "id": "eid-events",
+      "name": "Eid Events in London",
+      "category": "Seasonal",
+      "icon": "\ud83c\udf1f",
+      "description": "Celebrations, prayers and festivities across London during Eid al-Fitr and Eid al-Adha.",
+      "image": "https://images.unsplash.com/photo-1564769662646-be8db8de37e3?w=800&q=80",
+      "content": "1. Trafalgar Square Eid Festival \u2014 huge annual public celebration with food stalls and performances\\n2. East London Mosque \u2014 Eid prayers with large community turnout\\n3. Whitechapel \u2014 festive atmosphere with special sweets and biryani\\n4. Green Street, Newham \u2014 Eid shopping for outfits and gifts\\n5. Regent's Park Mosque \u2014 beautiful setting for Eid prayers\\n6. Many halal restaurants offer special Eid menus \u2014 book ahead as it gets busy\\n7. Tip: check exact Eid dates yearly as they follow the lunar calendar",
+      "order": 9
+    },
+    {
+      "id": "winter-activities",
+      "name": "Winter Activities in London",
+      "category": "Seasonal",
+      "icon": "\u2744\ufe0f",
+      "description": "Stay warm and have fun \u2014 the best indoor and cosy winter activities in London.",
+      "image": "https://images.unsplash.com/photo-1544273677-6e4dee97c3e6?w=800&q=80",
+      "content": "1. Natural History Museum Ice Rink \u2014 skating under a dinosaur skeleton\\n2. Warm up at Borough Market with mulled wine and hot food\\n3. Christmas at Kew \u2014 illuminated winter trail\\n4. Cosy pub crawl in Covent Garden \u2014 traditional London pubs with fireplaces\\n5. Tate Modern \u2014 free, warm, and world-class art\\n6. Afternoon tea at a grand hotel \u2014 perfect winter treat\\n7. Winter Wonderland Hyde Park \u2014 funfair and Christmas market",
+      "order": 10
+    },
+    {
+      "id": "valentines-spots",
+      "name": "Valentine's Day Spots",
+      "category": "Seasonal",
+      "icon": "\ud83d\udc98",
+      "description": "The most romantic places in London to celebrate Valentine's Day with someone special.",
+      "image": "https://images.unsplash.com/photo-1518199266791-5375a83190b7?w=800&q=80",
+      "content": "1. Sky Garden at sunset \u2014 free, romantic skyline views\\n2. Little Venice \u2014 peaceful canal walk, very romantic\\n3. Dinner at Duck & Waffle \u2014 skyline views 40 floors up\\n4. Kyoto Garden, Holland Park \u2014 serene and beautiful\\n5. A rowboat on the Serpentine, Hyde Park\\n6. Sunset walk along South Bank\\n7. Book ahead \u2014 Valentine's Day is the busiest date-night day of the year in London",
+      "order": 11
     }
   ]
 }
