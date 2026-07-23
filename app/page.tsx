@@ -28,6 +28,7 @@ const DISCOVER_CARDS = [
   { label: 'Sports',          sub: 'Football, cricket, boxing & more', href: '/sports',       icon: '⚽',  color: '#2d9e4f' },
   { label: 'Hidden Gems',     sub: 'Secret spots only locals know',   href: '/hidden-gems',  icon: '💎',  color: '#7c5cbf' },
   { label: 'Trending Now',    sub: 'Viral restaurants & hotspots',    href: '/trending',     icon: '🔥',  color: '#e55' },
+  { label: 'Guides',          sub: 'Curated themed London lists',     href: '/guides',       icon: '📖',  color: '#5ab0e5' },
 ];
 
 const TABS = ['All', 'Places', 'Food', 'Shopping', 'Nightlife', 'Hotels'];
