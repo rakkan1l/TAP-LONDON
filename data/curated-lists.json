@@ -1,0 +1,112 @@
+{
+  "lists": [
+    {
+      "id": "top-10-this-week",
+      "title": "Top 10 Places This Week",
+      "icon": "\ud83d\udd25",
+      "description": "Our pick of the best London spots to visit right now",
+      "items": [
+        {
+          "section": "places",
+          "itemId": "tower-of-london"
+        },
+        {
+          "section": "trending",
+          "itemId": "sketch-london"
+        },
+        {
+          "section": "hidden-gems",
+          "itemId": "little-venice"
+        },
+        {
+          "section": "food",
+          "itemId": ""
+        },
+        {
+          "section": "places",
+          "itemId": ""
+        }
+      ]
+    },
+    {
+      "id": "date-night",
+      "title": "Date Night Ideas",
+      "icon": "\ud83d\udc95",
+      "description": "Romantic spots for a perfect London evening",
+      "items": [
+        {
+          "section": "food",
+          "itemId": ""
+        },
+        {
+          "section": "nightlife",
+          "itemId": ""
+        },
+        {
+          "section": "places",
+          "itemId": ""
+        }
+      ]
+    },
+    {
+      "id": "rainy-day",
+      "title": "Rainy Day Activities",
+      "icon": "\u2614",
+      "description": "Indoor things to do when London weather doesn't cooperate",
+      "items": [
+        {
+          "section": "kids",
+          "itemId": "natural-history-museum"
+        },
+        {
+          "section": "kids",
+          "itemId": "science-museum"
+        },
+        {
+          "section": "shopping",
+          "itemId": "harrods"
+        }
+      ]
+    },
+    {
+      "id": "london-budget",
+      "title": "London on a Budget",
+      "icon": "\ud83d\udcb7",
+      "description": "See London without spending a fortune",
+      "items": [
+        {
+          "section": "places",
+          "itemId": ""
+        },
+        {
+          "section": "offers",
+          "itemId": ""
+        },
+        {
+          "section": "hidden-gems",
+          "itemId": ""
+        }
+      ]
+    },
+    {
+      "id": "free-today",
+      "title": "Free Things to Do Today",
+      "icon": "\ud83c\udd93",
+      "description": "Zero cost, maximum London experience",
+      "items": [
+        {
+          "section": "places",
+          "itemId": ""
+        },
+        {
+          "section": "kids",
+          "itemId": "natural-history-museum"
+        },
+        {
+          "section": "hidden-gems",
+          "itemId": "kyoto-garden"
+        }
+      ]
+    }
+  ]
+}
