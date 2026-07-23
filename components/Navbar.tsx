@@ -17,6 +17,7 @@ const navLinks = [
   { href: "/hidden-gems", label: "Hidden Gems",  color: null },
   { href: "/trending",    label: "Trending 🔥",  color: null },
   { href: "/guides",      label: "Guides 📖",    color: null },
+  { href: "/events",      label: "Today 📅",     color: null },
   { href: "/transport",   label: "Transport",    color: null },
   { href: "/emergency",   label: "Emergency",    color: "emergency" },
   { href: "/muslim",      label: "Muslim Guide", color: "muslim" },
