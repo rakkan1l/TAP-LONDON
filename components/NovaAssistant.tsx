@@ -25,39 +25,18 @@ London expertise:
 - Hidden gems: Little Venice, Kyoto Garden, Leadenhall Market, Neal's Yard`;
 
 async function callGemini(userMessage: string, history: Message[]): Promise<string> {
-  const models = ["gemini-2.0-flash", "gemini-1.5-flash", "gemini-pro"];
-  
-  // Build conversation history for context
-  const contents = history.slice(-6).map(m => ({
-    role: m.role === "user" ? "user" : "model",
-    parts: [{ text: m.content }]
-  }));
-  contents.push({ role: "user", parts: [{ text: userMessage }] });
-
-  for (const model of models) {
-    try {
-      const res = await fetch(
-        `https://generativelanguage.googleapis.com/v1beta/models/${model}:generateContent?key=${GEMINI_KEY}`,
-        {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({
-            system_instruction: { parts: [{ text: SYSTEM_PROMPT }] },
-            contents,
-            generationConfig: { temperature: 0.7, maxOutputTokens: 600 },
-          }),
-        }
-      );
-      if (res.ok) {
-        const data = await res.json();
-        const text = data?.candidates?.[0]?.content?.parts?.[0]?.text;
-        if (text) return text;
-      }
-    } catch {
-      continue;
-    }
+  try {
+    const res = await fetch("/api/nova", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ message: userMessage, history }),
+    });
+    const data = await res.json();
+    if (data?.reply) return data.reply;
+    return "No reply received. Please try again.";
+  } catch (e: any) {
+    return `Connection error: ${e.message}`;
   }
-  return "I\'m having a moment! 🗺️ For urgent London help: Emergency **999**, NHS **111**, TfL **0343 222 1234**";
 }
 
 export default function NovaAssistant() {
