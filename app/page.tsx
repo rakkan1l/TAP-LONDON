@@ -29,6 +29,7 @@ const DISCOVER_CARDS = [
   { label: 'Hidden Gems',     sub: 'Secret spots only locals know',   href: '/hidden-gems',  icon: '💎',  color: '#7c5cbf' },
   { label: 'Trending Now',    sub: 'Viral restaurants & hotspots',    href: '/trending',     icon: '🔥',  color: '#e55' },
   { label: 'Guides',          sub: 'Curated themed London lists',     href: '/guides',       icon: '📖',  color: '#5ab0e5' },
+  { label: 'Happening Today', sub: 'Live events and markets now',     href: '/events',       icon: '📅',  color: '#7ac9a0' },
 ];
 
 const TABS = ['All', 'Places', 'Food', 'Shopping', 'Nightlife', 'Hotels'];
