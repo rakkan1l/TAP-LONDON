@@ -31,6 +31,8 @@ export type CardItem = {
   opinion?: string;
   tags?: string[];
   nearestStation?: string;
+  recommended?: boolean;
+  familyFriendlyBadge?: boolean;
 };
 
 const VIBE_COLORS: Record<string, { bg: string; text: string }> = {
@@ -81,6 +83,33 @@ export default function PlaceCard({ item, mode = "place" }: PlaceCardProps) {
         <div className="absolute left-4 top-4 rounded-full bg-white/92 px-3 py-1 text-xs font-bold uppercase tracking-[0.12em] text-navy shadow-sm dark:bg-navy dark:text-gold dark:border dark:border-gold/30">
           {category}
         </div>
+
+        {item.recommended && (
+          <div style={{
+            position: "absolute", right: "12px", top: "12px",
+            display: "flex", alignItems: "center", gap: "4px",
+            background: "linear-gradient(135deg, #c9a84c, #f0d07a)",
+            color: "#1a1a2e", borderRadius: "50px", padding: "4px 10px",
+            fontSize: "0.64rem", fontWeight: 800,
+            fontFamily: "'DM Sans', sans-serif", letterSpacing: "0.3px",
+            boxShadow: "0 2px 8px rgba(0,0,0,0.25)",
+          }}>
+            ⭐ TAP LONDON PICK
+          </div>
+        )}
+
+        {item.familyFriendlyBadge && (
+          <div style={{
+            position: "absolute", right: "12px", top: item.recommended ? "42px" : "12px",
+            display: "flex", alignItems: "center", gap: "4px",
+            background: "rgba(122,201,160,0.95)",
+            color: "#1a1a2e", borderRadius: "50px", padding: "4px 10px",
+            fontSize: "0.64rem", fontWeight: 800,
+            fontFamily: "'DM Sans', sans-serif",
+          }}>
+            👨‍👩‍👧 FAMILY FRIENDLY
+          </div>
+        )}
 
         {item.offer && (
           <div style={{
