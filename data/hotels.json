@@ -357,6 +357,224 @@
       "mapsUrl": "https://www.google.com/maps/search/?api=1&query=YOTEL+London",
       "bookingUrl": "https://www.yotel.com/en/hotels/yotel-london-clerkenwell",
       "order": 15
+    },
+    {
+      "id": "the-langham",
+      "name": "The Langham London",
+      "category": "5-star",
+      "area": "Marylebone, W1B",
+      "description": "Europe's first grand hotel, opposite the BBC and Oxford Circus. Timeless elegance, legendary Palm Court afternoon tea and a stunning spa.",
+      "priceRange": "\u00a3450-\u00a31200/night",
+      "rating": "4.9",
+      "nearestStation": "Oxford Circus (3 min walk)",
+      "amenities": [
+        "Spa",
+        "Pool",
+        "Fine Dining",
+        "Bar",
+        "Gym",
+        "Afternoon Tea"
+      ],
+      "familyFriendly": true,
+      "image": "https://images.unsplash.com/photo-1571896349842-33c89424de2d?w=800&q=80",
+      "mapsUrl": "https://www.google.com/maps/search/?api=1&query=The+Langham+London",
+      "bookingUrl": "https://www.booking.com/hotel/gb/langham-hilton.html",
+      "order": 16
+    },
+    {
+      "id": "the-ritz-london",
+      "name": "The Ritz London",
+      "category": "5-star",
+      "area": "Piccadilly, W1J",
+      "description": "The definition of London glamour on Piccadilly. Louis XVI-style decor, legendary afternoon tea in the Palm Court, and a dress code that matches the grandeur.",
+      "priceRange": "\u00a3600-\u00a32000/night",
+      "rating": "4.9",
+      "nearestStation": "Green Park (2 min walk)",
+      "amenities": [
+        "Fine Dining",
+        "Bar",
+        "Afternoon Tea",
+        "Spa",
+        "Concierge"
+      ],
+      "familyFriendly": false,
+      "image": "https://images.unsplash.com/photo-1590490360182-c33d57733427?w=800&q=80",
+      "mapsUrl": "https://www.google.com/maps/search/?api=1&query=The+Ritz+London",
+      "bookingUrl": "https://www.booking.com/hotel/gb/theritzlondon.html",
+      "order": 17
+    },
+    {
+      "id": "the-dorchester",
+      "name": "The Dorchester",
+      "category": "5-star",
+      "area": "Mayfair, W1K",
+      "description": "Legendary Park Lane hotel overlooking Hyde Park. Home to the Michelin-starred Alain Ducasse restaurant and one of London's most iconic bars.",
+      "priceRange": "\u00a3550-\u00a31800/night",
+      "rating": "4.9",
+      "nearestStation": "Hyde Park Corner (5 min walk)",
+      "amenities": [
+        "Spa",
+        "Fine Dining",
+        "Bar",
+        "Gym",
+        "Concierge"
+      ],
+      "familyFriendly": true,
+      "image": "https://images.unsplash.com/photo-1445019980597-93fa8acb246c?w=800&q=80",
+      "mapsUrl": "https://www.google.com/maps/search/?api=1&query=The+Dorchester+London",
+      "bookingUrl": "https://www.booking.com/hotel/gb/the-dorchester.html",
+      "order": 18
+    },
+    {
+      "id": "browns-hotel",
+      "name": "Brown's Hotel",
+      "category": "5-star",
+      "area": "Mayfair, W1S",
+      "description": "London's oldest hotel, established 1837. Elegant Mayfair townhouse hotel with a Michelin-starred restaurant and famous English afternoon tea.",
+      "priceRange": "\u00a3400-\u00a3950/night",
+      "rating": "4.8",
+      "nearestStation": "Green Park (3 min walk)",
+      "amenities": [
+        "Fine Dining",
+        "Bar",
+        "Afternoon Tea",
+        "Gym",
+        "Concierge"
+      ],
+      "familyFriendly": true,
+      "image": "https://images.unsplash.com/photo-1564501049412-61c2a3083791?w=800&q=80",
+      "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Browns+Hotel+London",
+      "bookingUrl": "https://www.booking.com/hotel/gb/browns-london.html",
+      "order": 19
+    },
+    {
+      "id": "the-connaught",
+      "name": "The Connaught",
+      "category": "5-star",
+      "area": "Mayfair, W1K",
+      "description": "Discreet luxury in the heart of Mayfair. Home to the Connaught Bar \u2014 one of the world's best bars \u2014 and an exceptional Aman spa.",
+      "priceRange": "\u00a3600-\u00a31900/night",
+      "rating": "4.9",
+      "nearestStation": "Bond Street (5 min walk)",
+      "amenities": [
+        "Spa",
+        "Pool",
+        "Fine Dining",
+        "Bar",
+        "Gym"
+      ],
+      "familyFriendly": false,
+      "image": "https://images.unsplash.com/photo-1551882547-ff40c63fe5fa?w=800&q=80",
+      "mapsUrl": "https://www.google.com/maps/search/?api=1&query=The+Connaught+London",
+      "bookingUrl": "https://www.booking.com/hotel/gb/the-connaught.html",
+      "order": 20
+    },
+    {
+      "id": "the-soho-hotel",
+      "name": "The Soho Hotel",
+      "category": "4-star",
+      "area": "Soho, W1D",
+      "description": "Chic boutique hotel in the heart of Soho, popular with the film and fashion crowd. Stylish rooms and a lively screening room bar.",
+      "priceRange": "\u00a3280-\u00a3550/night",
+      "rating": "4.6",
+      "nearestStation": "Tottenham Court Road (5 min walk)",
+      "amenities": [
+        "Bar",
+        "Restaurant",
+        "Gym",
+        "Free WiFi",
+        "Screening Room"
+      ],
+      "familyFriendly": true,
+      "image": "https://images.unsplash.com/photo-1590073844006-33379778ae09?w=800&q=80",
+      "mapsUrl": "https://www.google.com/maps/search/?api=1&query=The+Soho+Hotel+London",
+      "bookingUrl": "https://www.booking.com/hotel/gb/the-soho.html",
+      "order": 21
+    },
+    {
+      "id": "covent-garden-hotel",
+      "name": "Covent Garden Hotel",
+      "category": "4-star",
+      "area": "Covent Garden, WC2H",
+      "description": "Elegant Firmdale hotel right in Covent Garden. English country house style meets central London convenience \u2014 perfect for theatre trips.",
+      "priceRange": "\u00a3320-\u00a3600/night",
+      "rating": "4.7",
+      "nearestStation": "Covent Garden (2 min walk)",
+      "amenities": [
+        "Bar",
+        "Restaurant",
+        "Gym",
+        "Free WiFi",
+        "Concierge"
+      ],
+      "familyFriendly": true,
+      "image": "https://images.unsplash.com/photo-1611892440504-42a792e24d32?w=800&q=80",
+      "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Covent+Garden+Hotel+London",
+      "bookingUrl": "https://www.booking.com/hotel/gb/coventgarden.html",
+      "order": 22
+    },
+    {
+      "id": "the-z-hotel-soho",
+      "name": "The Z Hotel Soho",
+      "category": "Budget",
+      "area": "Soho, W1D",
+      "description": "Compact, stylish and unbeatable location right in Soho. Small rooms but huge value for the postcode \u2014 perfect for exploring on foot.",
+      "priceRange": "\u00a390-\u00a3160/night",
+      "rating": "4.3",
+      "nearestStation": "Piccadilly Circus (3 min walk)",
+      "amenities": [
+        "Free WiFi",
+        "24hr Reception",
+        "Smart TV"
+      ],
+      "familyFriendly": false,
+      "image": "https://images.unsplash.com/photo-1611892440504-42a792e24d32?w=800&q=80",
+      "mapsUrl": "https://www.google.com/maps/search/?api=1&query=The+Z+Hotel+Soho+London",
+      "bookingUrl": "https://www.thezhotels.com/soho",
+      "order": 23
+    },
+    {
+      "id": "the-savoy-annex",
+      "name": "Ham Yard Hotel",
+      "category": "4-star",
+      "area": "Soho, W1D",
+      "description": "Firmdale boutique hotel with a private garden, bowling alley and rooftop terrace \u2014 a hidden oasis right in Soho.",
+      "priceRange": "\u00a3350-\u00a3650/night",
+      "rating": "4.7",
+      "nearestStation": "Piccadilly Circus (5 min walk)",
+      "amenities": [
+        "Bar",
+        "Restaurant",
+        "Gym",
+        "Rooftop",
+        "Bowling Alley"
+      ],
+      "familyFriendly": true,
+      "image": "https://images.unsplash.com/photo-1590490360182-c33d57733427?w=800&q=80",
+      "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Ham+Yard+Hotel+London",
+      "bookingUrl": "https://www.booking.com/hotel/gb/ham-yard.html",
+      "order": 24
+    },
+    {
+      "id": "the-piccadilly-hotel",
+      "name": "The Trafalgar St. James",
+      "category": "4-star",
+      "area": "Trafalgar Square, SW1Y",
+      "description": "Stylish hotel overlooking Trafalgar Square with a rooftop bar offering unbeatable views over Nelson's Column and Big Ben.",
+      "priceRange": "\u00a3250-\u00a3480/night",
+      "rating": "4.5",
+      "nearestStation": "Charing Cross (2 min walk)",
+      "amenities": [
+        "Rooftop Bar",
+        "Restaurant",
+        "Gym",
+        "Free WiFi"
+      ],
+      "familyFriendly": true,
+      "image": "https://images.unsplash.com/photo-1584132967334-10e028bd69f7?w=800&q=80",
+      "mapsUrl": "https://www.google.com/maps/search/?api=1&query=The+Trafalgar+St+James+London",
+      "bookingUrl": "https://www.booking.com/hotel/gb/the-trafalgar-hilton.html",
+      "order": 25
     }
   ]
 }
