@@ -38,7 +38,7 @@ export default function Footer() {
           <div className="mt-4 grid gap-3 text-sm text-white/75">
             <a href="https://instagram.com/" target="_blank" rel="noreferrer" className="transition hover:text-white">Instagram</a>
             <a href="https://www.tiktok.com/" target="_blank" rel="noreferrer" className="transition hover:text-white">TikTok</a>
-            <a href="mailto:Taplondon2026@gmail.com" className="transition hover:text-white">Taplondon2026@gmail.com</a>
+            <a href="mailto:taplondonofficial@gmail.com" className="transition hover:text-white">taplondonofficial@gmail.com</a>
           </div>
         </div>
       </div>
