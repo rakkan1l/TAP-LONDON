@@ -6,7 +6,7 @@ import PlaceCard, { type CardItem } from "./PlaceCard";
 type DirectoryClientProps = {
   items: CardItem[];
   tabs: string[];
-  mode?: "place" | "food" | "shopping" | "kids" | "nightlife" | "hotels" | "offers" | "hidden-gems" | "trending" | "sports" | "muslim";
+  mode?: "place" | "food" | "shopping" | "kids" | "nightlife" | "hotels" | "offers" | "hidden-gems" | "trending" | "sports" | "muslim" | "emergency";
   searchPlaceholder?: string;
   showSearch?: boolean;
 };
