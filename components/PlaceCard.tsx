@@ -259,5 +259,12 @@ export default function PlaceCard({ item, mode = "place" }: PlaceCardProps) {
       </Link>
     );
   }
+  if (mode === "muslim") {
+    return (
+      <Link href={`/muslim/${item.id}`} style={{ textDecoration: "none", display: "block", height: "100%" }}>
+        {card}
+      </Link>
+    );
+  }
   return card;
 }
