@@ -1,5 +1,31 @@
 const PROJECT_ID = 'tap-london';
 
+// Recursively convert a single Firestore field value to a plain JS value
+function parseFieldValue(field: any): any {
+  if (!field) return undefined;
+  if (field.stringValue !== undefined) return field.stringValue;
+  if (field.integerValue !== undefined) return parseInt(field.integerValue);
+  if (field.doubleValue !== undefined) return field.doubleValue;
+  if (field.booleanValue !== undefined) return field.booleanValue;
+  if (field.timestampValue !== undefined) return field.timestampValue;
+  if (field.nullValue !== undefined) return null;
+  if (field.mapValue !== undefined) {
+    return parseFields(field.mapValue.fields || {});
+  }
+  if (field.arrayValue !== undefined) {
+    return (field.arrayValue.values || []).map((v: any) => parseFieldValue(v));
+  }
+  return undefined;
+}
+
+function parseFields(fields: Record<string, any>): any {
+  const obj: any = {};
+  Object.keys(fields).forEach(key => {
+    obj[key] = parseFieldValue(fields[key]);
+  });
+  return obj;
+}
+
 export async function fetchCollection(collection: string): Promise<any[] | null> {
   try {
     const url = `https://firestore.googleapis.com/v1/projects/${PROJECT_ID}/databases/(default)/documents/${collection}?pageSize=200`;
@@ -9,21 +35,7 @@ export async function fetchCollection(collection: string): Promise<any[] | null>
     if (!json.documents || json.documents.length === 0) return null;
 
     const items = json.documents.map((doc: any) => {
-      const fields = doc.fields || {};
-      const item: any = {};
-      Object.keys(fields).forEach(key => {
-        const field = fields[key];
-        if (field.stringValue !== undefined) item[key] = field.stringValue;
-        else if (field.integerValue !== undefined) item[key] = parseInt(field.integerValue);
-        else if (field.doubleValue !== undefined) item[key] = field.doubleValue;
-        else if (field.booleanValue !== undefined) item[key] = field.booleanValue;
-        else if (field.timestampValue !== undefined) item[key] = field.timestampValue;
-        else if (field.arrayValue !== undefined) {
-          item[key] = (field.arrayValue.values || []).map((v: any) =>
-            v.stringValue || v.integerValue || v.booleanValue || ''
-          );
-        }
-      });
+      const item = parseFields(doc.fields || {});
       const parts = doc.name.split('/');
       item.id = parts[parts.length - 1];
       return item;
@@ -44,21 +56,7 @@ export async function fetchDocument(collection: string, id: string): Promise<any
     const doc = await res.json();
     if (!doc.fields) return null;
 
-    const fields = doc.fields;
-    const item: any = {};
-    Object.keys(fields).forEach(key => {
-      const field = fields[key];
-      if (field.stringValue !== undefined) item[key] = field.stringValue;
-      else if (field.integerValue !== undefined) item[key] = parseInt(field.integerValue);
-      else if (field.doubleValue !== undefined) item[key] = field.doubleValue;
-      else if (field.booleanValue !== undefined) item[key] = field.booleanValue;
-      else if (field.timestampValue !== undefined) item[key] = field.timestampValue;
-      else if (field.arrayValue !== undefined) {
-        item[key] = (field.arrayValue.values || []).map((v: any) =>
-          v.stringValue || v.integerValue || v.booleanValue || ''
-        );
-      }
-    });
+    const item = parseFields(doc.fields);
     const parts = doc.name.split('/');
     item.id = parts[parts.length - 1];
     return item;
