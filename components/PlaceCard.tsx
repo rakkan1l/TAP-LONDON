@@ -266,5 +266,12 @@ export default function PlaceCard({ item, mode = "place" }: PlaceCardProps) {
       </Link>
     );
   }
+  if (mode === "emergency") {
+    return (
+      <Link href={`/emergency/${item.id}`} style={{ textDecoration: "none", display: "block", height: "100%" }}>
+        {card}
+      </Link>
+    );
+  }
   return card;
 }
