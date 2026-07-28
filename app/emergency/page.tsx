@@ -33,7 +33,7 @@ export default function EmergencyPage() {
         {loading ? (
           <div style={{ textAlign: 'center', padding: '60px', color: 'rgba(26,26,46,0.3)', fontFamily: "'DM Sans', sans-serif" }}>Loading...</div>
         ) : (
-          <DirectoryClient items={items} tabs={["Hospitals", "Police", "Scam Alerts", "Helplines"]} mode="place" searchPlaceholder="Search emergency services" />
+          <DirectoryClient items={items} tabs={["Hospitals", "Police", "Scam Alerts", "Helplines"]} mode="emergency" searchPlaceholder="Search emergency services" />
         )}
       </div>
     </section>
