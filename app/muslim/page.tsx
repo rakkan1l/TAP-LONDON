@@ -33,7 +33,7 @@ export default function MuslimPage() {
         {loading ? (
           <div style={{ textAlign: 'center', padding: '60px', color: 'rgba(26,26,46,0.3)', fontFamily: "'DM Sans', sans-serif" }}>Loading...</div>
         ) : (
-          <DirectoryClient items={items} tabs={["Mosques", "Halal Food", "Prayer Rooms", "Islamic Sites"]} mode="place" searchPlaceholder="Search halal food or mosques" />
+          <DirectoryClient items={items} tabs={["Mosques", "Halal Food", "Prayer Rooms", "Islamic Sites"]} mode="muslim" searchPlaceholder="Search halal food or mosques" />
         )}
       </div>
     </section>
