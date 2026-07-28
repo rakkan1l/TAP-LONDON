@@ -9,7 +9,7 @@ const CATEGORIES = [
   { label: 'Nightlife', icon: '🌙', collection: 'nightlife' },
   { label: 'Hotels', icon: '🏨', collection: 'hotels' },
   { label: 'Kids', icon: '👨\u200d👩\u200d👧', collection: 'kids' },
-  { label: 'Hidden Gems', icon: '💎', collection: 'hidden-gems' },
+  { label: 'Hidden Gems', icon: '💎', collection: 'hiddenGems' },
   { label: 'Shopping', icon: '🛍️', collection: 'shopping' },
 ];
 
