@@ -575,6 +575,94 @@
       "mapsUrl": "https://www.google.com/maps/search/?api=1&query=The+Trafalgar+St+James+London",
       "bookingUrl": "https://www.booking.com/hotel/gb/the-trafalgar-hilton.html",
       "order": 25
+    },
+    {
+      "id": "great-ormond-family-hotel",
+      "name": "The Bloomsbury Hotel",
+      "category": "Family",
+      "area": "Bloomsbury, WC1B",
+      "description": "Elegant family-friendly hotel near the British Museum with spacious rooms, kids activity packs and a great central location for family sightseeing.",
+      "priceRange": "\u00a3220-\u00a3420/night",
+      "rating": "4.5",
+      "nearestStation": "Russell Square (3 min walk)",
+      "amenities": [
+        "Restaurant",
+        "Bar",
+        "Gym",
+        "Family Rooms",
+        "Free WiFi"
+      ],
+      "familyFriendly": true,
+      "image": "https://images.unsplash.com/photo-1631049307264-da0ec9d70304?w=800&q=80",
+      "mapsUrl": "https://www.google.com/maps/search/?api=1&query=The+Bloomsbury+Hotel+London",
+      "bookingUrl": "https://www.booking.com/hotel/gb/the-bloomsbury.html",
+      "order": 26
+    },
+    {
+      "id": "novotel-family-london",
+      "name": "Novotel London Waterloo",
+      "category": "Family",
+      "area": "Waterloo, SE1",
+      "description": "Spacious family rooms with bunk beds available, kids eat free, and a great location near the London Eye and South Bank attractions.",
+      "priceRange": "\u00a3150-\u00a3280/night",
+      "rating": "4.3",
+      "nearestStation": "Waterloo (5 min walk)",
+      "amenities": [
+        "Pool",
+        "Restaurant",
+        "Family Rooms",
+        "Kids Eat Free",
+        "Free WiFi"
+      ],
+      "familyFriendly": true,
+      "image": "https://images.unsplash.com/photo-1631049307264-da0ec9d70304?w=800&q=80",
+      "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Novotel+London+Waterloo",
+      "bookingUrl": "https://www.booking.com/hotel/gb/novotel-london-waterloo.html",
+      "order": 27
+    },
+    {
+      "id": "mandarin-oriental-spa",
+      "name": "Mandarin Oriental Hyde Park",
+      "category": "Spa",
+      "area": "Knightsbridge, SW1X",
+      "description": "World-renowned spa hotel overlooking Hyde Park with an award-winning spa offering signature Oriental treatments and a stunning pool.",
+      "priceRange": "\u00a3550-\u00a31600/night",
+      "rating": "4.9",
+      "nearestStation": "Knightsbridge (2 min walk)",
+      "amenities": [
+        "Spa",
+        "Pool",
+        "Fine Dining",
+        "Bar",
+        "Gym"
+      ],
+      "familyFriendly": true,
+      "image": "https://images.unsplash.com/photo-1571896349842-33c89424de2d?w=800&q=80",
+      "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Mandarin+Oriental+Hyde+Park+London",
+      "bookingUrl": "https://www.booking.com/hotel/gb/mandarin-oriental-hyde-park.html",
+      "order": 28
+    },
+    {
+      "id": "corinthia-spa-2",
+      "name": "ESPA Life at Corinthia",
+      "category": "Spa",
+      "area": "Westminster, SW1A",
+      "description": "London's largest hotel spa spread across four floors, with a thermal suite, hydrotherapy pool and extensive treatment menu.",
+      "priceRange": "\u00a3400-\u00a31500/night",
+      "rating": "4.8",
+      "nearestStation": "Embankment (3 min walk)",
+      "amenities": [
+        "Spa",
+        "Pool",
+        "Fine Dining",
+        "Bar",
+        "Gym"
+      ],
+      "familyFriendly": true,
+      "image": "https://images.unsplash.com/photo-1571896349842-33c89424de2d?w=800&q=80",
+      "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Corinthia+London+Spa",
+      "bookingUrl": "https://www.booking.com/hotel/gb/corinthia-london.html",
+      "order": 29
     }
   ]
 }
