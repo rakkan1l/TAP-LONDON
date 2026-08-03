@@ -1,12 +1,300 @@
 {
   "items": [
-    { "id": "little-venice", "name": "Little Venice", "category": "Hidden Spots", "area": "Maida Vale, W9", "description": "A magical network of canals with painted houseboats, waterside cafes and peaceful towpaths. Few tourists ever discover this peaceful corner of London.", "entryFee": "Free", "priceType": "Free", "vibe": "Peaceful, romantic, unique", "bestTime": "Morning or sunset", "image": "https://images.pexels.com/photos/1796735/pexels-photo-1796735.jpeg?auto=compress&cs=tinysrgb&w=800", "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Little+Venice+London", "tags": ["romantic", "free", "unique"], "order": 0 },
-    { "id": "kyoto-garden", "name": "Kyoto Garden", "category": "Secret Gardens", "area": "Holland Park, W8", "description": "A perfectly manicured Japanese garden hidden inside Holland Park with waterfalls, koi carp and peacocks. Completely free and almost always quiet.", "entryFee": "Free", "priceType": "Free", "vibe": "Serene, beautiful, hidden", "bestTime": "Weekday mornings", "image": "https://images.pexels.com/photos/15046186/pexels-photo-15046186.jpeg?auto=compress&cs=tinysrgb&w=800", "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Kyoto+Garden+Holland+Park+London", "tags": ["free", "peaceful", "unique"], "order": 1 },
-    { "id": "leadenhall-market", "name": "Leadenhall Market", "category": "Hidden Spots", "area": "City of London, EC3V", "description": "A stunning Victorian covered market that inspired Diagon Alley in Harry Potter. Gorgeous architecture, great bars and restaurants hidden in the City.", "entryFee": "Free", "priceType": "Free", "vibe": "Historic, magical, atmospheric", "bestTime": "Weekday lunchtime or evening", "image": "https://images.pexels.com/photos/460672/pexels-photo-460672.jpeg?auto=compress&cs=tinysrgb&w=800", "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Leadenhall+Market+London", "tags": ["free", "historic", "food"], "order": 2 },
-    { "id": "gods-own-junkyard", "name": "God's Own Junkyard", "category": "Unique Experiences", "area": "Walthamstow, E17", "description": "A mind-blowing warehouse filled floor to ceiling with vintage neon signs and pop art. A photographer's dream and one of London's most unique spaces.", "entryFee": "Free", "priceType": "Free", "vibe": "Colourful, unique, Instagram-worthy", "bestTime": "Saturday or Sunday", "image": "https://images.pexels.com/photos/1183434/pexels-photo-1183434.jpeg?auto=compress&cs=tinysrgb&w=800", "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Gods+Own+Junkyard+Walthamstow", "tags": ["free", "unique", "photography"], "order": 3 },
-    { "id": "postmans-park", "name": "Postman's Park", "category": "Secret Gardens", "area": "City of London, EC1A", "description": "A tiny park near St Paul's with a Victorian memorial wall dedicated to ordinary people who died saving others. Incredibly moving and almost always empty.", "entryFee": "Free", "priceType": "Free", "vibe": "Peaceful, moving, hidden", "bestTime": "Any time", "image": "https://images.pexels.com/photos/15301981/pexels-photo-15301981.jpeg?auto=compress&cs=tinysrgb&w=800", "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Postmans+Park+London", "tags": ["free", "peaceful", "historic"], "order": 4 },
-    { "id": "bermondsey-street", "name": "Bermondsey Street", "category": "Hidden Neighbourhoods", "area": "London Bridge, SE1", "description": "One of London's most characterful streets with independent restaurants, boutiques, the White Cube gallery and easy walk to Tower Bridge. Locals love it.", "entryFee": "Free", "priceType": "Free", "vibe": "Cool, independent, foodie", "bestTime": "Weekend afternoon", "image": "https://images.pexels.com/photos/2245436/pexels-photo-2245436.jpeg?auto=compress&cs=tinysrgb&w=800", "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Bermondsey+Street+London", "tags": ["food", "art", "free"], "order": 5 },
-    { "id": "crossbones-garden", "name": "Crossbones Garden", "category": "Unique Experiences", "area": "Southwark, SE1", "description": "A hidden memorial garden on an ancient burial ground decorated with ribbons, flowers and messages. Hauntingly beautiful and completely unknown to most visitors.", "entryFee": "Free", "priceType": "Free", "vibe": "Unique, spiritual, moving", "bestTime": "Any time", "image": "https://images.pexels.com/photos/1537086/pexels-photo-1537086.jpeg?auto=compress&cs=tinysrgb&w=800", "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Crossbones+Garden+London", "tags": ["free", "unique", "hidden"], "order": 6 },
-    { "id": "neal-yard", "name": "Neal's Yard", "category": "Hidden Neighbourhoods", "area": "Covent Garden, WC2H", "description": "A tiny, colourful courtyard hidden off Seven Dials in Covent Garden. Bright painted buildings, wholefood cafes and an alternative vibe that surprises everyone.", "entryFee": "Free", "priceType": "Free", "vibe": "Colourful, quirky, Instagram-worthy", "bestTime": "Afternoon", "image": "https://images.pexels.com/photos/1796735/pexels-photo-1796735.jpeg?auto=compress&cs=tinysrgb&w=800", "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Neals+Yard+Covent+Garden+London", "tags": ["free", "unique", "food"], "order": 7 }
+    {
+      "id": "little-venice",
+      "name": "Little Venice",
+      "category": "Hidden Spots",
+      "area": "Maida Vale, W9",
+      "description": "A magical network of canals with painted houseboats, waterside cafes and peaceful towpaths. Few tourists ever discover this peaceful corner of London.",
+      "entryFee": "Free",
+      "priceType": "Free",
+      "vibe": "Peaceful, romantic, unique",
+      "bestTime": "Morning or sunset",
+      "image": "https://images.pexels.com/photos/1796735/pexels-photo-1796735.jpeg?auto=compress&cs=tinysrgb&w=800",
+      "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Little+Venice+London",
+      "tags": [
+        "romantic",
+        "free",
+        "unique"
+      ],
+      "order": 0
+    },
+    {
+      "id": "kyoto-garden",
+      "name": "Kyoto Garden",
+      "category": "Secret Gardens",
+      "area": "Holland Park, W8",
+      "description": "A perfectly manicured Japanese garden hidden inside Holland Park with waterfalls, koi carp and peacocks. Completely free and almost always quiet.",
+      "entryFee": "Free",
+      "priceType": "Free",
+      "vibe": "Serene, beautiful, hidden",
+      "bestTime": "Weekday mornings",
+      "image": "https://images.pexels.com/photos/15046186/pexels-photo-15046186.jpeg?auto=compress&cs=tinysrgb&w=800",
+      "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Kyoto+Garden+Holland+Park+London",
+      "tags": [
+        "free",
+        "peaceful",
+        "unique"
+      ],
+      "order": 1
+    },
+    {
+      "id": "leadenhall-market",
+      "name": "Leadenhall Market",
+      "category": "Hidden Spots",
+      "area": "City of London, EC3V",
+      "description": "A stunning Victorian covered market that inspired Diagon Alley in Harry Potter. Gorgeous architecture, great bars and restaurants hidden in the City.",
+      "entryFee": "Free",
+      "priceType": "Free",
+      "vibe": "Historic, magical, atmospheric",
+      "bestTime": "Weekday lunchtime or evening",
+      "image": "https://images.pexels.com/photos/460672/pexels-photo-460672.jpeg?auto=compress&cs=tinysrgb&w=800",
+      "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Leadenhall+Market+London",
+      "tags": [
+        "free",
+        "historic",
+        "food"
+      ],
+      "order": 2
+    },
+    {
+      "id": "gods-own-junkyard",
+      "name": "God's Own Junkyard",
+      "category": "Unique Experiences",
+      "area": "Walthamstow, E17",
+      "description": "A mind-blowing warehouse filled floor to ceiling with vintage neon signs and pop art. A photographer's dream and one of London's most unique spaces.",
+      "entryFee": "Free",
+      "priceType": "Free",
+      "vibe": "Colourful, unique, Instagram-worthy",
+      "bestTime": "Saturday or Sunday",
+      "image": "https://images.pexels.com/photos/1183434/pexels-photo-1183434.jpeg?auto=compress&cs=tinysrgb&w=800",
+      "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Gods+Own+Junkyard+Walthamstow",
+      "tags": [
+        "free",
+        "unique",
+        "photography"
+      ],
+      "order": 3
+    },
+    {
+      "id": "postmans-park",
+      "name": "Postman's Park",
+      "category": "Secret Gardens",
+      "area": "City of London, EC1A",
+      "description": "A tiny park near St Paul's with a Victorian memorial wall dedicated to ordinary people who died saving others. Incredibly moving and almost always empty.",
+      "entryFee": "Free",
+      "priceType": "Free",
+      "vibe": "Peaceful, moving, hidden",
+      "bestTime": "Any time",
+      "image": "https://images.pexels.com/photos/15301981/pexels-photo-15301981.jpeg?auto=compress&cs=tinysrgb&w=800",
+      "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Postmans+Park+London",
+      "tags": [
+        "free",
+        "peaceful",
+        "historic"
+      ],
+      "order": 4
+    },
+    {
+      "id": "bermondsey-street",
+      "name": "Bermondsey Street",
+      "category": "Hidden Neighbourhoods",
+      "area": "London Bridge, SE1",
+      "description": "One of London's most characterful streets with independent restaurants, boutiques, the White Cube gallery and easy walk to Tower Bridge. Locals love it.",
+      "entryFee": "Free",
+      "priceType": "Free",
+      "vibe": "Cool, independent, foodie",
+      "bestTime": "Weekend afternoon",
+      "image": "https://images.pexels.com/photos/2245436/pexels-photo-2245436.jpeg?auto=compress&cs=tinysrgb&w=800",
+      "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Bermondsey+Street+London",
+      "tags": [
+        "food",
+        "art",
+        "free"
+      ],
+      "order": 5
+    },
+    {
+      "id": "crossbones-garden",
+      "name": "Crossbones Garden",
+      "category": "Unique Experiences",
+      "area": "Southwark, SE1",
+      "description": "A hidden memorial garden on an ancient burial ground decorated with ribbons, flowers and messages. Hauntingly beautiful and completely unknown to most visitors.",
+      "entryFee": "Free",
+      "priceType": "Free",
+      "vibe": "Unique, spiritual, moving",
+      "bestTime": "Any time",
+      "image": "https://images.pexels.com/photos/1537086/pexels-photo-1537086.jpeg?auto=compress&cs=tinysrgb&w=800",
+      "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Crossbones+Garden+London",
+      "tags": [
+        "free",
+        "unique",
+        "hidden"
+      ],
+      "order": 6
+    },
+    {
+      "id": "neal-yard",
+      "name": "Neal's Yard",
+      "category": "Hidden Neighbourhoods",
+      "area": "Covent Garden, WC2H",
+      "description": "A tiny, colourful courtyard hidden off Seven Dials in Covent Garden. Bright painted buildings, wholefood cafes and an alternative vibe that surprises everyone.",
+      "entryFee": "Free",
+      "priceType": "Free",
+      "vibe": "Colourful, quirky, Instagram-worthy",
+      "bestTime": "Afternoon",
+      "image": "https://images.pexels.com/photos/1796735/pexels-photo-1796735.jpeg?auto=compress&cs=tinysrgb&w=800",
+      "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Neals+Yard+Covent+Garden+London",
+      "tags": [
+        "free",
+        "unique",
+        "food"
+      ],
+      "order": 7
+    },
+    {
+      "id": "wilton-way-hackney",
+      "name": "Wilton Way",
+      "category": "Hidden Neighbourhoods",
+      "area": "Hackney, E8",
+      "description": "A charming, low-key East London street with independent cafes, a barbershop-turned-bar, and genuine local character away from tourist crowds.",
+      "entryFee": "Free",
+      "priceType": "Free",
+      "vibe": "Local, authentic, quiet",
+      "bestTime": "Weekend morning",
+      "image": "https://images.unsplash.com/photo-2245436?w=800&q=80",
+      "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Wilton+Way+Hackney+London",
+      "tags": [
+        "free",
+        "local"
+      ],
+      "order": 8
+    },
+    {
+      "id": "hidden-hepworth-gallery",
+      "name": "The Hepworth-esque Backstreets of Fitzrovia",
+      "category": "Hidden Neighbourhoods",
+      "area": "Fitzrovia, W1T",
+      "description": "Quiet Georgian streets north of Oxford Street with independent galleries, hidden pubs and none of the crowds of nearby shopping streets.",
+      "entryFee": "Free",
+      "priceType": "Free",
+      "vibe": "Quiet, artistic, unhurried",
+      "bestTime": "Weekday afternoon",
+      "image": "https://images.unsplash.com/photo-2245436?w=800&q=80",
+      "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Fitzrovia+London",
+      "tags": [
+        "free",
+        "art"
+      ],
+      "order": 9
+    },
+    {
+      "id": "camley-street-natural-park",
+      "name": "Camley Street Natural Park",
+      "category": "Secret Gardens",
+      "area": "Kings Cross, N1C",
+      "description": "A tiny nature reserve tucked behind Kings Cross station \u2014 ponds, meadows and woodland that feels miles from the city, completely free.",
+      "entryFee": "Free",
+      "priceType": "Free",
+      "vibe": "Peaceful, natural, surprising",
+      "bestTime": "Spring or summer",
+      "image": "https://images.unsplash.com/photo-1416879595882-3373a0480b5b?w=800&q=80",
+      "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Camley+Street+Natural+Park+London",
+      "tags": [
+        "free",
+        "nature"
+      ],
+      "order": 10
+    },
+    {
+      "id": "phoenix-garden",
+      "name": "Phoenix Garden",
+      "category": "Secret Gardens",
+      "area": "Covent Garden, WC2H",
+      "description": "A tiny wildlife garden hidden just off Charing Cross Road \u2014 an unexpected pocket of nature in the middle of the West End.",
+      "entryFee": "Free",
+      "priceType": "Free",
+      "vibe": "Tiny, tranquil, unexpected",
+      "bestTime": "Lunchtime escape",
+      "image": "https://images.unsplash.com/photo-1416879595882-3373a0480b5b?w=800&q=80",
+      "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Phoenix+Garden+Covent+Garden+London",
+      "tags": [
+        "free",
+        "nature"
+      ],
+      "order": 11
+    },
+    {
+      "id": "sky-pool-embassy-gardens",
+      "name": "Sky Pool Viewing",
+      "category": "Unique Experiences",
+      "area": "Nine Elms, SW11",
+      "description": "See London's famous transparent sky pool suspended 35 metres above the ground between two buildings \u2014 a genuine architectural marvel to view.",
+      "entryFee": "Free to view (residents only to swim)",
+      "priceType": "Free",
+      "vibe": "Unique, futuristic, surprising",
+      "bestTime": "Any time",
+      "image": "https://images.unsplash.com/photo-1519671482749-fd09be7ccebf?w=800&q=80",
+      "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Embassy+Gardens+Sky+Pool+London",
+      "tags": [
+        "free",
+        "unique"
+      ],
+      "order": 12
+    },
+    {
+      "id": "seven-noses-soho",
+      "name": "The Seven Noses of Soho",
+      "category": "Unique Experiences",
+      "area": "Soho, W1",
+      "description": "A quirky art trail \u2014 tiny sculpted noses hidden on buildings across Soho. A fun, free scavenger hunt through the neighbourhood's backstreets.",
+      "entryFee": "Free",
+      "priceType": "Free",
+      "vibe": "Quirky, fun, playful",
+      "bestTime": "Any time",
+      "image": "https://images.unsplash.com/photo-1490481651871-ab68de25d43d?w=800&q=80",
+      "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Seven+Noses+of+Soho+London",
+      "tags": [
+        "free",
+        "unique"
+      ],
+      "order": 13
+    },
+    {
+      "id": "ye-olde-cheshire-cheese",
+      "name": "Ye Olde Cheshire Cheese",
+      "category": "Hidden Spots",
+      "area": "Fleet Street, EC4A",
+      "description": "A maze-like 17th-century pub rebuilt after the Great Fire of London. Dark wood, low ceilings and centuries of history \u2014 genuinely hidden from the main street.",
+      "entryFee": "Free entry",
+      "priceType": "Free",
+      "vibe": "Historic, atmospheric, hidden",
+      "bestTime": "Evening",
+      "image": "https://images.unsplash.com/photo-2245436?w=800&q=80",
+      "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Ye+Olde+Cheshire+Cheese+London",
+      "tags": [
+        "free",
+        "historic"
+      ],
+      "order": 14
+    },
+    {
+      "id": "daunt-books-marylebone",
+      "name": "Daunt Books Marylebone",
+      "category": "Hidden Spots",
+      "area": "Marylebone, W1U",
+      "description": "A stunning Edwardian bookshop with a long oak-galleried room and skylight \u2014 one of the most beautiful bookshops in the world, often overlooked by tourists.",
+      "entryFee": "Free to browse",
+      "priceType": "Free",
+      "vibe": "Beautiful, quiet, bookish",
+      "bestTime": "Weekday afternoon",
+      "image": "https://images.unsplash.com/photo-1481627834876-b7833e8f5570?w=800&q=80",
+      "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Daunt+Books+Marylebone+London",
+      "tags": [
+        "free",
+        "unique"
+      ],
+      "order": 15
+    }
   ]
 }
