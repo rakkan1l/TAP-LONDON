@@ -26,6 +26,14 @@ function parseFields(fields: Record<string, any>): any {
   return obj;
 }
 
+// If the main image is missing/empty, fall back to the first gallery photo
+function applyImageFallback(item: any): any {
+  if (!item.image && Array.isArray(item.gallery) && item.gallery.length > 0) {
+    item.image = item.gallery[0];
+  }
+  return item;
+}
+
 export async function fetchCollection(collection: string): Promise<any[] | null> {
   try {
     const url = `https://firestore.googleapis.com/v1/projects/${PROJECT_ID}/databases/(default)/documents/${collection}?pageSize=200`;
@@ -38,7 +46,7 @@ export async function fetchCollection(collection: string): Promise<any[] | null>
       const item = parseFields(doc.fields || {});
       const parts = doc.name.split('/');
       item.id = parts[parts.length - 1];
-      return item;
+      return applyImageFallback(item);
     });
 
     items.sort((a: any, b: any) => (a.order ?? 999) - (b.order ?? 999));
@@ -59,7 +67,7 @@ export async function fetchDocument(collection: string, id: string): Promise<any
     const item = parseFields(doc.fields);
     const parts = doc.name.split('/');
     item.id = parts[parts.length - 1];
-    return item;
+    return applyImageFallback(item);
   } catch {
     return null;
   }
