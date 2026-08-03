@@ -1,10 +1,178 @@
 {
   "items": [
-    { "id": "emergency-999", "name": "Emergency Services — 999", "category": "Helplines", "area": "Anywhere in the UK", "description": "Call 999 for Police, Fire or Ambulance in any life-threatening emergency. This is the UK's main emergency number — free to call from any phone.", "phone": "999", "address": "Any location in the UK", "mapsUrl": "", "image": "https://images.pexels.com/photos/63901/pexels-photo-63901.jpeg?auto=compress&cs=tinysrgb&w=800", "order": 0 },
-    { "id": "non-emergency-101", "name": "Police Non-Emergency — 101", "category": "Police", "area": "Anywhere in the UK", "description": "Call 101 for non-emergency police matters — lost property, minor incidents, reporting suspicious activity. Not for life-threatening situations.", "phone": "101", "address": "Any location in the UK", "mapsUrl": "", "image": "https://images.pexels.com/photos/63901/pexels-photo-63901.jpeg?auto=compress&cs=tinysrgb&w=800", "order": 1 },
-    { "id": "nhs-111", "name": "NHS Medical Helpline — 111", "category": "Helplines", "area": "Anywhere in the UK", "description": "Call 111 for urgent medical advice that is not life-threatening. Available 24/7. Also available online at 111.nhs.uk for non-urgent queries.", "phone": "111", "address": "Any location in the UK", "mapsUrl": "", "image": "https://images.pexels.com/photos/263402/pexels-photo-263402.jpeg?auto=compress&cs=tinysrgb&w=800", "order": 2 },
-    { "id": "uclh-hospital", "name": "University College Hospital", "category": "Hospitals", "area": "Euston, NW1 2BU", "description": "One of London's major NHS teaching hospitals with a 24/7 Accident & Emergency department. Nearest A&E to Central London.", "phone": "020 3456 7890", "address": "235 Euston Road, London NW1 2BU", "mapsUrl": "https://www.google.com/maps/search/?api=1&query=University+College+Hospital+London", "image": "https://images.pexels.com/photos/263402/pexels-photo-263402.jpeg?auto=compress&cs=tinysrgb&w=800", "order": 3 },
-    { "id": "tourist-scam-alerts", "name": "Common Tourist Scams", "category": "Scam Alerts", "area": "Central London", "description": "Watch out for: fake street sellers, petition scammers near tourist spots, overcharging taxis, fake TfL staff asking for payment. Always use licensed black cabs or Uber.", "phone": "101", "address": "Central London tourist areas", "mapsUrl": "", "image": "https://images.pexels.com/photos/63901/pexels-photo-63901.jpeg?auto=compress&cs=tinysrgb&w=800", "order": 4 },
-    { "id": "british-transport-police", "name": "British Transport Police", "category": "Police", "area": "All London stations and the Tube", "description": "Report crime on public transport, trains and the London Underground. Text 61016 or call 0800 40 50 40. Look for officers on platforms and concourses.", "phone": "0800 40 50 40", "address": "All London train stations and Underground", "mapsUrl": "", "image": "https://images.pexels.com/photos/63901/pexels-photo-63901.jpeg?auto=compress&cs=tinysrgb&w=800", "order": 5 }
+    {
+      "id": "emergency-999",
+      "name": "Emergency Services \u2014 999",
+      "category": "Helplines",
+      "area": "Anywhere in the UK",
+      "description": "Call 999 for Police, Fire or Ambulance in any life-threatening emergency. This is the UK's main emergency number \u2014 free to call from any phone.",
+      "phone": "999",
+      "address": "Any location in the UK",
+      "mapsUrl": "",
+      "image": "https://images.pexels.com/photos/63901/pexels-photo-63901.jpeg?auto=compress&cs=tinysrgb&w=800",
+      "order": 0
+    },
+    {
+      "id": "non-emergency-101",
+      "name": "Police Non-Emergency \u2014 101",
+      "category": "Police",
+      "area": "Anywhere in the UK",
+      "description": "Call 101 for non-emergency police matters \u2014 lost property, minor incidents, reporting suspicious activity. Not for life-threatening situations.",
+      "phone": "101",
+      "address": "Any location in the UK",
+      "mapsUrl": "",
+      "image": "https://images.pexels.com/photos/63901/pexels-photo-63901.jpeg?auto=compress&cs=tinysrgb&w=800",
+      "order": 1
+    },
+    {
+      "id": "nhs-111",
+      "name": "NHS Medical Helpline \u2014 111",
+      "category": "Helplines",
+      "area": "Anywhere in the UK",
+      "description": "Call 111 for urgent medical advice that is not life-threatening. Available 24/7. Also available online at 111.nhs.uk for non-urgent queries.",
+      "phone": "111",
+      "address": "Any location in the UK",
+      "mapsUrl": "",
+      "image": "https://images.pexels.com/photos/263402/pexels-photo-263402.jpeg?auto=compress&cs=tinysrgb&w=800",
+      "order": 2
+    },
+    {
+      "id": "uclh-hospital",
+      "name": "University College Hospital",
+      "category": "Hospitals",
+      "area": "Euston, NW1 2BU",
+      "description": "One of London's major NHS teaching hospitals with a 24/7 Accident & Emergency department. Nearest A&E to Central London.",
+      "phone": "020 3456 7890",
+      "address": "235 Euston Road, London NW1 2BU",
+      "mapsUrl": "https://www.google.com/maps/search/?api=1&query=University+College+Hospital+London",
+      "image": "https://images.pexels.com/photos/263402/pexels-photo-263402.jpeg?auto=compress&cs=tinysrgb&w=800",
+      "order": 3
+    },
+    {
+      "id": "tourist-scam-alerts",
+      "name": "Common Tourist Scams",
+      "category": "Scam Alerts",
+      "area": "Central London",
+      "description": "Watch out for: fake street sellers, petition scammers near tourist spots, overcharging taxis, fake TfL staff asking for payment. Always use licensed black cabs or Uber.",
+      "phone": "101",
+      "address": "Central London tourist areas",
+      "mapsUrl": "",
+      "image": "https://images.pexels.com/photos/63901/pexels-photo-63901.jpeg?auto=compress&cs=tinysrgb&w=800",
+      "order": 4
+    },
+    {
+      "id": "british-transport-police",
+      "name": "British Transport Police",
+      "category": "Police",
+      "area": "All London stations and the Tube",
+      "description": "Report crime on public transport, trains and the London Underground. Text 61016 or call 0800 40 50 40. Look for officers on platforms and concourses.",
+      "phone": "0800 40 50 40",
+      "address": "All London train stations and Underground",
+      "mapsUrl": "",
+      "image": "https://images.pexels.com/photos/63901/pexels-photo-63901.jpeg?auto=compress&cs=tinysrgb&w=800",
+      "order": 5
+    },
+    {
+      "id": "st-thomas-hospital",
+      "name": "St Thomas' Hospital",
+      "category": "Hospitals",
+      "area": "Westminster, SE1",
+      "description": "Major NHS hospital with 24-hour A&E, directly across the river from Big Ben. One of London's busiest emergency departments.",
+      "phone": "020 7188 7188",
+      "address": "Westminster Bridge Rd, London SE1 7EH",
+      "mapsUrl": "https://www.google.com/maps/search/?api=1&query=St+Thomas+Hospital+London",
+      "order": 6
+    },
+    {
+      "id": "royal-london-hospital",
+      "name": "The Royal London Hospital",
+      "category": "Hospitals",
+      "area": "Whitechapel, E1",
+      "description": "One of the largest hospitals in the UK with a major trauma centre and 24-hour A&E department.",
+      "phone": "020 7377 7000",
+      "address": "Whitechapel Rd, London E1 1BB",
+      "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Royal+London+Hospital+Whitechapel",
+      "order": 7
+    },
+    {
+      "id": "uch-hospital",
+      "name": "University College Hospital",
+      "category": "Hospitals",
+      "area": "Fitzrovia, NW1",
+      "description": "Central London teaching hospital with A&E department, easily accessible near Euston and King's Cross.",
+      "phone": "020 3456 7890",
+      "address": "235 Euston Rd, London NW1 2BU",
+      "mapsUrl": "https://www.google.com/maps/search/?api=1&query=University+College+Hospital+London",
+      "order": 8
+    },
+    {
+      "id": "west-end-police",
+      "name": "West End Central Police Station",
+      "category": "Police",
+      "area": "Mayfair, W1S",
+      "description": "Main police station covering the West End tourist areas including Soho, Oxford Street and Piccadilly.",
+      "phone": "101 (non-emergency), 999 (emergency)",
+      "address": "27 Savile Row, London W1S 2ES",
+      "mapsUrl": "https://www.google.com/maps/search/?api=1&query=West+End+Central+Police+Station+London",
+      "order": 9
+    },
+    {
+      "id": "charing-cross-police",
+      "name": "Charing Cross Police Station",
+      "category": "Police",
+      "area": "Westminster, WC2N",
+      "description": "Central police station covering Trafalgar Square, Covent Garden and the Strand area.",
+      "phone": "101 (non-emergency), 999 (emergency)",
+      "address": "Agar St, London WC2N 4JP",
+      "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Charing+Cross+Police+Station+London",
+      "order": 10
+    },
+    {
+      "id": "fake-ticket-scam",
+      "name": "Fake Ticket Sellers Warning",
+      "category": "Scam Alerts",
+      "area": "Tourist Areas",
+      "description": "Never buy attraction or show tickets from street sellers near landmarks. Always book directly through official websites \u2014 street tickets are often fake or overpriced.",
+      "mapsUrl": "",
+      "order": 11
+    },
+    {
+      "id": "fake-charity-scam",
+      "name": "Fake Charity Collectors",
+      "category": "Scam Alerts",
+      "area": "Tourist Areas",
+      "description": "Be cautious of people with clipboards asking for donations or signatures near tourist spots \u2014 some are scams designed to distract you while pickpocketing.",
+      "mapsUrl": "",
+      "order": 12
+    },
+    {
+      "id": "taxi-overcharge-scam",
+      "name": "Unlicensed Taxi Overcharging",
+      "category": "Scam Alerts",
+      "area": "Tourist Areas, Airports",
+      "description": "Only use licensed black cabs or pre-booked minicabs/Uber. Unlicensed taxis at airports and tourist spots often massively overcharge tourists.",
+      "mapsUrl": "",
+      "order": 13
+    },
+    {
+      "id": "samaritans-helpline",
+      "name": "Samaritans",
+      "category": "Helplines",
+      "area": "Nationwide",
+      "description": "Free confidential emotional support helpline, available 24/7 for anyone struggling or in crisis.",
+      "phone": "116 123",
+      "mapsUrl": "",
+      "order": 14
+    },
+    {
+      "id": "tourist-info-helpline",
+      "name": "Visit London Tourist Information",
+      "category": "Helplines",
+      "area": "Nationwide",
+      "description": "Official London tourism helpline for general visitor information, attractions and travel advice.",
+      "phone": "020 7234 5800",
+      "mapsUrl": "",
+      "order": 15
+    }
   ]
 }
