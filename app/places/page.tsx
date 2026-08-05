@@ -2,45 +2,8 @@
 
 import { useEffect, useState } from 'react';
 import DirectoryClient from '@/components/DirectoryClient';
+import { fetchCollection } from '@/lib/firestore';
 import fallbackData from '@/data/places.json';
-
-const PROJECT_ID = 'tap-london';
-
-async function fetchFromFirestore(collection: string) {
-  try {
-    const url = `https://firestore.googleapis.com/v1/projects/${PROJECT_ID}/databases/(default)/documents/${collection}?pageSize=200`;
-    const res = await fetch(url);
-    if (!res.ok) throw new Error('Firestore fetch failed');
-    const json = await res.json();
-    if (!json.documents || json.documents.length === 0) return null;
-
-    const items = json.documents.map((doc: any) => {
-      const fields = doc.fields || {};
-      const item: any = {};
-      // Convert Firestore field format to plain object
-      Object.keys(fields).forEach(key => {
-        const field = fields[key];
-        if (field.stringValue !== undefined) item[key] = field.stringValue;
-        else if (field.integerValue !== undefined) item[key] = parseInt(field.integerValue);
-        else if (field.doubleValue !== undefined) item[key] = field.doubleValue;
-        else if (field.booleanValue !== undefined) item[key] = field.booleanValue;
-        else if (field.arrayValue !== undefined) {
-          item[key] = (field.arrayValue.values || []).map((v: any) => v.stringValue || '');
-        }
-      });
-      // Extract ID from document name
-      const nameParts = doc.name.split('/');
-      item.id = nameParts[nameParts.length - 1];
-      return item;
-    });
-
-    // Sort by order field
-    items.sort((a: any, b: any) => (a.order ?? 999) - (b.order ?? 999));
-    return items;
-  } catch (e) {
-    return null;
-  }
-}
 
 export default function PlacesPage() {
   const [items, setItems] = useState<any[]>([]);
@@ -48,7 +11,7 @@ export default function PlacesPage() {
 
   useEffect(() => {
     const load = async () => {
-      const firebaseItems = await fetchFromFirestore('places');
+      const firebaseItems = await fetchCollection('places');
       if (firebaseItems && firebaseItems.length > 0) {
         setItems(firebaseItems);
       } else {
