@@ -10,7 +10,7 @@
   --ink: #1a1a1e;
 }
 
-* { box-sizing: border-box; }
+* { box-sizing: border-box; font-family: 'Poppins', sans-serif !important; }
 html { scroll-behavior: smooth; }
 
 body {
