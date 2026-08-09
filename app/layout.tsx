@@ -7,6 +7,7 @@ import Footer from "@/components/Footer";
 import NFCBanner from "@/components/NFCBanner";
 import NovaAssistant from "@/components/NovaAssistant";
 import PopupLoader from "@/components/PopupLoader";
+import VisitTracker from "@/components/VisitTracker";
 
 const poppins = Poppins({
   subsets: ["latin"],
@@ -52,6 +53,7 @@ export default function RootLayout({ children }: Readonly<{ children: ReactNode 
   return (
     <html lang="en-GB" className={poppins.variable}>
       <body className="font-body antialiased">
+        <VisitTracker />
         <Navbar />
         <NFCBanner />
         <main>{children}</main>
