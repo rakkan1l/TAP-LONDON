@@ -148,7 +148,7 @@ export default function Navbar() {
       <header className="sticky top-0 z-50 border-b border-white/35 bg-cream/86 shadow-sm backdrop-blur-xl dark:bg-[#0d0d1a]/90 dark:border-white/10">
         <nav className="mx-auto flex max-w-7xl items-center justify-between px-4 py-3 sm:px-6 lg:px-8">
           <Link href="/" className="group flex min-h-12 items-center gap-3" onClick={() => setOpen(false)}>
-            <BridgeIcon />
+            <img src="/logo.jpg" alt="TAP LONDON" style={{ height: "44px", width: "44px", borderRadius: "10px", objectFit: "cover" }} />
             <span className="font-heading text-xl font-bold tracking-[0.08em] text-navy dark:text-cream">TAP LONDON</span>
           </Link>
 
