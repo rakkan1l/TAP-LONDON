@@ -156,6 +156,35 @@ export default function HomePage() {
         <LondonQuiz />
       </section>
 
+      {/* THINGS TO DO IN LONDON — banner leading to Hidden Gems */}
+      <section style={{ padding: '48px 20px 0', width: '100%', boxSizing: 'border-box' as const }} className="bg-[#f9f7f2] dark:bg-[#0d0d1a]">
+        <div style={{ maxWidth: '1100px', margin: '0 auto' }}>
+          <Link href="/hidden-gems" style={{ textDecoration: 'none', display: 'block' }}>
+            <motion.div
+              whileHover={{ scale: 1.01 }}
+              transition={{ duration: 0.25 }}
+              style={{
+                position: 'relative', borderRadius: '22px', overflow: 'hidden',
+                minHeight: '220px', display: 'flex', alignItems: 'center',
+                background: 'linear-gradient(120deg, #1a1a2e 0%, #2d2d4e 60%, #3a2f1a 100%)',
+                padding: '36px 32px', cursor: 'pointer',
+              }}
+            >
+              <div style={{ position: 'absolute', inset: 0, opacity: 0.15, backgroundImage: "url('https://images.unsplash.com/photo-1513635269975-59663e0ac1ad?w=1200&q=60')", backgroundSize: 'cover', backgroundPosition: 'center' }} />
+              <div style={{ position: 'relative', zIndex: 1, maxWidth: '600px' }}>
+                <p style={{ fontFamily: "'DM Sans', sans-serif", fontSize: '0.68rem', color: '#c9a84c', fontWeight: 700, letterSpacing: '2.5px', textTransform: 'uppercase' as const, marginBottom: '10px' }}>💎 Curated by London Locals</p>
+                <h2 style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: 'clamp(1.6rem, 4.5vw, 2.6rem)', fontWeight: 700, color: '#ffffff', margin: '0 0 12px', lineHeight: 1.15 }}>Things to Do in London — Beyond the Guidebook</h2>
+                <p style={{ fontFamily: "'DM Sans', sans-serif", fontSize: '0.92rem', color: 'rgba(255,255,255,0.6)', marginBottom: '20px', lineHeight: 1.6 }}>Secret gardens, underrated museums, hidden bars and Instagram spots most tourists never find — the places locals actually love.</p>
+                <div style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', background: 'rgba(201,168,76,0.15)', border: '1px solid rgba(201,168,76,0.4)', borderRadius: '50px', padding: '10px 22px', color: '#c9a84c', fontFamily: "'DM Sans', sans-serif", fontSize: '0.84rem', fontWeight: 700 }}>
+                  Discover Hidden Gems
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                </div>
+              </div>
+            </motion.div>
+          </Link>
+        </div>
+      </section>
+
       {/* DISCOVER MORE — new sections */}
       <section className="bg-[#f9f7f2] dark:bg-[#0d0d1a]" style={{ padding: '48px 20px 0', width: '100%', boxSizing: 'border-box' as const }}>
         <div style={{ maxWidth: '1100px', margin: '0 auto' }}>
