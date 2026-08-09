@@ -16,7 +16,7 @@ const poppins = Poppins({
   display: "swap"
 });
 
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://taplondon.co.uk";
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://londontap.co.uk";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
