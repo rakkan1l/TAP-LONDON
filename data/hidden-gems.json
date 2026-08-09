@@ -297,25 +297,6 @@
       "order": 15
     },
     {
-      "id": "cross-bones-graveyard",
-      "name": "Cross Bones Graveyard",
-      "category": "Unique Experiences",
-      "area": "Southwark, SE1",
-      "description": "An unmarked medieval graveyard for outcasts, now a moving memorial garden covered in ribbons and messages. One of the most emotional hidden spots in London \u2014 almost nobody knows it exists.",
-      "entryFee": "Free",
-      "priceType": "Free",
-      "vibe": "Unique, moving, underrated",
-      "bestTime": "Any time",
-      "image": "https://images.unsplash.com/photo-1537086617885-fa9df76c4b1e?w=800&q=80",
-      "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Cross+Bones+Graveyard+London",
-      "tags": [
-        "free",
-        "underrated",
-        "unique"
-      ],
-      "order": 16
-    },
-    {
       "id": "quirky-observatory-greenwich",
       "name": "The Line Sculpture Trail",
       "category": "Unique Experiences",
@@ -447,6 +428,174 @@
         "underrated"
       ],
       "order": 23
+    },
+    {
+      "id": "floatworks-vauxhall",
+      "name": "Floatworks Vauxhall",
+      "category": "Unique Experiences",
+      "area": "Vauxhall, SW8",
+      "description": "Featured by London influencer @volga_londonstories as one of the coolest experiences in the city \u2014 float in an Epsom-salt tank for total sensory deprivation and deep relaxation.",
+      "entryFee": "From \u00a345 per session",
+      "priceType": "Paid",
+      "vibe": "Unique, relaxing, viral",
+      "bestTime": "Evening after a long day",
+      "image": "https://images.unsplash.com/photo-1544161515-4ab6ce6db874?w=800&q=80",
+      "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Floatworks+Vauxhall+London",
+      "tags": [
+        "unique",
+        "underrated",
+        "influencer-featured"
+      ],
+      "order": 24
+    },
+    {
+      "id": "sir-john-soane-museum",
+      "name": "Sir John Soane's Museum",
+      "category": "Hidden Spots",
+      "area": "Holborn, WC2A",
+      "description": "One of Londoners' favourite hidden gems (Mayor of London list) \u2014 an eccentric architect's house crammed with antiquities, mirrors and secret rooms. Free entry, genuinely unlike anywhere else.",
+      "entryFee": "Free",
+      "priceType": "Free",
+      "vibe": "Eccentric, free, beloved by locals",
+      "bestTime": "Weekday morning",
+      "image": "https://images.unsplash.com/photo-1518998053901-5348d3961a04?w=800&q=80",
+      "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Sir+John+Soane+Museum+London",
+      "tags": [
+        "free",
+        "underrated",
+        "locals-favourite"
+      ],
+      "order": 25
+    },
+    {
+      "id": "wallace-collection",
+      "name": "The Wallace Collection",
+      "category": "Hidden Spots",
+      "area": "Marylebone, W1U",
+      "description": "A stunning free art museum in a townhouse near Oxford Street, packed with old masters, armour and porcelain \u2014 most tourists walk right past it.",
+      "entryFee": "Free",
+      "priceType": "Free",
+      "vibe": "Free, elegant, underrated",
+      "bestTime": "Weekday afternoon",
+      "image": "https://images.unsplash.com/photo-1518998053901-5348d3961a04?w=800&q=80",
+      "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Wallace+Collection+London",
+      "tags": [
+        "free",
+        "art",
+        "underrated"
+      ],
+      "order": 26
+    },
+    {
+      "id": "wiltons-music-hall",
+      "name": "Wilton's Music Hall",
+      "category": "Hidden Spots",
+      "area": "Whitechapel, E1",
+      "description": "The world's oldest surviving grand music hall, beautifully crumbling and atmospheric. Hosts shows and tours in a building most Londoners have never heard of.",
+      "entryFee": "Free to view foyer, shows from \u00a315",
+      "priceType": "Paid",
+      "vibe": "Atmospheric, historic, underrated",
+      "bestTime": "Evening for a show",
+      "image": "https://images.unsplash.com/photo-1503095396549-807759245b35?w=800&q=80",
+      "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Wiltons+Music+Hall+London",
+      "tags": [
+        "unique",
+        "underrated",
+        "locals-favourite"
+      ],
+      "order": 27
+    },
+    {
+      "id": "denis-severs-house",
+      "name": "Denis Severs' House",
+      "category": "Unique Experiences",
+      "area": "Spitalfields, E1",
+      "description": "A time-capsule house where every room feels like its Georgian occupants just stepped out \u2014 candlelit, silent tours, genuinely unlike any museum in London.",
+      "entryFee": "From \u00a315",
+      "priceType": "Paid",
+      "vibe": "Immersive, atmospheric, underrated",
+      "bestTime": "Evening candlelit tour",
+      "image": "https://images.unsplash.com/photo-1513519245088-0e12902ephysical35?w=800&q=80",
+      "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Denis+Severs+House+London",
+      "tags": [
+        "unique",
+        "underrated"
+      ],
+      "order": 28
+    },
+    {
+      "id": "eel-pie-island",
+      "name": "Eel Pie Island",
+      "category": "Hidden Neighbourhoods",
+      "area": "Twickenham, TW1",
+      "description": "A private island on the Thames that was once a legendary 1960s music venue (The Rolling Stones played here) \u2014 now a quirky artists' community, open to visitors on select weekends.",
+      "entryFee": "Free on open studio weekends",
+      "priceType": "Free",
+      "vibe": "Quirky, artistic, hidden",
+      "bestTime": "Open studio weekends (check dates)",
+      "image": "https://images.unsplash.com/photo-1601999209975-77c8e5c6f8b6?w=800&q=80",
+      "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Eel+Pie+Island+Twickenham",
+      "tags": [
+        "free",
+        "underrated",
+        "unique"
+      ],
+      "order": 29
+    },
+    {
+      "id": "john-sandoe-books",
+      "name": "John Sandoe Books",
+      "category": "Hidden Spots",
+      "area": "Chelsea, SW3",
+      "description": "A tiny independent bookshop off King's Road with creaky wooden stairs and floor-to-ceiling shelves \u2014 a beloved literary maze most visitors never find.",
+      "entryFee": "Free to browse",
+      "priceType": "Free",
+      "vibe": "Cosy, literary, underrated",
+      "bestTime": "Any time",
+      "image": "https://images.unsplash.com/photo-1481627834876-b7833e8f5570?w=800&q=80",
+      "mapsUrl": "https://www.google.com/maps/search/?api=1&query=John+Sandoe+Books+Chelsea+London",
+      "tags": [
+        "free",
+        "underrated"
+      ],
+      "order": 30
+    },
+    {
+      "id": "chelsea-physic-garden",
+      "name": "Chelsea Physic Garden",
+      "category": "Secret Gardens",
+      "area": "Chelsea, SW3",
+      "description": "London's oldest botanical garden, hidden behind high brick walls near the Thames \u2014 rare medicinal plants and a peaceful escape most tourists miss entirely.",
+      "entryFee": "From \u00a312.50",
+      "priceType": "Paid",
+      "vibe": "Peaceful, historic, underrated",
+      "bestTime": "Spring or summer afternoon",
+      "image": "https://images.unsplash.com/photo-1416879595882-3373a0480b5b?w=800&q=80",
+      "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Chelsea+Physic+Garden+London",
+      "tags": [
+        "nature",
+        "underrated"
+      ],
+      "order": 31
+    },
+    {
+      "id": "st-katharine-docks",
+      "name": "St Katharine Docks",
+      "category": "Hidden Neighbourhoods",
+      "area": "Tower Hill, E1W",
+      "description": "A picturesque marina right next to Tower Bridge, full of yachts, cafes and cobbled walkways \u2014 completely overlooked despite being steps from one of London's busiest tourist spots.",
+      "entryFee": "Free",
+      "priceType": "Free",
+      "vibe": "Scenic, peaceful, underrated",
+      "bestTime": "Sunset",
+      "image": "https://images.unsplash.com/photo-1533929736458-ca588d08c8be?w=800&q=80",
+      "mapsUrl": "https://www.google.com/maps/search/?api=1&query=St+Katharine+Docks+London",
+      "tags": [
+        "free",
+        "underrated",
+        "scenic"
+      ],
+      "order": 32
     }
   ]
 }
