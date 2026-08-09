@@ -14,7 +14,7 @@
       "verifiedHalal": true,
       "description": "A London favourite for black daal, grills, breakfast naan rolls, and theatre-district buzz.",
       "mustTry": "Black daal & bacon naan roll",
-      "vibe": "Date night",
+      "vibe": "Family",
       "opinion": "Worth every minute of the queue. The black daal alone is worth the trip.",
       "tags": [
         "halal",
@@ -36,7 +36,7 @@
       "verifiedHalal": false,
       "description": "Queue-worthy handmade pasta beside Borough Market; the short menu changes daily.",
       "mustTry": "Pici cacio e pepe",
-      "vibe": "Hidden gem",
+      "vibe": "Family",
       "opinion": "Possibly the best pasta in London at half the price of anywhere else.",
       "tags": [
         "cheap-eats",
@@ -58,7 +58,7 @@
       "verifiedHalal": false,
       "description": "Simple, good-value steak and sides in a lively Soho setting.",
       "mustTry": "Flat iron steak with dripping sauce",
-      "vibe": "Quick bite",
+      "vibe": "Family",
       "opinion": "Best value steak in London \u2014 no frills, just great beef.",
       "tags": [
         "cheap-eats",
@@ -819,7 +819,7 @@
       "priceRange": "\u00a3\u00a3",
       "description": "Cult Taiwanese bao restaurant. Small plates, incredible bao buns, open till late on weekends. Expect a wait but it's worth it.",
       "mustTry": "Classic Bao",
-      "vibe": "Aesthetic",
+      "vibe": "Family",
       "openLate": true,
       "openingHours": "Sun\u2013Thu 12:00\u201322:00, Fri\u2013Sat 12:00\u201323:00",
       "image": "https://images.unsplash.com/photo-1496116218417-1a781b1c416c?w=800&q=80",
@@ -835,7 +835,7 @@
       "priceRange": "\u00a3\u00a3\u00a3",
       "description": "40th floor restaurant open 24/7 with stunning London skyline views. Famous for its duck confit and waffle dish. Great for late night dining with a view.",
       "mustTry": "Duck & Waffle (the signature dish)",
-      "vibe": "Date night",
+      "vibe": "Family",
       "openLate": true,
       "openingHours": "Open 24 hours, every day",
       "image": "https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=800&q=80",
@@ -857,6 +857,48 @@
       "image": "https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=800&q=80",
       "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Dirty+Bones+Shoreditch+London",
       "order": 40
+    },
+    {
+      "id": "franco-manca-family",
+      "name": "Franco Manca",
+      "category": "Restaurants",
+      "cuisine": "Italian/Pizza",
+      "area": "Multiple Locations",
+      "priceRange": "\u00a3\u00a3",
+      "description": "Relaxed sourdough pizza chain loved by London families \u2014 casual, affordable, and always kid-friendly with high chairs and colouring available.",
+      "mustTry": "Sourdough Margherita",
+      "vibe": "Family",
+      "image": "https://images.unsplash.com/photo-1513104890138-7c749659a591?w=800&q=80",
+      "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Franco+Manca+London",
+      "order": 41
+    },
+    {
+      "id": "giraffe-family",
+      "name": "Giraffe",
+      "category": "Restaurants",
+      "cuisine": "International",
+      "area": "Multiple Locations",
+      "priceRange": "\u00a3\u00a3",
+      "description": "Bright, cheerful family restaurant chain with a varied menu for adults and kids, colouring sheets and high chairs at every branch.",
+      "mustTry": "Build your own burger",
+      "vibe": "Family",
+      "image": "https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=800&q=80",
+      "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Giraffe+Restaurant+London",
+      "order": 42
+    },
+    {
+      "id": "rainforest-cafe-family",
+      "name": "Rainforest Cafe",
+      "category": "Restaurants",
+      "cuisine": "American",
+      "area": "Piccadilly Circus, W1",
+      "priceRange": "\u00a3\u00a3\u00a3",
+      "description": "Immersive jungle-themed restaurant with animatronic animals, thunderstorms and waterfalls \u2014 an unforgettable experience for kids.",
+      "mustTry": "Volcano dessert",
+      "vibe": "Family",
+      "image": "https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=800&q=80",
+      "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Rainforest+Cafe+London",
+      "order": 43
     }
   ]
 }
