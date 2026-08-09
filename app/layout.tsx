@@ -31,7 +31,7 @@ export const metadata: Metadata = {
     description: "Your Smart London Guide - Tap. Explore. Enjoy.",
     url: siteUrl,
     siteName: "TAP LONDON",
-    images: [{ url: "/og.svg", width: 1200, height: 630, alt: "TAP LONDON smart tourism guide" }],
+    images: [{ url: "/logo.jpg", width: 1200, height: 1200, alt: "TAP LONDON smart tourism guide" }],
     locale: "en_GB",
     type: "website"
   },
@@ -39,7 +39,12 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "TAP LONDON",
     description: "Your Smart London Guide - Tap. Explore. Enjoy.",
-    images: ["/og.svg"]
+    images: ["/logo.jpg"]
+  },
+  icons: {
+    icon: "/logo.jpg",
+    shortcut: "/logo.jpg",
+    apple: "/logo.jpg"
   }
 };
 
