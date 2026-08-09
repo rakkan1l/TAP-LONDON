@@ -596,6 +596,175 @@
         "scenic"
       ],
       "order": 32
+    },
+    {
+      "id": "hill-garden-pergola",
+      "name": "Hill Garden & Pergola",
+      "category": "Secret Gardens",
+      "area": "Hampstead Heath, NW3",
+      "description": "A hidden Edwardian pergola draped in wisteria and overgrown vines, tucked inside Hampstead Heath \u2014 one of the most magical free photo spots in London that most tourists never find.",
+      "entryFee": "Free",
+      "priceType": "Free",
+      "vibe": "Fairytale, free, underrated",
+      "bestTime": "Late spring when wisteria blooms",
+      "image": "https://images.unsplash.com/photo-1416879595882-3373a0480b5b?w=800&q=80",
+      "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Hill+Garden+and+Pergola+Hampstead+London",
+      "tags": [
+        "free",
+        "underrated",
+        "photography"
+      ],
+      "order": 33
+    },
+    {
+      "id": "primrose-hill-phone-booths",
+      "name": "Primrose Hill Red Phone Booths",
+      "category": "Photo Spots",
+      "area": "Primrose Hill, NW1",
+      "description": "Two classic red telephone booths against leafy Primrose Hill streets \u2014 a favourite quick photo stop, plus a short walk to panoramic skyline views from the hill itself.",
+      "entryFee": "Free",
+      "priceType": "Free",
+      "vibe": "Quintessentially British, free",
+      "bestTime": "Golden hour",
+      "image": "https://images.unsplash.com/photo-1533929736458-ca588d08c8be?w=800&q=80",
+      "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Primrose+Hill+London",
+      "tags": [
+        "free",
+        "photography",
+        "underrated"
+      ],
+      "order": 34
+    },
+    {
+      "id": "woburn-walk",
+      "name": "Woburn Walk",
+      "category": "Hidden Spots",
+      "area": "Euston, WC1H",
+      "description": "One of London's first pedestrian shopping streets, built in the 1820s \u2014 quiet, blossom-lined and full of independent shops, almost completely off the tourist map.",
+      "entryFee": "Free",
+      "priceType": "Free",
+      "vibe": "Historic, quiet, underrated",
+      "bestTime": "Spring for blossom",
+      "image": "https://images.unsplash.com/photo-1580216238756-c1eddb2f7b95?w=800&q=80",
+      "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Woburn+Walk+London",
+      "tags": [
+        "free",
+        "underrated",
+        "photography"
+      ],
+      "order": 35
+    },
+    {
+      "id": "biscuiteers-notting-hill",
+      "name": "Biscuiteers Icing Cafe",
+      "category": "Hidden Spots",
+      "area": "Notting Hill, W11",
+      "description": "A pastel-pink biscuit boutique where you can take an icing class and decorate your own treats \u2014 a genuinely underrated, adorable stop most visitors walk straight past.",
+      "entryFee": "Free to browse, classes from \u00a330",
+      "priceType": "Paid",
+      "vibe": "Cute, colourful, underrated",
+      "bestTime": "Weekend",
+      "image": "https://images.unsplash.com/photo-1517433670267-08bbd4be890f?w=800&q=80",
+      "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Biscuiteers+Notting+Hill+London",
+      "tags": [
+        "unique",
+        "underrated",
+        "photography"
+      ],
+      "order": 36
+    },
+    {
+      "id": "upstairs-at-rules",
+      "name": "Upstairs at Rules",
+      "category": "Hidden Spots",
+      "area": "Covent Garden, WC2E",
+      "description": "A fiercely-guarded secret \u2014 the conservatory bar above London's oldest restaurant, filled with tropical plants and chaise-lounges. Incredible cocktails in a space almost nobody knows exists.",
+      "entryFee": "No entry fee, drinks from \u00a315",
+      "priceType": "Paid",
+      "vibe": "Secret, luxurious, underrated",
+      "bestTime": "Evening",
+      "image": "https://images.unsplash.com/photo-1470337458703-46ad1756a187?w=800&q=80",
+      "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Rules+Restaurant+Covent+Garden+London",
+      "tags": [
+        "unique",
+        "underrated"
+      ],
+      "order": 37
+    },
+    {
+      "id": "cecil-court",
+      "name": "Cecil Court",
+      "category": "Hidden Spots",
+      "area": "Covent Garden, WC2N",
+      "description": "A pedestrian alley lined with independent vintage bookshops, rare maps and antique dealers \u2014 one of London's most charming and overlooked streets, right by Leicester Square.",
+      "entryFee": "Free to browse",
+      "priceType": "Free",
+      "vibe": "Literary, historic, underrated",
+      "bestTime": "Any time",
+      "image": "https://images.unsplash.com/photo-1481627834876-b7833e8f5570?w=800&q=80",
+      "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Cecil+Court+London",
+      "tags": [
+        "free",
+        "underrated"
+      ],
+      "order": 38
+    },
+    {
+      "id": "mercato-mayfair",
+      "name": "Mercato Mayfair Food Hall",
+      "category": "Hidden Spots",
+      "area": "Mayfair, W1K",
+      "description": "A stunning food hall inside a converted church, with independent traders and a soaring vaulted ceiling \u2014 genuinely one of the most photogenic and underrated food spots in London.",
+      "entryFee": "Free entry",
+      "priceType": "Free",
+      "vibe": "Photogenic, unique, underrated",
+      "bestTime": "Lunchtime",
+      "image": "https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=800&q=80",
+      "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Mercato+Mayfair+London",
+      "tags": [
+        "free",
+        "underrated",
+        "food"
+      ],
+      "order": 39
+    },
+    {
+      "id": "shoreditch-street-art-corner",
+      "name": "King John Court Street Art",
+      "category": "Hidden Spots",
+      "area": "Shoreditch, EC2A",
+      "description": "The best-kept secret of Shoreditch's street art scene \u2014 a cluster of alleys (King John Court, New Inn Yard, Holywell Lane) covered in ever-changing murals, quieter than Brick Lane.",
+      "entryFee": "Free",
+      "priceType": "Free",
+      "vibe": "Edgy, artistic, underrated",
+      "bestTime": "Daytime for light",
+      "image": "https://images.unsplash.com/photo-1569982175971-d92b01cf8694?w=800&q=80",
+      "mapsUrl": "https://www.google.com/maps/search/?api=1&query=King+John+Court+Shoreditch+London",
+      "tags": [
+        "free",
+        "art",
+        "underrated"
+      ],
+      "order": 40
+    },
+    {
+      "id": "farm-place-notting-hill",
+      "name": "Farm Place & Lancaster Street",
+      "category": "Photo Spots",
+      "area": "Notting Hill, W11",
+      "description": "Lesser-known colourful mews streets in Notting Hill beyond the famous Portobello houses \u2014 genuinely quieter and just as beautiful for photos.",
+      "entryFee": "Free",
+      "priceType": "Free",
+      "vibe": "Colourful, quiet, underrated",
+      "bestTime": "Weekday morning",
+      "image": "https://images.unsplash.com/photo-1580216238756-c1eddb2f7b95?w=800&q=80",
+      "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Farm+Place+Notting+Hill+London",
+      "tags": [
+        "free",
+        "photography",
+        "underrated"
+      ],
+      "order": 41
     }
   ]
 }
