@@ -295,6 +295,158 @@
         "unique"
       ],
       "order": 15
+    },
+    {
+      "id": "cross-bones-graveyard",
+      "name": "Cross Bones Graveyard",
+      "category": "Unique Experiences",
+      "area": "Southwark, SE1",
+      "description": "An unmarked medieval graveyard for outcasts, now a moving memorial garden covered in ribbons and messages. One of the most emotional hidden spots in London \u2014 almost nobody knows it exists.",
+      "entryFee": "Free",
+      "priceType": "Free",
+      "vibe": "Unique, moving, underrated",
+      "bestTime": "Any time",
+      "image": "https://images.unsplash.com/photo-1537086617885-fa9df76c4b1e?w=800&q=80",
+      "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Cross+Bones+Graveyard+London",
+      "tags": [
+        "free",
+        "underrated",
+        "unique"
+      ],
+      "order": 16
+    },
+    {
+      "id": "quirky-observatory-greenwich",
+      "name": "The Line Sculpture Trail",
+      "category": "Unique Experiences",
+      "area": "Greenwich to Stratford",
+      "description": "London's first dedicated public art walk, following the Meridian Line along the river with sculptures by major artists \u2014 a completely free open-air gallery almost no tourists know about.",
+      "entryFee": "Free",
+      "priceType": "Free",
+      "vibe": "Artistic, underrated, scenic",
+      "bestTime": "Weekend afternoon",
+      "image": "https://images.unsplash.com/photo-1520986606214-8b456906c813?w=800&q=80",
+      "mapsUrl": "https://www.google.com/maps/search/?api=1&query=The+Line+Sculpture+Trail+London",
+      "tags": [
+        "free",
+        "art",
+        "underrated"
+      ],
+      "order": 17
+    },
+    {
+      "id": "leake-street-tunnel",
+      "name": "Leake Street Graffiti Tunnel",
+      "category": "Hidden Spots",
+      "area": "Waterloo, SE1",
+      "description": "London's official legal graffiti tunnel \u2014 constantly changing street art beneath Waterloo Station. Banksy painted here first. Free, raw, and completely underrated.",
+      "entryFee": "Free",
+      "priceType": "Free",
+      "vibe": "Edgy, artistic, free",
+      "bestTime": "Daytime for safety and light",
+      "image": "https://images.unsplash.com/photo-1569982175971-d92b01cf8694?w=800&q=80",
+      "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Leake+Street+Tunnel+London",
+      "tags": [
+        "free",
+        "art",
+        "underrated"
+      ],
+      "order": 18
+    },
+    {
+      "id": "roupell-street",
+      "name": "Roupell Street",
+      "category": "Hidden Neighbourhoods",
+      "area": "Waterloo, SE1",
+      "description": "A perfectly preserved row of Victorian terraced cottages just steps from Waterloo Station \u2014 one of London's most photogenic and least-known streets.",
+      "entryFee": "Free",
+      "priceType": "Free",
+      "vibe": "Photogenic, quiet, underrated",
+      "bestTime": "Early morning for empty streets",
+      "image": "https://images.unsplash.com/photo-1580216238756-c1eddb2f7b95?w=800&q=80",
+      "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Roupell+Street+London",
+      "tags": [
+        "free",
+        "photography",
+        "underrated"
+      ],
+      "order": 19
+    },
+    {
+      "id": "seven-dials-sundial",
+      "name": "Seven Dials Sundial Pillar",
+      "category": "Hidden Spots",
+      "area": "Covent Garden, WC2H",
+      "description": "A striking sundial monument at the heart of a hidden seven-street junction near Covent Garden \u2014 full of independent shops most visitors walk straight past.",
+      "entryFee": "Free",
+      "priceType": "Free",
+      "vibe": "Quirky, historic, underrated",
+      "bestTime": "Any time",
+      "image": "https://images.unsplash.com/photo-1533659828870-95ee305cee3e?w=800&q=80",
+      "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Seven+Dials+London",
+      "tags": [
+        "free",
+        "unique",
+        "underrated"
+      ],
+      "order": 20
+    },
+    {
+      "id": "the-golden-hinde",
+      "name": "The Golden Hinde Replica",
+      "category": "Unique Experiences",
+      "area": "Bankside, SE1",
+      "description": "A full-size replica of Sir Francis Drake's famous galleon, tucked into a tiny dock near Borough Market \u2014 most tourists have no idea it's there.",
+      "entryFee": "Free to view from outside, tours from \u00a38",
+      "priceType": "Paid",
+      "vibe": "Historic, surprising, underrated",
+      "bestTime": "Weekday afternoon",
+      "image": "https://images.unsplash.com/photo-1569982175971-d92b01cf8694?w=800&q=80",
+      "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Golden+Hinde+London",
+      "tags": [
+        "unique",
+        "underrated",
+        "history"
+      ],
+      "order": 21
+    },
+    {
+      "id": "postman-park-underrated",
+      "name": "St Dunstan-in-the-East",
+      "category": "Secret Gardens",
+      "area": "City of London, EC3R",
+      "description": "A bombed-out medieval church ruin reclaimed by nature \u2014 now a hauntingly beautiful hidden garden growing through Gothic arches. One of the most underrated spots in the City.",
+      "entryFee": "Free",
+      "priceType": "Free",
+      "vibe": "Atmospheric, peaceful, underrated",
+      "bestTime": "Weekday lunchtime",
+      "image": "https://images.unsplash.com/photo-1465447142348-e9952c393450?w=800&q=80",
+      "mapsUrl": "https://www.google.com/maps/search/?api=1&query=St+Dunstan+in+the+East+London",
+      "tags": [
+        "free",
+        "unique",
+        "underrated"
+      ],
+      "order": 22
+    },
+    {
+      "id": "beverley-brook-walk",
+      "name": "Beverley Brook Walk",
+      "category": "Hidden Neighbourhoods",
+      "area": "Wimbledon to Barnes",
+      "description": "A quiet riverside walking trail through Richmond Park and beyond, following a hidden stream most Londoners have never heard of \u2014 total escape from the city within city limits.",
+      "entryFee": "Free",
+      "priceType": "Free",
+      "vibe": "Peaceful, nature, underrated",
+      "bestTime": "Weekend morning",
+      "image": "https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=800&q=80",
+      "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Beverley+Brook+Walk+London",
+      "tags": [
+        "free",
+        "nature",
+        "underrated"
+      ],
+      "order": 23
     }
   ]
 }
