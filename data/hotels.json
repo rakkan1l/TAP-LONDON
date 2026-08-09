@@ -663,6 +663,253 @@
       "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Corinthia+London+Spa",
       "bookingUrl": "https://www.booking.com/hotel/gb/corinthia-london.html",
       "order": 29
+    },
+    {
+      "id": "hoxton-shoreditch",
+      "name": "The Hoxton, Shoreditch",
+      "category": "Budget",
+      "area": "Shoreditch, E1",
+      "description": "The original 'open house' hotel where the lobby doubles as a vibrant local hangout \u2014 design-led rooms in the heart of East London's creative scene.",
+      "priceRange": "\u00a3130-\u00a3230/night",
+      "rating": "4.5",
+      "nearestStation": "Old Street (5 min walk)",
+      "amenities": [
+        "Bar",
+        "Restaurant",
+        "Free WiFi",
+        "Co-working Lobby"
+      ],
+      "familyFriendly": false,
+      "image": "https://images.unsplash.com/photo-1631049307264-da0ec9d70304?w=800&q=80",
+      "mapsUrl": "https://www.google.com/maps/search/?api=1&query=The+Hoxton+Shoreditch+London",
+      "bookingUrl": "https://thehoxton.com/london/shoreditch/",
+      "order": 30
+    },
+    {
+      "id": "sun-street-hotel",
+      "name": "Sun Street Hotel",
+      "category": "Budget",
+      "area": "Shoreditch, EC2A",
+      "description": "Georgian architecture meets modern industrial-chic interiors \u2014 great value boutique stay near Liverpool Street and Shoreditch.",
+      "priceRange": "\u00a3110-\u00a3190/night",
+      "rating": "4.3",
+      "nearestStation": "Liverpool Street (5 min walk)",
+      "amenities": [
+        "Free WiFi",
+        "24hr Reception",
+        "Bar"
+      ],
+      "familyFriendly": true,
+      "image": "https://images.unsplash.com/photo-1631049307264-da0ec9d70304?w=800&q=80",
+      "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Sun+Street+Hotel+London",
+      "bookingUrl": "https://www.booking.com",
+      "order": 31
+    },
+    {
+      "id": "artist-residence-pimlico",
+      "name": "Artist Residence London",
+      "category": "Budget",
+      "area": "Pimlico, SW1V",
+      "description": "A tiny 10-room townhouse hidden in Pimlico \u2014 each room uniquely decorated with upcycled art and vintage finds, easy walk to Buckingham Palace.",
+      "priceRange": "\u00a3140-\u00a3220/night",
+      "rating": "4.6",
+      "nearestStation": "Pimlico (5 min walk)",
+      "amenities": [
+        "Bar",
+        "Free WiFi",
+        "Unique Decor"
+      ],
+      "familyFriendly": false,
+      "image": "https://images.unsplash.com/photo-1631049307264-da0ec9d70304?w=800&q=80",
+      "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Artist+Residence+London+Pimlico",
+      "bookingUrl": "https://www.booking.com",
+      "order": 32
+    },
+    {
+      "id": "the-pilgrm-paddington",
+      "name": "The Pilgrm",
+      "category": "Budget",
+      "area": "Paddington, W2",
+      "description": "Stylish budget boutique hotel across several historic buildings opposite Paddington station \u2014 73 rooms ranging from tiny Nooks to Snugs.",
+      "priceRange": "\u00a395-\u00a3180/night",
+      "rating": "4.4",
+      "nearestStation": "Paddington (1 min walk)",
+      "amenities": [
+        "Free WiFi",
+        "Restaurant",
+        "24hr Reception"
+      ],
+      "familyFriendly": true,
+      "image": "https://images.unsplash.com/photo-1631049307264-da0ec9d70304?w=800&q=80",
+      "mapsUrl": "https://www.google.com/maps/search/?api=1&query=The+Pilgrm+Paddington+London",
+      "bookingUrl": "https://www.booking.com",
+      "order": 33
+    },
+    {
+      "id": "mama-shelter-bethnal-green",
+      "name": "Mama Shelter Bethnal Green",
+      "category": "Budget",
+      "area": "Bethnal Green, E2",
+      "description": "A burst of colour and energy near Broadway Market and London Fields \u2014 courtyard bar, king-size beds and private Japanese-style karaoke rooms.",
+      "priceRange": "\u00a3150-\u00a3230/night",
+      "rating": "4.3",
+      "nearestStation": "Bethnal Green (5 min walk)",
+      "amenities": [
+        "Bar",
+        "Karaoke Rooms",
+        "Free WiFi"
+      ],
+      "familyFriendly": true,
+      "image": "https://images.unsplash.com/photo-1631049307264-da0ec9d70304?w=800&q=80",
+      "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Mama+Shelter+Bethnal+Green+London",
+      "bookingUrl": "https://www.booking.com",
+      "order": 34
+    },
+    {
+      "id": "bingham-riverhouse-richmond",
+      "name": "Bingham Riverhouse",
+      "category": "Family",
+      "area": "Richmond, TW10",
+      "description": "A serene 15-room boutique hotel on the Thames in leafy Richmond \u2014 pastel interiors by Nicola Harding, some rooms with copper bathtubs overlooking the river.",
+      "priceRange": "\u00a3180-\u00a3320/night",
+      "rating": "4.7",
+      "nearestStation": "Richmond (10 min walk)",
+      "amenities": [
+        "Restaurant",
+        "Bar",
+        "River Views",
+        "Free WiFi"
+      ],
+      "familyFriendly": true,
+      "image": "https://images.unsplash.com/photo-1631049307264-da0ec9d70304?w=800&q=80",
+      "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Bingham+Riverhouse+Richmond+London",
+      "bookingUrl": "https://www.booking.com",
+      "order": 35
+    },
+    {
+      "id": "leman-locke-shoreditch",
+      "name": "Leman Locke",
+      "category": "4-star",
+      "area": "Aldgate, E1",
+      "description": "Stylish apart-hotel 900 metres from the Tower of London and Brick Lane \u2014 great for longer stays with kitchenette-equipped rooms.",
+      "priceRange": "\u00a3140-\u00a3240/night",
+      "rating": "4.4",
+      "nearestStation": "Aldgate (5 min walk)",
+      "amenities": [
+        "Free WiFi",
+        "Gym",
+        "Kitchenette",
+        "Bar"
+      ],
+      "familyFriendly": true,
+      "image": "https://images.unsplash.com/photo-1631049307264-da0ec9d70304?w=800&q=80",
+      "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Leman+Locke+Aldgate+London",
+      "bookingUrl": "https://www.booking.com",
+      "order": 36
+    },
+    {
+      "id": "ace-hotel-shoreditch",
+      "name": "Ace Hotel London Shoreditch",
+      "category": "4-star",
+      "area": "Shoreditch, E1",
+      "description": "A hub for galleries, theatre and fashion crowds \u2014 basement bar, gym and 24-hour restaurant in the heart of East London's creative district.",
+      "priceRange": "\u00a3160-\u00a3260/night",
+      "rating": "4.5",
+      "nearestStation": "Shoreditch High Street (3 min walk)",
+      "amenities": [
+        "Bar",
+        "Gym",
+        "Restaurant",
+        "Free WiFi"
+      ],
+      "familyFriendly": false,
+      "image": "https://images.unsplash.com/photo-1631049307264-da0ec9d70304?w=800&q=80",
+      "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Ace+Hotel+Shoreditch+London",
+      "bookingUrl": "https://www.booking.com",
+      "order": 37
+    },
+    {
+      "id": "the-zetter-clerkenwell",
+      "name": "The Zetter Hotel",
+      "category": "4-star",
+      "area": "Clerkenwell, EC1M",
+      "description": "An award-winning quirky boutique hotel in fashionable Clerkenwell \u2014 playful design with a rooftop terrace and cosy restaurant.",
+      "priceRange": "\u00a3150-\u00a3250/night",
+      "rating": "4.5",
+      "nearestStation": "Farringdon (5 min walk)",
+      "amenities": [
+        "Restaurant",
+        "Rooftop Terrace",
+        "Free WiFi"
+      ],
+      "familyFriendly": true,
+      "image": "https://images.unsplash.com/photo-1631049307264-da0ec9d70304?w=800&q=80",
+      "mapsUrl": "https://www.google.com/maps/search/?api=1&query=The+Zetter+Hotel+Clerkenwell+London",
+      "bookingUrl": "https://www.booking.com",
+      "order": 38
+    },
+    {
+      "id": "franklin-hotel-kensington",
+      "name": "The Franklin Hotel",
+      "category": "5-star",
+      "area": "Kensington, SW3",
+      "description": "Elegant Starhotels Collezione property steps from the Victoria and Albert Museum \u2014 refined, quiet luxury in the heart of Kensington.",
+      "priceRange": "\u00a3350-\u00a3700/night",
+      "rating": "4.7",
+      "nearestStation": "South Kensington (5 min walk)",
+      "amenities": [
+        "Fine Dining",
+        "Bar",
+        "Free WiFi",
+        "Concierge"
+      ],
+      "familyFriendly": true,
+      "image": "https://images.unsplash.com/photo-1631049307264-da0ec9d70304?w=800&q=80",
+      "mapsUrl": "https://www.google.com/maps/search/?api=1&query=The+Franklin+Hotel+Kensington+London",
+      "bookingUrl": "https://www.booking.com",
+      "order": 39
+    },
+    {
+      "id": "grazing-goat-marylebone",
+      "name": "The Grazing Goat",
+      "category": "4-star",
+      "area": "Marylebone, W1H",
+      "description": "A stylish pub-with-rooms in Marylebone \u2014 bar, restaurant and comfortable rooms above one of the area's best gastropubs.",
+      "priceRange": "\u00a3170-\u00a3280/night",
+      "rating": "4.4",
+      "nearestStation": "Marble Arch (5 min walk)",
+      "amenities": [
+        "Bar",
+        "Restaurant",
+        "Free WiFi"
+      ],
+      "familyFriendly": true,
+      "image": "https://images.unsplash.com/photo-1631049307264-da0ec9d70304?w=800&q=80",
+      "mapsUrl": "https://www.google.com/maps/search/?api=1&query=The+Grazing+Goat+Marylebone+London",
+      "bookingUrl": "https://www.booking.com",
+      "order": 40
+    },
+    {
+      "id": "mandarin-oriental-mayfair",
+      "name": "Mandarin Oriental Mayfair",
+      "category": "5-star",
+      "area": "Mayfair, W1J",
+      "description": "The luxe Hong Kong brand's second London property \u2014 sublime Mayfair address on the most coveted spot on the Monopoly board.",
+      "priceRange": "\u00a3500-\u00a31500/night",
+      "rating": "4.9",
+      "nearestStation": "Green Park (5 min walk)",
+      "amenities": [
+        "Spa",
+        "Fine Dining",
+        "Bar",
+        "Gym",
+        "Concierge"
+      ],
+      "familyFriendly": true,
+      "image": "https://images.unsplash.com/photo-1631049307264-da0ec9d70304?w=800&q=80",
+      "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Mandarin+Oriental+Mayfair+London",
+      "bookingUrl": "https://www.booking.com",
+      "order": 41
     }
   ]
 }
