@@ -910,6 +910,175 @@
       "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Mandarin+Oriental+Mayfair+London",
       "bookingUrl": "https://www.booking.com",
       "order": 41
+    },
+    {
+      "id": "sea-containers-southbank",
+      "name": "Sea Containers London",
+      "category": "4-star",
+      "area": "South Bank, SE1",
+      "description": "A design-led hotel right on the Thames with 1930s ocean-liner styling \u2014 steps from the London Eye and South Bank's theatre scene.",
+      "priceRange": "\u00a3220-\u00a3380/night",
+      "rating": "4.5",
+      "nearestStation": "Blackfriars (5 min walk)",
+      "amenities": [
+        "Restaurant",
+        "Bar",
+        "River Views",
+        "Free WiFi"
+      ],
+      "familyFriendly": true,
+      "image": "https://images.unsplash.com/photo-1631049307264-da0ec9d70304?w=800&q=80",
+      "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Sea+Containers+London",
+      "bookingUrl": "https://www.booking.com",
+      "order": 42
+    },
+    {
+      "id": "bankside-hotel-southbank",
+      "name": "Bankside Hotel, Autograph Collection",
+      "category": "4-star",
+      "area": "South Bank, SE1",
+      "description": "A sustainability-focused boutique hotel near Tate Modern and the Globe \u2014 locally sourced materials and genuinely striking design.",
+      "priceRange": "\u00a3200-\u00a3350/night",
+      "rating": "4.5",
+      "nearestStation": "Southwark (5 min walk)",
+      "amenities": [
+        "Restaurant",
+        "Bar",
+        "Free WiFi",
+        "Gym"
+      ],
+      "familyFriendly": true,
+      "image": "https://images.unsplash.com/photo-1631049307264-da0ec9d70304?w=800&q=80",
+      "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Bankside+Hotel+London",
+      "bookingUrl": "https://www.booking.com",
+      "order": 43
+    },
+    {
+      "id": "park-plaza-westminster-bridge",
+      "name": "Park Plaza Westminster Bridge",
+      "category": "4-star",
+      "area": "South Bank, SE1",
+      "description": "One of the largest hotels near Westminster with river-facing rooms looking straight at Big Ben \u2014 reliable comfort in an unbeatable location.",
+      "priceRange": "\u00a3180-\u00a3320/night",
+      "rating": "4.4",
+      "nearestStation": "Waterloo (5 min walk)",
+      "amenities": [
+        "Spa",
+        "Restaurant",
+        "Bar",
+        "Gym",
+        "Free WiFi"
+      ],
+      "familyFriendly": true,
+      "image": "https://images.unsplash.com/photo-1631049307264-da0ec9d70304?w=800&q=80",
+      "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Park+Plaza+Westminster+Bridge+London",
+      "bookingUrl": "https://www.booking.com",
+      "order": 44
+    },
+    {
+      "id": "premier-inn-county-hall",
+      "name": "Premier Inn London County Hall",
+      "category": "Budget",
+      "area": "South Bank, SE1",
+      "description": "Reliable, affordable rooms inside the historic County Hall building \u2014 right next to the London Eye and Westminster Bridge.",
+      "priceRange": "\u00a390-\u00a3160/night",
+      "rating": "4.3",
+      "nearestStation": "Waterloo (5 min walk)",
+      "amenities": [
+        "Free WiFi",
+        "Restaurant",
+        "24hr Reception"
+      ],
+      "familyFriendly": true,
+      "image": "https://images.unsplash.com/photo-1631049307264-da0ec9d70304?w=800&q=80",
+      "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Premier+Inn+County+Hall+London",
+      "bookingUrl": "https://www.premierinn.com",
+      "order": 45
+    },
+    {
+      "id": "hilton-canary-wharf",
+      "name": "Hilton London Canary Wharf",
+      "category": "4-star",
+      "area": "Canary Wharf, E14",
+      "description": "A stone's throw from Canary Wharf Underground station \u2014 smart design, plastic-free water bottles and comfortable rooms for business or leisure.",
+      "priceRange": "\u00a3150-\u00a3280/night",
+      "rating": "4.4",
+      "nearestStation": "Canary Wharf (2 min walk)",
+      "amenities": [
+        "Restaurant",
+        "24hr Front Desk",
+        "Free WiFi",
+        "Gym"
+      ],
+      "familyFriendly": true,
+      "image": "https://images.unsplash.com/photo-1631049307264-da0ec9d70304?w=800&q=80",
+      "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Hilton+London+Canary+Wharf",
+      "bookingUrl": "https://www.booking.com",
+      "order": 46
+    },
+    {
+      "id": "novotel-canary-wharf",
+      "name": "Novotel London Canary Wharf",
+      "category": "4-star",
+      "area": "Canary Wharf, E14",
+      "description": "Towers high above the surrounding buildings with a sophisticated top-floor bar and some of the best views in Canary Wharf.",
+      "priceRange": "\u00a3140-\u00a3250/night",
+      "rating": "4.2",
+      "nearestStation": "Canary Wharf (5 min walk)",
+      "amenities": [
+        "Rooftop Bar",
+        "Restaurant",
+        "Free WiFi",
+        "Gym"
+      ],
+      "familyFriendly": true,
+      "image": "https://images.unsplash.com/photo-1631049307264-da0ec9d70304?w=800&q=80",
+      "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Novotel+London+Canary+Wharf",
+      "bookingUrl": "https://www.booking.com",
+      "order": 47
+    },
+    {
+      "id": "canary-riverside-plaza",
+      "name": "Canary Riverside Plaza Hotel",
+      "category": "5-star",
+      "area": "Canary Wharf, E14",
+      "description": "A tranquil riverside escape amid the vibrant Canary Wharf district \u2014 floor-to-ceiling windows with Thames views, calming blue-and-white interiors.",
+      "priceRange": "\u00a3220-\u00a3400/night",
+      "rating": "4.5",
+      "nearestStation": "Canary Wharf (10 min walk)",
+      "amenities": [
+        "Spa",
+        "Pool",
+        "River Views",
+        "Restaurant",
+        "Gym"
+      ],
+      "familyFriendly": true,
+      "image": "https://images.unsplash.com/photo-1631049307264-da0ec9d70304?w=800&q=80",
+      "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Canary+Riverside+Plaza+Hotel+London",
+      "bookingUrl": "https://www.booking.com",
+      "order": 48
+    },
+    {
+      "id": "the-collective-canary-wharf",
+      "name": "The Collective Canary Wharf",
+      "category": "Budget",
+      "area": "Canary Wharf, E14",
+      "description": "Stylish studio rooms with modern kitchenettes plus an on-site spa and wellness centre \u2014 great value for the area.",
+      "priceRange": "\u00a3100-\u00a3180/night",
+      "rating": "4.2",
+      "nearestStation": "Canary Wharf (10 min walk)",
+      "amenities": [
+        "Spa",
+        "Kitchenette",
+        "Free WiFi",
+        "Wellness Centre"
+      ],
+      "familyFriendly": false,
+      "image": "https://images.unsplash.com/photo-1631049307264-da0ec9d70304?w=800&q=80",
+      "mapsUrl": "https://www.google.com/maps/search/?api=1&query=The+Collective+Canary+Wharf+London",
+      "bookingUrl": "https://www.booking.com",
+      "order": 49
     }
   ]
 }
