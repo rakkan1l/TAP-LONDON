@@ -1079,6 +1079,154 @@
       "mapsUrl": "https://www.google.com/maps/search/?api=1&query=The+Collective+Canary+Wharf+London",
       "bookingUrl": "https://www.booking.com",
       "order": 49
+    },
+    {
+      "id": "roseate-house-paddington",
+      "name": "Roseate House London",
+      "category": "4-star",
+      "area": "Paddington, W2",
+      "description": "Victorian elegance meets modern amenities \u2014 a stone's throw from Hyde Park and Paddington Station, with silk bed details and original oil paintings.",
+      "priceRange": "\u00a3190-\u00a3340/night",
+      "rating": "4.7",
+      "nearestStation": "Paddington (5 min walk)",
+      "amenities": [
+        "Restaurant",
+        "Bar",
+        "Free WiFi",
+        "Gym"
+      ],
+      "familyFriendly": true,
+      "image": "https://images.unsplash.com/photo-1631049307264-da0ec9d70304?w=800&q=80",
+      "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Roseate+House+London+Paddington",
+      "bookingUrl": "https://www.booking.com",
+      "order": 50
+    },
+    {
+      "id": "royal-lancaster-hyde-park",
+      "name": "Royal Lancaster London",
+      "category": "5-star",
+      "area": "Hyde Park, W2",
+      "description": "A grand hotel overlooking Hyde Park with panoramic city views from upper floors \u2014 spacious rooms and a genuinely central Paddington-adjacent location.",
+      "priceRange": "\u00a3280-\u00a3520/night",
+      "rating": "4.6",
+      "nearestStation": "Lancaster Gate (2 min walk)",
+      "amenities": [
+        "Restaurant",
+        "Bar",
+        "Gym",
+        "Free WiFi",
+        "Park Views"
+      ],
+      "familyFriendly": true,
+      "image": "https://images.unsplash.com/photo-1631049307264-da0ec9d70304?w=800&q=80",
+      "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Royal+Lancaster+London",
+      "bookingUrl": "https://www.booking.com",
+      "order": 51
+    },
+    {
+      "id": "hotel-indigo-paddington",
+      "name": "Hotel Indigo London Paddington",
+      "category": "4-star",
+      "area": "Paddington, W2",
+      "description": "A boutique IHG hotel with locally-inspired design touches near Paddington Station \u2014 modern rooms with a strong sense of neighbourhood character.",
+      "priceRange": "\u00a3150-\u00a3260/night",
+      "rating": "4.4",
+      "nearestStation": "Paddington (5 min walk)",
+      "amenities": [
+        "Bar",
+        "Restaurant",
+        "Free WiFi",
+        "Gym"
+      ],
+      "familyFriendly": true,
+      "image": "https://images.unsplash.com/photo-1631049307264-da0ec9d70304?w=800&q=80",
+      "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Hotel+Indigo+London+Paddington",
+      "bookingUrl": "https://www.booking.com",
+      "order": 52
+    },
+    {
+      "id": "the-clermont-victoria",
+      "name": "The Clermont London, Victoria",
+      "category": "4-star",
+      "area": "Victoria, SW1V",
+      "description": "A distinguished, eco-certified hotel right by Victoria Station \u2014 upscale, sustainable and popular with business travellers.",
+      "priceRange": "\u00a3180-\u00a3330/night",
+      "rating": "4.6",
+      "nearestStation": "Victoria (1 min walk)",
+      "amenities": [
+        "Restaurant",
+        "Bar",
+        "Free WiFi",
+        "Gym",
+        "Eco-Certified"
+      ],
+      "familyFriendly": true,
+      "image": "https://images.unsplash.com/photo-1631049307264-da0ec9d70304?w=800&q=80",
+      "mapsUrl": "https://www.google.com/maps/search/?api=1&query=The+Clermont+London+Victoria",
+      "bookingUrl": "https://www.booking.com",
+      "order": 53
+    },
+    {
+      "id": "doubletree-angel-kings-cross",
+      "name": "DoubleTree by Hilton London Angel Kings Cross",
+      "category": "4-star",
+      "area": "Islington, N1",
+      "description": "Reliable Hilton comfort in Islington, near Regent's Canal and Little Venice \u2014 warm cookie on arrival, well-connected for exploring North London.",
+      "priceRange": "\u00a3140-\u00a3240/night",
+      "rating": "4.4",
+      "nearestStation": "Angel (5 min walk)",
+      "amenities": [
+        "Restaurant",
+        "Bar",
+        "Free WiFi",
+        "Gym"
+      ],
+      "familyFriendly": true,
+      "image": "https://images.unsplash.com/photo-1631049307264-da0ec9d70304?w=800&q=80",
+      "mapsUrl": "https://www.google.com/maps/search/?api=1&query=DoubleTree+Hilton+Angel+Kings+Cross+London",
+      "bookingUrl": "https://www.booking.com",
+      "order": 54
+    },
+    {
+      "id": "premier-inn-angel-islington",
+      "name": "Premier Inn London Angel Islington",
+      "category": "Budget",
+      "area": "Islington, N1",
+      "description": "Reliable budget comfort near Upper Street's restaurants and bars \u2014 great value base for exploring North London.",
+      "priceRange": "\u00a385-\u00a3150/night",
+      "rating": "4.3",
+      "nearestStation": "Angel (5 min walk)",
+      "amenities": [
+        "Free WiFi",
+        "Restaurant",
+        "24hr Reception"
+      ],
+      "familyFriendly": true,
+      "image": "https://images.unsplash.com/photo-1631049307264-da0ec9d70304?w=800&q=80",
+      "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Premier+Inn+Angel+Islington+London",
+      "bookingUrl": "https://www.premierinn.com",
+      "order": 55
+    },
+    {
+      "id": "citadines-islington",
+      "name": "Citadines Islington London",
+      "category": "4-star",
+      "area": "Islington, N1",
+      "description": "Serviced apartment-style rooms with kitchenettes near Angel \u2014 great for longer stays, families or those who want more space and flexibility.",
+      "priceRange": "\u00a3130-\u00a3220/night",
+      "rating": "4.3",
+      "nearestStation": "Angel (3 min walk)",
+      "amenities": [
+        "Kitchenette",
+        "Free WiFi",
+        "Gym",
+        "24hr Reception"
+      ],
+      "familyFriendly": true,
+      "image": "https://images.unsplash.com/photo-1631049307264-da0ec9d70304?w=800&q=80",
+      "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Citadines+Islington+London",
+      "bookingUrl": "https://www.booking.com",
+      "order": 56
     }
   ]
 }
