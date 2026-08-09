@@ -824,6 +824,90 @@
       "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Camden+Market",
       "offer": true,
       "offerText": "15% OFF"
+    },
+    {
+      "id": "coal-drops-yard",
+      "name": "Coal Drops Yard",
+      "section": "Shopping Areas",
+      "type": "Shopping District",
+      "location": "King's Cross, N1C",
+      "openingHours": "Daily 10:00-20:00 (varies by shop)",
+      "description": "A Victorian railway facility reimagined by Heatherwick Studio into one of London's best shopping destinations \u2014 independent boutiques, restaurants and bars.",
+      "image": "https://images.unsplash.com/photo-1441984904996-e0b6ba687e04?w=800&q=80",
+      "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Coal+Drops+Yard+Kings+Cross+London",
+      "order": 1
+    },
+    {
+      "id": "goodhood-store",
+      "name": "Goodhood Store",
+      "section": "Souvenir Shops",
+      "type": "Concept Store",
+      "location": "Spitalfields, E1",
+      "openingHours": "Mon-Sat 11:00-19:00, Sun 12:00-18:00",
+      "description": "A stalwart of Shoreditch's retail scene since 2007, now a 5,500 sq ft space by Spitalfields Market \u2014 streetwear, homeware and beauty with a sense of humour.",
+      "image": "https://images.unsplash.com/photo-1441984904996-e0b6ba687e04?w=800&q=80",
+      "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Goodhood+Store+Spitalfields+London",
+      "order": 2
+    },
+    {
+      "id": "broadway-market",
+      "name": "Broadway Market",
+      "section": "Markets",
+      "type": "Weekend Market",
+      "location": "London Fields, E8",
+      "openingHours": "Sat 09:00-17:00",
+      "description": "A Hackney institution with an eclectic mix of vintage treasures, local crafts, souvenirs and street food along a historic tradesman's route.",
+      "image": "https://images.unsplash.com/photo-1441984904996-e0b6ba687e04?w=800&q=80",
+      "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Broadway+Market+London",
+      "order": 3
+    },
+    {
+      "id": "exmouth-market-shopping",
+      "name": "Exmouth Market",
+      "section": "Markets",
+      "type": "Independent Street",
+      "location": "Clerkenwell, EC1R",
+      "openingHours": "Daily 09:00-18:00",
+      "description": "A charming pedestrianised street packed with independent cafes, restaurants, bars and local craft shops \u2014 genuinely local, rarely touristy.",
+      "image": "https://images.unsplash.com/photo-1441984904996-e0b6ba687e04?w=800&q=80",
+      "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Exmouth+Market+London",
+      "order": 4
+    },
+    {
+      "id": "victoria-park-market",
+      "name": "Victoria Park Market",
+      "section": "Markets",
+      "type": "Sunday Market",
+      "location": "Victoria Park, E9",
+      "openingHours": "Sun 10:00-16:00",
+      "description": "A relaxed local market with street food, groceries and quirky stalls \u2014 genuinely community-focused rather than touristy.",
+      "image": "https://images.unsplash.com/photo-1441984904996-e0b6ba687e04?w=800&q=80",
+      "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Victoria+Park+Market+London",
+      "order": 5
+    },
+    {
+      "id": "portobello-green-fashion",
+      "name": "Portobello Green Market",
+      "section": "Markets",
+      "type": "Fashion Market",
+      "location": "Notting Hill, W10",
+      "openingHours": "Fri best for vintage, Sat-Sun general",
+      "description": "The fashion-focused stretch of Portobello Road under the Westway \u2014 vintage clothing and one-off pieces from local designers, best on Fridays.",
+      "image": "https://images.unsplash.com/photo-1441984904996-e0b6ba687e04?w=800&q=80",
+      "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Portobello+Green+Market+London",
+      "order": 6
+    },
+    {
+      "id": "wilton-way-shops",
+      "name": "Wilton Way Shops",
+      "section": "Souvenir Shops",
+      "type": "Independent Boutiques",
+      "location": "Hackney, E8",
+      "openingHours": "Varies by shop, mostly daily",
+      "description": "A charming, low-key East London street packed with independent boutiques and cafes \u2014 genuinely local character with none of the crowds.",
+      "image": "https://images.unsplash.com/photo-1441984904996-e0b6ba687e04?w=800&q=80",
+      "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Wilton+Way+Hackney+London",
+      "order": 7
     }
   ]
 }
