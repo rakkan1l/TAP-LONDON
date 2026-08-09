@@ -48,7 +48,7 @@ export default function ShoppingDetailPage() {
     </div>
   );
 
-  const photos: string[] = [...new Set([item.image, ...(Array.isArray(item.gallery) ? item.gallery : [])].filter(Boolean))];
+  const photos: string[] = Array.from(new Set([item.image, ...(Array.isArray(item.gallery) ? item.gallery : [])].filter(Boolean)));
   const subShops: any[] = Array.isArray(item.subShops) ? item.subShops : [];
 
   return (
