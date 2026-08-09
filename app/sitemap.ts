@@ -1,7 +1,7 @@
 import type { MetadataRoute } from "next";
 import products from "@/data/nfc-products.json";
 
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://taplondon.co.uk";
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://londontap.co.uk";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const now = new Date();
