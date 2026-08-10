@@ -936,6 +936,84 @@
       "icon": "\ud83c\udfdb\ufe0f",
       "mapsUrl": "https://www.google.com/maps/search/?api=1&query=London+Museum+Smithfield",
       "order": 28
+    },
+    {
+      "id": "leighton-house-museum",
+      "name": "Leighton House",
+      "category": "Top Attractions",
+      "area": "Holland Park",
+      "description": "The former home of Victorian artist Lord Leighton, celebrating its 100th year as a public museum in 2026 \u2014 famous for the golden-domed Arab Hall covered in Islamic tiles.",
+      "openingHours": "Wed-Mon 10:00-17:30 (last entry 16:30)",
+      "entryFee": "Adult \u00a320",
+      "image": "https://images.unsplash.com/photo-1518998053901-5348d3961a04?w=800&q=80",
+      "icon": "\ud83c\udfdb\ufe0f",
+      "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Leighton+House+London",
+      "order": 29
+    },
+    {
+      "id": "sherlock-holmes-museum",
+      "name": "The Sherlock Holmes Museum",
+      "category": "Top Attractions",
+      "area": "Baker Street",
+      "description": "Located at the world-famous 221B Baker Street address \u2014 a Georgian townhouse lovingly recreated as Holmes and Watson's Victorian home, complete with memorabilia and gift shop.",
+      "openingHours": "Daily 09:30-18:00",
+      "entryFee": "Adult \u00a322",
+      "image": "https://images.unsplash.com/photo-1461360370896-922624d12aa1?w=800&q=80",
+      "icon": "\ud83d\udd0d",
+      "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Sherlock+Holmes+Museum+London",
+      "order": 30
+    },
+    {
+      "id": "foundling-museum",
+      "name": "The Foundling Museum",
+      "category": "Hidden Gems",
+      "area": "Bloomsbury",
+      "description": "Tells the story of Britain's first home for abandoned children, established in 1739 \u2014 a moving, underrated collection including works by Hogarth and Handel connections.",
+      "openingHours": "Tue-Sun 10:00-17:00",
+      "entryFee": "Adult \u00a313.20",
+      "image": "https://images.unsplash.com/photo-1461360370896-922624d12aa1?w=800&q=80",
+      "icon": "\ud83d\uddbc\ufe0f",
+      "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Foundling+Museum+London",
+      "order": 31
+    },
+    {
+      "id": "old-operating-theatre",
+      "name": "The Old Operating Theatre Museum",
+      "category": "Hidden Gems",
+      "area": "London Bridge",
+      "description": "One of Europe's oldest surviving operating theatres, dating from 1822 \u2014 a genuinely macabre and fascinating look at surgery before anaesthetics, hidden in a church garret.",
+      "openingHours": "Daily 10:30-17:00",
+      "entryFee": "Adult \u00a38.65",
+      "image": "https://images.unsplash.com/photo-1461360370896-922624d12aa1?w=800&q=80",
+      "icon": "\u2695\ufe0f",
+      "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Old+Operating+Theatre+Museum+London",
+      "order": 32
+    },
+    {
+      "id": "kenwood-house",
+      "name": "Kenwood House",
+      "category": "Top Attractions",
+      "area": "Hampstead Heath",
+      "description": "A grand former stately home on Hampstead Heath with free entry to see works by Rembrandt, Vermeer and Frans Hals \u2014 genuinely world-class art in a stunning setting.",
+      "openingHours": "Daily 10:00-17:00",
+      "entryFee": "Free",
+      "image": "https://images.unsplash.com/photo-1518998053901-5348d3961a04?w=800&q=80",
+      "icon": "\ud83d\uddbc\ufe0f",
+      "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Kenwood+House+London",
+      "order": 33
+    },
+    {
+      "id": "museum-of-brands",
+      "name": "Museum of Brands",
+      "category": "Hidden Gems",
+      "area": "Notting Hill",
+      "description": "The only museum of its kind in the world \u2014 150 years of branding, packaging and advertising, a nostalgic trip through consumer culture history.",
+      "openingHours": "Daily 10:00-18:00",
+      "entryFee": "Adult \u00a311.50",
+      "image": "https://images.unsplash.com/photo-1461360370896-922624d12aa1?w=800&q=80",
+      "icon": "\ud83d\udce6",
+      "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Museum+of+Brands+Notting+Hill+London",
+      "order": 34
     }
   ]
 }
