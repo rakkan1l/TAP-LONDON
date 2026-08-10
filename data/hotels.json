@@ -1544,6 +1544,125 @@
       "mapsUrl": "https://www.google.com/maps/search/?api=1&query=InterContinental+London+The+O2",
       "bookingUrl": "https://www.booking.com",
       "order": 71
+    },
+    {
+      "id": "the-rockwell-earls-court",
+      "name": "The Rockwell",
+      "category": "4-star",
+      "area": "Earl's Court, SW5",
+      "description": "A beautiful boutique hotel with individually designed rooms and a rustic Italian all-day restaurant and deli \u2014 close to the tube at Earl's Court.",
+      "priceRange": "\u00a3150-\u00a3260/night",
+      "rating": "4.5",
+      "nearestStation": "Earl's Court (5 min walk)",
+      "amenities": [
+        "Restaurant",
+        "Garden",
+        "Free WiFi"
+      ],
+      "familyFriendly": true,
+      "image": "https://images.unsplash.com/photo-1631049307264-da0ec9d70304?w=800&q=80",
+      "mapsUrl": "https://www.google.com/maps/search/?api=1&query=The+Rockwell+Earls+Court+London",
+      "bookingUrl": "https://www.booking.com",
+      "order": 72
+    },
+    {
+      "id": "twenty-nevern-square",
+      "name": "Twenty Nevern Square",
+      "category": "4-star",
+      "area": "Earl's Court, SW5",
+      "description": "A boutique townhouse hotel on a leafy garden square \u2014 intimate dining room and individually designed rooms with real character.",
+      "priceRange": "\u00a3130-\u00a3220/night",
+      "rating": "4.4",
+      "nearestStation": "Earl's Court (3 min walk)",
+      "amenities": [
+        "Restaurant",
+        "Garden",
+        "Free WiFi"
+      ],
+      "familyFriendly": true,
+      "image": "https://images.unsplash.com/photo-1631049307264-da0ec9d70304?w=800&q=80",
+      "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Twenty+Nevern+Square+London",
+      "bookingUrl": "https://www.booking.com",
+      "order": 73
+    },
+    {
+      "id": "trebovir-hotel-earls-court",
+      "name": "Trebovir Hotel",
+      "category": "Budget",
+      "area": "Earl's Court, SW5",
+      "description": "Clean, spacious and great value budget hotel \u2014 well-reviewed for its friendly service and central Earl's Court location.",
+      "priceRange": "\u00a355-\u00a3100/night",
+      "rating": "4.2",
+      "nearestStation": "Earl's Court (5 min walk)",
+      "amenities": [
+        "Free WiFi",
+        "24hr Reception"
+      ],
+      "familyFriendly": true,
+      "image": "https://images.unsplash.com/photo-1631049307264-da0ec9d70304?w=800&q=80",
+      "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Trebovir+Hotel+London",
+      "bookingUrl": "https://www.booking.com",
+      "order": 74
+    },
+    {
+      "id": "garden-court-hotel-bayswater",
+      "name": "Garden Court Hotel",
+      "category": "Budget",
+      "area": "Bayswater, W2",
+      "description": "A charming, affordable B&B-style hotel in a period Bayswater townhouse \u2014 near Hyde Park and Queensway with easy access to central London.",
+      "priceRange": "\u00a390-\u00a3160/night",
+      "rating": "4.3",
+      "nearestStation": "Bayswater (5 min walk)",
+      "amenities": [
+        "Free WiFi",
+        "Breakfast Included"
+      ],
+      "familyFriendly": true,
+      "image": "https://images.unsplash.com/photo-1631049307264-da0ec9d70304?w=800&q=80",
+      "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Garden+Court+Hotel+Bayswater+London",
+      "bookingUrl": "https://www.booking.com",
+      "order": 75
+    },
+    {
+      "id": "the-hyde-park-international",
+      "name": "Hyde Park International",
+      "category": "4-star",
+      "area": "Bayswater, W2",
+      "description": "A short walk from Hyde Park with modern comfortable rooms \u2014 a reliable mid-range choice close to Paddington and Notting Hill.",
+      "priceRange": "\u00a3140-\u00a3240/night",
+      "rating": "4.3",
+      "nearestStation": "Bayswater (3 min walk)",
+      "amenities": [
+        "Free WiFi",
+        "Restaurant",
+        "Gym"
+      ],
+      "familyFriendly": true,
+      "image": "https://images.unsplash.com/photo-1631049307264-da0ec9d70304?w=800&q=80",
+      "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Hyde+Park+International+London",
+      "bookingUrl": "https://www.booking.com",
+      "order": 76
+    },
+    {
+      "id": "yha-camden",
+      "name": "Palmers Lodge Swiss Cottage",
+      "category": "Budget",
+      "area": "Swiss Cottage, NW3",
+      "description": "A grand Victorian mansion converted into a stylish hostel with private rooms and dorms \u2014 genuinely beautiful building near Camden and Hampstead.",
+      "priceRange": "\u00a340-\u00a3110/night",
+      "rating": "4.4",
+      "nearestStation": "Swiss Cottage (3 min walk)",
+      "amenities": [
+        "Free WiFi",
+        "Bar",
+        "24hr Reception",
+        "Garden"
+      ],
+      "familyFriendly": false,
+      "image": "https://images.unsplash.com/photo-1631049307264-da0ec9d70304?w=800&q=80",
+      "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Palmers+Lodge+Swiss+Cottage+London",
+      "bookingUrl": "https://www.booking.com",
+      "order": 77
     }
   ]
 }
