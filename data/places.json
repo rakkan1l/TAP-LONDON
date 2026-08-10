@@ -871,6 +871,71 @@
       "icon": "\ud83c\udf33",
       "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Queen+Elizabeth+Olympic+Park+London",
       "order": 23
+    },
+    {
+      "id": "tate-britain",
+      "name": "Tate Britain",
+      "category": "Top Attractions",
+      "area": "Millbank",
+      "description": "The world's largest collection of British art from 1500 to present, including Turner's entire bequest. Quieter than Tate Modern and genuinely underrated \u2014 most visitors skip it.",
+      "openingHours": "Daily 10:00-18:00",
+      "entryFee": "Free (special exhibitions \u00a320-28)",
+      "image": "https://images.unsplash.com/photo-1518998053901-5348d3961a04?w=800&q=80",
+      "icon": "\ud83d\uddbc\ufe0f",
+      "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Tate+Britain+London",
+      "order": 24
+    },
+    {
+      "id": "va-east-stratford",
+      "name": "V&A East Storehouse",
+      "category": "Top Attractions",
+      "area": "Stratford",
+      "description": "Opened April 2026 \u2014 a new V&A site focused on craft and making, with free permanent galleries and no booking required.",
+      "openingHours": "Daily 10:00-17:45",
+      "entryFee": "Free",
+      "image": "https://images.unsplash.com/photo-1518998053901-5348d3961a04?w=800&q=80",
+      "icon": "\ud83c\udfa8",
+      "mapsUrl": "https://www.google.com/maps/search/?api=1&query=VA+East+Storehouse+Stratford+London",
+      "order": 25
+    },
+    {
+      "id": "courtauld-gallery",
+      "name": "The Courtauld Gallery",
+      "category": "Top Attractions",
+      "area": "Strand",
+      "description": "A smaller, significantly less crowded collection than the National Gallery \u2014 but it holds some of London's best Impressionist work, including Manet's A Bar at the Folies-Berg\u00e8re.",
+      "openingHours": "Daily 10:00-18:00",
+      "entryFee": "Adult \u00a39",
+      "image": "https://images.unsplash.com/photo-1518998053901-5348d3961a04?w=800&q=80",
+      "icon": "\ud83d\uddbc\ufe0f",
+      "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Courtauld+Gallery+London",
+      "order": 26
+    },
+    {
+      "id": "moco-museum-london",
+      "name": "Moco Museum London",
+      "category": "Top Attractions",
+      "area": "Marble Arch",
+      "description": "Cutting-edge pop, street and digital art across three floors \u2014 icons like Andy Warhol and Damien Hirst alongside Banksy and Tracey Emin.",
+      "openingHours": "Daily 09:00-21:00",
+      "entryFee": "Adult from \u00a319.50",
+      "image": "https://images.unsplash.com/photo-1518998053901-5348d3961a04?w=800&q=80",
+      "icon": "\ud83c\udfa8",
+      "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Moco+Museum+London",
+      "order": 27
+    },
+    {
+      "id": "london-museum-new",
+      "name": "London Museum",
+      "category": "Top Attractions",
+      "area": "Smithfield",
+      "description": "The relaunched Museum of London at its new Smithfield site \u2014 tells the city's history from prehistoric times to today, with the famous gift shop for London-themed books.",
+      "openingHours": "Daily 10:00-17:00 (check for opening updates)",
+      "entryFee": "Free for permanent collection",
+      "image": "https://images.unsplash.com/photo-1518998053901-5348d3961a04?w=800&q=80",
+      "icon": "\ud83c\udfdb\ufe0f",
+      "mapsUrl": "https://www.google.com/maps/search/?api=1&query=London+Museum+Smithfield",
+      "order": 28
     }
   ]
 }
