@@ -908,6 +908,78 @@
       "image": "https://images.unsplash.com/photo-1441984904996-e0b6ba687e04?w=800&q=80",
       "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Wilton+Way+Hackney+London",
       "order": 7
+    },
+    {
+      "id": "beyond-retro-dalston",
+      "name": "Beyond Retro",
+      "section": "Souvenir Shops",
+      "type": "Vintage Clothing",
+      "location": "Dalston, E8 (also Kings Cross, Soho, Westfield)",
+      "openingHours": "Daily 10:00-19:00",
+      "description": "One of London's biggest vintage clothing chains, with its own upcycled fashion label \u2014 huge selection of leather coats, boots and psychedelic shirts.",
+      "image": "https://images.unsplash.com/photo-1441984904996-e0b6ba687e04?w=800&q=80",
+      "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Beyond+Retro+Dalston+London",
+      "order": 8
+    },
+    {
+      "id": "rokit-vintage-camden",
+      "name": "Rokit Vintage",
+      "section": "Souvenir Shops",
+      "type": "Vintage Clothing",
+      "location": "Camden, NW1 (also Brick Lane, Covent Garden)",
+      "openingHours": "Daily 10:30-19:00",
+      "description": "An iconic London vintage institution across multiple locations \u2014 decades of curated finds from workwear to designer pieces.",
+      "image": "https://images.unsplash.com/photo-1441984904996-e0b6ba687e04?w=800&q=80",
+      "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Rokit+Vintage+Camden+London",
+      "order": 9
+    },
+    {
+      "id": "atika-london-vintage",
+      "name": "Atika London",
+      "section": "Souvenir Shops",
+      "type": "Vintage Clothing",
+      "location": "Camden Stables Market, NW1",
+      "openingHours": "Daily 10:00-18:00",
+      "description": "London's biggest vintage store in a refurbished former furniture factory \u2014 a genuinely essential stop on any vintage shopping trip.",
+      "image": "https://images.unsplash.com/photo-1441984904996-e0b6ba687e04?w=800&q=80",
+      "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Atika+London+Camden",
+      "order": 10
+    },
+    {
+      "id": "paper-dress-vintage-hackney",
+      "name": "Paper Dress Vintage",
+      "section": "Souvenir Shops",
+      "type": "Vintage Clothing/Bar",
+      "location": "Hackney, E8",
+      "openingHours": "Daily 12:00-late (varies)",
+      "description": "A stylish boutique that doubles as a bar and live music/exhibition venue \u2014 shop for vintage while catching a gig.",
+      "image": "https://images.unsplash.com/photo-1441984904996-e0b6ba687e04?w=800&q=80",
+      "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Paper+Dress+Vintage+Hackney+London",
+      "order": 11
+    },
+    {
+      "id": "loop-generation-chelsea",
+      "name": "Loop Generation",
+      "section": "Souvenir Shops",
+      "type": "Pre-loved Designer",
+      "location": "Chelsea, SW3",
+      "openingHours": "Mon-Sat 10:00-18:00",
+      "description": "Pre-loved designer consignment in Chelsea \u2014 vintage Chanel, used Herm\u00e8s and high-end fashion at accessible prices.",
+      "image": "https://images.unsplash.com/photo-1441984904996-e0b6ba687e04?w=800&q=80",
+      "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Loop+Generation+Chelsea+London",
+      "order": 12
+    },
+    {
+      "id": "reign-vintage-soho",
+      "name": "Reign Vintage",
+      "section": "Souvenir Shops",
+      "type": "Vintage Clothing",
+      "location": "Berwick Street, Soho, W1F",
+      "openingHours": "Daily 11:00-19:00",
+      "description": "Two airy floors of well-curated womenswear and menswear on Soho's famous Berwick Street \u2014 perfect for a quick vintage fix on your lunch hour.",
+      "image": "https://images.unsplash.com/photo-1441984904996-e0b6ba687e04?w=800&q=80",
+      "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Reign+Vintage+Berwick+Street+London",
+      "order": 13
     }
   ]
 }
