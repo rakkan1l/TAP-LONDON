@@ -1227,6 +1227,155 @@
       "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Citadines+Islington+London",
       "bookingUrl": "https://www.booking.com",
       "order": 56
+    },
+    {
+      "id": "the-portobello-hotel",
+      "name": "The Portobello Hotel",
+      "category": "5-star",
+      "area": "Notting Hill, W11",
+      "description": "One of London's most famous boutique hotels \u2014 a bohemian bolthole on Portobello Road with legendary rock-star history, quiet and grounded despite the fame.",
+      "priceRange": "\u00a3300-\u00a3600/night",
+      "rating": "4.6",
+      "nearestStation": "Notting Hill Gate (5 min walk)",
+      "amenities": [
+        "Restaurant",
+        "Bar",
+        "Free WiFi",
+        "Boutique Design"
+      ],
+      "familyFriendly": false,
+      "image": "https://images.unsplash.com/photo-1631049307264-da0ec9d70304?w=800&q=80",
+      "mapsUrl": "https://www.google.com/maps/search/?api=1&query=The+Portobello+Hotel+Notting+Hill+London",
+      "bookingUrl": "https://www.booking.com",
+      "order": 57
+    },
+    {
+      "id": "six-senses-notting-hill",
+      "name": "Six Senses London",
+      "category": "5-star",
+      "area": "Notting Hill, W2",
+      "description": "A full-service spa hotel with 24-hour gym and highly personal service \u2014 one of Notting Hill's newest luxury additions.",
+      "priceRange": "\u00a3500-\u00a3950/night",
+      "rating": "4.8",
+      "nearestStation": "Bayswater (3 min walk)",
+      "amenities": [
+        "Spa",
+        "Gym",
+        "Restaurant",
+        "Bar",
+        "Free WiFi"
+      ],
+      "familyFriendly": true,
+      "image": "https://images.unsplash.com/photo-1631049307264-da0ec9d70304?w=800&q=80",
+      "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Six+Senses+London+Notting+Hill",
+      "bookingUrl": "https://www.booking.com",
+      "order": 58
+    },
+    {
+      "id": "the-laslett-notting-hill",
+      "name": "The Laslett",
+      "category": "4-star",
+      "area": "Notting Hill, W11",
+      "description": "Comfort and style near Notting Hill Coronet and Portobello Road Market \u2014 fitness facilities, terrace and a genuinely local neighbourhood feel.",
+      "priceRange": "\u00a3200-\u00a3350/night",
+      "rating": "4.5",
+      "nearestStation": "Notting Hill Gate (5 min walk)",
+      "amenities": [
+        "Restaurant",
+        "Bar",
+        "Gym",
+        "Free WiFi",
+        "Terrace"
+      ],
+      "familyFriendly": true,
+      "image": "https://images.unsplash.com/photo-1631049307264-da0ec9d70304?w=800&q=80",
+      "mapsUrl": "https://www.google.com/maps/search/?api=1&query=The+Laslett+Notting+Hill+London",
+      "bookingUrl": "https://www.booking.com",
+      "order": 59
+    },
+    {
+      "id": "chelsea-harbour-hotel-spa",
+      "name": "Chelsea Harbour Hotel & Spa",
+      "category": "5-star",
+      "area": "Chelsea, SW10",
+      "description": "Breathtaking marina views blending luxury, culture and comfort \u2014 all-suite hotel by the Thames in one of London's most exclusive postcodes.",
+      "priceRange": "\u00a3300-\u00a3550/night",
+      "rating": "4.6",
+      "nearestStation": "Imperial Wharf (10 min walk)",
+      "amenities": [
+        "Spa",
+        "Pool",
+        "Restaurant",
+        "Marina Views",
+        "Free WiFi"
+      ],
+      "familyFriendly": true,
+      "image": "https://images.unsplash.com/photo-1631049307264-da0ec9d70304?w=800&q=80",
+      "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Chelsea+Harbour+Hotel+Spa+London",
+      "bookingUrl": "https://www.booking.com",
+      "order": 60
+    },
+    {
+      "id": "the-resident-kensington",
+      "name": "The Resident Kensington",
+      "category": "4-star",
+      "area": "Kensington, SW5",
+      "description": "Sleek, self-catering-friendly rooms with a boutique feel \u2014 close to the Natural History Museum and South Kensington's museum quarter.",
+      "priceRange": "\u00a3160-\u00a3280/night",
+      "rating": "4.5",
+      "nearestStation": "Earl's Court (5 min walk)",
+      "amenities": [
+        "Kitchenette",
+        "Free WiFi",
+        "Gym"
+      ],
+      "familyFriendly": true,
+      "image": "https://images.unsplash.com/photo-1631049307264-da0ec9d70304?w=800&q=80",
+      "mapsUrl": "https://www.google.com/maps/search/?api=1&query=The+Resident+Kensington+London",
+      "bookingUrl": "https://www.booking.com",
+      "order": 61
+    },
+    {
+      "id": "la-suite-west-hyde-park",
+      "name": "La Suite West - Hyde Park",
+      "category": "4-star",
+      "area": "Bayswater, W2",
+      "description": "A full-service spa hotel with garden and terrace near Hyde Park \u2014 intimate, design-focused rooms with a genuinely relaxing atmosphere.",
+      "priceRange": "\u00a3220-\u00a3380/night",
+      "rating": "4.5",
+      "nearestStation": "Bayswater (5 min walk)",
+      "amenities": [
+        "Spa",
+        "Restaurant",
+        "Garden",
+        "Free WiFi"
+      ],
+      "familyFriendly": true,
+      "image": "https://images.unsplash.com/photo-1631049307264-da0ec9d70304?w=800&q=80",
+      "mapsUrl": "https://www.google.com/maps/search/?api=1&query=La+Suite+West+Hyde+Park+London",
+      "bookingUrl": "https://www.booking.com",
+      "order": 62
+    },
+    {
+      "id": "great-northern-kings-cross-2",
+      "name": "The Standard, London",
+      "category": "4-star",
+      "area": "King's Cross, N1C",
+      "description": "A converted 1970s brutalist building opposite King's Cross station \u2014 bold, colourful interiors and a rooftop restaurant with skyline views.",
+      "priceRange": "\u00a3190-\u00a3340/night",
+      "rating": "4.5",
+      "nearestStation": "King's Cross St Pancras (2 min walk)",
+      "amenities": [
+        "Rooftop Restaurant",
+        "Bar",
+        "Gym",
+        "Free WiFi"
+      ],
+      "familyFriendly": true,
+      "image": "https://images.unsplash.com/photo-1631049307264-da0ec9d70304?w=800&q=80",
+      "mapsUrl": "https://www.google.com/maps/search/?api=1&query=The+Standard+London+Kings+Cross",
+      "bookingUrl": "https://www.booking.com",
+      "order": 63
     }
   ]
 }
