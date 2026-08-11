@@ -1,0 +1,55 @@
+'use client';
+
+import { useEffect, useState } from 'react';
+import { fetchCollection } from '@/lib/firestore';
+import fallbackData from '@/data/daytrips.json';
+
+export default function DayTripsPage() {
+  const [items, setItems] = useState<any[]>([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    fetchCollection('daytrips').then(data => {
+      setItems(data?.length ? data : (fallbackData as any).items ?? []);
+      setLoading(false);
+    });
+  }, []);
+
+  return (
+    <main className="bg-[#f9f7f2] dark:bg-[#0d0d1a]" style={{ minHeight: '100vh' }}>
+      <div style={{ background: '#1a1a2e', padding: '60px 20px 40px' }}>
+        <div style={{ maxWidth: '1100px', margin: '0 auto' }}>
+          <p style={{ fontFamily: "'DM Sans', sans-serif", fontSize: '0.7rem', color: '#c9a84c', fontWeight: 700, letterSpacing: '2.5px', textTransform: 'uppercase' as const, marginBottom: '10px' }}>Beyond London</p>
+          <h1 style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: 'clamp(2rem, 5vw, 3.5rem)', fontWeight: 700, color: '#ffffff', margin: '0 0 14px' }}>Day Trips from London</h1>
+          <p style={{ fontFamily: "'DM Sans', sans-serif", fontSize: '1rem', color: 'rgba(255,255,255,0.55)' }}>Windsor, Stonehenge, Oxford, Cambridge and more — historic sites and countryside all reachable in a single day.</p>
+        </div>
+      </div>
+
+      <div style={{ maxWidth: '1100px', margin: '0 auto', padding: '32px 20px 80px' }}>
+        {loading ? (
+          <div style={{ textAlign: 'center', padding: '60px', color: 'rgba(26,26,46,0.3)', fontFamily: "'DM Sans', sans-serif" }}>Loading...</div>
+        ) : (
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(300px, 1fr))', gap: '20px' }}>
+            {items.map((trip) => (
+              <div key={trip.id} className="bg-white dark:bg-[#1a1a2e]" style={{ borderRadius: '14px', overflow: 'hidden', boxShadow: '0 4px 20px rgba(0,0,0,0.08)', border: '1px solid rgba(201,168,76,0.1)' }}>
+                <div style={{ position: 'relative', height: '160px' }}>
+                  <img src={trip.image} alt={trip.name} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                  <div style={{ position: 'absolute', top: '12px', left: '12px', background: 'linear-gradient(135deg,#c9a84c,#f0d07a)', color: '#1a1a2e', padding: '4px 12px', borderRadius: '20px', fontFamily: "'DM Sans', sans-serif", fontSize: '0.7rem', fontWeight: 700 }}>{trip.category}</div>
+                </div>
+                <div style={{ padding: '16px' }}>
+                  <h3 className="text-navy dark:text-[#f9f7f2]" style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: '1.2rem', fontWeight: 700, margin: '0 0 6px' }}>{trip.name}</h3>
+                  <p style={{ fontFamily: "'DM Sans', sans-serif", fontSize: '0.72rem', color: '#888', marginBottom: '8px' }}>🚆 {trip.distance}</p>
+                  <p className="text-[#555] dark:text-[#bbb]" style={{ fontFamily: "'DM Sans', sans-serif", fontSize: '0.8rem', lineHeight: 1.6, marginBottom: '12px' }}>{trip.description}</p>
+                  <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
+                    <div style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: '1rem', fontWeight: 700, color: '#c9a84c' }}>{trip.entryFee}</div>
+                    <a href={trip.mapsUrl} target="_blank" rel="noreferrer" style={{ background: '#1a1a2e', color: '#c9a84c', padding: '9px 18px', borderRadius: '8px', fontFamily: "'DM Sans', sans-serif", fontSize: '0.78rem', fontWeight: 700, textDecoration: 'none' }}>Directions</a>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        )}
+      </div>
+    </main>
+  );
+}
