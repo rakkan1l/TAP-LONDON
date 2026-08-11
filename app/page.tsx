@@ -122,7 +122,7 @@ export default function HomePage() {
           </motion.div>
 
           <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.72, duration: 0.6 }} style={{ display: 'flex', gap: '10px', justifyContent: 'center', flexWrap: 'wrap', marginBottom: '20px' }}>
-            {[{ label: 'Tower Bridge', href: '/places' }, { label: 'Kids Entertainment', href: '/kids' }, { label: 'Rooftop Bar', href: '/nightlife' }, { label: 'Nightlife', href: '/nightlife' }].map(item => (
+            {[{ label: 'Clubs', href: '/nightlife' }, { label: 'Kids Entertainment', href: '/kids' }, { label: 'Rooftop Bar', href: '/nightlife' }, { label: 'Hidden Gems', href: '/hidden-gems' }].map(item => (
               <Link key={item.label} href={item.href} style={{ fontFamily: "'DM Sans', sans-serif", fontSize: '0.72rem', color: 'rgba(255,255,255,0.55)', textDecoration: 'none', background: 'rgba(255,255,255,0.07)', border: '1px solid rgba(255,255,255,0.12)', borderRadius: '40px', padding: '5px 14px' }}>{item.label}</Link>
             ))}
           </motion.div>
