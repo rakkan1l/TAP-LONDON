@@ -47,7 +47,15 @@ export default function HiddenGemsPage() {
                 <div style={{ position: 'relative', height: '180px' }}>
                   <img src={gem.image} alt={gem.name} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
                   <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to top, rgba(0,0,0,0.7) 0%, transparent 60%)' }} />
-                  <div style={{ position: 'absolute', top: '12px', left: '12px', background: 'rgba(122,201,160,0.9)', color: '#1a1a2e', padding: '3px 10px', borderRadius: '20px', fontFamily: "'DM Sans', sans-serif", fontSize: '0.68rem', fontWeight: 700 }}>FREE</div>
+                  {(() => {
+                    const feeRaw = (gem.entryFee ?? '').toString().trim().toLowerCase();
+                    const isFree = feeRaw === '' || feeRaw === 'free' || feeRaw === '0' || feeRaw === '£0' || feeRaw === 'no charge';
+                    return (
+                      <div style={{ position: 'absolute', top: '12px', left: '12px', background: isFree ? 'rgba(122,201,160,0.9)' : 'rgba(26,26,46,0.85)', color: isFree ? '#1a1a2e' : '#c9a84c', padding: '3px 10px', borderRadius: '20px', fontFamily: "'DM Sans', sans-serif", fontSize: '0.68rem', fontWeight: 700 }}>
+                        {isFree ? 'FREE' : (gem.entryFee || 'PAID')}
+                      </div>
+                    );
+                  })()}
                   <div style={{ position: 'absolute', bottom: '12px', left: '12px', right: '12px' }}>
                     <div style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: '1.2rem', fontWeight: 700, color: '#fff' }}>{gem.name}</div>
                   </div>
