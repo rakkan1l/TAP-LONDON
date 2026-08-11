@@ -56,19 +56,35 @@ export async function fetchCollection(collection: string): Promise<any[] | null>
   }
 }
 
-export async function fetchDocument(collection: string, id: string): Promise<any | null> {
-  try {
-    const url = `https://firestore.googleapis.com/v1/projects/${PROJECT_ID}/databases/(default)/documents/${collection}/${id}`;
-    const res = await fetch(url, { cache: 'no-store' });
-    if (!res.ok) return null;
-    const doc = await res.json();
-    if (!doc.fields) return null;
+export async function fetchDocument(collection: string, id: string, retries = 2): Promise<any | null> {
+  const url = `https://firestore.googleapis.com/v1/projects/${PROJECT_ID}/databases/(default)/documents/${collection}/${id}`;
 
-    const item = parseFields(doc.fields);
-    const parts = doc.name.split('/');
-    item.id = parts[parts.length - 1];
-    return applyImageFallback(item);
-  } catch {
-    return null;
+  for (let attempt = 0; attempt <= retries; attempt++) {
+    try {
+      const res = await fetch(url, { cache: 'no-store' });
+      if (!res.ok) {
+        // Don't give up on the first hiccup - Firestore/network can have transient
+        // failures. Retry with a short backoff before falling back to any default.
+        if (attempt < retries) {
+          await new Promise(r => setTimeout(r, 300 * (attempt + 1)));
+          continue;
+        }
+        return null;
+      }
+      const doc = await res.json();
+      if (!doc.fields) return null;
+
+      const item = parseFields(doc.fields);
+      const parts = doc.name.split('/');
+      item.id = parts[parts.length - 1];
+      return applyImageFallback(item);
+    } catch {
+      if (attempt < retries) {
+        await new Promise(r => setTimeout(r, 300 * (attempt + 1)));
+        continue;
+      }
+      return null;
+    }
   }
+  return null;
 }
