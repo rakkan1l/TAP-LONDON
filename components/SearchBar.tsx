@@ -186,7 +186,10 @@ export default function SearchBar() {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    if (results.length > 0) handleSelect(results[0].href);
+    const q = query.trim();
+    if (q.length < 2) return;
+    setOpen(false);
+    router.push(`/search?q=${encodeURIComponent(q)}`);
   };
 
   return (
