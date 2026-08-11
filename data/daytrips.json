@@ -1,0 +1,108 @@
+{
+  "items": [
+    {
+      "id": "windsor-castle-day-trip",
+      "name": "Windsor Castle",
+      "category": "Royal & Historic",
+      "distance": "30 min by train from Paddington",
+      "description": "The oldest and largest occupied castle in the world, and an official residence of the King. Highlights include the State Apartments and the Gothic St George's Chapel, site of royal weddings and funerals.",
+      "bestFor": "Half-day trip, royal history",
+      "entryFee": "From £30 adult",
+      "priceType": "Paid",
+      "image": "https://images.pexels.com/photos/460672/pexels-photo-460672.jpeg?auto=compress&cs=tinysrgb&w=800",
+      "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Windsor+Castle",
+      "order": 1
+    },
+    {
+      "id": "stonehenge-day-trip",
+      "name": "Stonehenge",
+      "category": "Ancient & Prehistoric",
+      "distance": "Approx. 2 hours by coach tour",
+      "description": "A UNESCO World Heritage prehistoric stone circle dating to the Neolithic age, still shrouded in mystery over its original purpose. Best visited as part of a full-day guided tour.",
+      "bestFor": "Full-day trip, ancient history",
+      "entryFee": "From £25 adult",
+      "priceType": "Paid",
+      "image": "https://images.pexels.com/photos/1587927/pexels-photo-1587927.jpeg?auto=compress&cs=tinysrgb&w=800",
+      "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Stonehenge",
+      "order": 2
+    },
+    {
+      "id": "oxford-day-trip",
+      "name": "Oxford",
+      "category": "University City",
+      "distance": "Approx. 1 hour by train from Paddington",
+      "description": "The 'city of dreaming spires', home to the world-renowned University of Oxford. Wander cobbled lanes, ancient college courtyards, and the historic Bodleian Library, one of Europe's oldest.",
+      "bestFor": "Full-day trip, architecture, literary history",
+      "entryFee": "College entry varies, £5-£15",
+      "priceType": "Paid",
+      "image": "https://images.pexels.com/photos/1029599/pexels-photo-1029599.jpeg?auto=compress&cs=tinysrgb&w=800",
+      "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Oxford+England",
+      "order": 3
+    },
+    {
+      "id": "cambridge-day-trip",
+      "name": "Cambridge",
+      "category": "University City",
+      "distance": "48 min by train from King's Cross",
+      "description": "Home to the historic University of Cambridge, with punting along the River Cam and stunning college architecture including King's College Chapel.",
+      "bestFor": "Full-day trip, punting, architecture",
+      "entryFee": "College entry varies, £5-£15",
+      "priceType": "Paid",
+      "image": "https://images.pexels.com/photos/1029604/pexels-photo-1029604.jpeg?auto=compress&cs=tinysrgb&w=800",
+      "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Cambridge+England",
+      "order": 4
+    },
+    {
+      "id": "bath-day-trip",
+      "name": "Bath",
+      "category": "Roman & Georgian",
+      "distance": "90 min by train from Paddington",
+      "description": "Centres on the 2,000-year-old Roman Baths and the elegant Georgian Royal Crescent. One of England's most complete historic cities.",
+      "bestFor": "Full-day trip, Roman history, architecture",
+      "entryFee": "Roman Baths from £23 adult",
+      "priceType": "Paid",
+      "image": "https://images.pexels.com/photos/1461974/pexels-photo-1461974.jpeg?auto=compress&cs=tinysrgb&w=800",
+      "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Bath+England",
+      "order": 5
+    },
+    {
+      "id": "cotswolds-day-trip",
+      "name": "The Cotswolds",
+      "category": "Countryside",
+      "distance": "Approx. 90 min by coach tour",
+      "description": "Honey-coloured limestone villages like Bourton-on-the-Water, Bibury and Stow-on-the-Wold set among rolling English countryside. The most popular rural escape from London.",
+      "bestFor": "Full-day trip, countryside, photography",
+      "entryFee": "Free to explore, tour costs vary",
+      "priceType": "Free",
+      "image": "https://images.pexels.com/photos/1591382/pexels-photo-1591382.jpeg?auto=compress&cs=tinysrgb&w=800",
+      "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Cotswolds+England",
+      "order": 6
+    },
+    {
+      "id": "canterbury-day-trip",
+      "name": "Canterbury",
+      "category": "Royal & Historic",
+      "distance": "Approx. 1 hour by train",
+      "description": "Home to Canterbury Cathedral, a UNESCO World Heritage Site and one of England's oldest and most famous Christian sites, drawing pilgrims since medieval times.",
+      "bestFor": "Half-day trip, medieval history",
+      "entryFee": "Cathedral from £17 adult",
+      "priceType": "Paid",
+      "image": "https://images.pexels.com/photos/1998439/pexels-photo-1998439.jpeg?auto=compress&cs=tinysrgb&w=800",
+      "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Canterbury+Cathedral",
+      "order": 7
+    },
+    {
+      "id": "hampton-court-palace-day-trip",
+      "name": "Hampton Court Palace",
+      "category": "Royal & Historic",
+      "distance": "Under 1 hour by train",
+      "description": "Henry VIII's former royal palace, with sprawling Tudor architecture, a world-famous maze, and beautifully maintained gardens along the Thames.",
+      "bestFor": "Half-day trip, Tudor history",
+      "entryFee": "From £26 adult",
+      "priceType": "Paid",
+      "image": "https://images.pexels.com/photos/2166553/pexels-photo-2166553.jpeg?auto=compress&cs=tinysrgb&w=800",
+      "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Hampton+Court+Palace",
+      "order": 8
+    }
+  ]
+}
