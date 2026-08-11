@@ -1825,6 +1825,218 @@
       "bookingUrl": "https://www.booking.com",
       "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Holiday+Inn+London+-+Camden+Lock+London",
       "order": 85
+    },
+    {
+      "id": "hilton-london-metropole",
+      "name": "Hilton London Metropole",
+      "category": "4-star",
+      "area": "Paddington, W2",
+      "description": "One of London's largest hotels, just a short walk from Paddington Station with direct Heathrow Express links. Spacious modern rooms, an on-site gym, and easy access to Hyde Park and Oxford Street shopping.",
+      "priceRange": "£140-£280/night",
+      "rating": "4.2",
+      "nearestStation": "Edgware Road (5 min walk)",
+      "amenities": [
+        "Gym",
+        "Bar",
+        "Restaurant",
+        "Business Centre",
+        "Concierge"
+      ],
+      "familyFriendly": true,
+      "image": "https://images.pexels.com/photos/271624/pexels-photo-271624.jpeg?auto=compress&cs=tinysrgb&w=800",
+      "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Hilton+London+Metropole",
+      "priceType": "Paid",
+      "order": 87
+    },
+    {
+      "id": "doubletree-hilton-hyde-park",
+      "name": "DoubleTree by Hilton London Hyde Park",
+      "category": "4-star",
+      "area": "Bayswater, W2",
+      "description": "Sits directly opposite Hyde Park and Kensington Gardens, a few minutes from Queensway and Bayswater tube stations. A reliable mid-range choice with generous rooms and easy access to Westfield shopping.",
+      "priceRange": "£130-£240/night",
+      "rating": "4.1",
+      "nearestStation": "Queensway (4 min walk)",
+      "amenities": [
+        "Gym",
+        "Bar",
+        "Restaurant",
+        "Wi-Fi",
+        "Concierge"
+      ],
+      "familyFriendly": true,
+      "image": "https://images.pexels.com/photos/262048/pexels-photo-262048.jpeg?auto=compress&cs=tinysrgb&w=800",
+      "mapsUrl": "https://www.google.com/maps/search/?api=1&query=DoubleTree+by+Hilton+London+Hyde+Park",
+      "priceType": "Paid",
+      "order": 88
+    },
+    {
+      "id": "the-westbourne-hyde-park",
+      "name": "The Westbourne Hyde Park Hotel",
+      "category": "4-star",
+      "area": "Bayswater, W2",
+      "description": "A restored 19th-century Victorian townhouse opposite Hyde Park, three minutes from Lancaster Gate station. Boutique-style rooms with period character and a genuinely quiet residential feel for central London.",
+      "priceRange": "£150-£260/night",
+      "rating": "4.3",
+      "nearestStation": "Lancaster Gate (3 min walk)",
+      "amenities": [
+        "Wi-Fi",
+        "Breakfast",
+        "Concierge",
+        "24hr Front Desk"
+      ],
+      "familyFriendly": true,
+      "image": "https://images.pexels.com/photos/271639/pexels-photo-271639.jpeg?auto=compress&cs=tinysrgb&w=800",
+      "mapsUrl": "https://www.google.com/maps/search/?api=1&query=The+Westbourne+Hyde+Park+Hotel+London",
+      "priceType": "Paid",
+      "order": 89
+    },
+    {
+      "id": "kensington-gardens-hotel",
+      "name": "Kensington Gardens Hotel",
+      "category": "3-star",
+      "area": "Bayswater, W2",
+      "description": "A budget-friendly Victorian townhouse hotel a short walk from Portobello Road Market and Hyde Park. Compact, well-kept rooms make it a practical base for first-time visitors watching their spend.",
+      "priceRange": "£85-£150/night",
+      "rating": "3.8",
+      "nearestStation": "Bayswater (6 min walk)",
+      "amenities": [
+        "Wi-Fi",
+        "Breakfast",
+        "24hr Front Desk"
+      ],
+      "familyFriendly": false,
+      "image": "https://images.pexels.com/photos/1447264/pexels-photo-1447264.jpeg?auto=compress&cs=tinysrgb&w=800",
+      "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Kensington+Gardens+Hotel+Bayswater+London",
+      "priceType": "Paid",
+      "order": 90
+    },
+    {
+      "id": "royal-park-hotel-bayswater",
+      "name": "Royal Park Hotel",
+      "category": "4-star",
+      "area": "Bayswater, W2",
+      "description": "A smart, central pick for exploring the sights, close to Hyde Park and Kensington Gardens with easy tube access. Comfortable rooms and attentive service at a fair mid-range price for the location.",
+      "priceRange": "£120-£220/night",
+      "rating": "4.0",
+      "nearestStation": "Bayswater (5 min walk)",
+      "amenities": [
+        "Wi-Fi",
+        "Breakfast",
+        "Bar",
+        "Concierge"
+      ],
+      "familyFriendly": true,
+      "image": "https://images.pexels.com/photos/237371/pexels-photo-237371.jpeg?auto=compress&cs=tinysrgb&w=800",
+      "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Royal+Park+Hotel+Bayswater+London",
+      "priceType": "Paid",
+      "order": 91
+    },
+    {
+      "id": "the-portobello-nomad",
+      "name": "NoMad London",
+      "category": "5-star",
+      "area": "Covent Garden, WC2",
+      "description": "A converted 18th-century former courthouse turned bohemian 5-star hotel with a striking double-height atrium restaurant. One of Covent Garden's most talked-about openings, blending grandeur with an eclectic, art-filled interior.",
+      "priceRange": "£380-£650/night",
+      "rating": "4.7",
+      "nearestStation": "Covent Garden (3 min walk)",
+      "amenities": [
+        "Spa",
+        "Restaurant",
+        "Bar",
+        "Gym",
+        "Concierge"
+      ],
+      "familyFriendly": false,
+      "image": "https://images.pexels.com/photos/271639/pexels-photo-271639.jpeg?auto=compress&cs=tinysrgb&w=800",
+      "mapsUrl": "https://www.google.com/maps/search/?api=1&query=NoMad+London+Covent+Garden",
+      "priceType": "Paid",
+      "order": 92
+    },
+    {
+      "id": "page8-hotel",
+      "name": "Page8 Hotel",
+      "category": "4-star",
+      "area": "Trafalgar Square, WC2",
+      "description": "A stylish mid-range hotel moments from Trafalgar Square, with compact but sharply designed rooms. A favourite with visitors who want a central, walkable location without the five-star price tag.",
+      "priceRange": "£190-£320/night",
+      "rating": "4.4",
+      "nearestStation": "Charing Cross (2 min walk)",
+      "amenities": [
+        "Wi-Fi",
+        "Restaurant",
+        "Bar",
+        "Concierge"
+      ],
+      "familyFriendly": false,
+      "image": "https://images.pexels.com/photos/271816/pexels-photo-271816.jpeg?auto=compress&cs=tinysrgb&w=800",
+      "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Page8+Hotel+Trafalgar+Square+London",
+      "priceType": "Paid",
+      "order": 93
+    },
+    {
+      "id": "the-londoner-leicester-square",
+      "name": "The Londoner",
+      "category": "5-star",
+      "area": "Leicester Square, WC2",
+      "description": "One of the best-value 5-star hotels in central London, with a rooftop bar, indoor pool and several in-house restaurants. Steps from Leicester Square and the West End theatre district.",
+      "priceRange": "£350-£600/night",
+      "rating": "4.6",
+      "nearestStation": "Leicester Square (1 min walk)",
+      "amenities": [
+        "Pool",
+        "Spa",
+        "Rooftop Bar",
+        "Restaurant",
+        "Gym"
+      ],
+      "familyFriendly": true,
+      "image": "https://images.pexels.com/photos/261102/pexels-photo-261102.jpeg?auto=compress&cs=tinysrgb&w=800",
+      "mapsUrl": "https://www.google.com/maps/search/?api=1&query=The+Londoner+Leicester+Square",
+      "priceType": "Paid",
+      "order": 94
+    },
+    {
+      "id": "phoenix-hotel-bayswater",
+      "name": "Phoenix Hotel",
+      "category": "3-star",
+      "area": "Bayswater, W2",
+      "description": "A quarter-mile from Bayswater and Queensway underground stations and a five-minute walk from Hyde Park. Reliable budget accommodation with simple, clean rooms for travellers prioritising location over luxury.",
+      "priceRange": "£75-£140/night",
+      "rating": "3.7",
+      "nearestStation": "Bayswater (5 min walk)",
+      "amenities": [
+        "Wi-Fi",
+        "Breakfast",
+        "24hr Front Desk"
+      ],
+      "familyFriendly": false,
+      "image": "https://images.pexels.com/photos/1454806/pexels-photo-1454806.jpeg?auto=compress&cs=tinysrgb&w=800",
+      "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Phoenix+Hotel+Bayswater+London",
+      "priceType": "Paid",
+      "order": 97
+    },
+    {
+      "id": "grand-royale-hyde-park",
+      "name": "Grand Royale London Hyde Park",
+      "category": "4-star",
+      "area": "Bayswater, W2",
+      "description": "A grand Victorian-era building near Paddington and Hyde Park, offering spacious rooms and classic British hotel styling. A solid choice for families wanting space without straying from central London.",
+      "priceRange": "£140-£250/night",
+      "rating": "4.1",
+      "nearestStation": "Paddington (8 min walk)",
+      "amenities": [
+        "Restaurant",
+        "Bar",
+        "Wi-Fi",
+        "Family Rooms"
+      ],
+      "familyFriendly": true,
+      "image": "https://images.pexels.com/photos/276724/pexels-photo-276724.jpeg?auto=compress&cs=tinysrgb&w=800",
+      "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Grand+Royale+London+Hyde+Park",
+      "priceType": "Paid",
+      "order": 98
     }
   ]
 }
