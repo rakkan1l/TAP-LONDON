@@ -16,10 +16,49 @@ function isHappeningNow(item: any): boolean {
   return today >= start;
 }
 
+// Time window filters: does the event fall within today / this weekend / this month?
+function isThisWeek(item: any): boolean {
+  const start = item.startDate ? new Date(item.startDate) : null;
+  if (!start) return true;
+  const today = new Date();
+  const weekEnd = new Date(today);
+  weekEnd.setDate(today.getDate() + 7);
+  return start <= weekEnd;
+}
+
+function isThisWeekend(item: any): boolean {
+  const start = item.startDate ? new Date(item.startDate) : null;
+  if (!start) return true;
+  const today = new Date();
+  const day = today.getDay();
+  const daysUntilSat = (6 - day + 7) % 7;
+  const saturday = new Date(today);
+  saturday.setDate(today.getDate() + daysUntilSat);
+  const sunday = new Date(saturday);
+  sunday.setDate(saturday.getDate() + 1);
+  sunday.setHours(23, 59, 59, 999);
+  return start >= today && start <= sunday;
+}
+
+function isThisMonth(item: any): boolean {
+  const start = item.startDate ? new Date(item.startDate) : null;
+  if (!start) return true;
+  const today = new Date();
+  return start.getMonth() === today.getMonth() && start.getFullYear() === today.getFullYear();
+}
+
+const TIME_FILTERS = [
+  { label: 'Today', value: 'today', test: isHappeningNow },
+  { label: 'This Weekend', value: 'weekend', test: isThisWeekend },
+  { label: 'This Week', value: 'week', test: isThisWeek },
+  { label: 'This Month', value: 'month', test: isThisMonth },
+];
+
 export default function EventsPage() {
   const [items, setItems] = useState<any[]>([]);
   const [loading, setLoading] = useState(true);
   const [activeCategory, setActiveCategory] = useState('All');
+  const [activeTime, setActiveTime] = useState('today');
 
   useEffect(() => {
     fetchCollection('events').then(data => {
@@ -28,8 +67,9 @@ export default function EventsPage() {
     });
   }, []);
 
-  const happening = items.filter(isHappeningNow);
-  const filtered = activeCategory === 'All' ? happening : happening.filter((e: any) => e.category === activeCategory);
+  const timeFilterFn = TIME_FILTERS.find(t => t.value === activeTime)?.test ?? isHappeningNow;
+  const inTimeWindow = items.filter(timeFilterFn);
+  const filtered = activeCategory === 'All' ? inTimeWindow : inTimeWindow.filter((e: any) => e.category === activeCategory);
 
   const todayLabel = new Date().toLocaleDateString('en-GB', { weekday: 'long', day: 'numeric', month: 'long' });
 
@@ -37,9 +77,14 @@ export default function EventsPage() {
     <main className="bg-[#f9f7f2] dark:bg-[#0d0d1a]" style={{ minHeight: '100vh' }}>
       <div style={{ background: '#1a1a2e', padding: '60px 20px 40px' }}>
         <div style={{ maxWidth: '1100px', margin: '0 auto' }}>
-          <p style={{ fontFamily: "'DM Sans', sans-serif", fontSize: '0.7rem', color: '#c9a84c', fontWeight: 700, letterSpacing: '2.5px', textTransform: 'uppercase' as const, marginBottom: '10px' }}>Live Now</p>
-          <h1 style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: 'clamp(2rem, 5vw, 3.5rem)', fontWeight: 700, color: '#ffffff', margin: '0 0 14px' }}>What's Happening Today</h1>
-          <p style={{ fontFamily: "'DM Sans', sans-serif", fontSize: '1rem', color: 'rgba(255,255,255,0.55)' }}>{todayLabel} — events, markets and things to do right now in London.</p>
+          <p style={{ fontFamily: "'DM Sans', sans-serif", fontSize: '0.7rem', color: '#c9a84c', fontWeight: 700, letterSpacing: '2.5px', textTransform: 'uppercase' as const, marginBottom: '10px' }}>What's On</p>
+          <h1 style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: 'clamp(2rem, 5vw, 3.5rem)', fontWeight: 700, color: '#ffffff', margin: '0 0 14px' }}>What's Happening in London</h1>
+          <p style={{ fontFamily: "'DM Sans', sans-serif", fontSize: '1rem', color: 'rgba(255,255,255,0.55)', marginBottom: '20px' }}>{todayLabel} — events, markets and things to do in London.</p>
+          <div style={{ display: 'flex', gap: '8px', flexWrap: 'wrap' as const }}>
+            {TIME_FILTERS.map(t => (
+              <button key={t.value} onClick={() => setActiveTime(t.value)} style={{ padding: '8px 18px', borderRadius: '40px', border: 'none', cursor: 'pointer', fontFamily: "'DM Sans', sans-serif", fontSize: '0.8rem', fontWeight: 700, background: activeTime === t.value ? '#c9a84c' : 'rgba(255,255,255,0.1)', color: activeTime === t.value ? '#1a1a2e' : '#fff' }}>{t.label}</button>
+            ))}
+          </div>
         </div>
       </div>
 
