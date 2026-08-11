@@ -62,23 +62,41 @@ export async function fetchDocument(collection: string, id: string, retries = 2)
   for (let attempt = 0; attempt <= retries; attempt++) {
     try {
       const res = await fetch(url, { cache: 'no-store' });
+      // TEMP DEBUG - remove after diagnosing image issue
+      if (typeof window !== 'undefined') {
+        console.log(`[fetchDocument] ${collection}/${id} attempt ${attempt}: status ${res.status}`);
+      }
       if (!res.ok) {
-        // Don't give up on the first hiccup - Firestore/network can have transient
-        // failures. Retry with a short backoff before falling back to any default.
         if (attempt < retries) {
           await new Promise(r => setTimeout(r, 300 * (attempt + 1)));
           continue;
         }
+        if (typeof window !== 'undefined') {
+          console.log(`[fetchDocument] ${collection}/${id} FAILED after ${retries + 1} attempts, status ${res.status}`);
+        }
         return null;
       }
       const doc = await res.json();
-      if (!doc.fields) return null;
+      if (!doc.fields) {
+        if (typeof window !== 'undefined') {
+          console.log(`[fetchDocument] ${collection}/${id} returned no fields`, doc);
+        }
+        return null;
+      }
 
       const item = parseFields(doc.fields);
       const parts = doc.name.split('/');
       item.id = parts[parts.length - 1];
-      return applyImageFallback(item);
-    } catch {
+      const result = applyImageFallback(item);
+      // TEMP DEBUG
+      if (typeof window !== 'undefined') {
+        console.log(`[fetchDocument] ${collection}/${id} SUCCESS - image:`, result.image);
+      }
+      return result;
+    } catch (e) {
+      if (typeof window !== 'undefined') {
+        console.log(`[fetchDocument] ${collection}/${id} ERROR:`, e);
+      }
       if (attempt < retries) {
         await new Promise(r => setTimeout(r, 300 * (attempt + 1)));
         continue;
