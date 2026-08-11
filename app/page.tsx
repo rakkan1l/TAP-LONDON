@@ -40,8 +40,8 @@ const HOW_IT_WORKS = [
   { title: 'Enjoy London',     desc: 'Real directions, trusted tips, halal guides.',      step: '04' },
 ];
 const STATS = [
-  { number: '50+',  label: 'Curated Places' },
-  { number: '35+',  label: 'Restaurants' },
+  { number: '300+', label: 'Curated Places' },
+  { number: '200+', label: 'Restaurants' },
   { number: '12',   label: 'Languages' },
   { number: '24/7', label: 'AI Guide' },
 ];
