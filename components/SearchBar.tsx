@@ -30,15 +30,28 @@ const SECTION_CONFIG: { collection: string; type: string; hrefBase: string; labe
   { collection: 'sports',      type: 'sports',      hrefBase: '/sports',      label: 'Sports',      color: '#5ab0e5' },
 ];
 
-// Maps common search intents to filters across categories
-const INTENT_KEYWORDS: Record<string, string[]> = {
-  halal: ['halal', 'verifiedHalal'],
-  cheap: ['£'],
-  free: ['Free'],
-  family: ['Family', 'Kids'],
-  rooftop: ['Rooftop', 'rooftop'],
-  late: ['late', 'midnight'],
-};
+// Maps common search intents/synonyms to a predicate over an indexed item.
+// This is what makes queries like "cheap food", "best hidden gems", "free places" work,
+// not just literal name matching.
+type IntentRule = { keywords: string[]; test: (item: any) => boolean; boost: number };
+
+const INTENT_RULES: IntentRule[] = [
+  { keywords: ['halal'], test: (i) => i.halal === 'halal', boost: 40 },
+  { keywords: ['cheap', 'budget', 'affordable', 'low cost', 'inexpensive'],
+    test: (i) => (i.priceType || '').toLowerCase() === 'free' || (i.priceRangeLevel ?? 9) <= 1, boost: 35 },
+  { keywords: ['free'], test: (i) => (i.priceType || '').toLowerCase() === 'free', boost: 45 },
+  { keywords: ['luxury', 'expensive', 'high end', 'premium', '5 star', 'five star'],
+    test: (i) => (i.priceRangeLevel ?? 0) >= 3 || (i.category || '').toLowerCase().includes('5-star'), boost: 35 },
+  { keywords: ['family', 'kids', 'children'], test: (i) => i.type === 'kids' || i.familyFriendly, boost: 30 },
+  { keywords: ['rooftop'], test: (i) => /rooftop/i.test(i.name + ' ' + i.description + ' ' + i.tags), boost: 30 },
+  { keywords: ['late night', 'late', 'midnight', 'after hours'],
+    test: (i) => /late|midnight|24[- ]?hour/i.test(i.description + ' ' + i.tags), boost: 25 },
+  { keywords: ['hidden gem', 'hidden gems', 'secret', 'unusual', 'off the beaten path'],
+    test: (i) => i.type === 'hidden-gems', boost: 40 },
+  { keywords: ['best', 'top', 'top rated', 'must see', 'must-see'],
+    test: (i) => (i.rating ?? 0) >= 4 || (i.category || '').toLowerCase().includes('top'), boost: 20 },
+  { keywords: ['hotel', 'hotels', 'stay', 'accommodation'], test: (i) => i.type === 'hotels', boost: 25 },
+];
 
 let SEARCH_INDEX: any[] = [];
 let indexLoaded = false;
@@ -53,6 +66,7 @@ async function buildIndex() {
         const items = await fetchCollection(cfg.collection);
         if (!items) return;
         items.forEach((item: any) => {
+          const priceStr = (item.priceRange || '').toString();
           all.push({
             id: item.id,
             name: item.name,
@@ -63,6 +77,9 @@ async function buildIndex() {
             tags: Array.isArray(item.tags) ? item.tags.join(' ') : '',
             halal: item.halal || item.verifiedHalal ? 'halal' : '',
             priceType: item.priceType || '',
+            priceRangeLevel: (priceStr.match(/£/g) || []).length,
+            rating: parseFloat(item.rating) || 0,
+            familyFriendly: !!item.familyFriendly,
             type: cfg.type,
             href: `${cfg.hrefBase}/${item.id}`,
             image: item.image,
@@ -86,6 +103,8 @@ function scoreMatch(item: any, query: string): number {
     .toLowerCase();
 
   let score = 0;
+
+  // Direct name matching (still the strongest signal for a literal name search)
   if (name === q) score += 100;
   else if (name.startsWith(q)) score += 60;
   else if (name.includes(q)) score += 35;
@@ -96,6 +115,16 @@ function scoreMatch(item: any, query: string): number {
     if (name.includes(w)) score += 12;
     if (haystack.includes(w)) score += 6;
   });
+
+  // Intent-based matching — lets queries like "cheap food", "best hidden gems",
+  // "free places", "luxury hotels" surface results even when none of those words
+  // appear literally in the item's name/description.
+  for (const rule of INTENT_RULES) {
+    const matchedKeyword = rule.keywords.some(kw => q.includes(kw));
+    if (matchedKeyword && rule.test(item)) {
+      score += rule.boost;
+    }
+  }
 
   return score;
 }
