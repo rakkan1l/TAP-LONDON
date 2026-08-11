@@ -113,19 +113,6 @@
       "order": 7
     },
     {
-      "id": "sea-life-aquarium",
-      "name": "SEA LIFE London Aquarium",
-      "category": "Activities",
-      "area": "South Bank, SE1",
-      "description": "One of Europe's largest aquariums with over 600 species including sharks, rays and penguins. Interactive touch pools and daily feeding shows.",
-      "openingHours": "Daily 10:00–18:00 (last entry 17:00)",
-      "entryFee": "From £22 (book online for discount)",
-      "ageRange": "All ages",
-      "image": "https://images.unsplash.com/photo-1519378058457-4c29a0a2efac?w=800&q=80",
-      "mapsUrl": "https://www.google.com/maps/search/?api=1&query=SEA+LIFE+London+Aquarium",
-      "order": 8
-    },
-    {
       "id": "legoland-discovery",
       "name": "Legoland Discovery Centre",
       "category": "Entertainment",
@@ -137,19 +124,6 @@
       "image": "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&q=80",
       "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Legoland+Discovery+Centre+London",
       "order": 9
-    },
-    {
-      "id": "kew-gardens",
-      "name": "Kew Gardens",
-      "category": "Parks",
-      "area": "Richmond, TW9",
-      "description": "UNESCO World Heritage botanical gardens with a children's play area, treetop walkway, glass houses and seasonal events. Perfect family day out.",
-      "openingHours": "Daily 10:00–19:00 (seasonal variations)",
-      "entryFee": "Adults £22, Children free under 17",
-      "ageRange": "All ages",
-      "image": "https://images.unsplash.com/photo-1416879595882-3373a0480b5b?w=800&q=80",
-      "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Kew+Gardens+London",
-      "order": 10
     },
     {
       "id": "v-and-a-museum-childhood",
