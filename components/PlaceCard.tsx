@@ -52,7 +52,14 @@ export default function PlaceCard({ item, mode = "place" }: PlaceCardProps) {
   const [imageFailed, setImageFailed] = useState(false);
   const category = item.category ?? item.section ?? item.type ?? "London";
   const area = item.area ?? item.location ?? "London";
-  const paid = item.priceType === "Paid";
+  // Determine paid/free defensively: don't trust priceType alone (it can be
+  // missing or wrong in Firestore). Fall back to reading entryFee text properly —
+  // e.g. "Exterior free; exhibition adult £14.50" mentions "free" but also has a
+  // real price, so it must NOT be treated as fully free.
+  const feeText = (item.entryFee || "").toLowerCase();
+  const hasPriceNumber = /£\s?\d/.test(feeText);
+  const saysFree = /\bfree\b/.test(feeText);
+  const paid = item.priceType === "Paid" || (item.priceType !== "Free" && hasPriceNumber) || (!item.priceType && hasPriceNumber) || (saysFree && hasPriceNumber);
   const fallbackIcon = mode === "food" ? "🍽️" : mode === "shopping" ? "🛍️" : "📍";
   const icon = item.icon ?? fallbackIcon;
   const vibeStyle = item.vibe ? VIBE_COLORS[item.vibe] : null;
