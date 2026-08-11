@@ -2037,6 +2037,152 @@
       "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Grand+Royale+London+Hyde+Park",
       "priceType": "Paid",
       "order": 98
+    },
+    {
+      "id": "the-gore-london",
+      "name": "The Gore London",
+      "category": "4-star",
+      "area": "South Kensington, SW7",
+      "description": "Established in 1892, a charming boutique hotel packed with history and 50 individually decorated rooms. Its Bar 190 is famous as the location of the Rolling Stones' 1968 Beggars Banquet launch party.",
+      "priceRange": "£220-£380/night",
+      "rating": "4.5",
+      "nearestStation": "Gloucester Road (3 min walk)",
+      "amenities": [
+        "Bar",
+        "Restaurant",
+        "Wi-Fi",
+        "Concierge"
+      ],
+      "familyFriendly": false,
+      "image": "https://images.pexels.com/photos/271639/pexels-photo-271639.jpeg?auto=compress&cs=tinysrgb&w=800",
+      "mapsUrl": "https://www.google.com/maps/search/?api=1&query=The+Gore+London+South+Kensington",
+      "priceType": "Paid",
+      "order": 99
+    },
+    {
+      "id": "ember-locke-kensington",
+      "name": "Ember Locke Kensington",
+      "category": "4-star",
+      "area": "Kensington, W8",
+      "description": "A red-brick Victorian townhouse near Kensington High Street with 121 glamorous studios and suites in burnt-orange, Art Deco-inspired styling. Apartment-style living with hotel service.",
+      "priceRange": "£190-£340/night",
+      "rating": "4.4",
+      "nearestStation": "Kensington High Street (4 min walk)",
+      "amenities": [
+        "Kitchen",
+        "Wi-Fi",
+        "Gym",
+        "Concierge"
+      ],
+      "familyFriendly": true,
+      "image": "https://images.pexels.com/photos/276724/pexels-photo-276724.jpeg?auto=compress&cs=tinysrgb&w=800",
+      "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Ember+Locke+Kensington+London",
+      "priceType": "Paid",
+      "order": 100
+    },
+    {
+      "id": "the-other-house-south-kensington",
+      "name": "The Other House",
+      "category": "4-star",
+      "area": "South Kensington, SW7",
+      "description": "A residents' club-style hotel close to Hyde Park and Knightsbridge, combining home comforts with apartment-style living and full hotel services. On the doorstep of South Kensington's museum district.",
+      "priceRange": "£200-£360/night",
+      "rating": "4.5",
+      "nearestStation": "South Kensington (5 min walk)",
+      "amenities": [
+        "Kitchen",
+        "Gym",
+        "Wi-Fi",
+        "Concierge"
+      ],
+      "familyFriendly": true,
+      "image": "https://images.pexels.com/photos/262048/pexels-photo-262048.jpeg?auto=compress&cs=tinysrgb&w=800",
+      "mapsUrl": "https://www.google.com/maps/search/?api=1&query=The+Other+House+South+Kensington",
+      "priceType": "Paid",
+      "order": 101
+    },
+    {
+      "id": "sloane-place-chelsea",
+      "name": "Sloane Place",
+      "category": "4-star",
+      "area": "Chelsea, SW1",
+      "description": "A bar-and-terrace hotel close to the V&A and Harrods, with a reputation for hospitable staff and a strong breakfast and dinner offering in a quiet residential Chelsea setting.",
+      "priceRange": "£170-£290/night",
+      "rating": "4.2",
+      "nearestStation": "Sloane Square (6 min walk)",
+      "amenities": [
+        "Bar",
+        "Terrace",
+        "Restaurant",
+        "Wi-Fi"
+      ],
+      "familyFriendly": true,
+      "image": "https://images.pexels.com/photos/261102/pexels-photo-261102.jpeg?auto=compress&cs=tinysrgb&w=800",
+      "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Sloane+Place+Chelsea+London",
+      "priceType": "Paid",
+      "order": 102
+    },
+    {
+      "id": "number-sixteen-kensington",
+      "name": "Number Sixteen",
+      "category": "4-star",
+      "area": "South Kensington, SW7",
+      "description": "A peaceful boutique hideaway just a stone's throw from South Kensington's world-class museums. A secluded garden and understated, elegant rooms make it a favourite for a quieter stay.",
+      "priceRange": "£210-£370/night",
+      "rating": "4.6",
+      "nearestStation": "South Kensington (2 min walk)",
+      "amenities": [
+        "Garden",
+        "Wi-Fi",
+        "Breakfast",
+        "Concierge"
+      ],
+      "familyFriendly": false,
+      "image": "https://images.pexels.com/photos/271816/pexels-photo-271816.jpeg?auto=compress&cs=tinysrgb&w=800",
+      "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Number+Sixteen+South+Kensington+London",
+      "priceType": "Paid",
+      "order": 103
+    },
+    {
+      "id": "new-linden-hotel-notting-hill",
+      "name": "New Linden Hotel",
+      "category": "3-star",
+      "area": "Notting Hill, W2",
+      "description": "One of the most transport-accessible boutique properties in Notting Hill, steps from both Notting Hill Gate and Bayswater tube stations. A practical, well-located base for exploring West London.",
+      "priceRange": "£110-£190/night",
+      "rating": "4.0",
+      "nearestStation": "Notting Hill Gate (2 min walk)",
+      "amenities": [
+        "Wi-Fi",
+        "Breakfast",
+        "24hr Front Desk"
+      ],
+      "familyFriendly": true,
+      "image": "https://images.pexels.com/photos/1447264/pexels-photo-1447264.jpeg?auto=compress&cs=tinysrgb&w=800",
+      "mapsUrl": "https://www.google.com/maps/search/?api=1&query=New+Linden+Hotel+Notting+Hill",
+      "priceType": "Paid",
+      "order": 104
+    },
+    {
+      "id": "zetter-townhouse-clerkenwell",
+      "name": "The Zetter Townhouse Clerkenwell",
+      "category": "4-star",
+      "area": "Clerkenwell, EC1",
+      "description": "A quirky 13-bedroom Georgian townhouse on historic St John's Square, with each room individually decorated in bold heritage colours and antique pieces. Full of character and personality.",
+      "priceRange": "£200-£340/night",
+      "rating": "4.5",
+      "nearestStation": "Farringdon (5 min walk)",
+      "amenities": [
+        "Bar",
+        "Wi-Fi",
+        "Breakfast",
+        "Concierge"
+      ],
+      "familyFriendly": false,
+      "image": "https://images.pexels.com/photos/237371/pexels-photo-237371.jpeg?auto=compress&cs=tinysrgb&w=800",
+      "mapsUrl": "https://www.google.com/maps/search/?api=1&query=The+Zetter+Townhouse+Clerkenwell",
+      "priceType": "Paid",
+      "order": 105
     }
   ]
 }
