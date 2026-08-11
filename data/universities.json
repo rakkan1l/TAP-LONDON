@@ -1,0 +1,76 @@
+{
+  "items": [
+    {
+      "id": "imperial-college-london",
+      "name": "Imperial College London",
+      "area": "South Kensington, SW7",
+      "description": "Ranked the best university in the UK and 2nd in the world (QS 2026), Imperial focuses solely on science, engineering, medicine and business. Part of the 'Golden Triangle' alongside Oxford and Cambridge, with 14 Nobel laureates among its alumni.",
+      "founded": "1907",
+      "focus": "Science, Engineering, Medicine, Business",
+      "ranking": "#2 world, #1 UK (QS 2026)",
+      "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Imperial+College+London",
+      "image": "https://images.pexels.com/photos/207684/pexels-photo-207684.jpeg?auto=compress&cs=tinysrgb&w=800",
+      "order": 1
+    },
+    {
+      "id": "ucl-london",
+      "name": "University College London (UCL)",
+      "area": "Bloomsbury, WC1",
+      "description": "London's first higher education institution, founded in 1826. Known as 'London's global university', with students from over 150 countries and 29 Nobel laureates among its alumni. Ranked 9th in the world for 2026.",
+      "founded": "1826",
+      "focus": "Broad multidisciplinary, strong in sustainability and architecture",
+      "ranking": "#9 world (QS 2026)",
+      "mapsUrl": "https://www.google.com/maps/search/?api=1&query=University+College+London",
+      "image": "https://images.pexels.com/photos/207692/pexels-photo-207692.jpeg?auto=compress&cs=tinysrgb&w=800",
+      "order": 2
+    },
+    {
+      "id": "kings-college-london",
+      "name": "King's College London",
+      "area": "Strand, WC2",
+      "description": "Founded in 1829 by King George IV and the Duke of Wellington, KCL is a leader in healthcare fields with 12 Nobel laureates among its graduates and faculty. Home to around 28,000 students.",
+      "founded": "1829",
+      "focus": "Healthcare, Humanities, Social Sciences",
+      "ranking": "#31 world (QS 2026)",
+      "mapsUrl": "https://www.google.com/maps/search/?api=1&query=King's+College+London",
+      "image": "https://images.pexels.com/photos/1438072/pexels-photo-1438072.jpeg?auto=compress&cs=tinysrgb&w=800",
+      "order": 3
+    },
+    {
+      "id": "lse-london",
+      "name": "London School of Economics (LSE)",
+      "area": "Holborn, WC2",
+      "description": "A world-leading social science institution since 1895, offering over 140 taught master's programmes. Regularly hosts lectures from influential global politicians and economists, with students from around 140 countries.",
+      "founded": "1895",
+      "focus": "Economics, Social Sciences, Politics",
+      "ranking": "#56 world (QS 2026)",
+      "mapsUrl": "https://www.google.com/maps/search/?api=1&query=London+School+of+Economics",
+      "image": "https://images.pexels.com/photos/159775/library-la-trobe-university-books-159775.jpeg?auto=compress&cs=tinysrgb&w=800",
+      "order": 4
+    },
+    {
+      "id": "queen-mary-university",
+      "name": "Queen Mary University of London",
+      "area": "Mile End, E1",
+      "description": "A large Russell Group institution with a strong reputation in Law, Dentistry and Health, located in East London with a diverse, multicultural student body.",
+      "founded": "1785 (as constituent college)",
+      "focus": "Law, Dentistry, Health, Sciences",
+      "ranking": "Top 10 UK universities in London",
+      "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Queen+Mary+University+of+London",
+      "image": "https://images.pexels.com/photos/2781760/pexels-photo-2781760.jpeg?auto=compress&cs=tinysrgb&w=800",
+      "order": 5
+    },
+    {
+      "id": "soas-university",
+      "name": "SOAS University of London",
+      "area": "Bloomsbury, WC1",
+      "description": "A specialist institution focused on the study of Asia, Africa and the Middle East, renowned globally for languages, area studies and international relations.",
+      "founded": "1916",
+      "focus": "Asian & African Studies, Languages, International Relations",
+      "ranking": "Top 10 UK universities in London",
+      "mapsUrl": "https://www.google.com/maps/search/?api=1&query=SOAS+University+of+London",
+      "image": "https://images.pexels.com/photos/159490/yale-university-landscape-college-university-159490.jpeg?auto=compress&cs=tinysrgb&w=800",
+      "order": 6
+    }
+  ]
+}
