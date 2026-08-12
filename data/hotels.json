@@ -2183,6 +2183,150 @@
       "mapsUrl": "https://www.google.com/maps/search/?api=1&query=The+Zetter+Townhouse+Clerkenwell",
       "priceType": "Paid",
       "order": 105
+    },
+    {
+      "id": "canopy-by-hilton-london-city",
+      "name": "Canopy by Hilton London City",
+      "category": "4-star",
+      "area": "City of London, EC3",
+      "description": "A design-led hotel in the heart of the financial district, close to the Tower of London and Tower Bridge. Locally inspired rooms and a rooftop bar overlooking the City skyline.",
+      "priceRange": "£180-£300/night",
+      "rating": "4.4",
+      "nearestStation": "Tower Hill (5 min walk)",
+      "amenities": [
+        "Rooftop Bar",
+        "Gym",
+        "Restaurant",
+        "Wi-Fi"
+      ],
+      "familyFriendly": false,
+      "image": "https://images.pexels.com/photos/271624/pexels-photo-271624.jpeg?auto=compress&cs=tinysrgb&w=800",
+      "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Canopy+by+Hilton+London+City",
+      "priceType": "Paid",
+      "order": 106
+    },
+    {
+      "id": "leonardo-hotel-london-aldgate",
+      "name": "Leonardo Hotel London Aldgate",
+      "category": "4-star",
+      "area": "Aldgate, E1",
+      "description": "A well-connected hotel minutes from Tower Gateway with river access to Greenwich and the London Eye. Close to Brick Lane's curry houses and Old Spitalfields Market.",
+      "priceRange": "£130-£220/night",
+      "rating": "4.1",
+      "nearestStation": "Aldgate East (8 min walk)",
+      "amenities": [
+        "Restaurant",
+        "Bar",
+        "Wi-Fi",
+        "Concierge"
+      ],
+      "familyFriendly": true,
+      "image": "https://images.pexels.com/photos/262048/pexels-photo-262048.jpeg?auto=compress&cs=tinysrgb&w=800",
+      "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Leonardo+Hotel+London+Aldgate",
+      "priceType": "Paid",
+      "order": 107
+    },
+    {
+      "id": "novotel-london-bridge",
+      "name": "Novotel London Bridge",
+      "category": "4-star",
+      "area": "London Bridge, SE1",
+      "description": "A modern hotel with spacious rooms close to the Shard, Tate Modern and Borough Market. A reliable mid-range base for exploring South Bank.",
+      "priceRange": "£150-£260/night",
+      "rating": "4.2",
+      "nearestStation": "London Bridge (6 min walk)",
+      "amenities": [
+        "Restaurant",
+        "Bar",
+        "Gym",
+        "Family Rooms"
+      ],
+      "familyFriendly": true,
+      "image": "https://images.pexels.com/photos/271639/pexels-photo-271639.jpeg?auto=compress&cs=tinysrgb&w=800",
+      "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Novotel+London+Bridge",
+      "priceType": "Paid",
+      "order": 108
+    },
+    {
+      "id": "the-tower-hotel-london",
+      "name": "The Tower Hotel",
+      "category": "4-star",
+      "area": "Tower Hill, E1",
+      "description": "A large riverside hotel with unbeatable views directly across the Thames to Tower Bridge. One of the most photographed hotel locations in London.",
+      "priceRange": "£160-£280/night",
+      "rating": "4.0",
+      "nearestStation": "Tower Hill (5 min walk)",
+      "amenities": [
+        "River View",
+        "Restaurant",
+        "Bar",
+        "Gym"
+      ],
+      "familyFriendly": true,
+      "image": "https://images.pexels.com/photos/276724/pexels-photo-276724.jpeg?auto=compress&cs=tinysrgb&w=800",
+      "mapsUrl": "https://www.google.com/maps/search/?api=1&query=The+Tower+Hotel+London",
+      "priceType": "Paid",
+      "order": 109
+    },
+    {
+      "id": "london-marriott-canary-wharf",
+      "name": "London Marriott Hotel Canary Wharf",
+      "category": "4-star",
+      "area": "Canary Wharf, E14",
+      "description": "A polished business-district hotel with skyline views over the Docklands. A strong choice for visitors combining business with a visit to the O2 or Greenwich.",
+      "priceRange": "£170-£290/night",
+      "rating": "4.4",
+      "nearestStation": "Canary Wharf (4 min walk)",
+      "amenities": [
+        "Pool",
+        "Gym",
+        "Restaurant",
+        "Bar"
+      ],
+      "familyFriendly": true,
+      "image": "https://images.pexels.com/photos/261102/pexels-photo-261102.jpeg?auto=compress&cs=tinysrgb&w=800",
+      "mapsUrl": "https://www.google.com/maps/search/?api=1&query=London+Marriott+Hotel+Canary+Wharf",
+      "priceType": "Paid",
+      "order": 110
+    },
+    {
+      "id": "point-a-hotel-canary-wharf",
+      "name": "Point A Hotel London Canary Wharf",
+      "category": "3-star",
+      "area": "Canary Wharf, E14",
+      "description": "A compact, well-designed budget hotel in the heart of the Docklands financial district, ideal for travellers who want a clean, efficient base without extras.",
+      "priceRange": "£90-£150/night",
+      "rating": "3.9",
+      "nearestStation": "Canary Wharf (5 min walk)",
+      "amenities": [
+        "Wi-Fi",
+        "24hr Front Desk"
+      ],
+      "familyFriendly": false,
+      "image": "https://images.pexels.com/photos/237371/pexels-photo-237371.jpeg?auto=compress&cs=tinysrgb&w=800",
+      "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Point+A+Hotel+Canary+Wharf",
+      "priceType": "Paid",
+      "order": 111
+    },
+    {
+      "id": "the-pilot-greenwich",
+      "name": "The Pilot, Greenwich",
+      "category": "3-star",
+      "area": "Greenwich, SE10",
+      "description": "A cosy Georgian pub with rooms near the Thames Path, offering a genuinely local, characterful stay close to Greenwich's markets and the Cutty Sark.",
+      "priceRange": "£100-£170/night",
+      "rating": "4.2",
+      "nearestStation": "North Greenwich (10 min walk)",
+      "amenities": [
+        "Pub",
+        "Wi-Fi",
+        "Breakfast"
+      ],
+      "familyFriendly": false,
+      "image": "https://images.pexels.com/photos/1447264/pexels-photo-1447264.jpeg?auto=compress&cs=tinysrgb&w=800",
+      "mapsUrl": "https://www.google.com/maps/search/?api=1&query=The+Pilot+Greenwich",
+      "priceType": "Paid",
+      "order": 112
     }
   ]
 }
