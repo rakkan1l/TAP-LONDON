@@ -7,6 +7,7 @@ import { FadeUp, SlideLeft, SlideRight } from '@/components/ScrollAnimation';
 import SearchBar from '@/components/SearchBar';
 import NearMe from '@/components/NearMe';
 import LondonQuiz from '@/components/LondonQuiz';
+import ItineraryBuilder from '@/components/ItineraryBuilder';
 import { fetchDocument } from '@/lib/firestore';
 
 const DEFAULT_HERO = 'https://images.pexels.com/photos/672532/pexels-photo-672532.jpeg?auto=compress&cs=tinysrgb&w=1920';
@@ -149,6 +150,11 @@ export default function HomePage() {
             </motion.div>
           ))}
         </div>
+      </section>
+
+      {/* AI ITINERARY BUILDER */}
+      <section style={{ background: '#12121f', padding: '60px 20px', width: '100%', boxSizing: 'border-box' as const, borderTop: '1px solid rgba(201,168,76,0.1)' }}>
+        <ItineraryBuilder />
       </section>
 
       {/* LONDON QUIZ */}
