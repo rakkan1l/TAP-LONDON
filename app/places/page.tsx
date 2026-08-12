@@ -1,6 +1,8 @@
 import type { Metadata } from 'next';
 import PlacesPageClient from './PlacesPageClient';
 
+export const dynamic = 'force-dynamic';
+
 export const metadata: Metadata = {
   title: 'Best Places to Visit in London — Attractions, Hidden Gems & Photo Spots',
   description: 'Discover the best places in London: top attractions, hidden gems, iconic photo spots and free things to do. Curated by TAP LONDON.',
