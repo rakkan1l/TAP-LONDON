@@ -164,8 +164,8 @@ export default function HomePage() {
               position: 'absolute', top: '-40%', right: '-8%', width: '340px', height: '340px', borderRadius: '50%',
               background: 'radial-gradient(circle, rgba(201,168,76,0.16), transparent 70%)',
             }} />
-            <div style={{ position: 'relative', display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap' as const, gap: '20px' }}>
-              <div>
+            <div className="itinerary-entry-inner" style={{ position: 'relative', display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap' as const, gap: '20px' }}>
+              <div className="itinerary-entry-text" style={{ textAlign: 'left' as const }}>
                 <div style={{
                   display: 'inline-flex', alignItems: 'center', gap: '8px', fontFamily: "'DM Sans', sans-serif",
                   fontSize: '0.68rem', color: '#c9a84c', letterSpacing: '2.5px', textTransform: 'uppercase' as const,
@@ -175,7 +175,7 @@ export default function HomePage() {
                   fontFamily: "'Cormorant Garamond', serif", fontWeight: 700, color: '#fff',
                   fontSize: 'clamp(1.6rem, 4vw, 2.6rem)', margin: '0 0 10px', lineHeight: 1.1,
                 }}>Build My London Trip</h2>
-                <p style={{ fontFamily: "'DM Sans', sans-serif", fontSize: '0.92rem', color: 'rgba(255,255,255,0.5)', maxWidth: '440px', margin: 0 }}>
+                <p style={{ fontFamily: "'DM Sans', sans-serif", fontSize: '0.92rem', color: 'rgba(255,255,255,0.5)', maxWidth: '440px', margin: '0 auto' }}>
                   Days, budget, interests, hotel area — get a full day-by-day schedule in seconds.
                 </p>
               </div>
@@ -185,6 +185,13 @@ export default function HomePage() {
                 whiteSpace: 'nowrap' as const, boxShadow: '0 8px 24px rgba(201,168,76,0.25)',
               }}>Plan My Trip →</div>
             </div>
+            <style>{`
+              @media (max-width: 640px) {
+                .itinerary-entry-inner { flex-direction: column !important; justify-content: center !important; }
+                .itinerary-entry-text { text-align: center !important; }
+                .itinerary-entry-text p { margin-left: auto !important; margin-right: auto !important; }
+              }
+            `}</style>
           </div>
         </Link>
       </section>
