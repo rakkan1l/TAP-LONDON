@@ -13,6 +13,7 @@ const navLinks = [
   { href: "/hotels",      label: "Hotels",       color: null },
   { href: "/kids",        label: "Kids & Family",color: null },
   { href: "/theatre",     label: "Theatre 🎭",   color: null },
+  { href: "/trip-builder",label: "Trip Builder ✦", color: null },
   { href: "/areas",       label: "Explore by Area", color: null },
   { href: "/universities",label: "Universities", color: null },
   { href: "/daytrips",    label: "Day Trips",    color: null },
