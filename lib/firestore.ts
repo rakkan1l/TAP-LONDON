@@ -6,7 +6,7 @@ const PROJECT_ID = 'tap-london';
 // causing images and content to randomly fall back to old defaults - every
 // page load was re-fetching entire collections fresh with no caching at all,
 // burning through the Firestore free-tier daily read quota.
-const CACHE_TTL_MS = 5 * 60 * 1000; // 5 minutes - fresh enough for admin edits to show up quickly, long enough to stop quota exhaustion
+const CACHE_TTL_MS = 60 * 1000; // 1 minute - short enough that admin edits show up almost immediately, still enough to prevent 429 rate-limit issues from rapid repeat page loads
 const collectionCache = new Map<string, { data: any[]; ts: number }>();
 const documentCache = new Map<string, { data: any; ts: number }>();
 
