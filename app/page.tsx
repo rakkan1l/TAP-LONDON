@@ -228,6 +228,42 @@ export default function HomePage() {
               </div>
             </motion.div>
           </Link>
+
+          <Link href="/events" style={{ textDecoration: 'none', display: 'block', marginTop: '16px' }}>
+            <motion.div
+              whileHover={{ scale: 1.01 }}
+              transition={{ duration: 0.25 }}
+              style={{
+                position: 'relative', borderRadius: '18px', overflow: 'hidden',
+                display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap' as const, gap: '16px',
+                background: 'linear-gradient(120deg, #7a2838 0%, #9c3347 100%)',
+                padding: '22px 28px', cursor: 'pointer',
+              }}
+            >
+              <div style={{ display: 'flex', alignItems: 'center', gap: '14px' }}>
+                <span style={{
+                  width: '10px', height: '10px', borderRadius: '50%', background: '#ff5a5a',
+                  boxShadow: '0 0 0 0 rgba(255,90,90,0.7)', animation: 'tap-pulse 1.6s infinite',
+                }} />
+                <div>
+                  <div style={{ fontFamily: "'DM Sans', sans-serif", fontSize: '0.66rem', color: '#ffd3d3', fontWeight: 700, letterSpacing: '2px', textTransform: 'uppercase' as const, marginBottom: '4px' }}>Live Today</div>
+                  <div style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: 'clamp(1.15rem, 3vw, 1.5rem)', fontWeight: 700, color: '#fff' }}>What's Happening in London Right Now</div>
+                </div>
+              </div>
+              <div style={{
+                background: 'rgba(255,255,255,0.15)', color: '#fff', padding: '10px 20px',
+                borderRadius: '10px', fontFamily: "'DM Sans', sans-serif", fontSize: '0.82rem', fontWeight: 700,
+                whiteSpace: 'nowrap' as const,
+              }}>See What's On →</div>
+            </motion.div>
+          </Link>
+          <style>{`
+            @keyframes tap-pulse {
+              0% { box-shadow: 0 0 0 0 rgba(255,90,90,0.6); }
+              70% { box-shadow: 0 0 0 8px rgba(255,90,90,0); }
+              100% { box-shadow: 0 0 0 0 rgba(255,90,90,0); }
+            }
+          `}</style>
         </div>
       </section>
 
