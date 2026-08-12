@@ -1,7 +1,7 @@
 'use client';
 
 import Link from 'next/link';
-import Image from 'next/image';
+import NextImage from 'next/image';
 import { useEffect, useState, useRef } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { FadeUp, SlideLeft, SlideRight } from '@/components/ScrollAnimation';
@@ -316,7 +316,7 @@ export default function HomePage() {
               <motion.div key={card.id} initial={{ opacity: 0, y: 22 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.4, delay: i * 0.05 }}>
                 <Link href={card.href} style={{ textDecoration: 'none', display: 'block' }}>
                   <motion.div whileHover={{ y: -6 }} transition={{ duration: 0.22, ease: [0.22, 1, 0.36, 1] }} style={{ position: 'relative', borderRadius: '12px', overflow: 'hidden', height: '230px', boxShadow: '0 2px 16px rgba(0,0,0,0.1)', cursor: 'pointer' }}>
-                    <Image src={card.image} alt={card.label} fill sizes="(max-width: 768px) 100vw, 33vw" style={{ objectFit: 'cover' }} />
+                    <NextImage src={card.image} alt={card.label} fill sizes="(max-width: 768px) 100vw, 33vw" style={{ objectFit: 'cover' }} />
                     <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to top, rgba(10,10,22,0.88) 0%, rgba(10,10,22,0.1) 55%, transparent 100%)' }} />
                     <div style={{ position: 'absolute', top: '14px', left: '14px', background: 'rgba(201,168,76,0.9)', color: '#1a1a2e', padding: '3px 10px', borderRadius: '40px', fontFamily: "'DM Sans', sans-serif", fontSize: '0.6rem', fontWeight: 700, letterSpacing: '0.8px', textTransform: 'uppercase' as const }}>{card.tag}</div>
                     <div style={{ position: 'absolute', bottom: 0, left: 0, right: 0, padding: '20px 18px' }}>
@@ -373,10 +373,10 @@ export default function HomePage() {
           <SlideRight delay={0.15}>
             <div style={{ position: 'relative', height: '420px' }}>
               <motion.div initial={{ opacity: 0, x: 32, rotate: 3 }} whileInView={{ opacity: 1, x: 0, rotate: 3 }} viewport={{ once: true }} transition={{ duration: 0.65, delay: 0.1 }} style={{ position: 'absolute', right: 0, top: 0, width: '73%', height: '285px', borderRadius: '12px', overflow: 'hidden', boxShadow: '0 20px 56px rgba(0,0,0,0.16)' }}>
-                <Image src="https://images.pexels.com/photos/460672/pexels-photo-460672.jpeg?auto=compress&cs=tinysrgb&w=600" alt="London" fill sizes="(max-width: 768px) 50vw, 300px" style={{ objectFit: 'cover' }} />
+                <NextImage src="https://images.pexels.com/photos/460672/pexels-photo-460672.jpeg?auto=compress&cs=tinysrgb&w=600" alt="London" fill sizes="(max-width: 768px) 50vw, 300px" style={{ objectFit: 'cover' }} />
               </motion.div>
               <motion.div initial={{ opacity: 0, x: -24, rotate: -2 }} whileInView={{ opacity: 1, x: 0, rotate: -2 }} viewport={{ once: true }} transition={{ duration: 0.65, delay: 0.22 }} style={{ position: 'absolute', left: 0, bottom: 0, width: '62%', height: '228px', borderRadius: '12px', overflow: 'hidden', boxShadow: '0 20px 56px rgba(0,0,0,0.16)', border: '3px solid #f9f7f2' }}>
-                <Image src="https://images.pexels.com/photos/672532/pexels-photo-672532.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Tower Bridge" fill sizes="(max-width: 768px) 50vw, 300px" style={{ objectFit: 'cover' }} />
+                <NextImage src="https://images.pexels.com/photos/672532/pexels-photo-672532.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Tower Bridge" fill sizes="(max-width: 768px) 50vw, 300px" style={{ objectFit: 'cover' }} />
               </motion.div>
             </div>
           </SlideRight>
