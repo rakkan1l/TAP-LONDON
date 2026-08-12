@@ -36,7 +36,8 @@ export default function Footer() {
         <div>
           <p className="text-sm font-semibold uppercase tracking-[0.16em] text-gold">Social</p>
           <div className="mt-4 grid gap-3 text-sm text-white/75">
-            <a href="https://instagram.com/taplondonofficial" target="_blank" rel="noreferrer" className="transition hover:text-white">Instagram</a>
+            <a href="https://www.instagram.com/taplondonofficial/" target="_blank" rel="noreferrer" className="transition hover:text-white">Instagram</a>
+            <a href="https://www.threads.com/@taplondonofficial" target="_blank" rel="noreferrer" className="transition hover:text-white">Threads</a>
             <a href="https://www.tiktok.com/@taplondonofficial" target="_blank" rel="noreferrer" className="transition hover:text-white">TikTok</a>
             <a href="mailto:taplondonofficial@gmail.com" className="transition hover:text-white">taplondonofficial@gmail.com</a>
           </div>
