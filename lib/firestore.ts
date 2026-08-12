@@ -1,14 +1,13 @@
 const PROJECT_ID = 'tap-london';
 
-// In-memory cache shared across the page session, so navigating between pages
-// (or the same page re-rendering) doesn't re-hit Firestore for data we already
-// have. This is the fix for the 429 "Too Many Requests" errors that were
-// causing images and content to randomly fall back to old defaults - every
-// page load was re-fetching entire collections fresh with no caching at all,
-// burning through the Firestore free-tier daily read quota.
-const CACHE_TTL_MS = 10 * 1000; // 10 seconds - just enough to smooth out a burst of rapid requests on the same page load, edits now show up almost instantly
-const collectionCache = new Map<string, { data: any[]; ts: number }>();
-const documentCache = new Map<string, { data: any; ts: number }>();
+// NOTE: Removed the in-memory Map-based cache that was here before.
+// It was intended as a per-browser-tab cache, but this module can run in a
+// server/edge context in Next.js where a warm serverless instance can be
+// reused across DIFFERENT users' requests - meaning the cache was at risk of
+// serving one user's snapshot to other visitors, site-wide, until that
+// instance cold-started. That's a worse bug than the one it was meant to fix.
+// Retries with backoff (kept below) solve the original 429 problem without
+// introducing any staleness risk.
 
 // Recursively convert a single Firestore field value to a plain JS value
 function parseFieldValue(field: any): any {
@@ -44,17 +43,11 @@ function applyImageFallback(item: any): any {
   return item;
 }
 
-// Small delay helper for retry backoff
 function delay(ms: number) {
   return new Promise(r => setTimeout(r, ms));
 }
 
 export async function fetchCollection(collection: string): Promise<any[] | null> {
-  const cached = collectionCache.get(collection);
-  if (cached && Date.now() - cached.ts < CACHE_TTL_MS) {
-    return cached.data;
-  }
-
   const url = `https://firestore.googleapis.com/v1/projects/${PROJECT_ID}/databases/(default)/documents/${collection}?pageSize=200`;
   const maxAttempts = 3;
 
@@ -63,26 +56,17 @@ export async function fetchCollection(collection: string): Promise<any[] | null>
       const res = await fetch(url, { cache: 'no-store' });
 
       if (res.status === 429) {
-        // Rate limited - back off and retry rather than immediately failing.
-        // If we have any stale cached data, prefer serving that over nothing.
         if (attempt < maxAttempts - 1) {
           await delay(500 * (attempt + 1));
           continue;
         }
-        if (cached) return cached.data;
         return null;
       }
 
-      if (!res.ok) {
-        if (cached) return cached.data;
-        return null;
-      }
+      if (!res.ok) return null;
 
       const json = await res.json();
-      if (!json.documents || json.documents.length === 0) {
-        if (cached) return cached.data;
-        return null;
-      }
+      if (!json.documents || json.documents.length === 0) return null;
 
       const items = json.documents.map((doc: any) => {
         const item = parseFields(doc.fields || {});
@@ -92,27 +76,19 @@ export async function fetchCollection(collection: string): Promise<any[] | null>
       });
 
       items.sort((a: any, b: any) => (a.order ?? 999) - (b.order ?? 999));
-      collectionCache.set(collection, { data: items, ts: Date.now() });
       return items;
     } catch {
       if (attempt < maxAttempts - 1) {
         await delay(500 * (attempt + 1));
         continue;
       }
-      if (cached) return cached.data;
       return null;
     }
   }
-  return cached ? cached.data : null;
+  return null;
 }
 
 export async function fetchDocument(collection: string, id: string): Promise<any | null> {
-  const cacheKey = `${collection}/${id}`;
-  const cached = documentCache.get(cacheKey);
-  if (cached && Date.now() - cached.ts < CACHE_TTL_MS) {
-    return cached.data;
-  }
-
   const url = `https://firestore.googleapis.com/v1/projects/${PROJECT_ID}/databases/(default)/documents/${collection}/${id}`;
   const maxAttempts = 3;
 
@@ -125,35 +101,25 @@ export async function fetchDocument(collection: string, id: string): Promise<any
           await delay(500 * (attempt + 1));
           continue;
         }
-        if (cached) return cached.data;
         return null;
       }
 
-      if (!res.ok) {
-        if (cached) return cached.data;
-        return null;
-      }
+      if (!res.ok) return null;
 
       const doc = await res.json();
-      if (!doc.fields) {
-        if (cached) return cached.data;
-        return null;
-      }
+      if (!doc.fields) return null;
 
       const item = parseFields(doc.fields);
       const parts = doc.name.split('/');
       item.id = parts[parts.length - 1];
-      const result = applyImageFallback(item);
-      documentCache.set(cacheKey, { data: result, ts: Date.now() });
-      return result;
+      return applyImageFallback(item);
     } catch {
       if (attempt < maxAttempts - 1) {
         await delay(500 * (attempt + 1));
         continue;
       }
-      if (cached) return cached.data;
       return null;
     }
   }
-  return cached ? cached.data : null;
+  return null;
 }
