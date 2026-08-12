@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import { useParams } from "next/navigation";
@@ -23,7 +24,7 @@ function PhotoGallery({ photos, name }: { photos: string[]; name: string }) {
   return (
     <div style={{ marginBottom: "24px" }}>
       <div style={{ borderRadius: "16px", overflow: "hidden", aspectRatio: "4/3", position: "relative", background: "#1a1a2e", marginBottom: "10px" }}>
-        <img src={photos[active]} alt={`${name} ${active + 1}`} style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }} />
+        <Image src={photos[active]} alt={`${name} ${active + 1}`} fill sizes="(max-width: 768px) 100vw, 700px" style={{ objectFit: "cover" }} />
         {active > 0 && <button onClick={() => setActive(active - 1)} style={{ position: "absolute", left: "10px", top: "50%", transform: "translateY(-50%)", background: "rgba(0,0,0,0.5)", border: "none", color: "#fff", width: "36px", height: "36px", borderRadius: "50%", fontSize: "1.2rem", cursor: "pointer", display: "flex", alignItems: "center", justifyContent: "center" }}>‹</button>}
         {active < photos.length - 1 && <button onClick={() => setActive(active + 1)} style={{ position: "absolute", right: "10px", top: "50%", transform: "translateY(-50%)", background: "rgba(0,0,0,0.5)", border: "none", color: "#fff", width: "36px", height: "36px", borderRadius: "50%", fontSize: "1.2rem", cursor: "pointer", display: "flex", alignItems: "center", justifyContent: "center" }}>›</button>}
         <div style={{ position: "absolute", bottom: "10px", right: "12px", background: "rgba(0,0,0,0.6)", color: "#fff", borderRadius: "20px", padding: "3px 10px", fontFamily: "'DM Sans',sans-serif", fontSize: "0.72rem", fontWeight: 600 }}>{active + 1} / {photos.length}</div>
@@ -32,7 +33,7 @@ function PhotoGallery({ photos, name }: { photos: string[]; name: string }) {
         <div style={{ display: "flex", gap: "8px", overflowX: "auto", paddingBottom: "4px" }}>
           {photos.map((p, i) => (
             <button key={i} onClick={() => setActive(i)} style={{ flexShrink: 0, width: "72px", height: "54px", borderRadius: "8px", overflow: "hidden", padding: 0, border: i === active ? "2.5px solid #c9a84c" : "2.5px solid transparent", cursor: "pointer", opacity: i === active ? 1 : 0.6 }}>
-              <img src={p} alt="" style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }} />
+              <Image src={p} alt="" fill sizes="80px" style={{ objectFit: "cover" }} />
             </button>
           ))}
         </div>
@@ -84,7 +85,7 @@ export default function PlaceDetailPage() {
   return (
     <main className="bg-[#f9f7f2] dark:bg-[#0d0d1a]" style={{ minHeight: "100vh" }}>
       <div style={{ position: "relative", height: "44vh", minHeight: "250px", overflow: "hidden" }}>
-        <img src={place.image} alt={place.name} style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "center" }} />
+        <Image src={place.image} alt={place.name} fill priority sizes="100vw" style={{ objectFit: "cover", objectPosition: "center" }} />
         <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to bottom, rgba(0,0,0,0.15) 0%, rgba(26,26,46,0.88) 100%)" }} />
         <Link href="/places" style={{ position: "absolute", top: "16px", left: "16px", background: "rgba(255,255,255,0.18)", backdropFilter: "blur(8px)", border: "1px solid rgba(255,255,255,0.3)", color: "#ffffff", borderRadius: "50px", padding: "7px 16px", fontFamily: "'DM Sans',sans-serif", fontSize: "0.8rem", fontWeight: 600, textDecoration: "none" }}>← Back</Link>
         <div style={{ position: "absolute", bottom: 0, left: 0, right: 0, padding: "16px 20px 20px" }}>
