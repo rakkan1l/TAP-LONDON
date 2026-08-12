@@ -7,7 +7,6 @@ import { FadeUp, SlideLeft, SlideRight } from '@/components/ScrollAnimation';
 import SearchBar from '@/components/SearchBar';
 import NearMe from '@/components/NearMe';
 import LondonQuiz from '@/components/LondonQuiz';
-import ItineraryBuilder from '@/components/ItineraryBuilder';
 import { fetchDocument } from '@/lib/firestore';
 
 const DEFAULT_HERO = 'https://images.pexels.com/photos/672532/pexels-photo-672532.jpeg?auto=compress&cs=tinysrgb&w=1920';
@@ -152,9 +151,42 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* AI ITINERARY BUILDER */}
-      <section style={{ background: '#12121f', padding: '60px 20px', width: '100%', boxSizing: 'border-box' as const, borderTop: '1px solid rgba(201,168,76,0.1)' }}>
-        <ItineraryBuilder />
+      {/* AI ITINERARY BUILDER - entry card */}
+      <section style={{ padding: '20px 20px 0', width: '100%', boxSizing: 'border-box' as const }}>
+        <Link href="/trip-builder" style={{ textDecoration: 'none' }}>
+          <div style={{
+            maxWidth: '1100px', margin: '0 auto', position: 'relative', overflow: 'hidden',
+            background: 'linear-gradient(120deg, #1a1a2e 0%, #241f38 60%, #1a1a2e 100%)',
+            borderRadius: '22px', padding: 'clamp(28px, 5vw, 52px)', cursor: 'pointer',
+            border: '1px solid rgba(201,168,76,0.25)',
+          }}>
+            <div style={{
+              position: 'absolute', top: '-40%', right: '-8%', width: '340px', height: '340px', borderRadius: '50%',
+              background: 'radial-gradient(circle, rgba(201,168,76,0.16), transparent 70%)',
+            }} />
+            <div style={{ position: 'relative', display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap' as const, gap: '20px' }}>
+              <div>
+                <div style={{
+                  display: 'inline-flex', alignItems: 'center', gap: '8px', fontFamily: "'DM Sans', sans-serif",
+                  fontSize: '0.68rem', color: '#c9a84c', letterSpacing: '2.5px', textTransform: 'uppercase' as const,
+                  border: '1px solid rgba(201,168,76,0.3)', borderRadius: '40px', padding: '5px 14px', marginBottom: '16px',
+                }}>✦ AI Itinerary Builder</div>
+                <h2 style={{
+                  fontFamily: "'Cormorant Garamond', serif", fontWeight: 700, color: '#fff',
+                  fontSize: 'clamp(1.6rem, 4vw, 2.6rem)', margin: '0 0 10px', lineHeight: 1.1,
+                }}>Build My London Trip</h2>
+                <p style={{ fontFamily: "'DM Sans', sans-serif", fontSize: '0.92rem', color: 'rgba(255,255,255,0.5)', maxWidth: '440px', margin: 0 }}>
+                  Days, budget, interests, hotel area — get a full day-by-day schedule in seconds.
+                </p>
+              </div>
+              <div style={{
+                background: 'linear-gradient(135deg,#c9a84c,#e8c46f)', color: '#1a1a2e', padding: '15px 30px',
+                borderRadius: '12px', fontFamily: "'DM Sans', sans-serif", fontSize: '0.9rem', fontWeight: 700,
+                whiteSpace: 'nowrap' as const, boxShadow: '0 8px 24px rgba(201,168,76,0.25)',
+              }}>Plan My Trip →</div>
+            </div>
+          </div>
+        </Link>
       </section>
 
       {/* LONDON QUIZ */}
