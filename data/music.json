@@ -87,6 +87,61 @@
       "mapsUrl": "https://www.google.com/maps/search/?api=1&query=The+Windmill+Brixton",
       "image": "https://images.pexels.com/photos/1449791/pexels-photo-1449791.jpeg?auto=compress&cs=tinysrgb&w=800",
       "order": 8
+    },
+    {
+      "id": "wiltons-music-hall",
+      "name": "Wilton's Music Hall",
+      "category": "Live Music",
+      "area": "Whitechapel, E1",
+      "description": "The world's oldest surviving grand music hall, dating to 1859, with a beautifully weathered interior that's hosted everyone from opera to contemporary gigs. A genuinely unique London venue.",
+      "priceRange": "£15-£40",
+      "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Wilton's+Music+Hall+Whitechapel",
+      "image": "https://images.pexels.com/photos/1666816/pexels-photo-1666816.jpeg?auto=compress&cs=tinysrgb&w=800",
+      "order": 9
+    },
+    {
+      "id": "o2-forum-kentish-town",
+      "name": "O2 Forum Kentish Town",
+      "category": "Live Music",
+      "area": "Kentish Town, NW5",
+      "description": "A converted Art Deco cinema turned mid-size music venue, hosting major touring bands and club nights in North London. One of the city's most atmospheric medium-capacity spaces.",
+      "priceRange": "£20-£55",
+      "mapsUrl": "https://www.google.com/maps/search/?api=1&query=O2+Forum+Kentish+Town",
+      "image": "https://images.pexels.com/photos/1105666/pexels-photo-1105666.jpeg?auto=compress&cs=tinysrgb&w=800",
+      "order": 10
+    },
+    {
+      "id": "o2-shepherds-bush-empire",
+      "name": "O2 Shepherd's Bush Empire",
+      "category": "Live Music",
+      "area": "Shepherd's Bush, W12",
+      "description": "A historic 1903 theatre turned major West London music venue, hosting some of the biggest touring gigs and club nights outside the West End.",
+      "priceRange": "£25-£65",
+      "mapsUrl": "https://www.google.com/maps/search/?api=1&query=O2+Shepherd's+Bush+Empire",
+      "image": "https://images.pexels.com/photos/1190298/pexels-photo-1190298.jpeg?auto=compress&cs=tinysrgb&w=800",
+      "order": 11
+    },
+    {
+      "id": "the-old-blue-last",
+      "name": "The Old Blue Last",
+      "category": "Live Music",
+      "area": "Shoreditch, EC2",
+      "description": "A Shoreditch pub venue with live music and DJs most nights of the week, many shows free to attend. A launching pad for emerging indie and alternative acts.",
+      "priceRange": "Free-£10",
+      "mapsUrl": "https://www.google.com/maps/search/?api=1&query=The+Old+Blue+Last+Shoreditch",
+      "image": "https://images.pexels.com/photos/1540338/pexels-photo-1540338.jpeg?auto=compress&cs=tinysrgb&w=800",
+      "order": 12
+    },
+    {
+      "id": "the-lexington-islington",
+      "name": "The Lexington",
+      "category": "Live Music",
+      "area": "Islington, N1",
+      "description": "An Islington pub venue known for rock and indie gigs upstairs and a basement space with more of a blues vibe, plus a serious bourbon selection at the bar.",
+      "priceRange": "£8-£18",
+      "mapsUrl": "https://www.google.com/maps/search/?api=1&query=The+Lexington+Islington",
+      "image": "https://images.pexels.com/photos/1540406/pexels-photo-1540406.jpeg?auto=compress&cs=tinysrgb&w=800",
+      "order": 13
     }
   ]
 }
