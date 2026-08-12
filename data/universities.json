@@ -71,6 +71,66 @@
       "mapsUrl": "https://www.google.com/maps/search/?api=1&query=SOAS+University+of+London",
       "image": "https://images.pexels.com/photos/159490/yale-university-landscape-college-university-159490.jpeg?auto=compress&cs=tinysrgb&w=800",
       "order": 6
+    },
+    {
+      "id": "goldsmiths-university",
+      "name": "Goldsmiths, University of London",
+      "area": "New Cross, SE14",
+      "description": "A creative-arts specialist college of the University of London, renowned for Fine Art, Digital Arts and Design. Alumni include Turner Prize winners and major figures in British contemporary art.",
+      "founded": "1891",
+      "focus": "Fine Art, Design, Creative Arts, Media",
+      "ranking": "87th UK overall (Times 2026)",
+      "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Goldsmiths+University+of+London",
+      "image": "https://images.pexels.com/photos/2781760/pexels-photo-2781760.jpeg?auto=compress&cs=tinysrgb&w=800",
+      "order": 7
+    },
+    {
+      "id": "royal-holloway-university",
+      "name": "Royal Holloway, University of London",
+      "area": "Egham, Surrey (Greater London)",
+      "description": "A research university founded in 1849, set on a striking Victorian campus. A member institution of the federal University of London with strong programmes across sciences and humanities.",
+      "founded": "1849",
+      "focus": "Sciences, Humanities, Drama, Music",
+      "ranking": "32nd UK overall (Times 2026)",
+      "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Royal+Holloway+University+of+London",
+      "image": "https://images.pexels.com/photos/207684/pexels-photo-207684.jpeg?auto=compress&cs=tinysrgb&w=800",
+      "order": 8
+    },
+    {
+      "id": "city-university-london",
+      "name": "City St George's, University of London",
+      "area": "Clerkenwell, EC1",
+      "description": "A central London university with a strong reputation in journalism, business and law. Recently merged with St George's medical school, expanding into healthcare education.",
+      "founded": "1894",
+      "focus": "Journalism, Business, Law, Medicine",
+      "ranking": "48th UK overall (Times 2026)",
+      "mapsUrl": "https://www.google.com/maps/search/?api=1&query=City+University+of+London",
+      "image": "https://images.pexels.com/photos/1438072/pexels-photo-1438072.jpeg?auto=compress&cs=tinysrgb&w=800",
+      "order": 9
+    },
+    {
+      "id": "brunel-university-london",
+      "name": "Brunel University London",
+      "area": "Uxbridge, West London",
+      "description": "A public research university with over 12,000 students, known for engineering, design and health sciences. Named after Victorian engineer Isambard Kingdom Brunel.",
+      "founded": "1966",
+      "focus": "Engineering, Design, Health Sciences",
+      "ranking": "117th UK overall (Times 2026)",
+      "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Brunel+University+London",
+      "image": "https://images.pexels.com/photos/2781760/pexels-photo-2781760.jpeg?auto=compress&cs=tinysrgb&w=800",
+      "order": 10
+    },
+    {
+      "id": "university-of-the-arts-london",
+      "name": "University of the Arts London",
+      "area": "Multiple campuses, Central London",
+      "description": "The largest specialist arts and design university in Europe, encompassing Central Saint Martins, London College of Fashion and other renowned art schools across the city.",
+      "founded": "1986 (as a group of colleges)",
+      "focus": "Fashion, Art, Design, Media",
+      "ranking": "53rd UK overall (Times 2026)",
+      "mapsUrl": "https://www.google.com/maps/search/?api=1&query=University+of+the+Arts+London",
+      "image": "https://images.pexels.com/photos/159775/library-la-trobe-university-books-159775.jpeg?auto=compress&cs=tinysrgb&w=800",
+      "order": 11
     }
   ]
 }
