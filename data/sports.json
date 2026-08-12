@@ -72,7 +72,7 @@
     },
     {
       "id": "wimbledon",
-      "name": "All England Club \u2014 Wimbledon",
+      "name": "All England Club — Wimbledon",
       "sport": "Tennis",
       "area": "Wimbledon, SW19",
       "capacity": "38,000",
@@ -124,7 +124,7 @@
       "sport": "Tennis",
       "area": "West Kensington, W14",
       "capacity": "9,500",
-      "description": "Prestigious grass court tennis venue hosting the annual pre-Wimbledon tournament \u2014 a great warm-up event for tennis fans.",
+      "description": "Prestigious grass court tennis venue hosting the annual pre-Wimbledon tournament — a great warm-up event for tennis fans.",
       "nearestStation": "Barons Court (5 min walk)",
       "image": "https://images.unsplash.com/photo-209977?w=800&q=80",
       "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Queens+Club+London",
@@ -163,6 +163,57 @@
         "The Trout"
       ],
       "order": 9
+    },
+    {
+      "id": "tottenham-hotspur-stadium",
+      "name": "Tottenham Hotspur Stadium",
+      "sport": "Football",
+      "team": "Tottenham Hotspur FC",
+      "area": "Tottenham, N17",
+      "capacity": "62,850",
+      "description": "One of the most technologically advanced stadiums in the world, featuring the only retractable pitch of its kind, exposing a dedicated NFL playing surface underneath. Stadium tours include the players' tunnel and dressing rooms.",
+      "nearestStation": "White Hart Lane (5 min walk)",
+      "image": "https://images.pexels.com/photos/46798/the-ball-stadion-football-the-pitch-46798.jpeg?auto=compress&cs=tinysrgb&w=800",
+      "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Tottenham+Hotspur+Stadium",
+      "nearbyPubs": [
+        "The Beehive",
+        "Bill Nicholson Way bars"
+      ],
+      "order": 10
+    },
+    {
+      "id": "london-stadium",
+      "name": "London Stadium",
+      "sport": "Football",
+      "team": "West Ham United FC",
+      "area": "Queen Elizabeth Olympic Park, E20",
+      "capacity": "62,500",
+      "description": "The former London 2012 Olympic Stadium, now home to West Ham United. Tours cover the venue's Olympic history alongside its transformation into a Premier League football ground.",
+      "nearestStation": "Stratford (12 min walk)",
+      "image": "https://images.pexels.com/photos/46798/the-ball-stadion-football-the-pitch-46798.jpeg?auto=compress&cs=tinysrgb&w=800",
+      "mapsUrl": "https://www.google.com/maps/search/?api=1&query=London+Stadium+Queen+Elizabeth+Olympic+Park",
+      "nearbyPubs": [
+        "Timber Lodge",
+        "Cow Cross"
+      ],
+      "order": 11
+    },
+    {
+      "id": "craven-cottage",
+      "name": "Craven Cottage",
+      "sport": "Football",
+      "team": "Fulham FC",
+      "area": "Fulham, SW6",
+      "capacity": "29,589",
+      "description": "One of England's most picturesque football grounds, set right on the banks of the River Thames. Guided tours begin at the Johnny Haynes statue and take in the tunnel and dugouts.",
+      "nearestStation": "Putney Bridge (12 min walk)",
+      "image": "https://images.pexels.com/photos/46798/the-ball-stadion-football-the-pitch-46798.jpeg?auto=compress&cs=tinysrgb&w=800",
+      "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Craven+Cottage+Fulham",
+      "nearbyPubs": [
+        "The Eight Bells",
+        "The Temperance"
+      ],
+      "order": 12
     }
   ],
   "leagues": [
