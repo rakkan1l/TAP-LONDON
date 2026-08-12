@@ -496,6 +496,62 @@
       "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Kidspace+Romford",
       "image": "https://images.pexels.com/photos/8613312/pexels-photo-8613312.jpeg?auto=compress&cs=tinysrgb&w=800",
       "order": 39
+    },
+    {
+      "id": "golders-hill-park-playground",
+      "name": "Golders Hill Park Adventure Playground",
+      "category": "Parks & Playgrounds",
+      "area": "Hampstead Heath, NW11",
+      "description": "A free adventure playground next to Hampstead Heath, with climbing structures, a small zoo enclosure and beautiful surrounding parkland — a genuine countryside escape within the city.",
+      "openingHours": "Daily dawn to dusk",
+      "entryFee": "Free",
+      "priceType": "Free",
+      "ageRange": "All ages",
+      "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Golders+Hill+Park+Playground+London",
+      "image": "https://images.pexels.com/photos/8613312/pexels-photo-8613312.jpeg?auto=compress&cs=tinysrgb&w=800",
+      "order": 40
+    },
+    {
+      "id": "oxygen-at-the-o2",
+      "name": "Oxygen at The O2",
+      "category": "Activities",
+      "area": "Greenwich Peninsula, SE10",
+      "description": "More than a trampoline park — interconnected trampolines, ninja-style obstacle courses, climbing walls and high-energy zones, conveniently located inside The O2 entertainment complex.",
+      "openingHours": "Daily 10:00-21:00",
+      "entryFee": "From £14 per session",
+      "priceType": "Paid",
+      "ageRange": "4+",
+      "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Oxygen+Freejumping+The+O2+London",
+      "image": "https://images.pexels.com/photos/9072327/pexels-photo-9072327.jpeg?auto=compress&cs=tinysrgb&w=800",
+      "order": 41
+    },
+    {
+      "id": "arcelormittal-orbit-slide",
+      "name": "ArcelorMittal Orbit Slide",
+      "category": "Activities",
+      "area": "Queen Elizabeth Olympic Park, E20",
+      "description": "The UK's tallest and longest tunnel slide, spiralling down from the top of the iconic Orbit sculpture in Olympic Park. A thrilling ride with panoramic London views from the top first.",
+      "openingHours": "Daily 10:00-17:00, seasonal variation",
+      "entryFee": "From £20 combined viewing platform + slide",
+      "priceType": "Paid",
+      "ageRange": "7+",
+      "mapsUrl": "https://www.google.com/maps/search/?api=1&query=ArcelorMittal+Orbit+Olympic+Park",
+      "image": "https://images.pexels.com/photos/9072327/pexels-photo-9072327.jpeg?auto=compress&cs=tinysrgb&w=800",
+      "order": 42
+    },
+    {
+      "id": "aeroplay-raf-museum",
+      "name": "AeroPlay at RAF Museum",
+      "category": "Activities",
+      "area": "Colindale, NW9",
+      "description": "An aviation-themed indoor soft play area newly opened inside the free RAF Museum London, designed for younger children with plane-shaped climbing structures and slides.",
+      "openingHours": "Daily 10:00-17:00",
+      "entryFee": "Museum free; AeroPlay entry from £6",
+      "priceType": "Paid",
+      "ageRange": "0-8",
+      "mapsUrl": "https://www.google.com/maps/search/?api=1&query=RAF+Museum+London+Colindale",
+      "image": "https://images.pexels.com/photos/8613089/pexels-photo-8613089.jpeg?auto=compress&cs=tinysrgb&w=800",
+      "order": 43
     }
   ]
 }
