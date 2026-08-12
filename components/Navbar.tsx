@@ -197,6 +197,37 @@ export default function Navbar() {
           </div>
         </nav>
 
+        {/* Horizontal scrollable category bar - always visible, swipe on mobile, scroll on desktop */}
+        <div className="nav-scroll-row" style={{
+          display: 'flex', gap: '6px', overflowX: 'auto', overflowY: 'hidden',
+          padding: '0 16px 10px', borderTop: '1px solid rgba(0,0,0,0.06)', paddingTop: '10px',
+          WebkitOverflowScrolling: 'touch', scrollbarWidth: 'thin',
+        }}>
+          {navLinks.map((link) => {
+            const active = pathname === link.href;
+            return (
+              <Link
+                key={link.href}
+                href={link.href}
+                style={{
+                  flexShrink: 0, whiteSpace: 'nowrap', padding: '6px 14px', borderRadius: '20px',
+                  fontSize: '0.8rem', fontWeight: 600, textDecoration: 'none',
+                  background: active ? '#c9a84c' : 'rgba(0,0,0,0.04)',
+                  color: active ? '#1a1a2e' : 'inherit',
+                  transition: 'background 0.15s',
+                }}
+              >
+                {link.label}
+              </Link>
+            );
+          })}
+        </div>
+        <style>{`
+          .nav-scroll-row::-webkit-scrollbar { height: 4px; }
+          .nav-scroll-row::-webkit-scrollbar-thumb { background: rgba(201,168,76,0.4); border-radius: 4px; }
+          .dark .nav-scroll-row { border-top-color: rgba(255,255,255,0.08); }
+        `}</style>
+
         {open && (
           <div className="border-t border-navy/10 dark:border-white/10 bg-cream dark:bg-[#0d0d1a] px-4 pb-5 pt-2">
             <div className="mx-auto grid max-w-7xl gap-2">
