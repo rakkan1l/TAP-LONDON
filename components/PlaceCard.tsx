@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { motion } from "framer-motion";
 import { Clock, MapPin, Navigation, Tag } from "lucide-react";
 import { useState } from "react";
@@ -75,12 +76,14 @@ export default function PlaceCard({ item, mode = "place" }: PlaceCardProps) {
     >
       <div className="relative h-[200px] overflow-hidden rounded-t-lg bg-navy">
         {item.image && !imageFailed ? (
-          <img
+          <Image
             src={item.image}
             alt={`${item.name} in London`}
+            fill
+            sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
             loading="lazy"
             onError={() => setImageFailed(true)}
-            className="h-full w-full rounded-t-lg object-cover transition duration-500 group-hover:scale-105"
+            className="rounded-t-lg object-cover transition duration-500 group-hover:scale-105"
           />
         ) : (
           <div className="absolute inset-0 rounded-t-lg bg-[linear-gradient(135deg,#1a1a2e_0%,#26345f_48%,#c9a84c_100%)]" />
