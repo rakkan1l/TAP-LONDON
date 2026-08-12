@@ -42,7 +42,16 @@ function getSmartFilters(mode: string): SmartFilter[] {
   const common: SmartFilter[] = [
     { label: "Open Now", value: "open-now", test: isOpenNow },
     { label: "Open Late", value: "open-late", test: isOpenLate },
-    { label: "Free", value: "free", test: (i) => i.priceType === "Free" || /free/i.test(i.entryFee || "") },
+    { label: "Free", value: "free", test: (i) => {
+      // Don't trust priceType alone or a loose "free" text match - an entryFee
+      // like "Exterior free; guided tours from \u00a328" contains the word "free"
+      // but the place is NOT free overall. Only count it as free if priceType
+      // says so AND there's no real price mentioned in the fee text.
+      const feeText = (i.entryFee || "").toLowerCase();
+      const hasRealPrice = /\u00a3\s?\d/.test(feeText);
+      if (hasRealPrice) return false;
+      return i.priceType === "Free" || /\bfree\b/i.test(feeText);
+    } },
     { label: "Near Station", value: "near-station", test: (i) => !!i.nearestStation },
   ];
 
@@ -59,7 +68,16 @@ function getSmartFilters(mode: string): SmartFilter[] {
       { label: "Halal", value: "halal", test: (i) => !!i.halal || !!i.verifiedHalal },
     ],
     kids: [
-      { label: "Free", value: "free", test: (i) => i.priceType === "Free" || /free/i.test(i.entryFee || "") },
+      { label: "Free", value: "free", test: (i) => {
+      // Don't trust priceType alone or a loose "free" text match - an entryFee
+      // like "Exterior free; guided tours from \u00a328" contains the word "free"
+      // but the place is NOT free overall. Only count it as free if priceType
+      // says so AND there's no real price mentioned in the fee text.
+      const feeText = (i.entryFee || "").toLowerCase();
+      const hasRealPrice = /\u00a3\s?\d/.test(feeText);
+      if (hasRealPrice) return false;
+      return i.priceType === "Free" || /\bfree\b/i.test(feeText);
+    } },
       { label: "Indoor", value: "indoor", test: (i) => /museum|indoor|aquarium/i.test(i.category || "") },
       { label: "Outdoor", value: "outdoor", test: (i) => /park|zoo|garden|outdoor/i.test(i.category || "") },
     ],
