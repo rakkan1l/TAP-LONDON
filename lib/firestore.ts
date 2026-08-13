@@ -1,14 +1,5 @@
 const PROJECT_ID = 'tap-london';
 
-// NOTE: Removed the in-memory Map-based cache that was here before.
-// It was intended as a per-browser-tab cache, but this module can run in a
-// server/edge context in Next.js where a warm serverless instance can be
-// reused across DIFFERENT users' requests - meaning the cache was at risk of
-// serving one user's snapshot to other visitors, site-wide, until that
-// instance cold-started. That's a worse bug than the one it was meant to fix.
-// Retries with backoff (kept below) solve the original 429 problem without
-// introducing any staleness risk.
-
 // Recursively convert a single Firestore field value to a plain JS value
 function parseFieldValue(field: any): any {
   if (!field) return undefined;
@@ -43,69 +34,41 @@ function applyImageFallback(item: any): any {
   return item;
 }
 
-function delay(ms: number) {
-  return new Promise(r => setTimeout(r, ms));
-}
-
 export async function fetchCollection(collection: string): Promise<any[] | null> {
-  const url = `https://firestore.googleapis.com/v1/projects/${PROJECT_ID}/databases/(default)/documents/${collection}?pageSize=200`;
-  const maxAttempts = 3;
+  try {
+    const url = `https://firestore.googleapis.com/v1/projects/${PROJECT_ID}/databases/(default)/documents/${collection}?pageSize=200`;
+    const res = await fetch(url, { cache: 'no-store' });
+    if (!res.ok) return null;
+    const json = await res.json();
+    if (!json.documents || json.documents.length === 0) return null;
 
-  for (let attempt = 0; attempt < maxAttempts; attempt++) {
-    try {
-      const res = await fetch(url, { cache: 'no-store' });
+    const items = json.documents.map((doc: any) => {
+      const item = parseFields(doc.fields || {});
+      const parts = doc.name.split('/');
+      item.id = parts[parts.length - 1];
+      return applyImageFallback(item);
+    });
 
-      if (res.status === 429) {
-        if (attempt < maxAttempts - 1) {
-          await delay(500 * (attempt + 1));
-          continue;
-        }
-        return null;
-      }
-
-      if (!res.ok) return null;
-
-      const json = await res.json();
-      if (!json.documents || json.documents.length === 0) return null;
-
-      const items = json.documents.map((doc: any) => {
-        const item = parseFields(doc.fields || {});
-        const parts = doc.name.split('/');
-        item.id = parts[parts.length - 1];
-        return applyImageFallback(item);
-      });
-
-      items.sort((a: any, b: any) => (a.order ?? 999) - (b.order ?? 999));
-      return items;
-    } catch {
-      if (attempt < maxAttempts - 1) {
-        await delay(500 * (attempt + 1));
-        continue;
-      }
-      return null;
-    }
+    items.sort((a: any, b: any) => (a.order ?? 999) - (b.order ?? 999));
+    return items;
+  } catch {
+    return null;
   }
-  return null;
 }
 
-export async function fetchDocument(collection: string, id: string): Promise<any | null> {
+export async function fetchDocument(collection: string, id: string, retries = 2): Promise<any | null> {
   const url = `https://firestore.googleapis.com/v1/projects/${PROJECT_ID}/databases/(default)/documents/${collection}/${id}`;
-  const maxAttempts = 3;
 
-  for (let attempt = 0; attempt < maxAttempts; attempt++) {
+  for (let attempt = 0; attempt <= retries; attempt++) {
     try {
       const res = await fetch(url, { cache: 'no-store' });
-
-      if (res.status === 429) {
-        if (attempt < maxAttempts - 1) {
-          await delay(500 * (attempt + 1));
+      if (!res.ok) {
+        if (attempt < retries) {
+          await new Promise(r => setTimeout(r, 300 * (attempt + 1)));
           continue;
         }
         return null;
       }
-
-      if (!res.ok) return null;
-
       const doc = await res.json();
       if (!doc.fields) return null;
 
@@ -114,8 +77,8 @@ export async function fetchDocument(collection: string, id: string): Promise<any
       item.id = parts[parts.length - 1];
       return applyImageFallback(item);
     } catch {
-      if (attempt < maxAttempts - 1) {
-        await delay(500 * (attempt + 1));
+      if (attempt < retries) {
+        await new Promise(r => setTimeout(r, 300 * (attempt + 1)));
         continue;
       }
       return null;
