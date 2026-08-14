@@ -2,7 +2,6 @@
 
 import { useEffect, useState } from 'react';
 import { fetchCollection } from '@/lib/firestore';
-import fallbackData from '@/data/offers.json';
 
 const CATEGORIES = ['All', 'Food Offers', 'Shopping Offers', 'Hotel Offers', 'Kids Offers', 'Student Offers', 'Family Deals', 'Weekend Deals'];
 
@@ -12,11 +11,23 @@ export default function OffersPage() {
   const [activeCategory, setActiveCategory] = useState('All');
   const [copied, setCopied] = useState<string | null>(null);
 
-  useEffect(() => {
+  const [loadFailed, setLoadFailed] = useState(false);
+
+  const load = () => {
+    setLoading(true);
+    setLoadFailed(false);
     fetchCollection('offers').then(data => {
-      setItems(data?.length ? data : (fallbackData as any).items ?? []);
+      if (data && data.length > 0) {
+        setItems(data);
+      } else {
+        setLoadFailed(true);
+      }
       setLoading(false);
     });
+  };
+
+  useEffect(() => {
+    load();
   }, []);
 
   const filtered = items.filter(o => activeCategory === 'All' || o.category === activeCategory);
@@ -46,6 +57,11 @@ export default function OffersPage() {
 
         {loading ? (
           <div style={{ textAlign: 'center', padding: '60px', color: 'rgba(26,26,46,0.3)', fontFamily: "'DM Sans', sans-serif" }}>Loading offers...</div>
+         loadFailed ? (
+          <div style={{ textAlign: 'center', padding: '60px', fontFamily: "'DM Sans', sans-serif" }}>
+            <div style={{ color: 'rgba(26,26,46,0.5)', marginBottom: '16px' }}>Couldn't load this right now. Please try again.</div>
+            <button onClick={load} style={{ background: '#1a1a2e', color: '#c9a84c', border: 'none', borderRadius: '10px', padding: '12px 24px', fontSize: '0.85rem', fontWeight: 700, cursor: 'pointer' }}>Retry</button>
+          </div>
         ) : (
           <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
             {filtered.map(offer => (
