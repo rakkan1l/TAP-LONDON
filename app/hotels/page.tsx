@@ -3,7 +3,6 @@
 import { useEffect, useState } from 'react';
 import { fetchCollection } from '@/lib/firestore';
 import Link from 'next/link';
-import fallbackData from '@/data/hotels.json';
 
 const CATEGORIES = ['All', '5-star', '4-star', 'Budget', 'Family', 'Spa', 'Luxury'];
 const AMENITY_FILTERS = ['Pool', 'Spa', 'Family Friendly', 'Restaurant', 'Gym'];
@@ -14,11 +13,23 @@ export default function HotelsPage() {
   const [activeCategory, setActiveCategory] = useState('All');
   const [search, setSearch] = useState('');
 
-  useEffect(() => {
+  const [loadFailed, setLoadFailed] = useState(false);
+
+  const load = () => {
+    setLoading(true);
+    setLoadFailed(false);
     fetchCollection('hotels').then(data => {
-      setItems(data?.length ? data : (fallbackData as any).items ?? []);
+      if (data && data.length > 0) {
+        setItems(data);
+      } else {
+        setLoadFailed(true);
+      }
       setLoading(false);
     });
+  };
+
+  useEffect(() => {
+    load();
   }, []);
 
   const filtered = items.filter(h => {
@@ -55,6 +66,11 @@ export default function HotelsPage() {
 
         {loading ? (
           <div style={{ textAlign: 'center', padding: '60px', color: 'rgba(26,26,46,0.3)', fontFamily: "'DM Sans', sans-serif" }}>Loading hotels...</div>
+        ) : loadFailed ? (
+          <div style={{ textAlign: 'center', padding: '60px', fontFamily: "'DM Sans', sans-serif" }}>
+            <div style={{ color: 'rgba(26,26,46,0.5)', marginBottom: '16px' }}>Couldn't load hotels right now. Please try again.</div>
+            <button onClick={load} style={{ background: '#1a1a2e', color: '#c9a84c', border: 'none', borderRadius: '10px', padding: '12px 24px', fontSize: '0.85rem', fontWeight: 700, cursor: 'pointer' }}>Retry</button>
+          </div>
         ) : (
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(320px, 1fr))', gap: '20px' }}>
             {filtered.map(hotel => (
