@@ -137,25 +137,34 @@ export default function NearMe() {
   }, [findNearby]);
 
   const handleOpen = () => {
-    // MUST call geolocation synchronously in click handler before any state updates
-    // State updates break the user gesture chain on mobile Safari/Chrome
     if (!navigator.geolocation) {
       setOpen(true);
       setStatus('error');
       setErrorMsg('Location is not supported on this device.');
       return;
     }
-    setOpen(true);
-    setStatus('requesting');
-    setActiveCategory('food');
-    // Call synchronously — no awaits, no state updates before this line
+
+    // FIX: getCurrentPosition must be the very first thing that runs in this
+    // click handler, with ZERO state updates (setOpen/setStatus/etc.) before it.
+    // The previous version called setOpen/setStatus/setActiveCategory BEFORE
+    // getCurrentPosition, which schedules a React re-render in between the
+    // click event and the geolocation call. On strict mobile browsers (notably
+    // Chrome/Safari on iOS and some Android WebViews), that broken timing can
+    // cause the browser to no longer treat the call as coming from a trusted
+    // user gesture, which can silently produce PERMISSION_DENIED even when the
+    // site already has location permission granted. Calling it truly first,
+    // synchronously, fixes this.
     navigator.geolocation.getCurrentPosition(
       (pos) => {
         const p = { lat: pos.coords.latitude, lng: pos.coords.longitude };
+        setOpen(true);
+        setActiveCategory('food');
         setUserPos(p);
         findNearby('food', p);
       },
       (err) => {
+        setOpen(true);
+        setActiveCategory('food');
         if (err.code === 1) {
           setErrorMsg('Location access was denied. Please go to your browser Settings → Site permissions → Location → Allow.');
         } else {
@@ -163,30 +172,45 @@ export default function NearMe() {
         }
         setStatus('error');
       },
-      { enableHighAccuracy: false, timeout: 15000, maximumAge: 60000 }
+      { enableHighAccuracy: false, timeout: 15000, maximumAge: 0 }
     );
+    // Show the panel immediately in a loading state while the browser's
+    // permission prompt / GPS lookup is in progress, without delaying the
+    // getCurrentPosition call itself.
+    setOpen(true);
+    setStatus('requesting');
   };
 
   const handleCategoryChange = (col: string) => {
-    setActiveCategory(col);
     if (userPos) {
+      setActiveCategory(col);
       findNearby(col, userPos);
       return;
     }
-    // No position yet — request again synchronously
-    setStatus('requesting');
-    navigator.geolocation?.getCurrentPosition(
+    // No position yet - same fix as handleOpen: call getCurrentPosition first,
+    // before any state updates, to keep the trusted user-gesture chain intact.
+    if (!navigator.geolocation) {
+      setActiveCategory(col);
+      setErrorMsg('Location is not supported on this device.');
+      setStatus('error');
+      return;
+    }
+    navigator.geolocation.getCurrentPosition(
       (pos) => {
         const p = { lat: pos.coords.latitude, lng: pos.coords.longitude };
+        setActiveCategory(col);
         setUserPos(p);
         findNearby(col, p);
       },
       () => {
+        setActiveCategory(col);
         setErrorMsg('Could not get your location. Please allow location access and try again.');
         setStatus('error');
       },
-      { enableHighAccuracy: false, timeout: 15000, maximumAge: 60000 }
+      { enableHighAccuracy: false, timeout: 15000, maximumAge: 0 }
     );
+    setActiveCategory(col);
+    setStatus('requesting');
   };
 
   if (!open) return (
