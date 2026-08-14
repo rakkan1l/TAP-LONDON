@@ -4,7 +4,6 @@ import React, { useEffect, useState } from "react";
 import Link from "next/link";
 import { useParams } from "next/navigation";
 import { fetchDocument } from "@/lib/firestore";
-import fallbackData from "@/data/nightlife.json";
 
 export default function NightlifeDetailPage() {
   const params = useParams();
@@ -14,11 +13,12 @@ export default function NightlifeDetailPage() {
 
   useEffect(() => {
     const load = async () => {
+      setLoading(true);
       const fbItem = await fetchDocument("nightlife", id);
       if (fbItem && fbItem.name) {
         setItem(fbItem);
       } else {
-        setItem((fallbackData.items as any[]).find((n: any) => n.id === id) || null);
+        setItem(null);
       }
       setLoading(false);
     };
