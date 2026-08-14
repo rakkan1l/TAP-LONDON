@@ -4,7 +4,6 @@ import React, { useEffect, useState } from "react";
 import Link from "next/link";
 import { useParams } from "next/navigation";
 import { fetchDocument } from "@/lib/firestore";
-import fallbackData from "@/data/kids.json";
 
 export default function KidsDetailPage() {
   const params = useParams();
@@ -14,11 +13,12 @@ export default function KidsDetailPage() {
 
   useEffect(() => {
     const load = async () => {
+      setLoading(true);
       const fbItem = await fetchDocument("kids", id);
       if (fbItem && fbItem.name) {
         setItem(fbItem);
       } else {
-        setItem((fallbackData.items as any[]).find((k: any) => k.id === id) || null);
+        setItem(null);
       }
       setLoading(false);
     };
