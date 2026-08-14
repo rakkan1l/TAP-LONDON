@@ -2,7 +2,6 @@
 
 import { useEffect, useState } from 'react';
 import { fetchCollection } from '@/lib/firestore';
-import fallbackData from '@/data/events.json';
 
 const CATEGORIES = ['All', 'Free Events', 'Food Markets', 'Markets', 'Live Music', 'Nightlife'];
 
@@ -60,11 +59,23 @@ export default function EventsPage() {
   const [activeCategory, setActiveCategory] = useState('All');
   const [activeTime, setActiveTime] = useState('today');
 
-  useEffect(() => {
+  const [loadFailed, setLoadFailed] = useState(false);
+
+  const load = () => {
+    setLoading(true);
+    setLoadFailed(false);
     fetchCollection('events').then(data => {
-      setItems(data?.length ? data : (fallbackData as any).items ?? []);
+      if (data && data.length > 0) {
+        setItems(data);
+      } else {
+        setLoadFailed(true);
+      }
       setLoading(false);
     });
+  };
+
+  useEffect(() => {
+    load();
   }, []);
 
   const timeFilterFn = TIME_FILTERS.find(t => t.value === activeTime)?.test ?? isHappeningNow;
