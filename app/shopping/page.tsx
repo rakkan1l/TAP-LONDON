@@ -3,22 +3,26 @@
 import { useEffect, useState } from 'react';
 import DirectoryClient from '@/components/DirectoryClient';
 import { fetchCollection } from '@/lib/firestore';
-import fallbackData from '@/data/shopping.json';
 
 export default function ShoppingPage() {
   const [items, setItems] = useState<any[]>([]);
   const [loading, setLoading] = useState(true);
 
+  const [loadFailed, setLoadFailed] = useState(false);
+
+  const load = async () => {
+    setLoading(true);
+    setLoadFailed(false);
+    const firebaseItems = await fetchCollection('shopping');
+    if (firebaseItems && firebaseItems.length > 0) {
+      setItems(firebaseItems);
+    } else {
+      setLoadFailed(true);
+    }
+    setLoading(false);
+  };
+
   useEffect(() => {
-    const load = async () => {
-      const firebaseItems = await fetchCollection('shopping');
-      if (firebaseItems && firebaseItems.length > 0) {
-        setItems(firebaseItems);
-      } else {
-        setItems((fallbackData as any).items ?? []);
-      }
-      setLoading(false);
-    };
     load();
   }, []);
 
