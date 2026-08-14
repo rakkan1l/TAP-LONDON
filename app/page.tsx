@@ -8,7 +8,7 @@ import { FadeUp, SlideLeft, SlideRight } from '@/components/ScrollAnimation';
 import SearchBar from '@/components/SearchBar';
 import NearMe from '@/components/NearMe';
 import LondonQuiz from '@/components/LondonQuiz';
-import { fetchDocument } from '@/lib/firestore';
+import { fetchDocument, fetchCollection } from '@/lib/firestore';
 
 const DEFAULT_HERO = 'https://images.pexels.com/photos/672532/pexels-photo-672532.jpeg?auto=compress&cs=tinysrgb&w=1920';
 
@@ -60,20 +60,26 @@ export default function HomePage() {
 
   useEffect(() => {
     const loadImages = async () => {
-      const heroDoc = await fetchDocument('siteImages', 'hero');
-      const url = heroDoc?.url || DEFAULT_HERO;
+      // FIX: this used to fire ~10 separate Firestore document requests at
+      // once (1 hero + 1 per card in MAIN_CARDS via Promise.all), all hitting
+      // the API in the same instant on every homepage load. That request
+      // burst was very likely a real contributor to the 429 "Too Many
+      // Requests" errors seen in the browser console. Fetching the whole
+      // siteImages collection in ONE request and picking out what's needed
+      // client-side avoids that burst entirely.
+      const allImages = await fetchCollection('siteImages');
+      const imageMap = new Map((allImages || []).map((doc: any) => [doc.id, doc.url]));
+
+      const url = imageMap.get('hero') || DEFAULT_HERO;
       const img = new Image();
       img.onload = () => { setHeroImage(url); setHeroReady(true); };
       img.onerror = () => { setHeroImage(DEFAULT_HERO); setHeroReady(true); };
       img.src = url;
 
-      const updatedCards = await Promise.all(
-        MAIN_CARDS.map(async (card) => {
-          const cardDoc = await fetchDocument('siteImages', 'card-' + card.id);
-          if (cardDoc?.url) return { ...card, image: cardDoc.url };
-          return card;
-        })
-      );
+      const updatedCards = MAIN_CARDS.map((card) => {
+        const cardUrl = imageMap.get('card-' + card.id);
+        return cardUrl ? { ...card, image: cardUrl } : card;
+      });
       setCards(updatedCards);
     };
     loadImages();
