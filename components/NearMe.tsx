@@ -82,16 +82,22 @@ export default function NearMe() {
     setResults([]);
     try {
       const items = await fetchCollection(collection) || [];
-      const withDist = items
-        .map((item: any) => {
-          const coords = getAreaCoords(item.area || item.location || '');
-          const dist = coords ? Math.round(distKm(pos.lat, pos.lng, coords[0], coords[1]) * 10) / 10 : 999;
-          return { ...item, dist };
-        })
-        .filter((i: any) => i.dist < 999)
-        .sort((a: any, b: any) => a.dist - b.dist)
-        .slice(0, 12);
-      setResults(withDist);
+      // Items whose area couldn't be matched to a known London area used to be
+      // silently dropped entirely (marked as 999km and filtered out) - meaning
+      // any item with an area name not in the ~40-entry AREA_COORDS list never
+      // showed up in Near Me at all, even though it's a real London location.
+      // Now unmatched items are still shown, just sorted after matched ones,
+      // so Near Me never comes back empty just because of a naming mismatch.
+      const withDist = items.map((item: any) => {
+        const coords = getAreaCoords(item.area || item.location || '');
+        const dist = coords ? Math.round(distKm(pos.lat, pos.lng, coords[0], coords[1]) * 10) / 10 : null;
+        return { ...item, dist };
+      });
+
+      const matched = withDist.filter((i: any) => i.dist !== null).sort((a: any, b: any) => a.dist - b.dist);
+      const unmatched = withDist.filter((i: any) => i.dist === null);
+
+      setResults([...matched, ...unmatched].slice(0, 12));
       setStatus('done');
     } catch {
       setErrorMsg('Could not load places. Please try again.');
@@ -292,7 +298,7 @@ export default function NearMe() {
                     {item.category && <div style={{ fontFamily: "'DM Sans', sans-serif", fontSize: '0.66rem', color: '#c9a84c', fontWeight: 600, marginTop: '2px' }}>{item.category}</div>}
                   </div>
                   <div style={{ flexShrink: 0, textAlign: 'center' as const, background: 'rgba(201,168,76,0.1)', borderRadius: '10px', padding: '6px 10px', minWidth: '50px' }}>
-                    <div style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: '1.1rem', fontWeight: 700, color: '#c9a84c' }}>{item.dist}km</div>
+                    <div style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: item.dist !== null ? '1.1rem' : '0.75rem', fontWeight: 700, color: '#c9a84c' }}>{item.dist !== null ? `${item.dist}km` : 'London'}</div>
                     <div style={{ fontFamily: "'DM Sans', sans-serif", fontSize: '0.58rem', color: '#888' }}>away</div>
                   </div>
                 </a>
