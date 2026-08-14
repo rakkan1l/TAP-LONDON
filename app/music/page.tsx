@@ -2,7 +2,6 @@
 
 import { useEffect, useState } from 'react';
 import { fetchCollection } from '@/lib/firestore';
-import fallbackData from '@/data/music.json';
 
 const CATEGORIES = ['All', 'Live Music', 'Concert Hall'];
 
@@ -11,11 +10,23 @@ export default function MusicPage() {
   const [loading, setLoading] = useState(true);
   const [activeCategory, setActiveCategory] = useState('All');
 
-  useEffect(() => {
+  const [loadFailed, setLoadFailed] = useState(false);
+
+  const load = () => {
+    setLoading(true);
+    setLoadFailed(false);
     fetchCollection('music').then(data => {
-      setItems(data?.length ? data : (fallbackData as any).items ?? []);
+      if (data && data.length > 0) {
+        setItems(data);
+      } else {
+        setLoadFailed(true);
+      }
       setLoading(false);
     });
+  };
+
+  useEffect(() => {
+    load();
   }, []);
 
   const filtered = items.filter(v => activeCategory === 'All' || v.category === activeCategory);
@@ -39,6 +50,11 @@ export default function MusicPage() {
 
         {loading ? (
           <div style={{ textAlign: 'center', padding: '60px', color: 'rgba(26,26,46,0.3)', fontFamily: "'DM Sans', sans-serif" }}>Loading...</div>
+         loadFailed ? (
+          <div style={{ textAlign: 'center', padding: '60px', fontFamily: "'DM Sans', sans-serif" }}>
+            <div style={{ color: 'rgba(26,26,46,0.5)', marginBottom: '16px' }}>Couldn't load this right now. Please try again.</div>
+            <button onClick={load} style={{ background: '#1a1a2e', color: '#c9a84c', border: 'none', borderRadius: '10px', padding: '12px 24px', fontSize: '0.85rem', fontWeight: 700, cursor: 'pointer' }}>Retry</button>
+          </div>
         ) : (
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(300px, 1fr))', gap: '20px' }}>
             {filtered.map(venue => (
