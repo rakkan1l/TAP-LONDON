@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useCallback } from 'react';
+import { useState, useCallback, useRef } from 'react';
 import { fetchCollection } from '@/lib/firestore';
 
 const CATEGORIES = [
@@ -8,7 +8,7 @@ const CATEGORIES = [
   { label: 'Places', icon: '🏛️', collection: 'places' },
   { label: 'Nightlife', icon: '🌙', collection: 'nightlife' },
   { label: 'Hotels', icon: '🏨', collection: 'hotels' },
-  { label: 'Kids', icon: '👨\u200d👩\u200d👧', collection: 'kids' },
+  { label: 'Kids', icon: '👨‍👩‍👧', collection: 'kids' },
   { label: 'Hidden Gems', icon: '💎', collection: 'hiddenGems' },
   { label: 'Shopping', icon: '🛍️', collection: 'shopping' },
 ];
@@ -65,38 +65,32 @@ function distKm(lat1: number, lon1: number, lat2: number, lon2: number) {
   const R = 6371;
   const dLat = (lat2 - lat1) * Math.PI / 180;
   const dLon = (lon2 - lon1) * Math.PI / 180;
-  const a = Math.sin(dLat/2)**2 + Math.cos(lat1*Math.PI/180)*Math.cos(lat2*Math.PI/180)*Math.sin(dLon/2)**2;
-  return R * 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a));
+  const a = Math.sin(dLat / 2) ** 2 + Math.cos(lat1 * Math.PI / 180) * Math.cos(lat2 * Math.PI / 180) * Math.sin(dLon / 2) ** 2;
+  return R * 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
 }
+
+type Status = 'idle' | 'requesting' | 'loading' | 'done' | 'error';
 
 export default function NearMe() {
   const [open, setOpen] = useState(false);
   const [activeCategory, setActiveCategory] = useState('food');
-  const [status, setStatus] = useState<'idle'|'requesting'|'loading'|'done'|'error'>('idle');
+  const [status, setStatus] = useState<Status>('idle');
   const [results, setResults] = useState<any[]>([]);
   const [errorMsg, setErrorMsg] = useState('');
-  const [userPos, setUserPos] = useState<{lat:number;lng:number}|null>(null);
+  const userPosRef = useRef<{ lat: number; lng: number } | null>(null);
 
-  const findNearby = useCallback(async (collection: string, pos: {lat:number;lng:number}) => {
+  const findNearby = useCallback(async (collection: string, pos: { lat: number; lng: number }) => {
     setStatus('loading');
     setResults([]);
     try {
       const items = await fetchCollection(collection) || [];
-      // Items whose area couldn't be matched to a known London area used to be
-      // silently dropped entirely (marked as 999km and filtered out) - meaning
-      // any item with an area name not in the ~40-entry AREA_COORDS list never
-      // showed up in Near Me at all, even though it's a real London location.
-      // Now unmatched items are still shown, just sorted after matched ones,
-      // so Near Me never comes back empty just because of a naming mismatch.
       const withDist = items.map((item: any) => {
         const coords = getAreaCoords(item.area || item.location || '');
         const dist = coords ? Math.round(distKm(pos.lat, pos.lng, coords[0], coords[1]) * 10) / 10 : null;
         return { ...item, dist };
       });
-
       const matched = withDist.filter((i: any) => i.dist !== null).sort((a: any, b: any) => a.dist - b.dist);
       const unmatched = withDist.filter((i: any) => i.dist === null);
-
       setResults([...matched, ...unmatched].slice(0, 12));
       setStatus('done');
     } catch {
@@ -105,113 +99,60 @@ export default function NearMe() {
     }
   }, []);
 
-  const requestLocation = useCallback((collection: string) => {
-    setActiveCategory(collection);
-    setStatus('requesting');
-    setErrorMsg('');
-
-    if (!navigator.geolocation) {
-      setErrorMsg('Location is not supported on this device.');
+  // Single entry point for every geolocation request in this component -
+  // called directly inside a click handler (never after an await or a
+  // setState), which is what keeps it a trusted user gesture on strict
+  // mobile browsers. maximumAge: 0 forces a fresh read every time instead
+  // of risking a stale/failed cached position from an earlier attempt.
+  const getLocationAndSearch = useCallback((collection: string) => {
+    if (typeof window === 'undefined' || !('geolocation' in navigator)) {
+      setOpen(true);
+      setActiveCategory(collection);
       setStatus('error');
+      setErrorMsg('Location is not supported on this device or browser.');
       return;
     }
 
     navigator.geolocation.getCurrentPosition(
       (pos) => {
         const p = { lat: pos.coords.latitude, lng: pos.coords.longitude };
-        setUserPos(p);
+        userPosRef.current = p;
+        setOpen(true);
+        setActiveCategory(collection);
         findNearby(collection, p);
       },
       (err) => {
-        if (err.code === 1) {
-          setErrorMsg('Location access was denied. Please allow location in your browser settings and try again.');
-        } else if (err.code === 2) {
-          setErrorMsg('Could not detect your location. Please try again.');
+        setOpen(true);
+        setActiveCategory(collection);
+        setStatus('error');
+        if (err.code === err.PERMISSION_DENIED) {
+          setErrorMsg('Location access was denied. Please allow location for this site in your browser settings, then tap Try Again.');
+        } else if (err.code === err.POSITION_UNAVAILABLE) {
+          setErrorMsg('Your device could not determine your location. Please check your GPS/location service is turned on and try again.');
         } else {
           setErrorMsg('Location request timed out. Please try again.');
         }
-        setStatus('error');
       },
-      { enableHighAccuracy: false, timeout: 15000, maximumAge: 60000 }
+      { enableHighAccuracy: false, timeout: 20000, maximumAge: 0 }
     );
+
+    setOpen(true);
+    setActiveCategory(collection);
+    setStatus('requesting');
   }, [findNearby]);
 
-  const handleOpen = () => {
-    if (!navigator.geolocation) {
-      setOpen(true);
-      setStatus('error');
-      setErrorMsg('Location is not supported on this device.');
-      return;
-    }
-
-    // FIX: getCurrentPosition must be the very first thing that runs in this
-    // click handler, with ZERO state updates (setOpen/setStatus/etc.) before it.
-    // The previous version called setOpen/setStatus/setActiveCategory BEFORE
-    // getCurrentPosition, which schedules a React re-render in between the
-    // click event and the geolocation call. On strict mobile browsers (notably
-    // Chrome/Safari on iOS and some Android WebViews), that broken timing can
-    // cause the browser to no longer treat the call as coming from a trusted
-    // user gesture, which can silently produce PERMISSION_DENIED even when the
-    // site already has location permission granted. Calling it truly first,
-    // synchronously, fixes this.
-    navigator.geolocation.getCurrentPosition(
-      (pos) => {
-        const p = { lat: pos.coords.latitude, lng: pos.coords.longitude };
-        setOpen(true);
-        setActiveCategory('food');
-        setUserPos(p);
-        findNearby('food', p);
-      },
-      (err) => {
-        setOpen(true);
-        setActiveCategory('food');
-        if (err.code === 1) {
-          setErrorMsg('Location access was denied. Please go to your browser Settings → Site permissions → Location → Allow.');
-        } else {
-          setErrorMsg('Could not get your location. Please try again.');
-        }
-        setStatus('error');
-      },
-      { enableHighAccuracy: false, timeout: 15000, maximumAge: 0 }
-    );
-    // Show the panel immediately in a loading state while the browser's
-    // permission prompt / GPS lookup is in progress, without delaying the
-    // getCurrentPosition call itself.
-    setOpen(true);
-    setStatus('requesting');
-  };
+  const handleOpen = () => getLocationAndSearch('food');
 
   const handleCategoryChange = (col: string) => {
-    if (userPos) {
+    if (userPosRef.current) {
       setActiveCategory(col);
-      findNearby(col, userPos);
+      findNearby(col, userPosRef.current);
       return;
     }
-    // No position yet - same fix as handleOpen: call getCurrentPosition first,
-    // before any state updates, to keep the trusted user-gesture chain intact.
-    if (!navigator.geolocation) {
-      setActiveCategory(col);
-      setErrorMsg('Location is not supported on this device.');
-      setStatus('error');
-      return;
-    }
-    navigator.geolocation.getCurrentPosition(
-      (pos) => {
-        const p = { lat: pos.coords.latitude, lng: pos.coords.longitude };
-        setActiveCategory(col);
-        setUserPos(p);
-        findNearby(col, p);
-      },
-      () => {
-        setActiveCategory(col);
-        setErrorMsg('Could not get your location. Please allow location access and try again.');
-        setStatus('error');
-      },
-      { enableHighAccuracy: false, timeout: 15000, maximumAge: 0 }
-    );
-    setActiveCategory(col);
-    setStatus('requesting');
+    getLocationAndSearch(col);
   };
+
+  const handleRetry = () => getLocationAndSearch(activeCategory);
 
   if (!open) return (
     <button
@@ -227,7 +168,7 @@ export default function NearMe() {
       }}
     >
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-        <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/>
+        <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" /><circle cx="12" cy="10" r="3" />
       </svg>
       Near Me
     </button>
@@ -240,14 +181,13 @@ export default function NearMe() {
     >
       <div onClick={e => e.stopPropagation()} style={{ background: '#f9f7f2', borderRadius: '20px 20px 0 0', width: '100%', maxWidth: '620px', maxHeight: '88vh', display: 'flex', flexDirection: 'column', overflow: 'hidden' }}>
 
-        {/* Header */}
         <div style={{ background: '#1a1a2e', padding: '18px 20px', display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexShrink: 0 }}>
           <div>
             <div style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: '1.4rem', fontWeight: 700, color: '#fff' }}>📍 Near Me</div>
             <div style={{ fontFamily: "'DM Sans', sans-serif", fontSize: '0.72rem', color: 'rgba(255,255,255,0.45)', marginTop: '2px' }}>
-              {status === 'requesting' && 'Allow location access to continue...'}
+              {status === 'requesting' && 'Waiting for location permission...'}
               {status === 'loading' && 'Finding nearest places...'}
-              {status === 'done' && userPos && `Location found — showing closest results`}
+              {status === 'done' && 'Location found — showing closest results'}
               {status === 'error' && 'Location error'}
               {status === 'idle' && 'Finding your location...'}
             </div>
@@ -255,7 +195,6 @@ export default function NearMe() {
           <button onClick={() => setOpen(false)} style={{ background: 'rgba(255,255,255,0.12)', border: 'none', color: '#fff', width: '34px', height: '34px', borderRadius: '50%', cursor: 'pointer', fontSize: '1rem' }}>✕</button>
         </div>
 
-        {/* Category tabs */}
         <div style={{ background: '#fff', padding: '12px 16px', display: 'flex', gap: '8px', overflowX: 'auto', flexShrink: 0, borderBottom: '1px solid rgba(0,0,0,0.06)' }}>
           {CATEGORIES.map(cat => (
             <button key={cat.collection} onClick={() => handleCategoryChange(cat.collection)}
@@ -265,10 +204,8 @@ export default function NearMe() {
           ))}
         </div>
 
-        {/* Content */}
         <div style={{ flex: 1, overflowY: 'auto', padding: '16px' }}>
 
-          {/* Requesting permission */}
           {status === 'requesting' && (
             <div style={{ textAlign: 'center', padding: '48px 20px', fontFamily: "'DM Sans', sans-serif" }}>
               <div style={{ fontSize: '3rem', marginBottom: '16px' }}>📍</div>
@@ -279,7 +216,6 @@ export default function NearMe() {
             </div>
           )}
 
-          {/* Loading */}
           {status === 'loading' && (
             <div style={{ textAlign: 'center', padding: '48px 20px', fontFamily: "'DM Sans', sans-serif" }}>
               <div style={{ fontSize: '3rem', marginBottom: '16px', animation: 'spin 1s linear infinite', display: 'inline-block' }}>🔍</div>
@@ -287,12 +223,11 @@ export default function NearMe() {
             </div>
           )}
 
-          {/* Error */}
           {status === 'error' && (
             <div style={{ textAlign: 'center', padding: '40px 20px', fontFamily: "'DM Sans', sans-serif" }}>
               <div style={{ fontSize: '2.5rem', marginBottom: '14px' }}>📍</div>
               <div style={{ color: '#e55', marginBottom: '12px', fontSize: '0.88rem', fontWeight: 600 }}>{errorMsg}</div>
-              <button onClick={() => requestLocation(activeCategory)} style={{ background: '#1a1a2e', color: '#c9a84c', border: 'none', borderRadius: '10px', padding: '12px 24px', fontFamily: "'DM Sans', sans-serif", fontSize: '0.84rem', fontWeight: 700, cursor: 'pointer' }}>
+              <button onClick={handleRetry} style={{ background: '#1a1a2e', color: '#c9a84c', border: 'none', borderRadius: '10px', padding: '12px 24px', fontFamily: "'DM Sans', sans-serif", fontSize: '0.84rem', fontWeight: 700, cursor: 'pointer' }}>
                 Try Again
               </button>
               <div style={{ marginTop: '16px', fontSize: '0.74rem', color: '#aaa', lineHeight: 1.6 }}>
@@ -301,7 +236,6 @@ export default function NearMe() {
             </div>
           )}
 
-          {/* Results */}
           {status === 'done' && results.length === 0 && (
             <div style={{ textAlign: 'center', padding: '40px 20px', fontFamily: "'DM Sans', sans-serif", color: '#888' }}>
               No nearby results found. Try a different category.
