@@ -31,6 +31,36 @@ const navLinks = [
   { href: "/muslim",      label: "Muslim Guide", color: "muslim" },
 ];
 
+// Grouped view for the dropdown menu - same 23 links, organized into
+// labeled sections instead of one long flat list, which was causing
+// scroll/usability problems now that the category count has grown.
+const navGroups: { title: string; links: typeof navLinks }[] = [
+  {
+    title: "Explore",
+    links: navLinks.filter(l => ["/places", "/areas", "/hidden-gems", "/trending", "/guides"].includes(l.href)),
+  },
+  {
+    title: "Food & Nightlife",
+    links: navLinks.filter(l => ["/food", "/nightlife", "/muslim"].includes(l.href)),
+  },
+  {
+    title: "Stay & Shop",
+    links: navLinks.filter(l => ["/hotels", "/shopping", "/budget"].includes(l.href)),
+  },
+  {
+    title: "Culture & Things To Do",
+    links: navLinks.filter(l => ["/theatre", "/music", "/sports", "/parks", "/universities", "/daytrips", "/kids"].includes(l.href)),
+  },
+  {
+    title: "Plan Your Trip",
+    links: navLinks.filter(l => ["/trip-builder", "/events", "/offers"].includes(l.href)),
+  },
+  {
+    title: "Practical",
+    links: navLinks.filter(l => ["/transport", "/emergency"].includes(l.href)),
+  },
+];
+
 const LANGUAGES = [
   { code: "en", label: "EN", flag: "🇬🇧", full: "English", googleCode: "" },
   { code: "fr", label: "FR", flag: "🇫🇷", full: "Français", googleCode: "fr" },
@@ -198,22 +228,34 @@ export default function Navbar() {
         </nav>
 
         {open && (
-          <div className="border-t border-navy/10 dark:border-white/10 bg-cream dark:bg-[#0d0d1a] px-4 pb-5 pt-2">
-            <div className="mx-auto grid max-w-7xl gap-2">
+          <div
+            className="border-t border-navy/10 dark:border-white/10 bg-cream dark:bg-[#0d0d1a] px-4 pb-5 pt-2"
+            style={{ maxHeight: 'calc(100vh - 80px)', overflowY: 'auto', overscrollBehavior: 'contain', WebkitOverflowScrolling: 'touch' }}
+          >
+            <div className="mx-auto max-w-7xl">
               {weather && (
                 <div className="flex items-center gap-2 px-4 py-2 text-xs font-semibold text-navy/50 dark:text-cream/40">
                   <span>{getWeatherEmoji(weather.code)}</span>
                   <span>London {weather.temp}°C</span>
                 </div>
               )}
-              {navLinks.map((link) => {
-                const active = pathname === link.href;
-                return (
-                  <Link key={link.href} href={link.href} onClick={() => setOpen(false)} className={`flex min-h-12 items-center rounded-full px-5 text-base font-semibold transition ${getMobileClass(link.color, active)}`}>
-                    {link.label}
-                  </Link>
-                );
-              })}
+              {navGroups.map((group) => group.links.length > 0 && (
+                <div key={group.title} className="mb-4">
+                  <div className="px-4 pb-2 pt-1 text-[0.68rem] font-bold uppercase tracking-[0.14em] text-navy/40 dark:text-cream/35">
+                    {group.title}
+                  </div>
+                  <div className="grid gap-2">
+                    {group.links.map((link) => {
+                      const active = pathname === link.href;
+                      return (
+                        <Link key={link.href} href={link.href} onClick={() => setOpen(false)} className={`flex min-h-11 items-center rounded-full px-5 text-[0.95rem] font-semibold transition ${getMobileClass(link.color, active)}`}>
+                          {link.label}
+                        </Link>
+                      );
+                    })}
+                  </div>
+                </div>
+              ))}
             </div>
           </div>
         )}
