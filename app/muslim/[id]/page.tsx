@@ -4,7 +4,6 @@ import React, { useEffect, useState } from "react";
 import Link from "next/link";
 import { useParams } from "next/navigation";
 import { fetchDocument } from "@/lib/firestore";
-import fallbackData from "@/data/muslim.json";
 
 export default function MuslimDetailPage() {
   const params = useParams();
@@ -14,11 +13,12 @@ export default function MuslimDetailPage() {
 
   useEffect(() => {
     const load = async () => {
+      setLoading(true);
       const fbItem = await fetchDocument("muslim", id);
       if (fbItem && fbItem.name) {
         setItem(fbItem);
       } else {
-        setItem((fallbackData.items as any[]).find((m: any) => m.id === id) || null);
+        setItem(null);
       }
       setLoading(false);
     };
