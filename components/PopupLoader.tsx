@@ -4,8 +4,7 @@ import { useEffect, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-
-const PROJECT_ID = 'tap-london';
+import { fetchDocument } from '@/lib/firestore';
 
 type PopupConfig = {
   enabled: boolean;
@@ -20,29 +19,28 @@ type PopupConfig = {
   delaySeconds: number;
 };
 
+// FIX: this component used to have its own hand-rolled fetch() call, direct
+// to the Firestore REST API, completely separate from lib/firestore.ts - no
+// retry-on-429 logic at all, and firing 2 MORE simultaneous requests
+// (section popup + global popup) on top of whatever else a page was already
+// loading. That's a real contributor to the 429 storm seen in the console,
+// since it ran on every single page navigation. Now routed through the
+// shared fetchDocument(), which has retry-with-backoff built in.
 async function fetchPopup(docId: string): Promise<PopupConfig | null> {
-  try {
-    const url = `https://firestore.googleapis.com/v1/projects/${PROJECT_ID}/databases/(default)/documents/popups/${docId}`;
-    const res = await fetch(url, { cache: 'no-store' });
-    if (!res.ok) return null;
-    const doc = await res.json();
-    if (!doc.fields) return null;
-    const f = doc.fields;
-    return {
-      enabled: f.enabled?.booleanValue ?? false,
-      title: f.title?.stringValue ?? '',
-      subtitle: f.subtitle?.stringValue ?? '',
-      body: f.body?.stringValue ?? '',
-      ctaLabel: f.ctaLabel?.stringValue ?? 'Explore Now',
-      ctaUrl: f.ctaUrl?.stringValue ?? '/places',
-      image: f.image?.stringValue ?? '',
-      expiresAt: f.expiresAt?.stringValue ?? '',
-      showOnce: f.showOnce?.booleanValue ?? true,
-      delaySeconds: parseInt(f.delaySeconds?.integerValue ?? '3'),
-    };
-  } catch {
-    return null;
-  }
+  const doc = await fetchDocument('popups', docId);
+  if (!doc) return null;
+  return {
+    enabled: doc.enabled ?? false,
+    title: doc.title ?? '',
+    subtitle: doc.subtitle ?? '',
+    body: doc.body ?? '',
+    ctaLabel: doc.ctaLabel ?? 'Explore Now',
+    ctaUrl: doc.ctaUrl ?? '/places',
+    image: doc.image ?? '',
+    expiresAt: doc.expiresAt ?? '',
+    showOnce: doc.showOnce ?? true,
+    delaySeconds: typeof doc.delaySeconds === 'number' ? doc.delaySeconds : 3,
+  };
 }
 
 export default function PopupLoader() {
@@ -54,16 +52,14 @@ export default function PopupLoader() {
     const load = async () => {
       try {
         const section = pathname.split('/')[1] || 'global';
-        const [sectionPopup, globalPopup] = await Promise.all([
-          fetchPopup(section),
-          fetchPopup('global'),
-        ]);
+        // Fetch section popup first; only fetch the global fallback if
+        // needed, instead of always firing both requests together.
+        let cfg: PopupConfig | null = await fetchPopup(section);
+        if (!cfg?.enabled) {
+          cfg = section === 'global' ? cfg : await fetchPopup('global');
+        }
 
-        let cfg: PopupConfig | null = null;
-        if (sectionPopup?.enabled) cfg = sectionPopup;
-        else if (globalPopup?.enabled) cfg = globalPopup;
-
-        if (!cfg) return;
+        if (!cfg?.enabled) return;
         if (cfg.expiresAt && new Date(cfg.expiresAt) < new Date()) return;
 
         const storageKey = 'tap-popup-' + section;
