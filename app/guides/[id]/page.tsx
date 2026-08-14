@@ -4,7 +4,6 @@ import { useEffect, useState } from 'react';
 import Link from 'next/link';
 import { useParams } from 'next/navigation';
 import { fetchDocument } from '@/lib/firestore';
-import fallbackData from '@/data/guides.json';
 
 export default function GuideDetailPage() {
   const params = useParams();
@@ -14,11 +13,12 @@ export default function GuideDetailPage() {
 
   useEffect(() => {
     const load = async () => {
-      const fbItem = await fetchDocument('guides', id);
+      setLoading(true);
+      const fbItem = await fetchDocument("guides", id);
       if (fbItem && fbItem.name) {
         setGuide(fbItem);
       } else {
-        setGuide((fallbackData.items as any[]).find((g: any) => g.id === id) || null);
+        setGuide(null);
       }
       setLoading(false);
     };
