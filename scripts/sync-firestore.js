@@ -56,14 +56,30 @@ async function syncSection(sectionFile) {
   const existingSnap = await colRef.get();
   const existingIds = new Set(existingSnap.docs.map(d => d.id));
 
+  // Load tombstones for this collection - items deliberately deleted in
+  // admin that must NOT be re-added just because they're still present in
+  // the JSON file. Without this check, every deleted item would silently
+  // come back on the next scheduled sync run.
+  const tombstoneSnap = await db.collection('deletedItems')
+    .where('collection', '==', collectionName)
+    .get();
+  const deletedIds = new Set(tombstoneSnap.docs.map(d => d.data().itemId));
+
   let batch = db.batch();
   let count = 0;
   let added = 0;
   let updated = 0;
+  let skippedDeleted = 0;
 
   for (let i = 0; i < items.length; i++) {
     const item = { ...items[i] };
     const id = item.id || slugify(item.name || `item-${i}`);
+
+    if (!existingIds.has(id) && deletedIds.has(id)) {
+      skippedDeleted++;
+      continue;
+    }
+
     const ref = colRef.doc(id);
 
     if (existingIds.has(id)) {
@@ -85,7 +101,7 @@ async function syncSection(sectionFile) {
   }
 
   if (count > 0) await batch.commit();
-  console.log(`${sectionFile}: ${added} new, ${updated} updated (protected fields preserved)`);
+  console.log(`${sectionFile}: ${added} new, ${updated} updated, ${skippedDeleted} skipped (previously deleted)`);
 }
 
 const SECTIONS = [
