@@ -89,7 +89,7 @@ const QUESTIONS: QuizOption[] = [
   },
   {
     key: 'cheap',
-    label: 'Cheap London',
+    label: 'Budget London',
     icon: '💷',
     subtitle: 'Free and budget picks only',
     build: (data) => {
