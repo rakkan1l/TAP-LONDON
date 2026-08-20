@@ -159,7 +159,7 @@ export default function HomePage() {
       </section>
 
       {/* AI ITINERARY BUILDER - entry card */}
-      <section style={{ padding: '20px 20px 0', width: '100%', boxSizing: 'border-box' as const }}>
+      <section style={{ padding: '48px 20px', width: '100%', boxSizing: 'border-box' as const }}>
         <Link href="/trip-builder" style={{ textDecoration: 'none', display: 'block', width: '100%' }}>
           <div style={{
             maxWidth: '1100px', margin: '0 auto', position: 'relative', overflow: 'hidden',
