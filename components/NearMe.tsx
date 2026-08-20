@@ -132,7 +132,7 @@ export default function NearMe() {
         }
         setStatus('error');
       },
-      { enableHighAccuracy: false, timeout: 15000, maximumAge: 60000 }
+      { enableHighAccuracy: true, timeout: 20000, maximumAge: 60000 }
     );
   }, [findNearby]);
 
@@ -172,7 +172,7 @@ export default function NearMe() {
         }
         setStatus('error');
       },
-      { enableHighAccuracy: false, timeout: 15000, maximumAge: 0 }
+      { enableHighAccuracy: true, timeout: 20000, maximumAge: 0 }
     );
     // Show the panel immediately in a loading state while the browser's
     // permission prompt / GPS lookup is in progress, without delaying the
@@ -207,7 +207,7 @@ export default function NearMe() {
         setErrorMsg('Could not get your location. Please allow location access and try again.');
         setStatus('error');
       },
-      { enableHighAccuracy: false, timeout: 15000, maximumAge: 0 }
+      { enableHighAccuracy: true, timeout: 20000, maximumAge: 0 }
     );
     setActiveCategory(col);
     setStatus('requesting');
