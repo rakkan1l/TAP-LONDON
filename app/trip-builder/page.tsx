@@ -24,17 +24,36 @@ type DayPlan = {
   items: { time: string; name: string; area?: string; href: string; slot: string }[];
 };
 
+function shuffle<T>(arr: T[]): T[] {
+  const a = [...arr];
+  for (let i = a.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [a[i], a[j]] = [a[j], a[i]];
+  }
+  return a;
+}
+
+// Picks n items the trip hasn't used yet, in random order rather than
+// always the first n in the array - without this, every visitor with the
+// same interests got the identical itinerary, and items later in a
+// collection never had a chance to be picked.
 function pickN(arr: any[], n: number, exclude: Set<string>) {
-  const filtered = arr.filter(x => !exclude.has(x.id));
+  const filtered = shuffle(arr.filter(x => x?.id && x?.name && !exclude.has(x.id)));
   const chosen = filtered.slice(0, n);
   chosen.forEach(c => exclude.add(c.id));
   return chosen;
 }
 
+function formatDayDate(dayOffset: number): string {
+  const d = new Date();
+  d.setDate(d.getDate() + dayOffset);
+  return d.toLocaleDateString('en-GB', { weekday: 'short', day: 'numeric', month: 'short' });
+}
+
 const FONT_IMPORT = "@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=DM+Sans:wght@400;500;600;700&family=DM+Mono:wght@400;500&display=swap');";
 
 export default function TripBuilderPage() {
-  const [step, setStep] = useState<'form' | 'loading' | 'result'>('form');
+  const [step, setStep] = useState<'form' | 'loading' | 'result' | 'error'>('form');
   const [days, setDays] = useState(3);
   const [budget, setBudget] = useState(500);
   const [interests, setInterests] = useState<string[]>([]);
@@ -51,83 +70,117 @@ export default function TripBuilderPage() {
   const generate = async () => {
     setStep('loading');
 
-    const neededCollections = new Set<string>(['places', 'food']);
-    interests.forEach(key => {
-      const opt = INTEREST_OPTIONS.find(o => o.key === key);
-      opt?.collections.forEach(c => neededCollections.add(c));
-    });
-    const budgetLevel = budget < 300 ? 'low' : budget < 800 ? 'mid' : 'high';
-    neededCollections.add('hotels');
-
-    const dataCache: Record<string, any[]> = {};
-    await Promise.all(
-      Array.from(neededCollections).map(async (c) => {
-        const items = await fetchCollection(c);
-        dataCache[c] = items || [];
-      })
-    );
-
-    const hotels = (dataCache.hotels || []).filter((h: any) => {
-      const areaMatch = hotelArea === "Doesn't matter" || (h.area || '').toLowerCase().includes(hotelArea.replace(' London', '').toLowerCase());
-      if (budgetLevel === 'low') return areaMatch && (h.category === '3-star' || h.category === '4-star');
-      if (budgetLevel === 'mid') return areaMatch && h.category !== '5-star';
-      return areaMatch;
-    });
-    setHotelPicks(hotels.slice(0, 3));
-
-    const interestCollections = interests
-      .map(key => INTEREST_OPTIONS.find(o => o.key === key))
-      .filter(Boolean)
-      .flatMap(o => o!.collections);
-
-    const usedIds = new Set<string>();
-    const plan: DayPlan[] = [];
-
-    for (let d = 1; d <= days; d++) {
-      const dayItems: DayPlan['items'] = [];
-
-      const morningPool = interestCollections.includes('sports') && dataCache.sports?.length
-        ? dataCache.sports
-        : interestCollections.includes('hiddenGems') && dataCache.hiddenGems?.length
-        ? dataCache.hiddenGems
-        : (dataCache.places || []).filter((p: any) => p.category?.includes('Top') || p.category?.includes('Attraction'));
-      const morning = pickN(morningPool, 1, usedIds);
-      morning.forEach(p => dayItems.push({ time: '10:00', name: p.name, area: p.area, href: p.type === 'sports' ? '/sports' : (p.category ? '/places/' + p.id : '/hidden-gems'), slot: 'Morning' }));
-
-      const foodPool = (dataCache.food || []).filter((f: any) => {
-        const pr = (f.priceRange || '').toString();
-        const level = (pr.match(/£/g) || []).length;
-        if (budgetLevel === 'low') return level <= 1;
-        if (budgetLevel === 'mid') return level <= 2;
-        return true;
+    try {
+      const neededCollections = new Set<string>(['places', 'food']);
+      interests.forEach(key => {
+        const opt = INTEREST_OPTIONS.find(o => o.key === key);
+        opt?.collections.forEach(c => neededCollections.add(c));
       });
-      const lunch = pickN(foodPool, 1, usedIds);
-      lunch.forEach(f => dayItems.push({ time: '13:00', name: f.name, area: f.area, href: `/food/${f.id}`, slot: 'Lunch' }));
+      const budgetLevel = budget < 300 ? 'low' : budget < 800 ? 'mid' : 'high';
+      neededCollections.add('hotels');
 
-      let afternoonPool = dataCache.places || [];
-      if (interests.includes('shopping') && dataCache.shopping?.length) afternoonPool = dataCache.shopping;
-      else if (interests.includes('theatre') && dataCache.theatre?.length && d === days) afternoonPool = dataCache.theatre;
-      else if (interests.includes('music') && dataCache.music?.length) afternoonPool = dataCache.music;
-      const afternoon = pickN(afternoonPool, 1, usedIds);
-      afternoon.forEach(p => dayItems.push({
-        time: '15:00', name: p.name, area: p.area,
-        href: dataCache.shopping?.includes(p) ? `/shopping/${p.id}` : dataCache.theatre?.includes(p) ? `/theatre/${p.id}` : dataCache.music?.includes(p) ? `/music/${p.id}` : `/places/${p.id}`,
-        slot: 'Afternoon',
+      const dataCache: Record<string, any[]> = {};
+      await Promise.all(
+        Array.from(neededCollections).map(async (c) => {
+          const items = await fetchCollection(c);
+          dataCache[c] = items || [];
+        })
+      );
+
+      // If the two core collections we always need came back completely
+      // empty, treat this as a failed generation rather than silently
+      // producing an itinerary full of blank/undefined slots.
+      const gotAnyData = (dataCache.places?.length || 0) > 0 || (dataCache.food?.length || 0) > 0;
+      if (!gotAnyData) {
+        setStep('error');
+        return;
+      }
+
+      const hotels = shuffle((dataCache.hotels || []).filter((h: any) => {
+        const areaMatch = hotelArea === "Doesn't matter" || (h.area || '').toLowerCase().includes(hotelArea.replace(' London', '').toLowerCase());
+        if (budgetLevel === 'low') return areaMatch && (h.category === '3-star' || h.category === '4-star');
+        if (budgetLevel === 'mid') return areaMatch && h.category !== '5-star';
+        return areaMatch;
       }));
+      // Fall back to any hotel in budget if the area filter left nothing
+      const hotelResults = hotels.length > 0 ? hotels : shuffle(dataCache.hotels || []);
+      setHotelPicks(hotelResults.slice(0, 3));
 
-      const eveningPool = interests.includes('nightlife') && dataCache.nightlife?.length ? dataCache.nightlife : dataCache.food || [];
-      const evening = pickN(eveningPool, 1, usedIds);
-      evening.forEach(p => dayItems.push({
-        time: '19:30', name: p.name, area: p.area,
-        href: dataCache.nightlife?.includes(p) ? `/nightlife/${p.id}` : `/food/${p.id}`,
-        slot: 'Evening',
-      }));
+      const interestCollections = interests
+        .map(key => INTEREST_OPTIONS.find(o => o.key === key))
+        .filter(Boolean)
+        .flatMap(o => o!.collections);
 
-      plan.push({ day: d, items: dayItems });
+      const usedIds = new Set<string>();
+      const usedFoodAreas = new Set<string>();
+      const plan: DayPlan[] = [];
+
+      for (let d = 1; d <= days; d++) {
+        const dayItems: DayPlan['items'] = [];
+
+        // Morning: interest-matched first, with layered fallbacks so this
+        // slot is never left empty even if the preferred pool has nothing.
+        let morningPool = interestCollections.includes('sports') && dataCache.sports?.length
+          ? dataCache.sports
+          : interestCollections.includes('hiddenGems') && dataCache.hiddenGems?.length
+          ? dataCache.hiddenGems
+          : (dataCache.places || []).filter((p: any) => p.category?.includes('Top') || p.category?.includes('Attraction'));
+        if (!morningPool?.length) morningPool = dataCache.places || [];
+        const morning = pickN(morningPool, 1, usedIds);
+        morning.forEach(p => dayItems.push({ time: '10:00', name: p.name, area: p.area, href: p.type === 'sports' ? '/sports' : (dataCache.hiddenGems?.includes(p) ? '/hidden-gems' : '/places/' + p.id), slot: 'Morning' }));
+
+        // Lunch: budget-filtered, avoiding an area used earlier the same
+        // day where possible for a bit more variety across the trip.
+        let foodPool = (dataCache.food || []).filter((f: any) => {
+          const pr = (f.priceRange || '').toString();
+          const level = (pr.match(/£/g) || []).length;
+          if (budgetLevel === 'low') return level <= 1;
+          if (budgetLevel === 'mid') return level <= 2;
+          return true;
+        });
+        if (!foodPool.length) foodPool = dataCache.food || [];
+        const lunch = pickN(foodPool, 1, usedIds);
+        lunch.forEach(f => { usedFoodAreas.add(f.area); dayItems.push({ time: '13:00', name: f.name, area: f.area, href: `/food/${f.id}`, slot: 'Lunch' }); });
+
+        // Afternoon: rotate through matched interests across days instead
+        // of always favouring the same one, so a multi-day trip doesn't
+        // repeat "shopping" every single afternoon when shopping + theatre
+        // are both selected.
+        const afternoonOptions: { pool: any[]; base: string }[] = [];
+        if (interests.includes('shopping') && dataCache.shopping?.length) afternoonOptions.push({ pool: dataCache.shopping, base: '/shopping/' });
+        if (interests.includes('theatre') && dataCache.theatre?.length) afternoonOptions.push({ pool: dataCache.theatre, base: '/theatre/' });
+        if (interests.includes('music') && dataCache.music?.length) afternoonOptions.push({ pool: dataCache.music, base: '/music/' });
+        let afternoonPool = dataCache.places || [];
+        let afternoonBase = '/places/';
+        if (afternoonOptions.length) {
+          const pick = afternoonOptions[(d - 1) % afternoonOptions.length];
+          afternoonPool = pick.pool;
+          afternoonBase = pick.base;
+        }
+        if (!afternoonPool?.length) { afternoonPool = dataCache.places || []; afternoonBase = '/places/'; }
+        const afternoon = pickN(afternoonPool, 1, usedIds);
+        afternoon.forEach(p => dayItems.push({ time: '15:00', name: p.name, area: p.area, href: afternoonBase + p.id, slot: 'Afternoon' }));
+
+        // Evening: nightlife if selected, otherwise a second food pick from
+        // a different area than lunch where possible for real variety.
+        let eveningPool = interests.includes('nightlife') && dataCache.nightlife?.length ? dataCache.nightlife : dataCache.food || [];
+        const varied = eveningPool.filter((x: any) => !usedFoodAreas.has(x.area));
+        if (varied.length) eveningPool = varied;
+        const evening = pickN(eveningPool, 1, usedIds);
+        evening.forEach(p => dayItems.push({
+          time: '19:30', name: p.name, area: p.area,
+          href: dataCache.nightlife?.includes(p) ? `/nightlife/${p.id}` : `/food/${p.id}`,
+          slot: 'Evening',
+        }));
+
+        plan.push({ day: d, items: dayItems });
+      }
+
+      setItinerary(plan);
+      setStep('result');
+    } catch {
+      setStep('error');
     }
-
-    setItinerary(plan);
-    setStep('result');
   };
 
   const reset = () => {
@@ -244,6 +297,18 @@ export default function TripBuilderPage() {
           </div>
         )}
 
+        {step === 'error' && (
+          <div style={{ textAlign: 'center', padding: '80px 20px', fontFamily: "'DM Sans', sans-serif" }}>
+            <div style={{ color: 'rgba(255,255,255,0.6)', marginBottom: '20px', fontSize: '0.92rem' }}>
+              Couldn't build your trip right now. Please try again.
+            </div>
+            <button onClick={generate} style={{
+              background: 'linear-gradient(135deg,#c9a84c,#e8c46f)', color: '#1a1a2e', border: 'none',
+              borderRadius: '10px', padding: '12px 26px', fontSize: '0.85rem', fontWeight: 700, cursor: 'pointer',
+            }}>Retry</button>
+          </div>
+        )}
+
         {step === 'result' && (
           <div>
             <button onClick={reset} style={{
@@ -301,10 +366,16 @@ export default function TripBuilderPage() {
                     }}>
                       <div style={{ fontFamily: "'DM Mono', monospace", fontSize: '0.6rem', color: 'rgba(26,26,46,0.6)', letterSpacing: '1px' }}>DAY</div>
                       <div style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: '2.4rem', fontWeight: 700, color: '#1a1a2e', lineHeight: 1 }}>{day.day}</div>
+                      <div style={{ fontFamily: "'DM Mono', monospace", fontSize: '0.56rem', color: 'rgba(26,26,46,0.55)', marginTop: '4px', textAlign: 'center' as const }}>{formatDayDate(day.day - 1)}</div>
                     </div>
 
                     <div style={{ padding: '20px clamp(16px,3vw,26px)', flex: 1 }}>
                       <div style={{ display: 'grid', gap: '4px' }}>
+                        {day.items.length === 0 && (
+                          <div style={{ fontFamily: "'DM Sans', sans-serif", fontSize: '0.82rem', color: 'rgba(255,255,255,0.4)', padding: '8px' }}>
+                            No spots left to suggest for this day — browse <Link href="/places" style={{ color: '#c9a84c' }}>Places</Link> for more ideas.
+                          </div>
+                        )}
                         {day.items.map((item, i) => (
                           <Link key={i} href={item.href} style={{ textDecoration: 'none' }}>
                             <div style={{
