@@ -69,6 +69,26 @@ function distKm(lat1: number, lon1: number, lat2: number, lon2: number) {
   return R * 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a));
 }
 
+// Fallback for when browser geolocation fails or is denied - notably iOS
+// Safari, which can be unreliable about even showing the permission prompt
+// in some cases regardless of the site's own code. This estimates location
+// from the visitor's IP address instead - far less precise (city-level, not
+// street-level) but needs no permission prompt at all, so it works even
+// when GPS geolocation can't. Uses a free, keyless public API.
+async function getLocationFromIP(): Promise<{ lat: number; lng: number } | null> {
+  try {
+    const res = await fetch('https://ipapi.co/json/');
+    if (!res.ok) return null;
+    const data = await res.json();
+    if (typeof data.latitude === 'number' && typeof data.longitude === 'number') {
+      return { lat: data.latitude, lng: data.longitude };
+    }
+    return null;
+  } catch {
+    return null;
+  }
+}
+
 export default function NearMe() {
   const [open, setOpen] = useState(false);
   const [activeCategory, setActiveCategory] = useState('food');
@@ -76,6 +96,7 @@ export default function NearMe() {
   const [results, setResults] = useState<any[]>([]);
   const [errorMsg, setErrorMsg] = useState('');
   const [userPos, setUserPos] = useState<{lat:number;lng:number}|null>(null);
+  const [isApproxLocation, setIsApproxLocation] = useState(false);
 
   const findNearby = useCallback(async (collection: string, pos: {lat:number;lng:number}) => {
     setStatus('loading');
@@ -162,9 +183,20 @@ export default function NearMe() {
         setUserPos(p);
         findNearby('food', p);
       },
-      (err) => {
+      async (err) => {
         setOpen(true);
         setActiveCategory('food');
+        // Precise GPS failed/denied - try the IP-based fallback before
+        // giving up entirely. This is what makes Near Me still work on
+        // iOS Safari sessions where the permission prompt doesn't behave
+        // reliably, without requiring the person to change any settings.
+        const ipPos = await getLocationFromIP();
+        if (ipPos) {
+          setUserPos(ipPos);
+          setIsApproxLocation(true);
+          findNearby('food', ipPos);
+          return;
+        }
         if (err.code === 1) {
           setErrorMsg('Location access was denied. Please go to your browser Settings → Site permissions → Location → Allow.');
         } else {
@@ -202,8 +234,15 @@ export default function NearMe() {
         setUserPos(p);
         findNearby(col, p);
       },
-      () => {
+      async () => {
         setActiveCategory(col);
+        const ipPos = await getLocationFromIP();
+        if (ipPos) {
+          setUserPos(ipPos);
+          setIsApproxLocation(true);
+          findNearby(col, ipPos);
+          return;
+        }
         setErrorMsg('Could not get your location. Please allow location access and try again.');
         setStatus('error');
       },
@@ -247,7 +286,7 @@ export default function NearMe() {
             <div style={{ fontFamily: "'DM Sans', sans-serif", fontSize: '0.72rem', color: 'rgba(255,255,255,0.45)', marginTop: '2px' }}>
               {status === 'requesting' && 'Allow location access to continue...'}
               {status === 'loading' && 'Finding nearest places...'}
-              {status === 'done' && userPos && `Location found — showing closest results`}
+              {status === 'done' && userPos && (isApproxLocation ? 'Using approximate location — enable precise location for better results' : 'Location found — showing closest results')}
               {status === 'error' && 'Location error'}
               {status === 'idle' && 'Finding your location...'}
             </div>
