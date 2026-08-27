@@ -9,7 +9,7 @@
       "bestFor": "Half-day trip, royal history",
       "entryFee": "From £30 adult",
       "priceType": "Paid",
-      "image": "https://images.pexels.com/photos/460672/pexels-photo-460672.jpeg?auto=compress&cs=tinysrgb&w=800",
+      "image": "https://images.pexels.com/photos/460672/pexels-photo-460672.jpeg?auto=compress&cs=tinysrgb&w=1920",
       "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Windsor+Castle",
       "order": 1
     },
@@ -22,7 +22,7 @@
       "bestFor": "Full-day trip, ancient history",
       "entryFee": "From £25 adult",
       "priceType": "Paid",
-      "image": "https://images.pexels.com/photos/1587927/pexels-photo-1587927.jpeg?auto=compress&cs=tinysrgb&w=800",
+      "image": "https://images.pexels.com/photos/1587927/pexels-photo-1587927.jpeg?auto=compress&cs=tinysrgb&w=1920",
       "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Stonehenge",
       "order": 2
     },
@@ -35,7 +35,7 @@
       "bestFor": "Full-day trip, architecture, literary history",
       "entryFee": "College entry varies, £5-£15",
       "priceType": "Paid",
-      "image": "https://images.pexels.com/photos/1029599/pexels-photo-1029599.jpeg?auto=compress&cs=tinysrgb&w=800",
+      "image": "https://images.pexels.com/photos/1029599/pexels-photo-1029599.jpeg?auto=compress&cs=tinysrgb&w=1920",
       "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Oxford+England",
       "order": 3
     },
@@ -48,7 +48,7 @@
       "bestFor": "Full-day trip, punting, architecture",
       "entryFee": "College entry varies, £5-£15",
       "priceType": "Paid",
-      "image": "https://images.pexels.com/photos/1029604/pexels-photo-1029604.jpeg?auto=compress&cs=tinysrgb&w=800",
+      "image": "https://images.pexels.com/photos/1029604/pexels-photo-1029604.jpeg?auto=compress&cs=tinysrgb&w=1920",
       "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Cambridge+England",
       "order": 4
     },
@@ -61,7 +61,7 @@
       "bestFor": "Full-day trip, Roman history, architecture",
       "entryFee": "Roman Baths from £23 adult",
       "priceType": "Paid",
-      "image": "https://images.pexels.com/photos/1461974/pexels-photo-1461974.jpeg?auto=compress&cs=tinysrgb&w=800",
+      "image": "https://images.pexels.com/photos/1461974/pexels-photo-1461974.jpeg?auto=compress&cs=tinysrgb&w=1920",
       "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Bath+England",
       "order": 5
     },
@@ -74,7 +74,7 @@
       "bestFor": "Full-day trip, countryside, photography",
       "entryFee": "Free to explore, tour costs vary",
       "priceType": "Free",
-      "image": "https://images.pexels.com/photos/1591382/pexels-photo-1591382.jpeg?auto=compress&cs=tinysrgb&w=800",
+      "image": "https://images.pexels.com/photos/1591382/pexels-photo-1591382.jpeg?auto=compress&cs=tinysrgb&w=1920",
       "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Cotswolds+England",
       "order": 6
     },
@@ -87,7 +87,7 @@
       "bestFor": "Half-day trip, medieval history",
       "entryFee": "Cathedral from £17 adult",
       "priceType": "Paid",
-      "image": "https://images.pexels.com/photos/1998439/pexels-photo-1998439.jpeg?auto=compress&cs=tinysrgb&w=800",
+      "image": "https://images.pexels.com/photos/1998439/pexels-photo-1998439.jpeg?auto=compress&cs=tinysrgb&w=1920",
       "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Canterbury+Cathedral",
       "order": 7
     },
@@ -100,7 +100,7 @@
       "bestFor": "Half-day trip, Tudor history",
       "entryFee": "From £26 adult",
       "priceType": "Paid",
-      "image": "https://images.pexels.com/photos/2166553/pexels-photo-2166553.jpeg?auto=compress&cs=tinysrgb&w=800",
+      "image": "https://images.pexels.com/photos/2166553/pexels-photo-2166553.jpeg?auto=compress&cs=tinysrgb&w=1920",
       "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Hampton+Court+Palace",
       "order": 8
     }
