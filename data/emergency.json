@@ -9,7 +9,7 @@
       "phone": "999",
       "address": "Any location in the UK",
       "mapsUrl": "",
-      "image": "https://images.pexels.com/photos/63901/pexels-photo-63901.jpeg?auto=compress&cs=tinysrgb&w=800",
+      "image": "https://images.pexels.com/photos/63901/pexels-photo-63901.jpeg?auto=compress&cs=tinysrgb&w=1920",
       "order": 0
     },
     {
@@ -21,7 +21,7 @@
       "phone": "101",
       "address": "Any location in the UK",
       "mapsUrl": "",
-      "image": "https://images.pexels.com/photos/63901/pexels-photo-63901.jpeg?auto=compress&cs=tinysrgb&w=800",
+      "image": "https://images.pexels.com/photos/63901/pexels-photo-63901.jpeg?auto=compress&cs=tinysrgb&w=1920",
       "order": 1
     },
     {
@@ -33,7 +33,7 @@
       "phone": "111",
       "address": "Any location in the UK",
       "mapsUrl": "",
-      "image": "https://images.pexels.com/photos/263402/pexels-photo-263402.jpeg?auto=compress&cs=tinysrgb&w=800",
+      "image": "https://images.pexels.com/photos/263402/pexels-photo-263402.jpeg?auto=compress&cs=tinysrgb&w=1920",
       "order": 2
     },
     {
@@ -45,7 +45,7 @@
       "phone": "020 3456 7890",
       "address": "235 Euston Road, London NW1 2BU",
       "mapsUrl": "https://www.google.com/maps/search/?api=1&query=University+College+Hospital+London",
-      "image": "https://images.pexels.com/photos/263402/pexels-photo-263402.jpeg?auto=compress&cs=tinysrgb&w=800",
+      "image": "https://images.pexels.com/photos/263402/pexels-photo-263402.jpeg?auto=compress&cs=tinysrgb&w=1920",
       "order": 3
     },
     {
@@ -57,7 +57,7 @@
       "phone": "101",
       "address": "Central London tourist areas",
       "mapsUrl": "",
-      "image": "https://images.pexels.com/photos/63901/pexels-photo-63901.jpeg?auto=compress&cs=tinysrgb&w=800",
+      "image": "https://images.pexels.com/photos/63901/pexels-photo-63901.jpeg?auto=compress&cs=tinysrgb&w=1920",
       "order": 4
     },
     {
@@ -69,7 +69,7 @@
       "phone": "0800 40 50 40",
       "address": "All London train stations and Underground",
       "mapsUrl": "",
-      "image": "https://images.pexels.com/photos/63901/pexels-photo-63901.jpeg?auto=compress&cs=tinysrgb&w=800",
+      "image": "https://images.pexels.com/photos/63901/pexels-photo-63901.jpeg?auto=compress&cs=tinysrgb&w=1920",
       "order": 5
     },
     {
