@@ -18,7 +18,7 @@
         "Concierge"
       ],
       "familyFriendly": true,
-      "image": "https://images.pexels.com/photos/261102/pexels-photo-261102.jpeg?auto=compress&cs=tinysrgb&w=800",
+      "image": "https://images.pexels.com/photos/261102/pexels-photo-261102.jpeg?auto=compress&cs=tinysrgb&w=1920",
       "mapsUrl": "https://www.google.com/maps/search/?api=1&query=The+Savoy+London",
       "bookingUrl": "https://www.booking.com/hotel/gb/the-savoy-london.html",
       "order": 0
@@ -40,7 +40,7 @@
         "Gym"
       ],
       "familyFriendly": true,
-      "image": "https://images.pexels.com/photos/164595/pexels-photo-164595.jpeg?auto=compress&cs=tinysrgb&w=800",
+      "image": "https://images.pexels.com/photos/164595/pexels-photo-164595.jpeg?auto=compress&cs=tinysrgb&w=1920",
       "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Claridges+London",
       "bookingUrl": "https://www.booking.com/hotel/gb/claridges.html",
       "order": 1
@@ -63,7 +63,7 @@
         "Views"
       ],
       "familyFriendly": false,
-      "image": "https://images.pexels.com/photos/2034851/pexels-photo-2034851.jpeg?auto=compress&cs=tinysrgb&w=800",
+      "image": "https://images.pexels.com/photos/2034851/pexels-photo-2034851.jpeg?auto=compress&cs=tinysrgb&w=1920",
       "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Shangri-La+The+Shard+London",
       "bookingUrl": "https://www.booking.com/hotel/gb/shangri-la-at-the-shard.html",
       "order": 2
@@ -86,7 +86,7 @@
         "Members Club"
       ],
       "familyFriendly": false,
-      "image": "https://images.pexels.com/photos/260922/pexels-photo-260922.jpeg?auto=compress&cs=tinysrgb&w=800",
+      "image": "https://images.pexels.com/photos/260922/pexels-photo-260922.jpeg?auto=compress&cs=tinysrgb&w=1920",
       "mapsUrl": "https://www.google.com/maps/search/?api=1&query=The+Ned+London",
       "bookingUrl": "https://www.booking.com/hotel/gb/the-ned.html",
       "order": 3
@@ -109,7 +109,7 @@
         "Concierge"
       ],
       "familyFriendly": true,
-      "image": "https://images.pexels.com/photos/261102/pexels-photo-261102.jpeg?auto=compress&cs=tinysrgb&w=800",
+      "image": "https://images.pexels.com/photos/261102/pexels-photo-261102.jpeg?auto=compress&cs=tinysrgb&w=1920",
       "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Corinthia+London",
       "bookingUrl": "https://www.booking.com/hotel/gb/corinthia-london.html",
       "order": 4
@@ -131,7 +131,7 @@
         "Smart TV"
       ],
       "familyFriendly": true,
-      "image": "https://images.pexels.com/photos/271624/pexels-photo-271624.jpeg?auto=compress&cs=tinysrgb&w=800",
+      "image": "https://images.pexels.com/photos/271624/pexels-photo-271624.jpeg?auto=compress&cs=tinysrgb&w=1920",
       "mapsUrl": "https://www.google.com/maps/search/?api=1&query=citizenM+Tower+of+London",
       "bookingUrl": "https://www.booking.com/hotel/gb/citizenm-tower-of-london.html",
       "order": 5
@@ -152,7 +152,7 @@
         "Smart TV"
       ],
       "familyFriendly": true,
-      "image": "https://images.pexels.com/photos/271624/pexels-photo-271624.jpeg?auto=compress&cs=tinysrgb&w=800",
+      "image": "https://images.pexels.com/photos/271624/pexels-photo-271624.jpeg?auto=compress&cs=tinysrgb&w=1920",
       "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Hub+Premier+Inn+Kings+Cross",
       "bookingUrl": "https://www.booking.com/hotel/gb/hub-by-premier-inn-london-kings-cross.html",
       "order": 6
@@ -174,7 +174,7 @@
         "Concierge"
       ],
       "familyFriendly": true,
-      "image": "https://images.pexels.com/photos/164595/pexels-photo-164595.jpeg?auto=compress&cs=tinysrgb&w=800",
+      "image": "https://images.pexels.com/photos/164595/pexels-photo-164595.jpeg?auto=compress&cs=tinysrgb&w=1920",
       "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Great+Northern+Hotel+London",
       "bookingUrl": "https://www.booking.com/hotel/gb/great-northern.html",
       "order": 7
@@ -197,7 +197,7 @@
         "Airport Connection"
       ],
       "familyFriendly": true,
-      "image": "https://images.pexels.com/photos/261102/pexels-photo-261102.jpeg?auto=compress&cs=tinysrgb&w=800",
+      "image": "https://images.pexels.com/photos/261102/pexels-photo-261102.jpeg?auto=compress&cs=tinysrgb&w=1920",
       "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Sofitel+London+Heathrow",
       "bookingUrl": "https://www.booking.com/hotel/gb/sofitel-london-heathrow.html",
       "order": 8
@@ -220,7 +220,7 @@
         "Kids Club"
       ],
       "familyFriendly": true,
-      "image": "https://images.pexels.com/photos/271624/pexels-photo-271624.jpeg?auto=compress&cs=tinysrgb&w=800",
+      "image": "https://images.pexels.com/photos/271624/pexels-photo-271624.jpeg?auto=compress&cs=tinysrgb&w=1920",
       "mapsUrl": "https://www.google.com/maps/search/?api=1&query=London+Hilton+Park+Lane",
       "bookingUrl": "https://www.booking.com/hotel/gb/london-hilton-on-park-lane.html",
       "order": 9
@@ -243,7 +243,7 @@
         "Butler Service"
       ],
       "familyFriendly": false,
-      "image": "https://images.unsplash.com/photo-1571896349842-33c89424de2d?w=800&q=80",
+      "image": "https://images.unsplash.com/photo-1571896349842-33c89424de2d?w=1920&q=80",
       "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Bulgari+Hotel+London",
       "bookingUrl": "https://www.booking.com/hotel/gb/bulgari-london.html",
       "order": 10
@@ -266,7 +266,7 @@
         "Concierge"
       ],
       "familyFriendly": true,
-      "image": "https://images.unsplash.com/photo-1571896349842-33c89424de2d?w=800&q=80",
+      "image": "https://images.unsplash.com/photo-1571896349842-33c89424de2d?w=1920&q=80",
       "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Four+Seasons+Park+Lane+London",
       "bookingUrl": "https://www.booking.com/hotel/gb/four-seasons-park-lane.html",
       "order": 11
@@ -285,7 +285,7 @@
         "24hr Reception"
       ],
       "familyFriendly": true,
-      "image": "https://images.unsplash.com/photo-1631049307264-da0ec9d70304?w=800&q=80",
+      "image": "https://images.unsplash.com/photo-1631049307264-da0ec9d70304?w=1920&q=80",
       "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Travelodge+London+Central",
       "bookingUrl": "https://www.travelodge.co.uk",
       "order": 12
@@ -308,7 +308,7 @@
         "Concierge"
       ],
       "familyFriendly": true,
-      "image": "https://images.unsplash.com/photo-1631049307264-da0ec9d70304?w=800&q=80",
+      "image": "https://images.unsplash.com/photo-1631049307264-da0ec9d70304?w=1920&q=80",
       "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Kimpton+Fitzroy+London",
       "bookingUrl": "https://www.booking.com/hotel/gb/the-principal-london.html",
       "order": 13
@@ -331,7 +331,7 @@
         "Kids Club"
       ],
       "familyFriendly": true,
-      "image": "https://images.unsplash.com/photo-1631049307264-da0ec9d70304?w=800&q=80",
+      "image": "https://images.unsplash.com/photo-1631049307264-da0ec9d70304?w=1920&q=80",
       "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Marriott+County+Hall+London",
       "bookingUrl": "https://www.booking.com/hotel/gb/londonmarriotthcountyhall.html",
       "order": 14
@@ -353,7 +353,7 @@
         "24hr Reception"
       ],
       "familyFriendly": false,
-      "image": "https://images.unsplash.com/photo-1631049307264-da0ec9d70304?w=800&q=80",
+      "image": "https://images.unsplash.com/photo-1631049307264-da0ec9d70304?w=1920&q=80",
       "mapsUrl": "https://www.google.com/maps/search/?api=1&query=YOTEL+London",
       "bookingUrl": "https://www.yotel.com/en/hotels/yotel-london-clerkenwell",
       "order": 15
@@ -376,7 +376,7 @@
         "Afternoon Tea"
       ],
       "familyFriendly": true,
-      "image": "https://images.unsplash.com/photo-1571896349842-33c89424de2d?w=800&q=80",
+      "image": "https://images.unsplash.com/photo-1571896349842-33c89424de2d?w=1920&q=80",
       "mapsUrl": "https://www.google.com/maps/search/?api=1&query=The+Langham+London",
       "bookingUrl": "https://www.booking.com/hotel/gb/langham-hilton.html",
       "order": 16
@@ -398,7 +398,7 @@
         "Concierge"
       ],
       "familyFriendly": false,
-      "image": "https://images.unsplash.com/photo-1590490360182-c33d57733427?w=800&q=80",
+      "image": "https://images.unsplash.com/photo-1590490360182-c33d57733427?w=1920&q=80",
       "mapsUrl": "https://www.google.com/maps/search/?api=1&query=The+Ritz+London",
       "bookingUrl": "https://www.booking.com/hotel/gb/theritzlondon.html",
       "order": 17
@@ -420,7 +420,7 @@
         "Concierge"
       ],
       "familyFriendly": true,
-      "image": "https://images.unsplash.com/photo-1445019980597-93fa8acb246c?w=800&q=80",
+      "image": "https://images.unsplash.com/photo-1445019980597-93fa8acb246c?w=1920&q=80",
       "mapsUrl": "https://www.google.com/maps/search/?api=1&query=The+Dorchester+London",
       "bookingUrl": "https://www.booking.com/hotel/gb/the-dorchester.html",
       "order": 18
@@ -442,7 +442,7 @@
         "Concierge"
       ],
       "familyFriendly": true,
-      "image": "https://images.unsplash.com/photo-1564501049412-61c2a3083791?w=800&q=80",
+      "image": "https://images.unsplash.com/photo-1564501049412-61c2a3083791?w=1920&q=80",
       "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Browns+Hotel+London",
       "bookingUrl": "https://www.booking.com/hotel/gb/browns-london.html",
       "order": 19
@@ -464,7 +464,7 @@
         "Gym"
       ],
       "familyFriendly": false,
-      "image": "https://images.unsplash.com/photo-1551882547-ff40c63fe5fa?w=800&q=80",
+      "image": "https://images.unsplash.com/photo-1551882547-ff40c63fe5fa?w=1920&q=80",
       "mapsUrl": "https://www.google.com/maps/search/?api=1&query=The+Connaught+London",
       "bookingUrl": "https://www.booking.com/hotel/gb/the-connaught.html",
       "order": 20
@@ -486,7 +486,7 @@
         "Screening Room"
       ],
       "familyFriendly": true,
-      "image": "https://images.unsplash.com/photo-1590073844006-33379778ae09?w=800&q=80",
+      "image": "https://images.unsplash.com/photo-1590073844006-33379778ae09?w=1920&q=80",
       "mapsUrl": "https://www.google.com/maps/search/?api=1&query=The+Soho+Hotel+London",
       "bookingUrl": "https://www.booking.com/hotel/gb/the-soho.html",
       "order": 21
@@ -508,7 +508,7 @@
         "Concierge"
       ],
       "familyFriendly": true,
-      "image": "https://images.unsplash.com/photo-1611892440504-42a792e24d32?w=800&q=80",
+      "image": "https://images.unsplash.com/photo-1611892440504-42a792e24d32?w=1920&q=80",
       "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Covent+Garden+Hotel+London",
       "bookingUrl": "https://www.booking.com/hotel/gb/coventgarden.html",
       "order": 22
@@ -528,7 +528,7 @@
         "Smart TV"
       ],
       "familyFriendly": false,
-      "image": "https://images.unsplash.com/photo-1611892440504-42a792e24d32?w=800&q=80",
+      "image": "https://images.unsplash.com/photo-1611892440504-42a792e24d32?w=1920&q=80",
       "mapsUrl": "https://www.google.com/maps/search/?api=1&query=The+Z+Hotel+Soho+London",
       "bookingUrl": "https://www.thezhotels.com/soho",
       "order": 23
@@ -550,7 +550,7 @@
         "Bowling Alley"
       ],
       "familyFriendly": true,
-      "image": "https://images.unsplash.com/photo-1590490360182-c33d57733427?w=800&q=80",
+      "image": "https://images.unsplash.com/photo-1590490360182-c33d57733427?w=1920&q=80",
       "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Ham+Yard+Hotel+London",
       "bookingUrl": "https://www.booking.com/hotel/gb/ham-yard.html",
       "order": 24
@@ -571,7 +571,7 @@
         "Free WiFi"
       ],
       "familyFriendly": true,
-      "image": "https://images.unsplash.com/photo-1584132967334-10e028bd69f7?w=800&q=80",
+      "image": "https://images.unsplash.com/photo-1584132967334-10e028bd69f7?w=1920&q=80",
       "mapsUrl": "https://www.google.com/maps/search/?api=1&query=The+Trafalgar+St+James+London",
       "bookingUrl": "https://www.booking.com/hotel/gb/the-trafalgar-hilton.html",
       "order": 25
@@ -593,7 +593,7 @@
         "Free WiFi"
       ],
       "familyFriendly": true,
-      "image": "https://images.unsplash.com/photo-1631049307264-da0ec9d70304?w=800&q=80",
+      "image": "https://images.unsplash.com/photo-1631049307264-da0ec9d70304?w=1920&q=80",
       "mapsUrl": "https://www.google.com/maps/search/?api=1&query=The+Bloomsbury+Hotel+London",
       "bookingUrl": "https://www.booking.com/hotel/gb/the-bloomsbury.html",
       "order": 26
@@ -615,7 +615,7 @@
         "Free WiFi"
       ],
       "familyFriendly": true,
-      "image": "https://images.unsplash.com/photo-1631049307264-da0ec9d70304?w=800&q=80",
+      "image": "https://images.unsplash.com/photo-1631049307264-da0ec9d70304?w=1920&q=80",
       "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Novotel+London+Waterloo",
       "bookingUrl": "https://www.booking.com/hotel/gb/novotel-london-waterloo.html",
       "order": 27
@@ -637,7 +637,7 @@
         "Gym"
       ],
       "familyFriendly": true,
-      "image": "https://images.unsplash.com/photo-1571896349842-33c89424de2d?w=800&q=80",
+      "image": "https://images.unsplash.com/photo-1571896349842-33c89424de2d?w=1920&q=80",
       "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Mandarin+Oriental+Hyde+Park+London",
       "bookingUrl": "https://www.booking.com/hotel/gb/mandarin-oriental-hyde-park.html",
       "order": 28
@@ -659,7 +659,7 @@
         "Gym"
       ],
       "familyFriendly": true,
-      "image": "https://images.unsplash.com/photo-1571896349842-33c89424de2d?w=800&q=80",
+      "image": "https://images.unsplash.com/photo-1571896349842-33c89424de2d?w=1920&q=80",
       "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Corinthia+London+Spa",
       "bookingUrl": "https://www.booking.com/hotel/gb/corinthia-london.html",
       "order": 29
@@ -680,7 +680,7 @@
         "Co-working Lobby"
       ],
       "familyFriendly": false,
-      "image": "https://images.unsplash.com/photo-1631049307264-da0ec9d70304?w=800&q=80",
+      "image": "https://images.unsplash.com/photo-1631049307264-da0ec9d70304?w=1920&q=80",
       "mapsUrl": "https://www.google.com/maps/search/?api=1&query=The+Hoxton+Shoreditch+London",
       "bookingUrl": "https://thehoxton.com/london/shoreditch/",
       "order": 30
@@ -700,7 +700,7 @@
         "Bar"
       ],
       "familyFriendly": true,
-      "image": "https://images.unsplash.com/photo-1631049307264-da0ec9d70304?w=800&q=80",
+      "image": "https://images.unsplash.com/photo-1631049307264-da0ec9d70304?w=1920&q=80",
       "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Sun+Street+Hotel+London",
       "bookingUrl": "https://www.booking.com",
       "order": 31
@@ -720,7 +720,7 @@
         "Unique Decor"
       ],
       "familyFriendly": false,
-      "image": "https://images.unsplash.com/photo-1631049307264-da0ec9d70304?w=800&q=80",
+      "image": "https://images.unsplash.com/photo-1631049307264-da0ec9d70304?w=1920&q=80",
       "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Artist+Residence+London+Pimlico",
       "bookingUrl": "https://www.booking.com",
       "order": 32
@@ -740,7 +740,7 @@
         "24hr Reception"
       ],
       "familyFriendly": true,
-      "image": "https://images.unsplash.com/photo-1631049307264-da0ec9d70304?w=800&q=80",
+      "image": "https://images.unsplash.com/photo-1631049307264-da0ec9d70304?w=1920&q=80",
       "mapsUrl": "https://www.google.com/maps/search/?api=1&query=The+Pilgrm+Paddington+London",
       "bookingUrl": "https://www.booking.com",
       "order": 33
@@ -760,7 +760,7 @@
         "Free WiFi"
       ],
       "familyFriendly": true,
-      "image": "https://images.unsplash.com/photo-1631049307264-da0ec9d70304?w=800&q=80",
+      "image": "https://images.unsplash.com/photo-1631049307264-da0ec9d70304?w=1920&q=80",
       "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Mama+Shelter+Bethnal+Green+London",
       "bookingUrl": "https://www.booking.com",
       "order": 34
@@ -781,7 +781,7 @@
         "Free WiFi"
       ],
       "familyFriendly": true,
-      "image": "https://images.unsplash.com/photo-1631049307264-da0ec9d70304?w=800&q=80",
+      "image": "https://images.unsplash.com/photo-1631049307264-da0ec9d70304?w=1920&q=80",
       "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Bingham+Riverhouse+Richmond+London",
       "bookingUrl": "https://www.booking.com",
       "order": 35
@@ -802,7 +802,7 @@
         "Bar"
       ],
       "familyFriendly": true,
-      "image": "https://images.unsplash.com/photo-1631049307264-da0ec9d70304?w=800&q=80",
+      "image": "https://images.unsplash.com/photo-1631049307264-da0ec9d70304?w=1920&q=80",
       "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Leman+Locke+Aldgate+London",
       "bookingUrl": "https://www.booking.com",
       "order": 36
@@ -823,7 +823,7 @@
         "Free WiFi"
       ],
       "familyFriendly": false,
-      "image": "https://images.unsplash.com/photo-1631049307264-da0ec9d70304?w=800&q=80",
+      "image": "https://images.unsplash.com/photo-1631049307264-da0ec9d70304?w=1920&q=80",
       "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Ace+Hotel+Shoreditch+London",
       "bookingUrl": "https://www.booking.com",
       "order": 37
@@ -843,7 +843,7 @@
         "Free WiFi"
       ],
       "familyFriendly": true,
-      "image": "https://images.unsplash.com/photo-1631049307264-da0ec9d70304?w=800&q=80",
+      "image": "https://images.unsplash.com/photo-1631049307264-da0ec9d70304?w=1920&q=80",
       "mapsUrl": "https://www.google.com/maps/search/?api=1&query=The+Zetter+Hotel+Clerkenwell+London",
       "bookingUrl": "https://www.booking.com",
       "order": 38
@@ -864,7 +864,7 @@
         "Concierge"
       ],
       "familyFriendly": true,
-      "image": "https://images.unsplash.com/photo-1631049307264-da0ec9d70304?w=800&q=80",
+      "image": "https://images.unsplash.com/photo-1631049307264-da0ec9d70304?w=1920&q=80",
       "mapsUrl": "https://www.google.com/maps/search/?api=1&query=The+Franklin+Hotel+Kensington+London",
       "bookingUrl": "https://www.booking.com",
       "order": 39
@@ -884,7 +884,7 @@
         "Free WiFi"
       ],
       "familyFriendly": true,
-      "image": "https://images.unsplash.com/photo-1631049307264-da0ec9d70304?w=800&q=80",
+      "image": "https://images.unsplash.com/photo-1631049307264-da0ec9d70304?w=1920&q=80",
       "mapsUrl": "https://www.google.com/maps/search/?api=1&query=The+Grazing+Goat+Marylebone+London",
       "bookingUrl": "https://www.booking.com",
       "order": 40
@@ -906,7 +906,7 @@
         "Concierge"
       ],
       "familyFriendly": true,
-      "image": "https://images.unsplash.com/photo-1631049307264-da0ec9d70304?w=800&q=80",
+      "image": "https://images.unsplash.com/photo-1631049307264-da0ec9d70304?w=1920&q=80",
       "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Mandarin+Oriental+Mayfair+London",
       "bookingUrl": "https://www.booking.com",
       "order": 41
@@ -927,7 +927,7 @@
         "Free WiFi"
       ],
       "familyFriendly": true,
-      "image": "https://images.unsplash.com/photo-1631049307264-da0ec9d70304?w=800&q=80",
+      "image": "https://images.unsplash.com/photo-1631049307264-da0ec9d70304?w=1920&q=80",
       "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Sea+Containers+London",
       "bookingUrl": "https://www.booking.com",
       "order": 42
@@ -948,7 +948,7 @@
         "Gym"
       ],
       "familyFriendly": true,
-      "image": "https://images.unsplash.com/photo-1631049307264-da0ec9d70304?w=800&q=80",
+      "image": "https://images.unsplash.com/photo-1631049307264-da0ec9d70304?w=1920&q=80",
       "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Bankside+Hotel+London",
       "bookingUrl": "https://www.booking.com",
       "order": 43
@@ -970,7 +970,7 @@
         "Free WiFi"
       ],
       "familyFriendly": true,
-      "image": "https://images.unsplash.com/photo-1631049307264-da0ec9d70304?w=800&q=80",
+      "image": "https://images.unsplash.com/photo-1631049307264-da0ec9d70304?w=1920&q=80",
       "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Park+Plaza+Westminster+Bridge+London",
       "bookingUrl": "https://www.booking.com",
       "order": 44
@@ -990,7 +990,7 @@
         "24hr Reception"
       ],
       "familyFriendly": true,
-      "image": "https://images.unsplash.com/photo-1631049307264-da0ec9d70304?w=800&q=80",
+      "image": "https://images.unsplash.com/photo-1631049307264-da0ec9d70304?w=1920&q=80",
       "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Premier+Inn+County+Hall+London",
       "bookingUrl": "https://www.premierinn.com",
       "order": 45
@@ -1011,7 +1011,7 @@
         "Gym"
       ],
       "familyFriendly": true,
-      "image": "https://images.unsplash.com/photo-1631049307264-da0ec9d70304?w=800&q=80",
+      "image": "https://images.unsplash.com/photo-1631049307264-da0ec9d70304?w=1920&q=80",
       "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Hilton+London+Canary+Wharf",
       "bookingUrl": "https://www.booking.com",
       "order": 46
@@ -1032,7 +1032,7 @@
         "Gym"
       ],
       "familyFriendly": true,
-      "image": "https://images.unsplash.com/photo-1631049307264-da0ec9d70304?w=800&q=80",
+      "image": "https://images.unsplash.com/photo-1631049307264-da0ec9d70304?w=1920&q=80",
       "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Novotel+London+Canary+Wharf",
       "bookingUrl": "https://www.booking.com",
       "order": 47
@@ -1054,7 +1054,7 @@
         "Gym"
       ],
       "familyFriendly": true,
-      "image": "https://images.unsplash.com/photo-1631049307264-da0ec9d70304?w=800&q=80",
+      "image": "https://images.unsplash.com/photo-1631049307264-da0ec9d70304?w=1920&q=80",
       "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Canary+Riverside+Plaza+Hotel+London",
       "bookingUrl": "https://www.booking.com",
       "order": 48
@@ -1075,7 +1075,7 @@
         "Wellness Centre"
       ],
       "familyFriendly": false,
-      "image": "https://images.unsplash.com/photo-1631049307264-da0ec9d70304?w=800&q=80",
+      "image": "https://images.unsplash.com/photo-1631049307264-da0ec9d70304?w=1920&q=80",
       "mapsUrl": "https://www.google.com/maps/search/?api=1&query=The+Collective+Canary+Wharf+London",
       "bookingUrl": "https://www.booking.com",
       "order": 49
@@ -1096,7 +1096,7 @@
         "Gym"
       ],
       "familyFriendly": true,
-      "image": "https://images.unsplash.com/photo-1631049307264-da0ec9d70304?w=800&q=80",
+      "image": "https://images.unsplash.com/photo-1631049307264-da0ec9d70304?w=1920&q=80",
       "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Roseate+House+London+Paddington",
       "bookingUrl": "https://www.booking.com",
       "order": 50
@@ -1118,7 +1118,7 @@
         "Park Views"
       ],
       "familyFriendly": true,
-      "image": "https://images.unsplash.com/photo-1631049307264-da0ec9d70304?w=800&q=80",
+      "image": "https://images.unsplash.com/photo-1631049307264-da0ec9d70304?w=1920&q=80",
       "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Royal+Lancaster+London",
       "bookingUrl": "https://www.booking.com",
       "order": 51
@@ -1139,7 +1139,7 @@
         "Gym"
       ],
       "familyFriendly": true,
-      "image": "https://images.unsplash.com/photo-1631049307264-da0ec9d70304?w=800&q=80",
+      "image": "https://images.unsplash.com/photo-1631049307264-da0ec9d70304?w=1920&q=80",
       "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Hotel+Indigo+London+Paddington",
       "bookingUrl": "https://www.booking.com",
       "order": 52
@@ -1161,7 +1161,7 @@
         "Eco-Certified"
       ],
       "familyFriendly": true,
-      "image": "https://images.unsplash.com/photo-1631049307264-da0ec9d70304?w=800&q=80",
+      "image": "https://images.unsplash.com/photo-1631049307264-da0ec9d70304?w=1920&q=80",
       "mapsUrl": "https://www.google.com/maps/search/?api=1&query=The+Clermont+London+Victoria",
       "bookingUrl": "https://www.booking.com",
       "order": 53
@@ -1182,7 +1182,7 @@
         "Gym"
       ],
       "familyFriendly": true,
-      "image": "https://images.unsplash.com/photo-1631049307264-da0ec9d70304?w=800&q=80",
+      "image": "https://images.unsplash.com/photo-1631049307264-da0ec9d70304?w=1920&q=80",
       "mapsUrl": "https://www.google.com/maps/search/?api=1&query=DoubleTree+Hilton+Angel+Kings+Cross+London",
       "bookingUrl": "https://www.booking.com",
       "order": 54
@@ -1202,7 +1202,7 @@
         "24hr Reception"
       ],
       "familyFriendly": true,
-      "image": "https://images.unsplash.com/photo-1631049307264-da0ec9d70304?w=800&q=80",
+      "image": "https://images.unsplash.com/photo-1631049307264-da0ec9d70304?w=1920&q=80",
       "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Premier+Inn+Angel+Islington+London",
       "bookingUrl": "https://www.premierinn.com",
       "order": 55
@@ -1223,7 +1223,7 @@
         "24hr Reception"
       ],
       "familyFriendly": true,
-      "image": "https://images.unsplash.com/photo-1631049307264-da0ec9d70304?w=800&q=80",
+      "image": "https://images.unsplash.com/photo-1631049307264-da0ec9d70304?w=1920&q=80",
       "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Citadines+Islington+London",
       "bookingUrl": "https://www.booking.com",
       "order": 56
@@ -1244,7 +1244,7 @@
         "Boutique Design"
       ],
       "familyFriendly": false,
-      "image": "https://images.unsplash.com/photo-1631049307264-da0ec9d70304?w=800&q=80",
+      "image": "https://images.unsplash.com/photo-1631049307264-da0ec9d70304?w=1920&q=80",
       "mapsUrl": "https://www.google.com/maps/search/?api=1&query=The+Portobello+Hotel+Notting+Hill+London",
       "bookingUrl": "https://www.booking.com",
       "order": 57
@@ -1266,7 +1266,7 @@
         "Free WiFi"
       ],
       "familyFriendly": true,
-      "image": "https://images.unsplash.com/photo-1631049307264-da0ec9d70304?w=800&q=80",
+      "image": "https://images.unsplash.com/photo-1631049307264-da0ec9d70304?w=1920&q=80",
       "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Six+Senses+London+Notting+Hill",
       "bookingUrl": "https://www.booking.com",
       "order": 58
@@ -1288,7 +1288,7 @@
         "Terrace"
       ],
       "familyFriendly": true,
-      "image": "https://images.unsplash.com/photo-1631049307264-da0ec9d70304?w=800&q=80",
+      "image": "https://images.unsplash.com/photo-1631049307264-da0ec9d70304?w=1920&q=80",
       "mapsUrl": "https://www.google.com/maps/search/?api=1&query=The+Laslett+Notting+Hill+London",
       "bookingUrl": "https://www.booking.com",
       "order": 59
@@ -1310,7 +1310,7 @@
         "Free WiFi"
       ],
       "familyFriendly": true,
-      "image": "https://images.unsplash.com/photo-1631049307264-da0ec9d70304?w=800&q=80",
+      "image": "https://images.unsplash.com/photo-1631049307264-da0ec9d70304?w=1920&q=80",
       "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Chelsea+Harbour+Hotel+Spa+London",
       "bookingUrl": "https://www.booking.com",
       "order": 60
@@ -1330,7 +1330,7 @@
         "Gym"
       ],
       "familyFriendly": true,
-      "image": "https://images.unsplash.com/photo-1631049307264-da0ec9d70304?w=800&q=80",
+      "image": "https://images.unsplash.com/photo-1631049307264-da0ec9d70304?w=1920&q=80",
       "mapsUrl": "https://www.google.com/maps/search/?api=1&query=The+Resident+Kensington+London",
       "bookingUrl": "https://www.booking.com",
       "order": 61
@@ -1351,7 +1351,7 @@
         "Free WiFi"
       ],
       "familyFriendly": true,
-      "image": "https://images.unsplash.com/photo-1631049307264-da0ec9d70304?w=800&q=80",
+      "image": "https://images.unsplash.com/photo-1631049307264-da0ec9d70304?w=1920&q=80",
       "mapsUrl": "https://www.google.com/maps/search/?api=1&query=La+Suite+West+Hyde+Park+London",
       "bookingUrl": "https://www.booking.com",
       "order": 62
@@ -1372,7 +1372,7 @@
         "Free WiFi"
       ],
       "familyFriendly": true,
-      "image": "https://images.unsplash.com/photo-1631049307264-da0ec9d70304?w=800&q=80",
+      "image": "https://images.unsplash.com/photo-1631049307264-da0ec9d70304?w=1920&q=80",
       "mapsUrl": "https://www.google.com/maps/search/?api=1&query=The+Standard+London+Kings+Cross",
       "bookingUrl": "https://www.booking.com",
       "order": 63
@@ -1393,7 +1393,7 @@
         "Kitchen"
       ],
       "familyFriendly": false,
-      "image": "https://images.unsplash.com/photo-1631049307264-da0ec9d70304?w=800&q=80",
+      "image": "https://images.unsplash.com/photo-1631049307264-da0ec9d70304?w=1920&q=80",
       "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Wombats+City+Hostel+London",
       "bookingUrl": "https://www.booking.com",
       "order": 64
@@ -1414,7 +1414,7 @@
         "24hr Reception"
       ],
       "familyFriendly": false,
-      "image": "https://images.unsplash.com/photo-1631049307264-da0ec9d70304?w=800&q=80",
+      "image": "https://images.unsplash.com/photo-1631049307264-da0ec9d70304?w=1920&q=80",
       "mapsUrl": "https://www.google.com/maps/search/?api=1&query=St+Christophers+Inn+Greenwich+London",
       "bookingUrl": "https://www.booking.com",
       "order": 65
@@ -1435,7 +1435,7 @@
         "Gym"
       ],
       "familyFriendly": true,
-      "image": "https://images.unsplash.com/photo-1631049307264-da0ec9d70304?w=800&q=80",
+      "image": "https://images.unsplash.com/photo-1631049307264-da0ec9d70304?w=1920&q=80",
       "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Novotel+London+Greenwich",
       "bookingUrl": "https://www.booking.com",
       "order": 66
@@ -1456,7 +1456,7 @@
         "Free WiFi"
       ],
       "familyFriendly": true,
-      "image": "https://images.unsplash.com/photo-1631049307264-da0ec9d70304?w=800&q=80",
+      "image": "https://images.unsplash.com/photo-1631049307264-da0ec9d70304?w=1920&q=80",
       "mapsUrl": "https://www.google.com/maps/search/?api=1&query=The+Marylebone+Hotel+London",
       "bookingUrl": "https://www.booking.com",
       "order": 67
@@ -1477,7 +1477,7 @@
         "Free WiFi"
       ],
       "familyFriendly": false,
-      "image": "https://images.unsplash.com/photo-1631049307264-da0ec9d70304?w=800&q=80",
+      "image": "https://images.unsplash.com/photo-1631049307264-da0ec9d70304?w=1920&q=80",
       "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Nobu+Hotel+London+Portman+Square",
       "bookingUrl": "https://www.booking.com",
       "order": 68
@@ -1497,7 +1497,7 @@
         "Free WiFi"
       ],
       "familyFriendly": true,
-      "image": "https://images.unsplash.com/photo-1631049307264-da0ec9d70304?w=800&q=80",
+      "image": "https://images.unsplash.com/photo-1631049307264-da0ec9d70304?w=1920&q=80",
       "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Durrants+Hotel+Marylebone+London",
       "bookingUrl": "https://www.booking.com",
       "order": 69
@@ -1518,7 +1518,7 @@
         "Gym"
       ],
       "familyFriendly": true,
-      "image": "https://images.unsplash.com/photo-1631049307264-da0ec9d70304?w=800&q=80",
+      "image": "https://images.unsplash.com/photo-1631049307264-da0ec9d70304?w=1920&q=80",
       "mapsUrl": "https://www.google.com/maps/search/?api=1&query=The+Mandeville+Hotel+London",
       "bookingUrl": "https://www.booking.com",
       "order": 70
@@ -1540,7 +1540,7 @@
         "Gym"
       ],
       "familyFriendly": true,
-      "image": "https://images.unsplash.com/photo-1631049307264-da0ec9d70304?w=800&q=80",
+      "image": "https://images.unsplash.com/photo-1631049307264-da0ec9d70304?w=1920&q=80",
       "mapsUrl": "https://www.google.com/maps/search/?api=1&query=InterContinental+London+The+O2",
       "bookingUrl": "https://www.booking.com",
       "order": 71
@@ -1560,7 +1560,7 @@
         "Free WiFi"
       ],
       "familyFriendly": true,
-      "image": "https://images.unsplash.com/photo-1631049307264-da0ec9d70304?w=800&q=80",
+      "image": "https://images.unsplash.com/photo-1631049307264-da0ec9d70304?w=1920&q=80",
       "mapsUrl": "https://www.google.com/maps/search/?api=1&query=The+Rockwell+Earls+Court+London",
       "bookingUrl": "https://www.booking.com",
       "order": 72
@@ -1580,7 +1580,7 @@
         "Free WiFi"
       ],
       "familyFriendly": true,
-      "image": "https://images.unsplash.com/photo-1631049307264-da0ec9d70304?w=800&q=80",
+      "image": "https://images.unsplash.com/photo-1631049307264-da0ec9d70304?w=1920&q=80",
       "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Twenty+Nevern+Square+London",
       "bookingUrl": "https://www.booking.com",
       "order": 73
@@ -1599,7 +1599,7 @@
         "24hr Reception"
       ],
       "familyFriendly": true,
-      "image": "https://images.unsplash.com/photo-1631049307264-da0ec9d70304?w=800&q=80",
+      "image": "https://images.unsplash.com/photo-1631049307264-da0ec9d70304?w=1920&q=80",
       "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Trebovir+Hotel+London",
       "bookingUrl": "https://www.booking.com",
       "order": 74
@@ -1618,7 +1618,7 @@
         "Breakfast Included"
       ],
       "familyFriendly": true,
-      "image": "https://images.unsplash.com/photo-1631049307264-da0ec9d70304?w=800&q=80",
+      "image": "https://images.unsplash.com/photo-1631049307264-da0ec9d70304?w=1920&q=80",
       "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Garden+Court+Hotel+Bayswater+London",
       "bookingUrl": "https://www.booking.com",
       "order": 75
@@ -1638,7 +1638,7 @@
         "Gym"
       ],
       "familyFriendly": true,
-      "image": "https://images.unsplash.com/photo-1631049307264-da0ec9d70304?w=800&q=80",
+      "image": "https://images.unsplash.com/photo-1631049307264-da0ec9d70304?w=1920&q=80",
       "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Hyde+Park+International+London",
       "bookingUrl": "https://www.booking.com",
       "order": 76
@@ -1659,7 +1659,7 @@
         "Garden"
       ],
       "familyFriendly": false,
-      "image": "https://images.unsplash.com/photo-1631049307264-da0ec9d70304?w=800&q=80",
+      "image": "https://images.unsplash.com/photo-1631049307264-da0ec9d70304?w=1920&q=80",
       "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Palmers+Lodge+Swiss+Cottage+London",
       "bookingUrl": "https://www.booking.com",
       "order": 77
@@ -1680,7 +1680,7 @@
         "Bar"
       ],
       "familyFriendly": false,
-      "image": "https://images.pexels.com/photos/271643/pexels-photo-271643.jpeg?auto=compress&cs=tinysrgb&w=800",
+      "image": "https://images.pexels.com/photos/271643/pexels-photo-271643.jpeg?auto=compress&cs=tinysrgb&w=1920",
       "bookingUrl": "https://www.booking.com/hotel/gb/la-suite-west.html",
       "mapsUrl": "https://www.google.com/maps/search/?api=1&query=La+Suite+West+London",
       "order": 78
@@ -1700,7 +1700,7 @@
         "Free WiFi"
       ],
       "familyFriendly": true,
-      "image": "https://images.pexels.com/photos/271816/pexels-photo-271816.jpeg?auto=compress&cs=tinysrgb&w=800",
+      "image": "https://images.pexels.com/photos/271816/pexels-photo-271816.jpeg?auto=compress&cs=tinysrgb&w=1920",
       "bookingUrl": "https://www.booking.com/hotel/gb/vancouver-studios.html",
       "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Vancouver+Studios+London",
       "order": 79
@@ -1721,7 +1721,7 @@
         "Free WiFi"
       ],
       "familyFriendly": true,
-      "image": "https://images.pexels.com/photos/261101/pexels-photo-261101.jpeg?auto=compress&cs=tinysrgb&w=800",
+      "image": "https://images.pexels.com/photos/261101/pexels-photo-261101.jpeg?auto=compress&cs=tinysrgb&w=1920",
       "bookingUrl": "https://www.booking.com/hotel/gb/royal-lancaster.html",
       "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Lancaster+London+London",
       "order": 80
@@ -1741,7 +1741,7 @@
         "Free WiFi"
       ],
       "familyFriendly": false,
-      "image": "https://images.pexels.com/photos/271618/pexels-photo-271618.jpeg?auto=compress&cs=tinysrgb&w=800",
+      "image": "https://images.pexels.com/photos/271618/pexels-photo-271618.jpeg?auto=compress&cs=tinysrgb&w=1920",
       "bookingUrl": "https://www.booking.com",
       "mapsUrl": "https://www.google.com/maps/search/?api=1&query=York+&+Albany+London",
       "order": 81
@@ -1761,7 +1761,7 @@
         "Restaurant"
       ],
       "familyFriendly": true,
-      "image": "https://images.pexels.com/photos/271639/pexels-photo-271639.jpeg?auto=compress&cs=tinysrgb&w=800",
+      "image": "https://images.pexels.com/photos/271639/pexels-photo-271639.jpeg?auto=compress&cs=tinysrgb&w=1920",
       "bookingUrl": "https://www.booking.com",
       "mapsUrl": "https://www.google.com/maps/search/?api=1&query=The+Megaro+Hotel+London",
       "order": 82
@@ -1782,7 +1782,7 @@
         "Free WiFi"
       ],
       "familyFriendly": false,
-      "image": "https://images.pexels.com/photos/261102/pexels-photo-261102.jpeg?auto=compress&cs=tinysrgb&w=800",
+      "image": "https://images.pexels.com/photos/261102/pexels-photo-261102.jpeg?auto=compress&cs=tinysrgb&w=1920",
       "bookingUrl": "https://www.booking.com",
       "mapsUrl": "https://www.google.com/maps/search/?api=1&query=The+Standard,+London+London",
       "order": 83
@@ -1801,7 +1801,7 @@
         "Breakfast"
       ],
       "familyFriendly": true,
-      "image": "https://images.pexels.com/photos/271643/pexels-photo-271643.jpeg?auto=compress&cs=tinysrgb&w=800",
+      "image": "https://images.pexels.com/photos/271643/pexels-photo-271643.jpeg?auto=compress&cs=tinysrgb&w=1920",
       "bookingUrl": "https://www.booking.com",
       "mapsUrl": "https://www.google.com/maps/search/?api=1&query=NOX+Belsize+Park+London",
       "order": 84
@@ -1821,7 +1821,7 @@
         "Gym"
       ],
       "familyFriendly": true,
-      "image": "https://images.pexels.com/photos/261102/pexels-photo-261102.jpeg?auto=compress&cs=tinysrgb&w=800",
+      "image": "https://images.pexels.com/photos/261102/pexels-photo-261102.jpeg?auto=compress&cs=tinysrgb&w=1920",
       "bookingUrl": "https://www.booking.com",
       "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Holiday+Inn+London+-+Camden+Lock+London",
       "order": 85
@@ -1843,7 +1843,7 @@
         "Concierge"
       ],
       "familyFriendly": true,
-      "image": "https://images.pexels.com/photos/271624/pexels-photo-271624.jpeg?auto=compress&cs=tinysrgb&w=800",
+      "image": "https://images.pexels.com/photos/271624/pexels-photo-271624.jpeg?auto=compress&cs=tinysrgb&w=1920",
       "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Hilton+London+Metropole",
       "priceType": "Paid",
       "order": 87
@@ -1865,7 +1865,7 @@
         "Concierge"
       ],
       "familyFriendly": true,
-      "image": "https://images.pexels.com/photos/262048/pexels-photo-262048.jpeg?auto=compress&cs=tinysrgb&w=800",
+      "image": "https://images.pexels.com/photos/262048/pexels-photo-262048.jpeg?auto=compress&cs=tinysrgb&w=1920",
       "mapsUrl": "https://www.google.com/maps/search/?api=1&query=DoubleTree+by+Hilton+London+Hyde+Park",
       "priceType": "Paid",
       "order": 88
@@ -1886,7 +1886,7 @@
         "24hr Front Desk"
       ],
       "familyFriendly": true,
-      "image": "https://images.pexels.com/photos/271639/pexels-photo-271639.jpeg?auto=compress&cs=tinysrgb&w=800",
+      "image": "https://images.pexels.com/photos/271639/pexels-photo-271639.jpeg?auto=compress&cs=tinysrgb&w=1920",
       "mapsUrl": "https://www.google.com/maps/search/?api=1&query=The+Westbourne+Hyde+Park+Hotel+London",
       "priceType": "Paid",
       "order": 89
@@ -1906,7 +1906,7 @@
         "24hr Front Desk"
       ],
       "familyFriendly": false,
-      "image": "https://images.pexels.com/photos/1447264/pexels-photo-1447264.jpeg?auto=compress&cs=tinysrgb&w=800",
+      "image": "https://images.pexels.com/photos/1447264/pexels-photo-1447264.jpeg?auto=compress&cs=tinysrgb&w=1920",
       "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Kensington+Gardens+Hotel+Bayswater+London",
       "priceType": "Paid",
       "order": 90
@@ -1927,7 +1927,7 @@
         "Concierge"
       ],
       "familyFriendly": true,
-      "image": "https://images.pexels.com/photos/237371/pexels-photo-237371.jpeg?auto=compress&cs=tinysrgb&w=800",
+      "image": "https://images.pexels.com/photos/237371/pexels-photo-237371.jpeg?auto=compress&cs=tinysrgb&w=1920",
       "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Royal+Park+Hotel+Bayswater+London",
       "priceType": "Paid",
       "order": 91
@@ -1949,7 +1949,7 @@
         "Concierge"
       ],
       "familyFriendly": false,
-      "image": "https://images.pexels.com/photos/271639/pexels-photo-271639.jpeg?auto=compress&cs=tinysrgb&w=800",
+      "image": "https://images.pexels.com/photos/271639/pexels-photo-271639.jpeg?auto=compress&cs=tinysrgb&w=1920",
       "mapsUrl": "https://www.google.com/maps/search/?api=1&query=NoMad+London+Covent+Garden",
       "priceType": "Paid",
       "order": 92
@@ -1970,7 +1970,7 @@
         "Concierge"
       ],
       "familyFriendly": false,
-      "image": "https://images.pexels.com/photos/271816/pexels-photo-271816.jpeg?auto=compress&cs=tinysrgb&w=800",
+      "image": "https://images.pexels.com/photos/271816/pexels-photo-271816.jpeg?auto=compress&cs=tinysrgb&w=1920",
       "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Page8+Hotel+Trafalgar+Square+London",
       "priceType": "Paid",
       "order": 93
@@ -1992,7 +1992,7 @@
         "Gym"
       ],
       "familyFriendly": true,
-      "image": "https://images.pexels.com/photos/261102/pexels-photo-261102.jpeg?auto=compress&cs=tinysrgb&w=800",
+      "image": "https://images.pexels.com/photos/261102/pexels-photo-261102.jpeg?auto=compress&cs=tinysrgb&w=1920",
       "mapsUrl": "https://www.google.com/maps/search/?api=1&query=The+Londoner+Leicester+Square",
       "priceType": "Paid",
       "order": 94
@@ -2012,7 +2012,7 @@
         "24hr Front Desk"
       ],
       "familyFriendly": false,
-      "image": "https://images.pexels.com/photos/1454806/pexels-photo-1454806.jpeg?auto=compress&cs=tinysrgb&w=800",
+      "image": "https://images.pexels.com/photos/1454806/pexels-photo-1454806.jpeg?auto=compress&cs=tinysrgb&w=1920",
       "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Phoenix+Hotel+Bayswater+London",
       "priceType": "Paid",
       "order": 97
@@ -2033,7 +2033,7 @@
         "Family Rooms"
       ],
       "familyFriendly": true,
-      "image": "https://images.pexels.com/photos/276724/pexels-photo-276724.jpeg?auto=compress&cs=tinysrgb&w=800",
+      "image": "https://images.pexels.com/photos/276724/pexels-photo-276724.jpeg?auto=compress&cs=tinysrgb&w=1920",
       "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Grand+Royale+London+Hyde+Park",
       "priceType": "Paid",
       "order": 98
@@ -2054,7 +2054,7 @@
         "Concierge"
       ],
       "familyFriendly": false,
-      "image": "https://images.pexels.com/photos/271639/pexels-photo-271639.jpeg?auto=compress&cs=tinysrgb&w=800",
+      "image": "https://images.pexels.com/photos/271639/pexels-photo-271639.jpeg?auto=compress&cs=tinysrgb&w=1920",
       "mapsUrl": "https://www.google.com/maps/search/?api=1&query=The+Gore+London+South+Kensington",
       "priceType": "Paid",
       "order": 99
@@ -2075,7 +2075,7 @@
         "Concierge"
       ],
       "familyFriendly": true,
-      "image": "https://images.pexels.com/photos/276724/pexels-photo-276724.jpeg?auto=compress&cs=tinysrgb&w=800",
+      "image": "https://images.pexels.com/photos/276724/pexels-photo-276724.jpeg?auto=compress&cs=tinysrgb&w=1920",
       "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Ember+Locke+Kensington+London",
       "priceType": "Paid",
       "order": 100
@@ -2096,7 +2096,7 @@
         "Concierge"
       ],
       "familyFriendly": true,
-      "image": "https://images.pexels.com/photos/262048/pexels-photo-262048.jpeg?auto=compress&cs=tinysrgb&w=800",
+      "image": "https://images.pexels.com/photos/262048/pexels-photo-262048.jpeg?auto=compress&cs=tinysrgb&w=1920",
       "mapsUrl": "https://www.google.com/maps/search/?api=1&query=The+Other+House+South+Kensington",
       "priceType": "Paid",
       "order": 101
@@ -2117,7 +2117,7 @@
         "Wi-Fi"
       ],
       "familyFriendly": true,
-      "image": "https://images.pexels.com/photos/261102/pexels-photo-261102.jpeg?auto=compress&cs=tinysrgb&w=800",
+      "image": "https://images.pexels.com/photos/261102/pexels-photo-261102.jpeg?auto=compress&cs=tinysrgb&w=1920",
       "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Sloane+Place+Chelsea+London",
       "priceType": "Paid",
       "order": 102
@@ -2138,7 +2138,7 @@
         "Concierge"
       ],
       "familyFriendly": false,
-      "image": "https://images.pexels.com/photos/271816/pexels-photo-271816.jpeg?auto=compress&cs=tinysrgb&w=800",
+      "image": "https://images.pexels.com/photos/271816/pexels-photo-271816.jpeg?auto=compress&cs=tinysrgb&w=1920",
       "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Number+Sixteen+South+Kensington+London",
       "priceType": "Paid",
       "order": 103
@@ -2158,7 +2158,7 @@
         "24hr Front Desk"
       ],
       "familyFriendly": true,
-      "image": "https://images.pexels.com/photos/1447264/pexels-photo-1447264.jpeg?auto=compress&cs=tinysrgb&w=800",
+      "image": "https://images.pexels.com/photos/1447264/pexels-photo-1447264.jpeg?auto=compress&cs=tinysrgb&w=1920",
       "mapsUrl": "https://www.google.com/maps/search/?api=1&query=New+Linden+Hotel+Notting+Hill",
       "priceType": "Paid",
       "order": 104
@@ -2179,7 +2179,7 @@
         "Concierge"
       ],
       "familyFriendly": false,
-      "image": "https://images.pexels.com/photos/237371/pexels-photo-237371.jpeg?auto=compress&cs=tinysrgb&w=800",
+      "image": "https://images.pexels.com/photos/237371/pexels-photo-237371.jpeg?auto=compress&cs=tinysrgb&w=1920",
       "mapsUrl": "https://www.google.com/maps/search/?api=1&query=The+Zetter+Townhouse+Clerkenwell",
       "priceType": "Paid",
       "order": 105
@@ -2200,7 +2200,7 @@
         "Wi-Fi"
       ],
       "familyFriendly": false,
-      "image": "https://images.pexels.com/photos/271624/pexels-photo-271624.jpeg?auto=compress&cs=tinysrgb&w=800",
+      "image": "https://images.pexels.com/photos/271624/pexels-photo-271624.jpeg?auto=compress&cs=tinysrgb&w=1920",
       "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Canopy+by+Hilton+London+City",
       "priceType": "Paid",
       "order": 106
@@ -2221,7 +2221,7 @@
         "Concierge"
       ],
       "familyFriendly": true,
-      "image": "https://images.pexels.com/photos/262048/pexels-photo-262048.jpeg?auto=compress&cs=tinysrgb&w=800",
+      "image": "https://images.pexels.com/photos/262048/pexels-photo-262048.jpeg?auto=compress&cs=tinysrgb&w=1920",
       "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Leonardo+Hotel+London+Aldgate",
       "priceType": "Paid",
       "order": 107
@@ -2242,7 +2242,7 @@
         "Family Rooms"
       ],
       "familyFriendly": true,
-      "image": "https://images.pexels.com/photos/271639/pexels-photo-271639.jpeg?auto=compress&cs=tinysrgb&w=800",
+      "image": "https://images.pexels.com/photos/271639/pexels-photo-271639.jpeg?auto=compress&cs=tinysrgb&w=1920",
       "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Novotel+London+Bridge",
       "priceType": "Paid",
       "order": 108
@@ -2263,7 +2263,7 @@
         "Gym"
       ],
       "familyFriendly": true,
-      "image": "https://images.pexels.com/photos/276724/pexels-photo-276724.jpeg?auto=compress&cs=tinysrgb&w=800",
+      "image": "https://images.pexels.com/photos/276724/pexels-photo-276724.jpeg?auto=compress&cs=tinysrgb&w=1920",
       "mapsUrl": "https://www.google.com/maps/search/?api=1&query=The+Tower+Hotel+London",
       "priceType": "Paid",
       "order": 109
@@ -2284,7 +2284,7 @@
         "Bar"
       ],
       "familyFriendly": true,
-      "image": "https://images.pexels.com/photos/261102/pexels-photo-261102.jpeg?auto=compress&cs=tinysrgb&w=800",
+      "image": "https://images.pexels.com/photos/261102/pexels-photo-261102.jpeg?auto=compress&cs=tinysrgb&w=1920",
       "mapsUrl": "https://www.google.com/maps/search/?api=1&query=London+Marriott+Hotel+Canary+Wharf",
       "priceType": "Paid",
       "order": 110
@@ -2303,7 +2303,7 @@
         "24hr Front Desk"
       ],
       "familyFriendly": false,
-      "image": "https://images.pexels.com/photos/237371/pexels-photo-237371.jpeg?auto=compress&cs=tinysrgb&w=800",
+      "image": "https://images.pexels.com/photos/237371/pexels-photo-237371.jpeg?auto=compress&cs=tinysrgb&w=1920",
       "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Point+A+Hotel+Canary+Wharf",
       "priceType": "Paid",
       "order": 111
@@ -2323,7 +2323,7 @@
         "Breakfast"
       ],
       "familyFriendly": false,
-      "image": "https://images.pexels.com/photos/1447264/pexels-photo-1447264.jpeg?auto=compress&cs=tinysrgb&w=800",
+      "image": "https://images.pexels.com/photos/1447264/pexels-photo-1447264.jpeg?auto=compress&cs=tinysrgb&w=1920",
       "mapsUrl": "https://www.google.com/maps/search/?api=1&query=The+Pilot+Greenwich",
       "priceType": "Paid",
       "order": 112
