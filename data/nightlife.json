@@ -10,7 +10,7 @@
       "entryFee": "Free (book online)",
       "dressCode": "Smart casual",
       "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Sky+Garden+London",
-      "image": "https://images.pexels.com/photos/460672/pexels-photo-460672.jpeg?auto=compress&cs=tinysrgb&w=800",
+      "image": "https://images.pexels.com/photos/460672/pexels-photo-460672.jpeg?auto=compress&cs=tinysrgb&w=1920",
       "order": 0
     },
     {
@@ -23,7 +23,7 @@
       "entryFee": "£15-£25",
       "dressCode": "Casual",
       "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Fabric+London+Nightclub",
-      "image": "https://images.pexels.com/photos/1183434/pexels-photo-1183434.jpeg?auto=compress&cs=tinysrgb&w=800",
+      "image": "https://images.pexels.com/photos/1183434/pexels-photo-1183434.jpeg?auto=compress&cs=tinysrgb&w=1920",
       "order": 1,
       "openLate": true
     },
@@ -37,7 +37,7 @@
       "entryFee": "From £30",
       "dressCode": "Smart casual",
       "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Ronnie+Scotts+Jazz+Club+Soho",
-      "image": "https://images.pexels.com/photos/1105666/pexels-photo-1105666.jpeg?auto=compress&cs=tinysrgb&w=800",
+      "image": "https://images.pexels.com/photos/1105666/pexels-photo-1105666.jpeg?auto=compress&cs=tinysrgb&w=1920",
       "order": 2
     },
     {
@@ -50,7 +50,7 @@
       "entryFee": "Free entry",
       "dressCode": "Smart casual",
       "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Madison+Rooftop+Bar+London",
-      "image": "https://images.pexels.com/photos/672532/pexels-photo-672532.jpeg?auto=compress&cs=tinysrgb&w=800",
+      "image": "https://images.pexels.com/photos/672532/pexels-photo-672532.jpeg?auto=compress&cs=tinysrgb&w=1920",
       "order": 3
     },
     {
@@ -63,7 +63,7 @@
       "entryFee": "£10-£20",
       "dressCode": "Casual",
       "mapsUrl": "https://www.google.com/maps/search/?api=1&query=XOYO+Shoreditch+London",
-      "image": "https://images.pexels.com/photos/1540406/pexels-photo-1540406.jpeg?auto=compress&cs=tinysrgb&w=800",
+      "image": "https://images.pexels.com/photos/1540406/pexels-photo-1540406.jpeg?auto=compress&cs=tinysrgb&w=1920",
       "order": 4,
       "openLate": true
     },
@@ -77,7 +77,7 @@
       "entryFee": "Free entry",
       "dressCode": "Smart",
       "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Aqua+Nueva+Regent+Street+London",
-      "image": "https://images.pexels.com/photos/941861/pexels-photo-941861.jpeg?auto=compress&cs=tinysrgb&w=800",
+      "image": "https://images.pexels.com/photos/941861/pexels-photo-941861.jpeg?auto=compress&cs=tinysrgb&w=1920",
       "order": 5,
       "openLate": true
     },
@@ -91,7 +91,7 @@
       "entryFee": "From £15",
       "dressCode": "Casual",
       "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Jazz+Cafe+Camden+London",
-      "image": "https://images.pexels.com/photos/1763075/pexels-photo-1763075.jpeg?auto=compress&cs=tinysrgb&w=800",
+      "image": "https://images.pexels.com/photos/1763075/pexels-photo-1763075.jpeg?auto=compress&cs=tinysrgb&w=1920",
       "order": 6
     },
     {
@@ -104,7 +104,7 @@
       "entryFee": "£15-£30",
       "dressCode": "Casual",
       "mapsUrl": "https://www.google.com/maps/search/?api=1&query=EGG+London+Kings+Cross",
-      "image": "https://images.pexels.com/photos/1649693/pexels-photo-1649693.jpeg?auto=compress&cs=tinysrgb&w=800",
+      "image": "https://images.pexels.com/photos/1649693/pexels-photo-1649693.jpeg?auto=compress&cs=tinysrgb&w=1920",
       "order": 7,
       "openLate": true
     },
@@ -118,7 +118,7 @@
       "entryFee": "£20-£40, free before 23:00 for some lists",
       "dressCode": "Smart, no trainers",
       "openLate": true,
-      "image": "https://images.unsplash.com/photo-1571266028243-d220c9c3b31d?w=800&q=80",
+      "image": "https://images.unsplash.com/photo-1571266028243-d220c9c3b31d?w=1920&q=80",
       "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Cirque+le+Soir+London",
       "order": 8
     },
@@ -132,7 +132,7 @@
       "entryFee": "Members only",
       "dressCode": "Black tie encouraged",
       "openLate": true,
-      "image": "https://images.unsplash.com/photo-1470229538611-16ba8c7ffbd7?w=800&q=80",
+      "image": "https://images.unsplash.com/photo-1470229538611-16ba8c7ffbd7?w=1920&q=80",
       "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Annabels+Mayfair+London",
       "order": 9
     },
@@ -146,7 +146,7 @@
       "entryFee": "£5-£15",
       "dressCode": "Casual",
       "openLate": true,
-      "image": "https://images.unsplash.com/photo-1571266028243-d220c9c3b31d?w=800&q=80",
+      "image": "https://images.unsplash.com/photo-1571266028243-d220c9c3b31d?w=1920&q=80",
       "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Heaven+Nightclub+London",
       "order": 10
     },
@@ -160,7 +160,7 @@
       "entryFee": "No entry fee, drinks from £22",
       "dressCode": "Smart casual",
       "openLate": false,
-      "image": "https://images.unsplash.com/photo-1470337458703-46ad1756a187?w=800&q=80",
+      "image": "https://images.unsplash.com/photo-1470337458703-46ad1756a187?w=1920&q=80",
       "mapsUrl": "https://www.google.com/maps/search/?api=1&query=The+Connaught+Bar+London",
       "order": 11
     },
@@ -174,7 +174,7 @@
       "entryFee": "No entry fee",
       "dressCode": "Casual",
       "openLate": true,
-      "image": "https://images.unsplash.com/photo-1470337458703-46ad1756a187?w=800&q=80",
+      "image": "https://images.unsplash.com/photo-1470337458703-46ad1756a187?w=1920&q=80",
       "mapsUrl": "https://www.google.com/maps/search/?api=1&query=The+Lab+Soho+London",
       "order": 12
     },
@@ -188,7 +188,7 @@
       "entryFee": "£15-£25",
       "dressCode": "Smart",
       "openLate": true,
-      "image": "https://images.unsplash.com/photo-1571266028243-d220c9c3b31d?w=800&q=80",
+      "image": "https://images.unsplash.com/photo-1571266028243-d220c9c3b31d?w=1920&q=80",
       "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Cafe+de+Paris+London",
       "order": 13
     },
@@ -202,7 +202,7 @@
       "entryFee": "No entry fee",
       "dressCode": "Casual",
       "openLate": true,
-      "image": "https://images.unsplash.com/photo-1470337458703-46ad1756a187?w=800&q=80",
+      "image": "https://images.unsplash.com/photo-1470337458703-46ad1756a187?w=1920&q=80",
       "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Swift+Soho+London",
       "order": 14
     },
@@ -216,7 +216,7 @@
       "entryFee": "Members/guestlist only",
       "dressCode": "Smart, daring encouraged",
       "openLate": true,
-      "image": "https://images.unsplash.com/photo-1571266028243-d220c9c3b31d?w=800&q=80",
+      "image": "https://images.unsplash.com/photo-1571266028243-d220c9c3b31d?w=1920&q=80",
       "mapsUrl": "https://www.google.com/maps/search/?api=1&query=The+Box+Soho+London",
       "order": 15
     },
@@ -230,7 +230,7 @@
       "entryFee": "No entry fee, drinks from £14",
       "dressCode": "Smart casual",
       "openLate": true,
-      "image": "https://images.unsplash.com/photo-1519671482749-fd09be7ccebf?w=800&q=80",
+      "image": "https://images.unsplash.com/photo-1519671482749-fd09be7ccebf?w=1920&q=80",
       "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Radio+Rooftop+Bar+London",
       "order": 16
     },
@@ -244,7 +244,7 @@
       "entryFee": "No entry fee",
       "dressCode": "Smart",
       "openLate": false,
-      "image": "https://images.unsplash.com/photo-1519671482749-fd09be7ccebf?w=800&q=80",
+      "image": "https://images.unsplash.com/photo-1519671482749-fd09be7ccebf?w=1920&q=80",
       "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Coq+dArgent+London",
       "order": 17
     },
@@ -258,7 +258,7 @@
       "entryFee": "No entry fee",
       "dressCode": "Casual",
       "openLate": false,
-      "image": "https://images.unsplash.com/photo-1519671482749-fd09be7ccebf?w=800&q=80",
+      "image": "https://images.unsplash.com/photo-1519671482749-fd09be7ccebf?w=1920&q=80",
       "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Netil360+Hackney+London",
       "order": 18
     },
@@ -272,7 +272,7 @@
       "entryFee": "£10-£25 depending on show",
       "dressCode": "Casual",
       "openLate": true,
-      "image": "https://images.unsplash.com/photo-1470229722913-7c0e2dbbafd3?w=800&q=80",
+      "image": "https://images.unsplash.com/photo-1470229722913-7c0e2dbbafd3?w=1920&q=80",
       "mapsUrl": "https://www.google.com/maps/search/?api=1&query=100+Club+Oxford+Street+London",
       "order": 19
     },
@@ -286,7 +286,7 @@
       "entryFee": "Varies by event",
       "dressCode": "Casual",
       "openLate": true,
-      "image": "https://images.unsplash.com/photo-1470229722913-7c0e2dbbafd3?w=800&q=80",
+      "image": "https://images.unsplash.com/photo-1470229722913-7c0e2dbbafd3?w=1920&q=80",
       "mapsUrl": "https://www.google.com/maps/search/?api=1&query=The+Roundhouse+Camden+London",
       "order": 20
     },
@@ -300,7 +300,7 @@
       "entryFee": "Varies by event",
       "dressCode": "Smart casual",
       "openLate": false,
-      "image": "https://images.unsplash.com/photo-1470229722913-7c0e2dbbafd3?w=800&q=80",
+      "image": "https://images.unsplash.com/photo-1470229722913-7c0e2dbbafd3?w=1920&q=80",
       "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Royal+Albert+Hall+London",
       "order": 21
     },
@@ -314,7 +314,7 @@
       "entryFee": "No entry fee",
       "dressCode": "Smart casual",
       "openLate": false,
-      "image": "https://images.unsplash.com/photo-1470337458703-46ad1756a187?w=800&q=80",
+      "image": "https://images.unsplash.com/photo-1470337458703-46ad1756a187?w=1920&q=80",
       "mapsUrl": "https://www.google.com/maps/search/?api=1&query=The+George+Fitzrovia+London",
       "order": 22
     },
@@ -328,7 +328,7 @@
       "entryFee": "No entry fee",
       "dressCode": "Casual",
       "openLate": true,
-      "image": "https://images.unsplash.com/photo-1470337458703-46ad1756a187?w=800&q=80",
+      "image": "https://images.unsplash.com/photo-1470337458703-46ad1756a187?w=1920&q=80",
       "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Cafe+Kick+Exmouth+Market+London",
       "order": 23
     },
@@ -342,7 +342,7 @@
       "entryFee": "No entry fee",
       "dressCode": "Smart casual",
       "openLate": true,
-      "image": "https://images.unsplash.com/photo-1470337458703-46ad1756a187?w=800&q=80",
+      "image": "https://images.unsplash.com/photo-1470337458703-46ad1756a187?w=1920&q=80",
       "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Waltz+Shoreditch+London",
       "order": 24
     },
@@ -356,7 +356,7 @@
       "entryFee": "No entry fee",
       "dressCode": "Casual",
       "openLate": true,
-      "image": "https://images.unsplash.com/photo-1470337458703-46ad1756a187?w=800&q=80",
+      "image": "https://images.unsplash.com/photo-1470337458703-46ad1756a187?w=1920&q=80",
       "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Ellies+Bar+Dalston+London",
       "order": 25
     },
@@ -370,7 +370,7 @@
       "entryFee": "No entry fee",
       "dressCode": "Casual",
       "openLate": false,
-      "image": "https://images.unsplash.com/photo-1470337458703-46ad1756a187?w=800&q=80",
+      "image": "https://images.unsplash.com/photo-1470337458703-46ad1756a187?w=1920&q=80",
       "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Bonne+Route+Harringay+London",
       "order": 26
     },
@@ -384,7 +384,7 @@
       "entryFee": "No entry fee",
       "dressCode": "Smart casual",
       "openLate": true,
-      "image": "https://images.unsplash.com/photo-1470337458703-46ad1756a187?w=800&q=80",
+      "image": "https://images.unsplash.com/photo-1470337458703-46ad1756a187?w=1920&q=80",
       "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Tramps+Bar+Islington+London",
       "order": 27
     },
@@ -398,7 +398,7 @@
       "entryFee": "No entry fee",
       "dressCode": "Smart",
       "openLate": true,
-      "image": "https://images.unsplash.com/photo-1470337458703-46ad1756a187?w=800&q=80",
+      "image": "https://images.unsplash.com/photo-1470337458703-46ad1756a187?w=1920&q=80",
       "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Scarfes+Bar+Rosewood+London",
       "order": 28
     },
@@ -412,7 +412,7 @@
       "entryFee": "No entry fee",
       "dressCode": "Smart casual",
       "openLate": false,
-      "image": "https://images.unsplash.com/photo-1470337458703-46ad1756a187?w=800&q=80",
+      "image": "https://images.unsplash.com/photo-1470337458703-46ad1756a187?w=1920&q=80",
       "mapsUrl": "https://www.google.com/maps/search/?api=1&query=The+Pelican+Notting+Hill+London",
       "order": 29
     },
@@ -426,7 +426,7 @@
       "entryFee": "No entry fee",
       "dressCode": "Smart casual",
       "openLate": false,
-      "image": "https://images.unsplash.com/photo-1470337458703-46ad1756a187?w=800&q=80",
+      "image": "https://images.unsplash.com/photo-1470337458703-46ad1756a187?w=1920&q=80",
       "mapsUrl": "https://www.google.com/maps/search/?api=1&query=The+Orange+Belgravia+London",
       "order": 30
     },
@@ -440,7 +440,7 @@
       "entryFee": "No entry fee",
       "dressCode": "Smart casual",
       "openLate": false,
-      "image": "https://images.unsplash.com/photo-1470337458703-46ad1756a187?w=800&q=80",
+      "image": "https://images.unsplash.com/photo-1470337458703-46ad1756a187?w=1920&q=80",
       "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Blue+Stoops+Kensington+London",
       "order": 31
     },
@@ -454,7 +454,7 @@
       "entryFee": "No entry fee",
       "dressCode": "Casual",
       "openLate": false,
-      "image": "https://images.unsplash.com/photo-1519671482749-fd09be7ccebf?w=800&q=80",
+      "image": "https://images.unsplash.com/photo-1519671482749-fd09be7ccebf?w=1920&q=80",
       "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Queen+Elizabeth+Hall+Roof+Garden+London",
       "order": 32
     },
@@ -468,7 +468,7 @@
       "entryFee": "No entry fee",
       "dressCode": "Casual",
       "openLate": false,
-      "image": "https://images.unsplash.com/photo-1519671482749-fd09be7ccebf?w=800&q=80",
+      "image": "https://images.unsplash.com/photo-1519671482749-fd09be7ccebf?w=1920&q=80",
       "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Franks+Cafe+Peckham+London",
       "order": 33
     },
@@ -482,7 +482,7 @@
       "entryFee": "No entry fee",
       "dressCode": "Casual",
       "openLate": false,
-      "image": "https://images.unsplash.com/photo-1519671482749-fd09be7ccebf?w=800&q=80",
+      "image": "https://images.unsplash.com/photo-1519671482749-fd09be7ccebf?w=1920&q=80",
       "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Forza+Wine+National+Theatre+London",
       "order": 34
     },
@@ -496,7 +496,7 @@
       "entryFee": "No entry fee",
       "dressCode": "Smart",
       "openLate": true,
-      "image": "https://images.unsplash.com/photo-1519671482749-fd09be7ccebf?w=800&q=80",
+      "image": "https://images.unsplash.com/photo-1519671482749-fd09be7ccebf?w=1920&q=80",
       "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Sushisamba+City+London",
       "order": 35
     },
@@ -510,7 +510,7 @@
       "entryFee": "Varies by event",
       "dressCode": "Casual",
       "openLate": true,
-      "image": "https://images.unsplash.com/photo-1519671482749-fd09be7ccebf?w=800&q=80",
+      "image": "https://images.unsplash.com/photo-1519671482749-fd09be7ccebf?w=1920&q=80",
       "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Queen+of+Hoxton+London",
       "order": 36
     },
@@ -524,7 +524,7 @@
       "entryFee": "No entry fee, activities extra",
       "dressCode": "Casual",
       "openLate": false,
-      "image": "https://images.unsplash.com/photo-1519671482749-fd09be7ccebf?w=800&q=80",
+      "image": "https://images.unsplash.com/photo-1519671482749-fd09be7ccebf?w=1920&q=80",
       "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Roof+East+Stratford+London",
       "order": 37
     },
@@ -538,7 +538,7 @@
       "entryFee": "No entry fee",
       "dressCode": "Smart casual",
       "openLate": true,
-      "image": "https://images.unsplash.com/photo-1519671482749-fd09be7ccebf?w=800&q=80",
+      "image": "https://images.unsplash.com/photo-1519671482749-fd09be7ccebf?w=1920&q=80",
       "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Savage+Garden+Rooftop+London",
       "order": 38
     },
@@ -552,7 +552,7 @@
       "entryFee": "Tickets from £25",
       "dressCode": "Smart casual",
       "openLate": false,
-      "image": "https://images.unsplash.com/photo-1503095396549-807759245b35?w=800&q=80",
+      "image": "https://images.unsplash.com/photo-1503095396549-807759245b35?w=1920&q=80",
       "mapsUrl": "https://www.google.com/maps/search/?api=1&query=St+Martins+Theatre+London",
       "order": 39
     },
@@ -566,7 +566,7 @@
       "entryFee": "Tickets from £40",
       "dressCode": "Smart casual",
       "openLate": false,
-      "image": "https://images.unsplash.com/photo-1503095396549-807759245b35?w=800&q=80",
+      "image": "https://images.unsplash.com/photo-1503095396549-807759245b35?w=1920&q=80",
       "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Palace+Theatre+London",
       "order": 40
     },
@@ -580,7 +580,7 @@
       "entryFee": "Tickets from £30",
       "dressCode": "Smart casual",
       "openLate": false,
-      "image": "https://images.unsplash.com/photo-1503095396549-807759245b35?w=800&q=80",
+      "image": "https://images.unsplash.com/photo-1503095396549-807759245b35?w=1920&q=80",
       "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Lyceum+Theatre+London",
       "order": 41
     },
@@ -594,7 +594,7 @@
       "entryFee": "From £18",
       "dressCode": "Casual",
       "openLate": true,
-      "image": "https://images.unsplash.com/photo-1585699324551-f6c309eedeca?w=800&q=80",
+      "image": "https://images.unsplash.com/photo-1585699324551-f6c309eedeca?w=1920&q=80",
       "mapsUrl": "https://www.google.com/maps/search/?api=1&query=The+Comedy+Store+London",
       "order": 42
     },
@@ -608,7 +608,7 @@
       "entryFee": "From £15",
       "dressCode": "Casual",
       "openLate": true,
-      "image": "https://images.unsplash.com/photo-1585699324551-f6c309eedeca?w=800&q=80",
+      "image": "https://images.unsplash.com/photo-1585699324551-f6c309eedeca?w=1920&q=80",
       "mapsUrl": "https://www.google.com/maps/search/?api=1&query=West+End+Comedy+Club+London",
       "order": 43
     },
@@ -622,7 +622,7 @@
       "entryFee": "Tickets from £30",
       "dressCode": "Casual (bring a layer)",
       "openLate": false,
-      "image": "https://images.unsplash.com/photo-1503095396549-807759245b35?w=800&q=80",
+      "image": "https://images.unsplash.com/photo-1503095396549-807759245b35?w=1920&q=80",
       "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Regents+Park+Open+Air+Theatre+London",
       "order": 44
     },
@@ -635,7 +635,7 @@
       "priceRange": "££",
       "vibe": "Iconic",
       "opinion": "Loud, sweaty, and exactly what a London superclub should be — go for a big headline night, not a quiet one.",
-      "image": "https://images.pexels.com/photos/1749900/pexels-photo-1749900.jpeg?auto=compress&cs=tinysrgb&w=800",
+      "image": "https://images.pexels.com/photos/1749900/pexels-photo-1749900.jpeg?auto=compress&cs=tinysrgb&w=1920",
       "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Ministry+of+Sound+London",
       "order": 46
     },
@@ -648,7 +648,7 @@
       "priceRange": "££",
       "vibe": "Underground",
       "opinion": "The production quality here is a step above most London clubs — worth the trek east.",
-      "image": "https://images.pexels.com/photos/1105666/pexels-photo-1105666.jpeg?auto=compress&cs=tinysrgb&w=800",
+      "image": "https://images.pexels.com/photos/1105666/pexels-photo-1105666.jpeg?auto=compress&cs=tinysrgb&w=1920",
       "mapsUrl": "https://www.google.com/maps/search/?api=1&query=E1+London+Wapping",
       "order": 47
     },
@@ -661,7 +661,7 @@
       "priceRange": "£",
       "vibe": "Alternative",
       "opinion": "Great outdoor courtyard for warm nights — check the lineup, the crowd shifts a lot by night.",
-      "image": "https://images.pexels.com/photos/1540406/pexels-photo-1540406.jpeg?auto=compress&cs=tinysrgb&w=800",
+      "image": "https://images.pexels.com/photos/1540406/pexels-photo-1540406.jpeg?auto=compress&cs=tinysrgb&w=1920",
       "mapsUrl": "https://www.google.com/maps/search/?api=1&query=93+Feet+East+Brick+Lane+London",
       "order": 48
     },
@@ -674,7 +674,7 @@
       "priceRange": "££",
       "vibe": "Creative",
       "opinion": "Check what's on — it swings between gigs and full club nights, so the vibe varies night to night.",
-      "image": "https://images.pexels.com/photos/1190298/pexels-photo-1190298.jpeg?auto=compress&cs=tinysrgb&w=800",
+      "image": "https://images.pexels.com/photos/1190298/pexels-photo-1190298.jpeg?auto=compress&cs=tinysrgb&w=1920",
       "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Village+Underground+Shoreditch",
       "order": 49
     },
@@ -687,7 +687,7 @@
       "priceRange": "£",
       "vibe": "Inclusive",
       "opinion": "One of the more welcoming club spaces in Shoreditch — the LED ceiling alone is worth seeing.",
-      "image": "https://images.pexels.com/photos/1449791/pexels-photo-1449791.jpeg?auto=compress&cs=tinysrgb&w=800",
+      "image": "https://images.pexels.com/photos/1449791/pexels-photo-1449791.jpeg?auto=compress&cs=tinysrgb&w=1920",
       "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Colours+Hoxton+London",
       "order": 50
     },
@@ -700,7 +700,7 @@
       "priceRange": "£",
       "vibe": "Underground",
       "opinion": "Small and unpretentious — one of the better spots if you want music over spectacle.",
-      "image": "https://images.pexels.com/photos/1540338/pexels-photo-1540338.jpeg?auto=compress&cs=tinysrgb&w=800",
+      "image": "https://images.pexels.com/photos/1540338/pexels-photo-1540338.jpeg?auto=compress&cs=tinysrgb&w=1920",
       "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Basing+House+Shoreditch+London",
       "order": 51
     },
@@ -713,7 +713,7 @@
       "priceRange": "£",
       "vibe": "Underground",
       "opinion": "Come for the music, not the décor — regulars will tell you that's exactly the point.",
-      "image": "https://images.pexels.com/photos/1105666/pexels-photo-1105666.jpeg?auto=compress&cs=tinysrgb&w=800",
+      "image": "https://images.pexels.com/photos/1105666/pexels-photo-1105666.jpeg?auto=compress&cs=tinysrgb&w=1920",
       "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Corsica+Studios+Elephant+and+Castle",
       "order": 52
     },
@@ -726,7 +726,7 @@
       "priceRange": "££",
       "vibe": "Massive",
       "opinion": "The outdoor terrace overlooking the river makes this one of the better summer clubbing spots in London.",
-      "image": "https://images.pexels.com/photos/1190297/pexels-photo-1190297.jpeg?auto=compress&cs=tinysrgb&w=800",
+      "image": "https://images.pexels.com/photos/1190297/pexels-photo-1190297.jpeg?auto=compress&cs=tinysrgb&w=1920",
       "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Studio+338+Greenwich+Peninsula",
       "order": 53
     },
@@ -739,7 +739,7 @@
       "priceRange": "££",
       "vibe": "Underground",
       "opinion": "Sound quality here is a cut above most London clubs — go for the music, not the aesthetics.",
-      "image": "https://images.pexels.com/photos/1105666/pexels-photo-1105666.jpeg?auto=compress&cs=tinysrgb&w=800",
+      "image": "https://images.pexels.com/photos/1105666/pexels-photo-1105666.jpeg?auto=compress&cs=tinysrgb&w=1920",
       "mapsUrl": "https://www.google.com/maps/search/?api=1&query=FOLD+Canning+Town+London",
       "order": 54
     },
@@ -752,7 +752,7 @@
       "priceRange": "£",
       "vibe": "Intimate",
       "opinion": "Small, loud, and unflashy — one of the better new openings in South London.",
-      "image": "https://images.pexels.com/photos/1540338/pexels-photo-1540338.jpeg?auto=compress&cs=tinysrgb&w=800",
+      "image": "https://images.pexels.com/photos/1540338/pexels-photo-1540338.jpeg?auto=compress&cs=tinysrgb&w=1920",
       "mapsUrl": "https://www.google.com/maps/search/?api=1&query=The+Carpet+Shop+Peckham",
       "order": 55
     },
@@ -765,7 +765,7 @@
       "priceRange": "£",
       "vibe": "Inclusive",
       "opinion": "One of East London's most consistently welcoming and fun nights out.",
-      "image": "https://images.pexels.com/photos/1449791/pexels-photo-1449791.jpeg?auto=compress&cs=tinysrgb&w=800",
+      "image": "https://images.pexels.com/photos/1449791/pexels-photo-1449791.jpeg?auto=compress&cs=tinysrgb&w=1920",
       "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Dalston+Superstore+London",
       "order": 56
     },
@@ -778,7 +778,7 @@
       "priceRange": "££",
       "vibe": "Warehouse",
       "opinion": "Best experienced in summer when the outdoor space is in full use.",
-      "image": "https://images.pexels.com/photos/1190298/pexels-photo-1190298.jpeg?auto=compress&cs=tinysrgb&w=800",
+      "image": "https://images.pexels.com/photos/1190298/pexels-photo-1190298.jpeg?auto=compress&cs=tinysrgb&w=1920",
       "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Colour+Factory+Hackney+Wick",
       "order": 57
     },
@@ -791,7 +791,7 @@
       "priceRange": "£",
       "vibe": "Underground",
       "opinion": "Not the easiest to find, but that's part of the appeal for regulars.",
-      "image": "https://images.pexels.com/photos/1105666/pexels-photo-1105666.jpeg?auto=compress&cs=tinysrgb&w=800",
+      "image": "https://images.pexels.com/photos/1105666/pexels-photo-1105666.jpeg?auto=compress&cs=tinysrgb&w=1920",
       "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Venue+MOT+Bermondsey+London",
       "order": 58
     },
@@ -804,7 +804,7 @@
       "priceRange": "£",
       "vibe": "Community",
       "opinion": "Runs some of the longest, most committed daytime-into-night sessions in London.",
-      "image": "https://images.pexels.com/photos/1190297/pexels-photo-1190297.jpeg?auto=compress&cs=tinysrgb&w=800",
+      "image": "https://images.pexels.com/photos/1190297/pexels-photo-1190297.jpeg?auto=compress&cs=tinysrgb&w=1920",
       "mapsUrl": "https://www.google.com/maps/search/?api=1&query=The+Cause+Tottenham+London",
       "order": 59
     },
@@ -817,7 +817,7 @@
       "priceRange": "££",
       "vibe": "Intimate",
       "opinion": "The residency line-ups here are consistently some of the strongest bookings in London.",
-      "image": "https://images.pexels.com/photos/1540406/pexels-photo-1540406.jpeg?auto=compress&cs=tinysrgb&w=800",
+      "image": "https://images.pexels.com/photos/1540406/pexels-photo-1540406.jpeg?auto=compress&cs=tinysrgb&w=1920",
       "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Phonox+Brixton+London",
       "order": 60
     },
@@ -830,7 +830,7 @@
       "priceRange": "£",
       "vibe": "Rooftop",
       "opinion": "Great for a sunset drink that turns into a full night out.",
-      "image": "https://images.pexels.com/photos/1666816/pexels-photo-1666816.jpeg?auto=compress&cs=tinysrgb&w=800",
+      "image": "https://images.pexels.com/photos/1666816/pexels-photo-1666816.jpeg?auto=compress&cs=tinysrgb&w=1920",
       "mapsUrl": "https://www.google.com/maps/search/?api=1&query=NT's+Loft+Hackney+London",
       "order": 61
     },
@@ -843,7 +843,7 @@
       "priceRange": "££",
       "vibe": "Grand",
       "opinion": "One of the most beautiful venues in London — worth going just to see the room.",
-      "image": "https://images.pexels.com/photos/713149/pexels-photo-713149.jpeg?auto=compress&cs=tinysrgb&w=800",
+      "image": "https://images.pexels.com/photos/713149/pexels-photo-713149.jpeg?auto=compress&cs=tinysrgb&w=1920",
       "mapsUrl": "https://www.google.com/maps/search/?api=1&query=KOKO+Camden+London",
       "order": 62
     },
@@ -856,7 +856,7 @@
       "priceRange": "££",
       "vibe": "Massive",
       "opinion": "A genuine spectacle-scale venue — book early for headline nights.",
-      "image": "https://images.pexels.com/photos/1190298/pexels-photo-1190298.jpeg?auto=compress&cs=tinysrgb&w=800",
+      "image": "https://images.pexels.com/photos/1190298/pexels-photo-1190298.jpeg?auto=compress&cs=tinysrgb&w=1920",
       "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Drumsheds+Tottenham+London",
       "order": 63
     },
@@ -869,7 +869,7 @@
       "priceRange": "£",
       "vibe": "Alternative",
       "opinion": "Not for everyone — but a genuine slice of London's alternative club history.",
-      "image": "https://images.pexels.com/photos/1105666/pexels-photo-1105666.jpeg?auto=compress&cs=tinysrgb&w=800",
+      "image": "https://images.pexels.com/photos/1105666/pexels-photo-1105666.jpeg?auto=compress&cs=tinysrgb&w=1920",
       "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Electrowerkz+Islington+London",
       "order": 64
     },
@@ -882,7 +882,7 @@
       "priceRange": "£",
       "vibe": "Warehouse",
       "opinion": "Check the lineup carefully — programming varies significantly night to night.",
-      "image": "https://images.pexels.com/photos/1449791/pexels-photo-1449791.jpeg?auto=compress&cs=tinysrgb&w=800",
+      "image": "https://images.pexels.com/photos/1449791/pexels-photo-1449791.jpeg?auto=compress&cs=tinysrgb&w=1920",
       "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Eutopia+Warehouse+Canning+Town",
       "order": 65
     },
@@ -895,7 +895,7 @@
       "priceRange": "£",
       "vibe": "Eclectic",
       "opinion": "Great if you want variety — the programming genuinely spans every genre.",
-      "image": "https://images.pexels.com/photos/1540338/pexels-photo-1540338.jpeg?auto=compress&cs=tinysrgb&w=800",
+      "image": "https://images.pexels.com/photos/1540338/pexels-photo-1540338.jpeg?auto=compress&cs=tinysrgb&w=1920",
       "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Trapeze+Bar+Shoreditch+London",
       "order": 66
     },
@@ -908,7 +908,7 @@
       "priceRange": "£",
       "vibe": "Institution",
       "opinion": "One of Peckham's original nightlife anchors — still going strong.",
-      "image": "https://images.pexels.com/photos/1190297/pexels-photo-1190297.jpeg?auto=compress&cs=tinysrgb&w=800",
+      "image": "https://images.pexels.com/photos/1190297/pexels-photo-1190297.jpeg?auto=compress&cs=tinysrgb&w=1920",
       "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Bussey+Building+Peckham+London",
       "order": 67
     },
@@ -921,7 +921,7 @@
       "priceRange": "£",
       "vibe": "Disco",
       "opinion": "Small, sound-focused, and one of the friendliest dancefloors in South London.",
-      "image": "https://images.pexels.com/photos/1666816/pexels-photo-1666816.jpeg?auto=compress&cs=tinysrgb&w=800",
+      "image": "https://images.pexels.com/photos/1666816/pexels-photo-1666816.jpeg?auto=compress&cs=tinysrgb&w=1920",
       "mapsUrl": "https://www.google.com/maps/search/?api=1&query=JUMBI+Peckham+London",
       "order": 68
     },
@@ -934,7 +934,7 @@
       "priceRange": "££",
       "vibe": "Industrial",
       "opinion": "The scale and production of this venue is unlike anywhere else in London.",
-      "image": "https://images.pexels.com/photos/1105666/pexels-photo-1105666.jpeg?auto=compress&cs=tinysrgb&w=800",
+      "image": "https://images.pexels.com/photos/1105666/pexels-photo-1105666.jpeg?auto=compress&cs=tinysrgb&w=1920",
       "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Printworks+London",
       "order": 69
     },
@@ -947,7 +947,7 @@
       "priceRange": "£",
       "vibe": "Social",
       "opinion": "Good option if your group has mixed music tastes — the programming is broad.",
-      "image": "https://images.pexels.com/photos/1449791/pexels-photo-1449791.jpeg?auto=compress&cs=tinysrgb&w=800",
+      "image": "https://images.pexels.com/photos/1449791/pexels-photo-1449791.jpeg?auto=compress&cs=tinysrgb&w=1920",
       "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Night+Tales+Hackney+London",
       "order": 70
     },
@@ -960,7 +960,7 @@
       "priceRange": "£",
       "vibe": "Intimate",
       "opinion": "Small capacity means it sells out fast for good line-ups — book early.",
-      "image": "https://images.pexels.com/photos/1540406/pexels-photo-1540406.jpeg?auto=compress&cs=tinysrgb&w=800",
+      "image": "https://images.pexels.com/photos/1540406/pexels-photo-1540406.jpeg?auto=compress&cs=tinysrgb&w=1920",
       "mapsUrl": "https://www.google.com/maps/search/?api=1&query=The+Pickle+Factory+Bethnal+Green",
       "order": 71
     },
@@ -973,7 +973,7 @@
       "priceRange": "£",
       "vibe": "Creative",
       "opinion": "Part gallery, part club — worth checking what's on before you go.",
-      "image": "https://images.pexels.com/photos/1190298/pexels-photo-1190298.jpeg?auto=compress&cs=tinysrgb&w=800",
+      "image": "https://images.pexels.com/photos/1190298/pexels-photo-1190298.jpeg?auto=compress&cs=tinysrgb&w=1920",
       "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Ormside+Projects+Bermondsey",
       "order": 72
     },
@@ -986,7 +986,7 @@
       "priceRange": "£",
       "vibe": "Alternative",
       "opinion": "A cult institution — go once even if it's not your usual scene.",
-      "image": "https://images.pexels.com/photos/1105666/pexels-photo-1105666.jpeg?auto=compress&cs=tinysrgb&w=800",
+      "image": "https://images.pexels.com/photos/1105666/pexels-photo-1105666.jpeg?auto=compress&cs=tinysrgb&w=1920",
       "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Slimelight+Electrowerkz+London",
       "order": 73
     }
