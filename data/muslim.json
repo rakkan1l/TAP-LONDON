@@ -10,7 +10,7 @@
       "entryFee": "Free",
       "priceType": "Free",
       "mapsUrl": "https://www.google.com/maps/search/?api=1&query=East+London+Mosque+Whitechapel",
-      "image": "https://images.pexels.com/photos/1537086/pexels-photo-1537086.jpeg?auto=compress&cs=tinysrgb&w=800",
+      "image": "https://images.pexels.com/photos/1537086/pexels-photo-1537086.jpeg?auto=compress&cs=tinysrgb&w=1920",
       "order": 0
     },
     {
@@ -23,7 +23,7 @@
       "entryFee": "Free",
       "priceType": "Free",
       "mapsUrl": "https://www.google.com/maps/search/?api=1&query=London+Central+Mosque+Regents+Park",
-      "image": "https://images.pexels.com/photos/2850287/pexels-photo-2850287.jpeg?auto=compress&cs=tinysrgb&w=800",
+      "image": "https://images.pexels.com/photos/2850287/pexels-photo-2850287.jpeg?auto=compress&cs=tinysrgb&w=1920",
       "order": 1
     },
     {
@@ -36,7 +36,7 @@
       "entryFee": "Free",
       "priceType": "Free",
       "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Halal+Restaurants+Brick+Lane+London",
-      "image": "https://images.pexels.com/photos/1640777/pexels-photo-1640777.jpeg?auto=compress&cs=tinysrgb&w=800",
+      "image": "https://images.pexels.com/photos/1640777/pexels-photo-1640777.jpeg?auto=compress&cs=tinysrgb&w=1920",
       "order": 2
     },
     {
@@ -49,7 +49,7 @@
       "entryFee": "Free",
       "priceType": "Free",
       "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Edgware+Road+Arabic+Restaurants+London",
-      "image": "https://images.pexels.com/photos/1640777/pexels-photo-1640777.jpeg?auto=compress&cs=tinysrgb&w=800",
+      "image": "https://images.pexels.com/photos/1640777/pexels-photo-1640777.jpeg?auto=compress&cs=tinysrgb&w=1920",
       "order": 3
     },
     {
@@ -62,7 +62,7 @@
       "entryFee": "Free",
       "priceType": "Free",
       "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Wembley+Central+Mosque",
-      "image": "https://images.pexels.com/photos/1537086/pexels-photo-1537086.jpeg?auto=compress&cs=tinysrgb&w=800",
+      "image": "https://images.pexels.com/photos/1537086/pexels-photo-1537086.jpeg?auto=compress&cs=tinysrgb&w=1920",
       "order": 4
     },
     {
@@ -75,7 +75,7 @@
       "entryFee": "Free",
       "priceType": "Free",
       "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Heathrow+Airport+Prayer+Room",
-      "image": "https://images.pexels.com/photos/1537086/pexels-photo-1537086.jpeg?auto=compress&cs=tinysrgb&w=800",
+      "image": "https://images.pexels.com/photos/1537086/pexels-photo-1537086.jpeg?auto=compress&cs=tinysrgb&w=1920",
       "order": 5
     },
     {
@@ -85,7 +85,7 @@
       "area": "Regent's Park, NW8",
       "description": "One of London's largest and most iconic mosques, with a striking golden dome. Welcomes visitors and hosts daily prayers, Friday Jummah, and community events.",
       "openingHours": "Daily 09:00-21:00 (prayer times vary)",
-      "image": "https://images.unsplash.com/photo-1564769662646-be8db8de37e3?w=800&q=80",
+      "image": "https://images.unsplash.com/photo-1564769662646-be8db8de37e3?w=1920&q=80",
       "mapsUrl": "https://www.google.com/maps/search/?api=1&query=London+Central+Mosque+Regents+Park",
       "order": 6
     },
@@ -96,7 +96,7 @@
       "area": "Whitechapel, E1",
       "description": "One of the largest mosques in Europe, capacity for thousands. A hub of the Muslim community in East London with regular events and classes.",
       "openingHours": "Daily, open for all 5 prayers",
-      "image": "https://images.unsplash.com/photo-1564769662646-be8db8de37e3?w=800&q=80",
+      "image": "https://images.unsplash.com/photo-1564769662646-be8db8de37e3?w=1920&q=80",
       "mapsUrl": "https://www.google.com/maps/search/?api=1&query=East+London+Mosque+Whitechapel",
       "order": 7
     },
@@ -107,7 +107,7 @@
       "area": "Brick Lane, E1",
       "description": "Historic building with a fascinating past \u2014 once a church and synagogue before becoming a mosque. A symbol of London's multicultural history.",
       "openingHours": "Daily, open for all 5 prayers",
-      "image": "https://images.unsplash.com/photo-1564769662646-be8db8de37e3?w=800&q=80",
+      "image": "https://images.unsplash.com/photo-1564769662646-be8db8de37e3?w=1920&q=80",
       "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Brick+Lane+Jamme+Masjid+London",
       "order": 8
     },
@@ -118,7 +118,7 @@
       "area": "Whitechapel, E1",
       "description": "Popular halal Middle Eastern grill known for generous portions of grilled meats, rice and fresh salads at affordable prices.",
       "openingHours": "Daily 12:00-23:00",
-      "image": "https://images.unsplash.com/photo-1544025162-d76694265947?w=800&q=80",
+      "image": "https://images.unsplash.com/photo-1544025162-d76694265947?w=1920&q=80",
       "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Maedah+Grill+Whitechapel+London",
       "order": 9
     },
@@ -129,7 +129,7 @@
       "area": "Whitechapel, E1",
       "description": "Legendary Punjabi halal restaurant famous for its sizzling lamb chops. Always busy, always worth the wait \u2014 a London institution since 1972.",
       "openingHours": "Daily 12:00-23:30",
-      "image": "https://images.unsplash.com/photo-1585937421612-70a008356fbe?w=800&q=80",
+      "image": "https://images.unsplash.com/photo-1585937421612-70a008356fbe?w=1920&q=80",
       "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Tayyabs+Whitechapel+London",
       "order": 10
     },
@@ -140,7 +140,7 @@
       "area": "Newham, E7",
       "description": "A whole street dedicated to halal South Asian food, sweets and grocery shopping. Vibrant atmosphere and incredible variety.",
       "openingHours": "Daily 10:00-22:00",
-      "image": "https://images.unsplash.com/photo-1568254183919-78a4f43a2877?w=800&q=80",
+      "image": "https://images.unsplash.com/photo-1568254183919-78a4f43a2877?w=1920&q=80",
       "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Green+Street+Newham+London",
       "order": 11
     },
@@ -151,7 +151,7 @@
       "area": "Regent's Park, NW8",
       "description": "Large, welcoming prayer hall accommodating thousands, with separate facilities for women. Ablution facilities available.",
       "openingHours": "Daily 09:00-21:00",
-      "image": "https://images.unsplash.com/photo-1564769662646-be8db8de37e3?w=800&q=80",
+      "image": "https://images.unsplash.com/photo-1564769662646-be8db8de37e3?w=1920&q=80",
       "mapsUrl": "https://www.google.com/maps/search/?api=1&query=London+Central+Mosque+Regents+Park",
       "order": 12
     },
@@ -162,7 +162,7 @@
       "area": "Stratford, E20",
       "description": "Dedicated multi-faith prayer room inside Westfield Stratford City shopping centre, convenient while shopping.",
       "openingHours": "Mall opening hours",
-      "image": "https://images.unsplash.com/photo-1564769662646-be8db8de37e3?w=800&q=80",
+      "image": "https://images.unsplash.com/photo-1564769662646-be8db8de37e3?w=1920&q=80",
       "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Westfield+Stratford+City+London",
       "order": 13
     },
@@ -173,7 +173,7 @@
       "area": "Heathrow Airport",
       "description": "Multi-faith prayer rooms available in all terminals at Heathrow, clearly signposted and open 24 hours for travellers.",
       "openingHours": "24 hours",
-      "image": "https://images.unsplash.com/photo-1564769662646-be8db8de37e3?w=800&q=80",
+      "image": "https://images.unsplash.com/photo-1564769662646-be8db8de37e3?w=1920&q=80",
       "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Heathrow+Airport+Prayer+Room",
       "order": 14
     }
