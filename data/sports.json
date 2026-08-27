@@ -8,7 +8,7 @@
       "capacity": "90,000",
       "description": "England's national football stadium. Home of the FA Cup final, England internationals and major concerts. The arch is visible across London.",
       "nearestStation": "Wembley Park (10 min walk)",
-      "image": "https://images.pexels.com/photos/46798/the-ball-stadion-football-the-pitch-46798.jpeg?auto=compress&cs=tinysrgb&w=800",
+      "image": "https://images.pexels.com/photos/46798/the-ball-stadion-football-the-pitch-46798.jpeg?auto=compress&cs=tinysrgb&w=1920",
       "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Wembley+Stadium+London",
       "nearbyPubs": [
         "Torch Wembley",
@@ -26,7 +26,7 @@
       "capacity": "60,704",
       "description": "Home of Arsenal FC, one of the world's most famous football clubs. Tours available. Located in North London with great transport links.",
       "nearestStation": "Arsenal (5 min walk)",
-      "image": "https://images.pexels.com/photos/46798/the-ball-stadion-football-the-pitch-46798.jpeg?auto=compress&cs=tinysrgb&w=800",
+      "image": "https://images.pexels.com/photos/46798/the-ball-stadion-football-the-pitch-46798.jpeg?auto=compress&cs=tinysrgb&w=1920",
       "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Emirates+Stadium+Arsenal+London",
       "nearbyPubs": [
         "The Gunners",
@@ -44,7 +44,7 @@
       "capacity": "40,341",
       "description": "Home of Chelsea FC in the heart of Fulham. One of London's most iconic grounds with a great museum and stadium tour.",
       "nearestStation": "Fulham Broadway (5 min walk)",
-      "image": "https://images.pexels.com/photos/46798/the-ball-stadion-football-the-pitch-46798.jpeg?auto=compress&cs=tinysrgb&w=800",
+      "image": "https://images.pexels.com/photos/46798/the-ball-stadion-football-the-pitch-46798.jpeg?auto=compress&cs=tinysrgb&w=1920",
       "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Stamford+Bridge+Chelsea+London",
       "nearbyPubs": [
         "The Butcher's Hook",
@@ -61,7 +61,7 @@
       "capacity": "30,000",
       "description": "The home of cricket and the most famous cricket ground in the world. Tours available year round. Test matches, The Hundred and international cricket.",
       "nearestStation": "St John's Wood (5 min walk)",
-      "image": "https://images.pexels.com/photos/3628912/pexels-photo-3628912.jpeg?auto=compress&cs=tinysrgb&w=800",
+      "image": "https://images.pexels.com/photos/3628912/pexels-photo-3628912.jpeg?auto=compress&cs=tinysrgb&w=1920",
       "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Lords+Cricket+Ground+London",
       "nearbyPubs": [
         "The Clifton",
@@ -78,7 +78,7 @@
       "capacity": "38,000",
       "description": "The most prestigious tennis tournament in the world. Queue for day tickets, watch on the big screens or just soak up the strawberries and cream atmosphere.",
       "nearestStation": "Southfields (15 min walk)",
-      "image": "https://images.pexels.com/photos/209977/pexels-photo-209977.jpeg?auto=compress&cs=tinysrgb&w=800",
+      "image": "https://images.pexels.com/photos/209977/pexels-photo-209977.jpeg?auto=compress&cs=tinysrgb&w=1920",
       "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Wimbledon+Tennis+All+England+Club",
       "nearbyPubs": [
         "The Dog & Fox",
@@ -94,7 +94,7 @@
       "capacity": "20,000",
       "description": "London's biggest entertainment venue. Home to major boxing bouts, UFC events, concerts and more. Also has a great shopping and dining complex.",
       "nearestStation": "North Greenwich (5 min walk)",
-      "image": "https://images.pexels.com/photos/1105666/pexels-photo-1105666.jpeg?auto=compress&cs=tinysrgb&w=800",
+      "image": "https://images.pexels.com/photos/1105666/pexels-photo-1105666.jpeg?auto=compress&cs=tinysrgb&w=1920",
       "mapsUrl": "https://www.google.com/maps/search/?api=1&query=O2+Arena+London+Greenwich",
       "nearbyPubs": [
         "The O2 bars",
@@ -110,7 +110,7 @@
       "capacity": "25,500",
       "description": "Historic cricket ground hosting Test matches and The Hundred. Home of Surrey County Cricket Club since 1845.",
       "nearestStation": "Oval (2 min walk)",
-      "image": "https://images.unsplash.com/photo-3628912?w=800&q=80",
+      "image": "https://images.unsplash.com/photo-3628912?w=1920&q=80",
       "mapsUrl": "https://www.google.com/maps/search/?api=1&query=The+Oval+Cricket+Ground+London",
       "nearbyPubs": [
         "The Cricketers",
@@ -126,7 +126,7 @@
       "capacity": "9,500",
       "description": "Prestigious grass court tennis venue hosting the annual pre-Wimbledon tournament — a great warm-up event for tennis fans.",
       "nearestStation": "Barons Court (5 min walk)",
-      "image": "https://images.unsplash.com/photo-209977?w=800&q=80",
+      "image": "https://images.unsplash.com/photo-209977?w=1920&q=80",
       "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Queens+Club+London",
       "nearbyPubs": [
         "The Colton Arms"
@@ -141,7 +141,7 @@
       "capacity": "12,500",
       "description": "Major indoor arena hosting big boxing matches, concerts and entertainment events, right next to Wembley Stadium.",
       "nearestStation": "Wembley Park (5 min walk)",
-      "image": "https://images.unsplash.com/photo-1105666?w=800&q=80",
+      "image": "https://images.unsplash.com/photo-1105666?w=1920&q=80",
       "mapsUrl": "https://www.google.com/maps/search/?api=1&query=OVO+Arena+Wembley+London",
       "nearbyPubs": [
         "Torch Wembley"
@@ -156,7 +156,7 @@
       "capacity": "82,000",
       "description": "The home of English rugby and the world's largest dedicated rugby union stadium. Hosts Six Nations matches and internationals.",
       "nearestStation": "Twickenham (10 min walk)",
-      "image": "https://images.unsplash.com/photo-46798?w=800&q=80",
+      "image": "https://images.unsplash.com/photo-46798?w=1920&q=80",
       "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Twickenham+Stadium+London",
       "nearbyPubs": [
         "The Cabbage Patch",
@@ -173,7 +173,7 @@
       "capacity": "62,850",
       "description": "One of the most technologically advanced stadiums in the world, featuring the only retractable pitch of its kind, exposing a dedicated NFL playing surface underneath. Stadium tours include the players' tunnel and dressing rooms.",
       "nearestStation": "White Hart Lane (5 min walk)",
-      "image": "https://images.pexels.com/photos/46798/the-ball-stadion-football-the-pitch-46798.jpeg?auto=compress&cs=tinysrgb&w=800",
+      "image": "https://images.pexels.com/photos/46798/the-ball-stadion-football-the-pitch-46798.jpeg?auto=compress&cs=tinysrgb&w=1920",
       "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Tottenham+Hotspur+Stadium",
       "nearbyPubs": [
         "The Beehive",
@@ -190,7 +190,7 @@
       "capacity": "62,500",
       "description": "The former London 2012 Olympic Stadium, now home to West Ham United. Tours cover the venue's Olympic history alongside its transformation into a Premier League football ground.",
       "nearestStation": "Stratford (12 min walk)",
-      "image": "https://images.pexels.com/photos/46798/the-ball-stadion-football-the-pitch-46798.jpeg?auto=compress&cs=tinysrgb&w=800",
+      "image": "https://images.pexels.com/photos/46798/the-ball-stadion-football-the-pitch-46798.jpeg?auto=compress&cs=tinysrgb&w=1920",
       "mapsUrl": "https://www.google.com/maps/search/?api=1&query=London+Stadium+Queen+Elizabeth+Olympic+Park",
       "nearbyPubs": [
         "Timber Lodge",
@@ -207,7 +207,7 @@
       "capacity": "29,589",
       "description": "One of England's most picturesque football grounds, set right on the banks of the River Thames. Guided tours begin at the Johnny Haynes statue and take in the tunnel and dugouts.",
       "nearestStation": "Putney Bridge (12 min walk)",
-      "image": "https://images.pexels.com/photos/46798/the-ball-stadion-football-the-pitch-46798.jpeg?auto=compress&cs=tinysrgb&w=800",
+      "image": "https://images.pexels.com/photos/46798/the-ball-stadion-football-the-pitch-46798.jpeg?auto=compress&cs=tinysrgb&w=1920",
       "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Craven+Cottage+Fulham",
       "nearbyPubs": [
         "The Eight Bells",
@@ -232,7 +232,7 @@
         "Fulham"
       ],
       "ticketsUrl": "https://www.premierleague.com/tickets",
-      "image": "https://images.pexels.com/photos/46798/the-ball-stadion-football-the-pitch-46798.jpeg?auto=compress&cs=tinysrgb&w=800"
+      "image": "https://images.pexels.com/photos/46798/the-ball-stadion-football-the-pitch-46798.jpeg?auto=compress&cs=tinysrgb&w=1920"
     },
     {
       "id": "champions-league",
@@ -245,7 +245,7 @@
         "Tottenham"
       ],
       "ticketsUrl": "https://www.uefa.com/uefachampionsleague/",
-      "image": "https://images.pexels.com/photos/46798/the-ball-stadion-football-the-pitch-46798.jpeg?auto=compress&cs=tinysrgb&w=800"
+      "image": "https://images.pexels.com/photos/46798/the-ball-stadion-football-the-pitch-46798.jpeg?auto=compress&cs=tinysrgb&w=1920"
     },
     {
       "id": "the-hundred",
@@ -257,7 +257,7 @@
         "Oval Invincibles"
       ],
       "ticketsUrl": "https://www.thehundred.com/tickets",
-      "image": "https://images.pexels.com/photos/3628912/pexels-photo-3628912.jpeg?auto=compress&cs=tinysrgb&w=800"
+      "image": "https://images.pexels.com/photos/3628912/pexels-photo-3628912.jpeg?auto=compress&cs=tinysrgb&w=1920"
     },
     {
       "id": "wimbledon-tennis",
@@ -265,7 +265,7 @@
       "sport": "Tennis",
       "season": "Late June - Early July",
       "ticketsUrl": "https://www.wimbledon.com/en_GB/tickets/index.html",
-      "image": "https://images.pexels.com/photos/209977/pexels-photo-209977.jpeg?auto=compress&cs=tinysrgb&w=800"
+      "image": "https://images.pexels.com/photos/209977/pexels-photo-209977.jpeg?auto=compress&cs=tinysrgb&w=1920"
     }
   ]
 }
