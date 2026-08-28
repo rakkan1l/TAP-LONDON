@@ -58,13 +58,29 @@ async function fixCollection(name) {
   }
 
   if (count > 0) await batch.commit();
-  console.log(`${name}: ${fixed} image URLs upgraded to w=1920`);
+  const line = `${name}: ${fixed} image URLs upgraded to w=1920 (${snap.size} total docs)`;
+  console.log(line);
+  return line;
 }
 
+const fs = require('fs');
+
 async function main() {
+  const results = [];
   for (const c of COLLECTIONS) {
-    await fixCollection(c);
+    const line = await fixCollection(c);
+    results.push(line);
   }
+
+  // Verifiable proof: pull the actual Tower of London doc after the fix
+  // and write it out, so the result can be checked via a normal file read
+  // instead of relying on Action log access.
+  const check = await db.collection('places').doc('tower-of-london').get();
+  const checkImage = check.exists ? check.data().image : 'DOC NOT FOUND';
+  results.push(`\nVERIFICATION - places/tower-of-london image field: ${checkImage}`);
+
+  fs.writeFileSync('fix-results.txt', results.join('\n') + '\n');
+  console.log(results.join('\n'));
   console.log('Done.');
 }
 
