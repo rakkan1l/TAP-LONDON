@@ -6,6 +6,8 @@ on:
 jobs:
   fix-images:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
@@ -17,3 +19,10 @@ jobs:
         env:
           FIREBASE_SERVICE_ACCOUNT_KEY: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_KEY }}
         run: node scripts/fix-image-resolution.js
+      - name: Commit results file
+        run: |
+          git config user.name "github-actions"
+          git config user.email "actions@github.com"
+          git add fix-results.txt
+          git commit -m "Add image fix results" || echo "nothing to commit"
+          git push
