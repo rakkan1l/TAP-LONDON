@@ -84,7 +84,7 @@ export default function PlaceDetailPage() {
 
   return (
     <main className="bg-[#f9f7f2] dark:bg-[#0d0d1a]" style={{ minHeight: "100vh" }}>
-      <div style={{ position: "relative", height: "44vh", minHeight: "250px", overflow: "hidden" }}>
+      <div style={{ position: "relative", width: "100%", maxWidth: "1400px", margin: "0 auto", height: "44vh", minHeight: "300px", maxHeight: "500px", overflow: "hidden" }}>
         <Image src={place.image} alt={place.name} fill priority sizes="100vw" style={{ objectFit: "cover", objectPosition: "center" }} />
         <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to bottom, rgba(0,0,0,0.15) 0%, rgba(26,26,46,0.88) 100%)" }} />
         <Link href="/places" style={{ position: "absolute", top: "16px", left: "16px", background: "rgba(255,255,255,0.18)", backdropFilter: "blur(8px)", border: "1px solid rgba(255,255,255,0.3)", color: "#ffffff", borderRadius: "50px", padding: "7px 16px", fontFamily: "'DM Sans',sans-serif", fontSize: "0.8rem", fontWeight: 600, textDecoration: "none" }}>← Back</Link>
