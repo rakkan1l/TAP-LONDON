@@ -1,0 +1,4 @@
+Image URL: https://res.cloudinary.com/dygvxcour/image/upload/v1788112161/lp9xsgsoztlzqzvj5iyr.jpg
+File size: 31491 bytes (30.8 KB)
+Actual pixel dimensions: 256 x 256
+Aspect ratio: 1.000
