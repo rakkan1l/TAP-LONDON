@@ -1,5 +1,0 @@
-Total documents: 77
-Missing image field: 0
-Broken/unreachable image URLs: 0
-
-Problems found:
