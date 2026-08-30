@@ -15,14 +15,14 @@ jobs:
           node-version: '20'
       - name: Install firebase-admin
         run: npm install firebase-admin
-      - name: Run multi-dims script
+      - name: Run full places audit
         env:
           FIREBASE_SERVICE_ACCOUNT_KEY: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_KEY }}
-        run: node scripts/check-multi-dims.js
+        run: node scripts/audit-places-full.js
       - name: Commit results file
         run: |
           git config user.name "github-actions"
           git config user.email "actions@github.com"
-          git add multi-dims-results.txt
-          git commit -m "Add multi-dims results" || echo "nothing to commit"
+          git add places-audit-results.txt
+          git commit -m "Add places audit results" || echo "nothing to commit"
           git push
