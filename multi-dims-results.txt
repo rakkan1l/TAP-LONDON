@@ -1,0 +1,8 @@
+places: "Tower of London" -> 256x256 (31KB) - https://res.cloudinary.com/dygvxcour/image/upload/v1788112161/lp9xsgsoztlzqzvj5iyr.jpg
+food: "BAO Borough" -> 1000x562 (110KB) - https://res.cloudinary.com/dygvxcour/image/upload/v1787686617/mhhlxhofjukbowfri1vf.jpg
+hotels: "Novotel London Bridge" -> 1024x768 (126KB) - https://res.cloudinary.com/dygvxcour/image/upload/v1787520358/h3fgkvdout5n04tzecr2.jpg
+nightlife: "Netil360" -> 1920x1278 (447KB) - https://res.cloudinary.com/dygvxcour/image/upload/v1787687488/ml26pwebfetv0ov1aitz.jpg
+shopping: "Columbia Road Flower Market" -> 1360x1020 (392KB) - https://res.cloudinary.com/dygvxcour/image/upload/v1787603232/jb4sy4pp5lqxtpyjl8m4.jpg
+theatre: "Moulin Rouge! The Musical" -> 3840x2160 (1635KB) - https://res.cloudinary.com/dygvxcour/image/upload/v1786977226/wuqa2dxtlpdi4qndoxbe.jpg
+music: "The Lexington" -> 4096x2304 (1768KB) - https://res.cloudinary.com/dygvxcour/image/upload/v1786996756/k14sghck7vvqttuuzzed.jpg
+sports: "London Stadium" -> 726x394 (68KB) - https://res.cloudinary.com/dygvxcour/image/upload/v1787520640/wbc5b67hxsczghjogqjj.jpg
