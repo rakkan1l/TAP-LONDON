@@ -51,6 +51,13 @@ type PlaceCardProps = {
 
 export default function PlaceCard({ item, mode = "place" }: PlaceCardProps) {
   const [imageFailed, setImageFailed] = useState(false);
+
+  // Defensive guard: an item without a valid id would otherwise produce a
+  // broken link like /places/undefined or /places/ (no id at all) - this
+  // was seen live where clicking certain cards led to a blank page at a
+  // trailing-slash URL. Placed after the hooks above (React requires hooks
+  // to run unconditionally on every render) so it can't break the build.
+  if (!item?.id) return null;
   const category = item.category ?? item.section ?? item.type ?? "London";
   const area = item.area ?? item.location ?? "London";
   // Determine paid/free defensively: don't trust priceType alone (it can be
