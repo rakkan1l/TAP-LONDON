@@ -1,0 +1,3 @@
+image: https://res.cloudinary.com/dygvxcour/image/upload/v1788111538/dtalzhxvx1uqiuw9buvy.jpg
+gallery: ["https://res.cloudinary.com/dygvxcour/image/upload/v1788111550/ofaagitk1xdxzajnu0h1.jpg"]
+updated fields present: area, entryFee, mapsUrl, icon, priceType, description, openingHours, id, category, featured, offerTag, videoUrl, updatedAt, order, name, image, gallery
