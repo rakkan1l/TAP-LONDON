@@ -15,14 +15,14 @@ jobs:
           node-version: '20'
       - name: Install firebase-admin
         run: npm install firebase-admin
-      - name: Run fix script
+      - name: Run check script
         env:
           FIREBASE_SERVICE_ACCOUNT_KEY: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_KEY }}
-        run: node scripts/fix-image-resolution.js
+        run: node scripts/check-image.js
       - name: Commit results file
         run: |
           git config user.name "github-actions"
           git config user.email "actions@github.com"
-          git add fix-results.txt
-          git commit -m "Add image fix results" || echo "nothing to commit"
+          git add check-results.txt
+          git commit -m "Add check results" || echo "nothing to commit"
           git push
