@@ -1,4 +1,0 @@
-Items WITH gallery field (multiple photos): 71
-Items WITHOUT gallery field (single photo only): 6
-
-Gallery-specific problems found: 0
