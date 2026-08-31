@@ -191,12 +191,20 @@ export default function Navbar() {
           </Link>
 
           <div className="flex items-center gap-2">
-            {weather && (
-              <div className="flex items-center gap-1 rounded-full bg-white/80 dark:bg-white/10 border border-navy/10 dark:border-white/15 px-2.5 py-1 text-xs font-semibold text-navy dark:text-cream backdrop-blur">
-                <span style={{ fontSize: "0.8rem" }}>{getWeatherEmoji(weather.code)}</span>
-                <span>{weather.temp}°C</span>
-              </div>
-            )}
+            {/* FIX: this used to be `{weather && (<div>...)}`, which means
+                the server renders NOTHING here (weather starts null), then
+                the client inserts a brand new DOM element once the weather
+                fetch resolves. That mismatch (missing element appearing
+                after hydration, not just different content in an existing
+                one) is what was producing the #423/#425/#418 hydration
+                errors on every single page load, confirmed via repeated
+                console captures. Now the container always renders in both
+                server and client output; only the inner text is
+                conditional, so the DOM shape matches from first paint. */}
+            <div className="flex items-center gap-1 rounded-full bg-white/80 dark:bg-white/10 border border-navy/10 dark:border-white/15 px-2.5 py-1 text-xs font-semibold text-navy dark:text-cream backdrop-blur" style={{ minWidth: weather ? undefined : "0px", opacity: weather ? 1 : 0, pointerEvents: weather ? "auto" : "none" }}>
+              <span style={{ fontSize: "0.8rem" }}>{weather ? getWeatherEmoji(weather.code) : "\u00A0"}</span>
+              <span>{weather ? `${weather.temp}°C` : "\u00A0"}</span>
+            </div>
 
             <div ref={langRef} style={{ position: "relative" }}>
               <button onClick={() => setLangOpen(!langOpen)} className="flex items-center gap-1 rounded-full bg-white/80 dark:bg-white/10 border border-navy/10 dark:border-white/15 px-2.5 py-1 text-xs font-semibold text-navy dark:text-cream backdrop-blur" style={{ minHeight: "30px" }}>
