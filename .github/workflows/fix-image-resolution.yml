@@ -15,14 +15,14 @@ jobs:
           node-version: '20'
       - name: Install firebase-admin
         run: npm install firebase-admin
-      - name: Dump gallery data
+      - name: Check dims
         env:
           FIREBASE_SERVICE_ACCOUNT_KEY: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_KEY }}
-        run: node scripts/check-gallery-data.js
+        run: node scripts/check-bigben-dims.js
       - name: Commit results
         run: |
           git config user.name "github-actions"
           git config user.email "actions@github.com"
-          git add gallery-data-dump.txt
-          git commit -m "dump" || echo "nothing"
+          git add bigben-dims-results.txt
+          git commit -m "dims" || echo "nothing"
           git push
