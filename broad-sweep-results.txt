@@ -1,0 +1,35 @@
+food: 113 items, 0 problems
+hotels: 103 items, 0 problems
+nightlife: 72 items, 0 problems
+shopping: 43 items, 0 problems
+kids: 54 items, 1 problems
+  -> SEA LIFE London Aquarium [sea-life-london]: image URL status 404
+hiddenGems: 41 items, 9 problems
+  -> Bermondsey Street [bermondsey-street]: image URL status 404
+  -> Denis Severs' House [denis-severs-house]: image URL status 404
+  -> Eel Pie Island [eel-pie-island]: image URL status 404
+  -> Farm Place & Lancaster Street [farm-place-notting-hill]: image URL status 404
+  -> The Hepworth-esque Backstreets of Fitzrovia [hidden-hepworth-gallery]: image URL status 404
+  -> Roupell Street [roupell-street]: image URL status 404
+  -> Wilton Way [wilton-way-hackney]: image URL status 404
+  -> Woburn Walk [woburn-walk]: image URL status 404
+  -> Ye Olde Cheshire Cheese [ye-olde-cheshire-cheese]: image URL status 404
+theatre: 11 items, 0 problems
+music: 11 items, 0 problems
+sports: 13 items, 0 problems
+muslim: 11 items, 0 problems
+emergency: 15 items, 0 problems
+offers: 15 items, 6 problems
+  -> Family & Friends Railcard [family-travelcard]: image URL status 404
+  -> London Zoo Family Ticket [family-zoo-offer]: image URL status 404
+  -> SEA LIFE Aquarium — Kids Go Free [sea-life-kids]: image URL status 404
+  -> Selfridges — Tax Free Shopping [shopping-selfridges-offer]: image URL status 404
+  -> Student Cinema Discount [student-cinema-offer]: image URL status 404
+  -> Student — Free Museum Entry [student-museum]: image URL status 404
+trending: 10 items, 2 problems
+  -> Battersea Power Station [battersea-power-station]: image URL status 404
+  -> Circolo Popolare [circolo-popolare]: image URL status 404
+guides: 14 items, 0 problems
+universities: 11 items, 0 problems
+daytrips: 8 items, 0 problems
+events: 10 items, 0 problems
