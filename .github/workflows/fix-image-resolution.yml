@@ -15,7 +15,14 @@ jobs:
           node-version: '20'
       - name: Install firebase-admin
         run: npm install firebase-admin
-      - name: Run Shard fix
+      - name: Run verify
         env:
           FIREBASE_SERVICE_ACCOUNT_KEY: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_KEY }}
-        run: node scripts/fix-shard-image.js
+        run: node scripts/verify-shard.js
+      - name: Commit results
+        run: |
+          git config user.name "github-actions"
+          git config user.email "actions@github.com"
+          git add shard-verify-results.txt
+          git commit -m "verify" || echo "nothing"
+          git push
