@@ -102,8 +102,16 @@ export default function PlaceDetailPage() {
   );
 
   const history = PLACE_HISTORY[place.id];
+  // FIX: this used to always put place.image FIRST in the gallery array,
+  // meaning the hero banner and the gallery viewer both rendered the exact
+  // same source image simultaneously, in two different sized containers,
+  // right on first paint. That's real duplicated decode/layout work at the
+  // most performance-sensitive moment of the page, and matches the user's
+  // own testing: pages with only one photo (no duplication possible) never
+  // showed the flash, pages with a gallery always did. Now the gallery
+  // only shows genuinely ADDITIONAL photos, not a repeat of the hero.
   const photos = (place.gallery && place.gallery.length > 0)
-    ? [place.image, ...place.gallery].filter(Boolean)
+    ? place.gallery.filter(Boolean)
     : [place.image].filter(Boolean);
 
   return (
