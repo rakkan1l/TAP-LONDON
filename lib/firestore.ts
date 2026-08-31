@@ -63,6 +63,13 @@ export async function fetchDocument(collection: string, id: string, retries = 2)
     try {
       const res = await fetch(url, { cache: 'no-store' });
       if (!res.ok) {
+        // A 404 means the document genuinely doesn't exist - e.g. a popup
+        // config for a section that was never set up. Retrying that is
+        // pointless (it will never succeed) and just adds console noise and
+        // wasted requests. Only retry on transient failures (429 rate
+        // limits, 5xx server errors, network issues) which CAN succeed on
+        // a later attempt.
+        if (res.status === 404) return null;
         if (attempt < retries) {
           await new Promise(r => setTimeout(r, 300 * (attempt + 1)));
           continue;
