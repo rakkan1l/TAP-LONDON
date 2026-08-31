@@ -23,7 +23,15 @@ function PhotoGallery({ photos, name }: { photos: string[]; name: string }) {
   return (
     <div style={{ marginBottom: "24px" }}>
       <div style={{ borderRadius: "16px", overflow: "hidden", aspectRatio: "4/3", position: "relative", background: "#1a1a2e", marginBottom: "10px", width: "100%", maxWidth: "800px" }}>
-        <Image src={photos[active]} alt={`${name} ${active + 1}`} fill sizes="(max-width: 800px) 100vw, 800px" style={{ objectFit: "cover" }} />
+        <Image
+          key={photos[active]}
+          src={photos[active]}
+          alt={`${name} ${active + 1}`}
+          fill
+          sizes="(max-width: 800px) 100vw, 800px"
+          style={{ objectFit: "cover", opacity: 0, transition: "opacity 0.25s ease" }}
+          onLoad={(e) => { (e.target as HTMLImageElement).style.opacity = "1"; }}
+        />
         {active > 0 && <button onClick={() => setActive(active - 1)} style={{ position: "absolute", left: "10px", top: "50%", transform: "translateY(-50%)", background: "rgba(0,0,0,0.5)", border: "none", color: "#fff", width: "36px", height: "36px", borderRadius: "50%", fontSize: "1.2rem", cursor: "pointer", display: "flex", alignItems: "center", justifyContent: "center" }}>‹</button>}
         {active < photos.length - 1 && <button onClick={() => setActive(active + 1)} style={{ position: "absolute", right: "10px", top: "50%", transform: "translateY(-50%)", background: "rgba(0,0,0,0.5)", border: "none", color: "#fff", width: "36px", height: "36px", borderRadius: "50%", fontSize: "1.2rem", cursor: "pointer", display: "flex", alignItems: "center", justifyContent: "center" }}>›</button>}
         <div style={{ position: "absolute", bottom: "10px", right: "12px", background: "rgba(0,0,0,0.6)", color: "#fff", borderRadius: "20px", padding: "3px 10px", fontFamily: "'DM Sans',sans-serif", fontSize: "0.72rem", fontWeight: 600 }}>{active + 1} / {photos.length}</div>
