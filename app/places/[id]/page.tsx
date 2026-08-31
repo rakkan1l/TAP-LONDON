@@ -5,7 +5,6 @@ import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import { useParams } from "next/navigation";
 import { fetchDocument } from "@/lib/firestore";
-import placesJson from "@/data/places.json";
 
 const PLACE_HISTORY: Record<string, { founded: string; history: string; facts: string[] }> = {
   "tower-of-london": { founded: "Founded 1066 by William the Conqueror", history: "The Tower of London was built in the 1070s by William the Conqueror following his victory at the Battle of Hastings. Built from limestone imported from Caen in Normandy, it took nearly 20 years to complete. The Tower has served as a royal palace, political prison, place of execution, royal mint, menagerie, and arsenal.", facts: ["Built in the 1070s by William the Conqueror", "Only 7 people were ever executed inside the Tower walls", "At least 6 ravens must live here by royal decree", "The Crown Jewels have been stored here since the 17th century"] },
@@ -50,15 +49,19 @@ export default function PlaceDetailPage() {
 
   useEffect(() => {
     const load = async () => {
-      // Try Firestore REST API first
+      // FIX: this page still had the old silent stale-JSON fallback that
+      // was removed from the Places LISTING page weeks ago but never
+      // actually removed here on the DETAIL page. That bundled JSON file
+      // is a snapshot from whenever it was last committed - it does not
+      // reflect admin edits or fresh uploads at all. This is almost
+      // certainly the real cause of "looks correct for a second then goes
+      // wrong": fetchDocument succeeds and shows the real Firestore data
+      // first, but if it were ever to fail even briefly, this would swap
+      // in stale/wrong data with zero indication anything happened. Now it
+      // just shows null (triggering the not-found state) instead of
+      // silently substituting old data.
       const firebaseItem = await fetchDocument('places', id);
-      if (firebaseItem && firebaseItem.name) {
-        setPlace(firebaseItem);
-      } else {
-        // Fallback to JSON
-        const found = (placesJson.items as any[]).find((p: any) => p.id === id);
-        setPlace(found || null);
-      }
+      setPlace(firebaseItem && firebaseItem.name ? firebaseItem : null);
       setLoading(false);
     };
     load();
