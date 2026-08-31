@@ -15,14 +15,14 @@ jobs:
           node-version: '20'
       - name: Install firebase-admin
         run: npm install firebase-admin
-      - name: Run gallery check
+      - name: Run broad sweep
         env:
           FIREBASE_SERVICE_ACCOUNT_KEY: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_KEY }}
-        run: node scripts/check-gallery-pattern.js
+        run: node scripts/broad-sweep.js
       - name: Commit results file
         run: |
           git config user.name "github-actions"
           git config user.email "actions@github.com"
-          git add gallery-check-results.txt
-          git commit -m "Add gallery check results" || echo "nothing to commit"
+          git add broad-sweep-results.txt
+          git commit -m "Add broad sweep results" || echo "nothing to commit"
           git push
