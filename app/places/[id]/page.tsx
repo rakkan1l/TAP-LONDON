@@ -19,32 +19,25 @@ const PLACE_HISTORY: Record<string, { founded: string; history: string; facts: s
 
 function PhotoGallery({ photos, name }: { photos: string[]; name: string }) {
   const [active, setActive] = useState(0);
-  // Delays mounting the gallery's own <Image> elements by one tick after
-  // the component first renders, so they don't compete for network/paint
-  // priority against the hero image and everything else on the page during
-  // the very first render - this is the "pause, don't stop" loading the
-  // user asked for. Photos still load automatically and quickly, just not
-  // all fighting for the same instant as the hero.
-  const [ready, setReady] = useState(false);
-  useEffect(() => {
-    const t = setTimeout(() => setReady(true), 50);
-    return () => clearTimeout(t);
-  }, []);
   if (!photos.length) return null;
   return (
     <div style={{ marginBottom: "24px" }}>
       <div style={{ borderRadius: "16px", overflow: "hidden", aspectRatio: "4/3", position: "relative", background: "#1a1a2e", marginBottom: "10px", width: "100%", maxWidth: "800px" }}>
-        {ready && (
-          <Image
-            key={photos[active]}
-            src={photos[active]}
-            alt={`${name} ${active + 1}`}
-            fill
-            sizes="(max-width: 800px) 100vw, 800px"
-            style={{ objectFit: "cover", opacity: 0, transition: "opacity 0.25s ease" }}
-            onLoad={(e) => { (e.target as HTMLImageElement).style.opacity = "1"; }}
-          />
-        )}
+        {/* REBUILD: switched from next/image to a plain <img> tag for this
+            component specifically. Every theory about sizes/duplication/
+            timing was tested and ruled out with real evidence (confirmed
+            healthy 4K source images, correct sizes attributes, no
+            duplicate hero), yet the extreme blur/zoom persisted only when
+            a gallery was present. This removes Next.js's Image
+            optimization pipeline from this component entirely as the last
+            remaining untested variable. */}
+        <img
+          key={photos[active]}
+          src={photos[active]}
+          alt={`${name} ${active + 1}`}
+          style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover" }}
+          loading="eager"
+        />
         {active > 0 && <button onClick={() => setActive(active - 1)} style={{ position: "absolute", left: "10px", top: "50%", transform: "translateY(-50%)", background: "rgba(0,0,0,0.5)", border: "none", color: "#fff", width: "36px", height: "36px", borderRadius: "50%", fontSize: "1.2rem", cursor: "pointer", display: "flex", alignItems: "center", justifyContent: "center" }}>‹</button>}
         {active < photos.length - 1 && <button onClick={() => setActive(active + 1)} style={{ position: "absolute", right: "10px", top: "50%", transform: "translateY(-50%)", background: "rgba(0,0,0,0.5)", border: "none", color: "#fff", width: "36px", height: "36px", borderRadius: "50%", fontSize: "1.2rem", cursor: "pointer", display: "flex", alignItems: "center", justifyContent: "center" }}>›</button>}
         <div style={{ position: "absolute", bottom: "10px", right: "12px", background: "rgba(0,0,0,0.6)", color: "#fff", borderRadius: "20px", padding: "3px 10px", fontFamily: "'DM Sans',sans-serif", fontSize: "0.72rem", fontWeight: 600 }}>{active + 1} / {photos.length}</div>
@@ -52,8 +45,8 @@ function PhotoGallery({ photos, name }: { photos: string[]; name: string }) {
       {photos.length > 1 && (
         <div style={{ display: "flex", gap: "8px", overflowX: "auto", paddingBottom: "4px" }}>
           {photos.map((p, i) => (
-            <button key={i} onClick={() => setActive(i)} style={{ flexShrink: 0, width: "72px", height: "54px", borderRadius: "8px", overflow: "hidden", padding: 0, border: i === active ? "2.5px solid #c9a84c" : "2.5px solid transparent", cursor: "pointer", opacity: i === active ? 1 : 0.6 }}>
-              <Image src={p} alt="" fill sizes="80px" loading="lazy" style={{ objectFit: "cover" }} />
+            <button key={i} onClick={() => setActive(i)} style={{ flexShrink: 0, width: "72px", height: "54px", borderRadius: "8px", overflow: "hidden", padding: 0, border: i === active ? "2.5px solid #c9a84c" : "2.5px solid transparent", cursor: "pointer", opacity: i === active ? 1 : 0.6, position: "relative" }}>
+              <img src={p} alt="" loading="lazy" style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover" }} />
             </button>
           ))}
         </div>
