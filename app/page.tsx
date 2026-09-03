@@ -17,7 +17,7 @@ const MAIN_CARDS = [
   { id: 'food',         label: 'Food & Drinks',  sub: 'Restaurants, halal food & local eats',   href: '/food',         image: 'https://images.pexels.com/photos/1267320/pexels-photo-1267320.jpeg?auto=compress&cs=tinysrgb&w=800',   tag: 'Food' },
   { id: 'shopping',     label: 'Shopping',        sub: 'Luxury streets, markets & boutiques',   href: '/shopping',     image: 'https://images.pexels.com/photos/3965548/pexels-photo-3965548.jpeg?auto=compress&cs=tinysrgb&w=800',   tag: 'Shopping' },
   { id: 'nightlife',    label: 'Nightlife',       sub: 'Rooftop bars, clubs & live music',      href: '/nightlife',    image: 'https://images.pexels.com/photos/2034851/pexels-photo-2034851.jpeg?auto=compress&cs=tinysrgb&w=800',   tag: 'Nightlife' },
-  { id: 'hotels',       label: 'Hotels',          sub: 'Budget to luxury — find your stay',     href: '/hotels',       image: 'https://images.pexels.com/photos/261102/pexels-photo-261102.jpeg?auto=compress&cs=tinysrgb&w=800',    tag: 'Hotels' },
+  { id: 'hotels',       label: 'Hotels',          sub: 'Budget to luxury, find your stay',     href: '/hotels',       image: 'https://images.pexels.com/photos/261102/pexels-photo-261102.jpeg?auto=compress&cs=tinysrgb&w=800',    tag: 'Hotels' },
   { id: 'transport',    label: 'Transport',       sub: 'Tube, bus, taxi & travel tips',         href: '/transport',    image: 'https://images.pexels.com/photos/5765/london-street-landmark-double-decker.jpg?auto=compress&cs=tinysrgb&w=800', tag: 'Places' },
   { id: 'kids',         label: 'Kids & Family',   sub: 'Attractions, parks & family fun',       href: '/kids',         image: 'https://images.pexels.com/photos/1148998/pexels-photo-1148998.jpeg?auto=compress&cs=tinysrgb&w=800',   tag: 'Places' },
   { id: 'muslim',       label: 'Muslim Guide',    sub: 'Halal food, mosques & prayer rooms',    href: '/muslim',       image: 'https://images.pexels.com/photos/3874832/pexels-photo-3874832.jpeg?auto=compress&cs=tinysrgb&w=800',   tag: 'Food' },
@@ -121,7 +121,7 @@ export default function HomePage() {
 
           <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.5, duration: 0.8 }}
             style={{ fontFamily: "'DM Sans', sans-serif", fontSize: 'clamp(0.9rem, 2vw, 1.08rem)', color: 'rgba(255,255,255,0.62)', marginBottom: '36px', lineHeight: 1.6 }}>
-            Food, hotels, nightlife, sports, hidden gems — everything London in one place.
+            Food, hotels, nightlife, sports, hidden gems, everything London in one place.
           </motion.p>
 
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.6, duration: 0.7 }} style={{ marginBottom: '20px', width: '100%' }}>
@@ -183,7 +183,7 @@ export default function HomePage() {
                   fontSize: 'clamp(1.6rem, 4vw, 2.6rem)', margin: '0 0 10px', lineHeight: 1.1,
                 }}>Build My London Trip</h2>
                 <p style={{ fontFamily: "'DM Sans', sans-serif", fontSize: '0.92rem', color: 'rgba(255,255,255,0.5)', maxWidth: '440px', margin: '0 auto' }}>
-                  Days, budget, interests, hotel area — get a full day-by-day schedule in seconds.
+                  Days, budget, interests, hotel area: get a full day-by-day schedule in seconds.
                 </p>
               </div>
               <div style={{
@@ -225,8 +225,8 @@ export default function HomePage() {
               <div style={{ position: 'absolute', inset: 0, opacity: 0.15, backgroundImage: "url('https://images.unsplash.com/photo-1513635269975-59663e0ac1ad?w=1200&q=60')", backgroundSize: 'cover', backgroundPosition: 'center' }} />
               <div style={{ position: 'relative', zIndex: 1, maxWidth: '600px' }}>
                 <p style={{ fontFamily: "'DM Sans', sans-serif", fontSize: '0.68rem', color: '#c9a84c', fontWeight: 700, letterSpacing: '2.5px', textTransform: 'uppercase' as const, marginBottom: '10px' }}>💎 Curated by London Locals</p>
-                <h2 style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: 'clamp(1.6rem, 4.5vw, 2.6rem)', fontWeight: 700, color: '#ffffff', margin: '0 0 12px', lineHeight: 1.15 }}>Things to Do in London — Beyond the Guidebook</h2>
-                <p style={{ fontFamily: "'DM Sans', sans-serif", fontSize: '0.92rem', color: 'rgba(255,255,255,0.6)', marginBottom: '20px', lineHeight: 1.6 }}>Secret gardens, underrated museums, hidden bars and Instagram spots most tourists never find — the places locals actually love.</p>
+                <h2 style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: 'clamp(1.6rem, 4.5vw, 2.6rem)', fontWeight: 700, color: '#ffffff', margin: '0 0 12px', lineHeight: 1.15 }}>Things to Do in London: Beyond the Guidebook</h2>
+                <p style={{ fontFamily: "'DM Sans', sans-serif", fontSize: '0.92rem', color: 'rgba(255,255,255,0.6)', marginBottom: '20px', lineHeight: 1.6 }}>Secret gardens, underrated museums, hidden bars and Instagram spots most tourists never find, the places locals actually love.</p>
                 <div style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', background: 'rgba(201,168,76,0.15)', border: '1px solid rgba(201,168,76,0.4)', borderRadius: '50px', padding: '10px 22px', color: '#c9a84c', fontFamily: "'DM Sans', sans-serif", fontSize: '0.84rem', fontWeight: 700 }}>
                   Discover Hidden Gems
                   <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
@@ -369,7 +369,7 @@ export default function HomePage() {
               <p style={{ fontFamily: "'DM Sans', sans-serif", fontSize: '0.66rem', color: '#c9a84c', fontWeight: 700, letterSpacing: '2.5px', textTransform: 'uppercase' as const, marginBottom: '12px' }}>About</p>
               <h2 className="text-navy dark:text-[#f9f7f2]" style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: 'clamp(1.8rem, 4vw, 2.9rem)', fontWeight: 700, margin: '0 0 20px', lineHeight: 1.15 }}>Built for every<br />London moment</h2>
               <div style={{ width: '36px', height: '2px', background: '#c9a84c', marginBottom: '22px', borderRadius: '2px' }} />
-              <p className="text-ink/70 dark:text-[#f9f7f2]/55" style={{ fontFamily: "'DM Sans', sans-serif", fontSize: '0.91rem', lineHeight: 1.85, marginBottom: '32px' }}>TAP LONDON is the daily discovery platform for food, hotels, sports, offers and hidden gems across London. Tap, explore and enjoy — no app needed.</p>
+              <p className="text-ink/70 dark:text-[#f9f7f2]/55" style={{ fontFamily: "'DM Sans', sans-serif", fontSize: '0.91rem', lineHeight: 1.85, marginBottom: '32px' }}>TAP LONDON is the daily discovery platform for food, hotels, sports, offers and hidden gems across London. Tap, explore and enjoy, no app needed.</p>
               <div style={{ display: 'flex', gap: '12px', flexWrap: 'wrap' }}>
                 <Link href="/places" style={{ background: '#1a1a2e', color: '#c9a84c', padding: '13px 28px', borderRadius: '8px', fontFamily: "'DM Sans', sans-serif", fontWeight: 700, fontSize: '0.84rem', textDecoration: 'none' }}>Explore London</Link>
                 <Link href="/emergency" className="text-navy dark:text-cream" style={{ background: 'transparent', padding: '13px 28px', borderRadius: '8px', border: '1.5px solid currentColor', fontFamily: "'DM Sans', sans-serif", fontWeight: 600, fontSize: '0.84rem', textDecoration: 'none' }}>Emergency Help</Link>
