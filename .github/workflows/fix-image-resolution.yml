@@ -15,14 +15,14 @@ jobs:
           node-version: '20'
       - name: Install firebase-admin
         run: npm install firebase-admin
-      - name: Check dims
+      - name: Add f_auto
         env:
           FIREBASE_SERVICE_ACCOUNT_KEY: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_KEY }}
-        run: node scripts/check-bigben-dims.js
+        run: node scripts/add-fauto.js
       - name: Commit results
         run: |
           git config user.name "github-actions"
           git config user.email "actions@github.com"
-          git add bigben-dims-results.txt
-          git commit -m "dims" || echo "nothing"
+          git add fauto-results.txt
+          git commit -m "fauto results" || echo "nothing"
           git push
